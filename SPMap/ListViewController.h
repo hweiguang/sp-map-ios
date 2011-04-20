@@ -13,12 +13,12 @@
     NSString *places;
     NSMutableArray *locations;
     NSMutableArray *locationsincategory;
-    NSMutableArray *selectedLocations;
+    NSString *selectedLocations;
 }
 
 @property (nonatomic, retain) NSString *places;
 @property (nonatomic, retain) NSMutableArray *locations;
-@property (nonatomic, retain) NSMutableArray *selectedLocations;
+@property (nonatomic, retain) NSString *selectedLocations;
 
 - (void)showAll;
 

@@ -22,6 +22,8 @@
 @synthesize selectedCategories;
 @synthesize lastSelectedCategories;
 
+@synthesize selectedLocations;
+
 #pragma mark - View lifecycle
 
 - (void)viewWillAppear:(BOOL)animated
@@ -71,6 +73,8 @@
     [super viewDidLoad];
     
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    
+    DebugLog(@"selectedLocations%@",selectedLocations);
     
     //  check for return view
     isReturnView = FALSE;
@@ -127,7 +131,7 @@
     [backbutton release];
     
     //  set the selected categories
-    categoriesViewController.selectedCategories = selectedCategories;
+    //ategoriesViewController.selectedCategories = selectedCategories;
 	// Push the next view
 	[self.navigationController pushViewController:categoriesViewController animated:YES];
 	[categoriesViewController release];
@@ -140,7 +144,7 @@
     [self.navigationController pushViewController:aboutViewController animated:YES];
 	[aboutViewController release];    
 }
-
+/*
 - (void) showCallout
 {
     // Remove all graphics if some are created earlier
@@ -228,6 +232,101 @@
         [extent expandByFactor:1.5];
         [self.mapView zoomToEnvelope:extent animated:YES];
     }
+    //since we've added graphics, make sure to redraw
+    [self.graphicsLayer dataChanged];
+}
+*/
+
+- (void) showCallout
+{
+    // Remove all graphics if some are created earlier
+    [self.graphicsLayer removeAllGraphics];
+    self.mapView.callout.hidden = YES;
+    
+    int numberofpins = 0;
+    
+    //use these to calculate extent of results
+    double xmin = DBL_MAX;
+    double ymin = DBL_MAX;
+    double xmax = -DBL_MAX;
+    double ymax = -DBL_MAX;
+    
+    //create the callout template, used when the user displays the callout
+    self.CalloutTemplate = [[[AGSCalloutTemplate alloc]init] autorelease];
+    
+    //loop through all locations and add to graphics layer
+    for (int i=0; i<[locations count]; i++)
+    {
+        Location *myLocation = [locations objectAtIndex:i];
+        if ([selectedLocations isEqualToString:myLocation.category] || [selectedLocations isEqualToString:myLocation.subtitle])
+        {
+            numberofpins++;
+            
+            //Setting the lat and lon from Location class
+            double latitude = [[myLocation lat] doubleValue];
+            double longitude = [[myLocation lon] doubleValue];
+            
+            //Adding coordinates to the point
+            AGSPoint *pt = [AGSPoint pointWithX:longitude y:latitude spatialReference:self.mapView.spatialReference];
+            
+            //accumulate the min/max
+            if (pt.x  < xmin)
+                xmin = pt.x;
+            
+            if (pt.x > xmax)
+                xmax = pt.x;
+            
+            if (pt.y < ymin)
+                ymin = pt.y;
+            
+            if (pt.y > ymax)
+                ymax = pt.y;
+            
+            //create a marker symbol to use in our graphic
+            AGSPictureMarkerSymbol *marker = [AGSPictureMarkerSymbol 
+                                              pictureMarkerSymbolWithImageNamed:@"BluePushpin.png"];
+            marker.xoffset = 9;
+            marker.yoffset = -16;
+            marker.hotspot = CGPointMake(-9, -11);
+            
+            //creating an attribute for the callOuts
+            NSMutableDictionary *attribs = [NSMutableDictionary dictionaryWithObject:myLocation.title forKey:@"title"];
+            [attribs setValue:myLocation.subtitle forKey:@"subtitle"];
+            [attribs setValue:myLocation.description forKey:@"description"];
+            [attribs setValue:myLocation.photos forKey:@"photos"];
+            [attribs setValue:myLocation.panorama forKey:@"panorama"];
+            
+            //set the title and subtitle of the callout
+            self.CalloutTemplate.titleTemplate = @"${title}";
+            self.CalloutTemplate.detailTemplate = @"${subtitle}";
+            
+            //create the graphic
+            AGSGraphic *graphic = [[AGSGraphic alloc] initWithGeometry: pt
+                                                                symbol:marker
+                                                            attributes:attribs
+                                                  infoTemplateDelegate:self.CalloutTemplate];
+            
+            //add the graphic to the graphics layer
+            [self.graphicsLayer addGraphic:graphic];
+            /*
+            if (numberofpins == 1)
+            {
+                //we have one result, center at that point
+                [self.mapView centerAtPoint:pt animated:NO];
+            }
+            */
+            //release the graphic
+            [graphic release];            
+        }
+        
+    }
+    //if we have more than one result, zoom to the extent of all callOuts
+    /*if (numberofpins > 1)
+    {         
+        AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin ymin:ymin xmax:xmax ymax:ymax spatialReference:self.mapView.spatialReference];
+        [extent expandByFactor:1.5];
+        [self.mapView zoomToEnvelope:extent animated:YES];
+    }*/
     //since we've added graphics, make sure to redraw
     [self.graphicsLayer dataChanged];
 }

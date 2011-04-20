@@ -503,7 +503,7 @@ Located at T16 Level 2 Room 13, the Student Service Centre (SSC) is a convenient
 Fax: 6870-4616" photos="innovillage.jpg">
 		<category>Industry Services</category>
 	</location>
-	<location title="SPICE Service Desk" subtitle="At T17, Level 1, Room 1" lat="1.310552" lon="103.777337" description="Opening Hours
+	<location title="T17 SPICE Service Desk" subtitle="At T17, Level 1, Room 1" lat="1.310552" lon="103.777337" description="Opening Hours
 School Term
 Mon, Tue, Thu, Fri: 8am-6pm
 Wed: 8am-9pm
@@ -514,14 +514,14 @@ Tel: 6772-1260
 Email: ServiceDeskMail@sp.edu.sg" photos="spicet17.jpg">
 		<category>IT Services</category>
 	</location>
-	<location title="SPICE Service Desk" subtitle="At T21, Level 1, Room 11" lat="1.311472" lon="103.775537" description="Opening Hours
+	<location title="T21 SPICE Service Desk" subtitle="At T21, Level 1, Room 11" lat="1.311472" lon="103.775537" description="Opening Hours
 School Term
 Mon-Fri: 8am-6pm
 Tel: 6772-1260
 Email: ServiceDeskMail@sp.edu.sg" photos="spicet21.jpg">
 		<category>IT Services</category>
 	</location>
-	<location title="SPICE Service Desk" subtitle="At T3, Level 3, Room 1" lat="1.307626" lon="103.78063" description="Opening Hours
+	<location title="T3 SPICE Service Desk" subtitle="At T3, Level 3, Room 1" lat="1.307626" lon="103.78063" description="Opening Hours
 Mon-Fri: 8am-6pm
 Tel: 6772-1260
 Email: ServiceDeskMail@sp.edu.sg" photos="spicet3.jpg">
