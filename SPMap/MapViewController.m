@@ -10,6 +10,7 @@
 #import "CategoriesViewController.h"
 #import "DetailViewController.h"
 #import "AboutViewController.h"
+#import "SPMapAppDelegate.h"
 #import "Constants.h"
 
 @implementation MapViewController
@@ -17,8 +18,8 @@
 @synthesize mapView = _mapView;
 @synthesize graphicsLayer = _graphicsLayer;
 @synthesize CalloutTemplate = _CalloutTemplate;
-@synthesize locations;
-@synthesize categories;
+//@synthesize locations;
+//@synthesize categories;
 @synthesize selectedCategories;
 @synthesize lastSelectedCategories;
 
@@ -67,12 +68,15 @@
 {
     [super viewDidLoad];
     
+    SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    
     //  check for return view
     isReturnView = FALSE;
     // instantiate an array to hold location objects
-	locations = [[NSMutableArray alloc] init];
+	locations = [[NSMutableArray alloc] initWithArray:appDelegate.locations];
+    DebugLog(@"locations array in mapVC%@",[locations description]);
     // instantiate a set to hold category objects
-    categories = [[NSMutableSet alloc] init];
+    //categories = [[NSMutableSet alloc] init];
     // instantiate a set to hold selected category objects
     selectedCategories = [[NSMutableSet alloc] init];
     // instantiate a set to hold a copy of selected category objects
@@ -87,7 +91,7 @@
 	AGSTiledMapServiceLayer *tiledLayer = [[AGSTiledMapServiceLayer alloc]
 										   initWithURL:[NSURL URLWithString:kMapServiceURL]];
 	[self.mapView addMapLayer:tiledLayer withName:@"SP Map"];
-	[tiledLayer release];
+    [tiledLayer release];
     
     //create and add graphics layer to map
 	self.graphicsLayer = [AGSGraphicsLayer graphicsLayer];
@@ -117,19 +121,19 @@
 - (IBAction) showCategories {
     
     // Preparing the next view and transferring the set categories
-    CategoriesViewController *categoryViewController = [[CategoriesViewController alloc]initWithNibName:nil bundle:nil withCategories:categories];
+    CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc]initWithNibName:@"CategoriesViewController" bundle:nil];
     // Setting the title of the navigation bar
-	categoryViewController.title = @"Categories";
-    DebugLog(@"Categories%@",categories);
+	categoriesViewController.title = @"Categories";
+    
     UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
 	self.navigationItem.backBarButtonItem = backbutton;
     [backbutton release];
     
     //  set the selected categories
-    categoryViewController.selectedCategories = selectedCategories;
+    categoriesViewController.selectedCategories = selectedCategories;
 	// Push the next view
-	[self.navigationController pushViewController:categoryViewController animated:YES];
-	[categoryViewController release];
+	[self.navigationController pushViewController:categoriesViewController animated:YES];
+	[categoriesViewController release];
 }
 
 - (IBAction) showAbout {
@@ -185,8 +189,8 @@
             //create a marker symbol to use in our graphic
             AGSPictureMarkerSymbol *marker = [AGSPictureMarkerSymbol 
                                               pictureMarkerSymbolWithImageNamed:@"BluePushpin.png"];
-            //marker.xoffset = 9;
-            //marker.yoffset = -16;
+            marker.xoffset = 9;
+            marker.yoffset = -16;
             marker.hotspot = CGPointMake(-9, -11);
             
             //creating an attribute for the callOuts
@@ -213,12 +217,6 @@
             {
                 //we have one result, center at that point
                 [self.mapView centerAtPoint:pt animated:NO];
-                
-				// set the width of the callout
-				self.mapView.callout.width = 250;
-                
-                //show the callout
-                [self.mapView showCalloutAtPoint:(AGSPoint *)graphic.geometry forGraphic:graphic animated:YES];
             }
             
             //release the graphic
@@ -234,6 +232,8 @@
         [extent expandByFactor:1.5];
         [self.mapView zoomToEnvelope:extent animated:YES];
     }
+    //since we've added graphics, make sure to redraw
+    [self.graphicsLayer dataChanged];
 }
 
 - (void)mapView:(AGSMapView *) mapView didClickCalloutAccessoryButtonForGraphic:(AGSGraphic *) graphic
@@ -276,7 +276,7 @@
     self.graphicsLayer = nil;
 	self.CalloutTemplate = nil;
     [locations release];
-    [categories release];
+    //[categories release];
     [selectedCategories release];
     [lastSelectedCategories release];
     [super dealloc];

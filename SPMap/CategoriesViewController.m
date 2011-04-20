@@ -8,12 +8,13 @@
 
 #import "CategoriesViewController.h"
 #import "ListViewController.h"
+#import "SPMapAppDelegate.h"
 
 @implementation CategoriesViewController
 
-@synthesize category;
+//@synthesize category;
 @synthesize selectedCategories;
-
+/*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil withCategories:(NSMutableSet*)theSet 
 {
 	if (!(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
@@ -25,10 +26,21 @@
     [category sortUsingSelector:@selector(compare:)];
 	return self;
 }
+*/
+
+- (void) viewDidLoad {
+    
+    SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    
+    category = [[NSMutableArray alloc] initWithSet:appDelegate.categories];
+    
+    [category sortUsingSelector:@selector(compare:)];
+    
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.category count];
+    return [category count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -105,7 +117,7 @@
 
 - (void)dealloc
 {
-    //[selectedCategories release];
+    [selectedCategories release];
     [category release];
     [super dealloc];
 }

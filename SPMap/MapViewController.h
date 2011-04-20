@@ -16,7 +16,7 @@
 	AGSCalloutTemplate *_CalloutTemplate;
     
     NSMutableArray *locations; //Array for storing all locations from XML
-    NSMutableSet *categories; //Set for displaying categories in tableView
+    //NSMutableSet *categories; //Set for displaying categories in tableView
     NSMutableSet *selectedCategories; //Set for keeping selectedCategory state
     NSMutableSet *lastSelectedCategories; //Keep track of selected categories
     
@@ -26,8 +26,8 @@
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;
 @property (nonatomic, retain) AGSGraphicsLayer *graphicsLayer;
 @property (nonatomic, retain) AGSCalloutTemplate *CalloutTemplate;
-@property (nonatomic, retain) NSMutableArray *locations;
-@property (nonatomic, retain) NSMutableSet *categories;
+//@property (nonatomic, retain) NSMutableArray *locations;
+//@property (nonatomic, retain) NSMutableSet *categories;
 @property (nonatomic, retain) NSMutableSet *selectedCategories;
 @property (nonatomic, retain) NSMutableSet *lastSelectedCategories;
 
