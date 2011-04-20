@@ -28,7 +28,7 @@
 {
     return [category count];
 }
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -68,7 +68,7 @@
         [selectedCategories removeObject:[category objectAtIndex:indexPath.row]];        
     }
 }
-/*
+*/
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -96,7 +96,7 @@
     [self.navigationController pushViewController:listViewController animated:YES];
     [listViewController release];
 }
-*/
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
