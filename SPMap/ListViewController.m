@@ -28,8 +28,6 @@
     
     MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
     
-    //[selectedLocations addObject:places];
-    
     selectedLocations = places;
     
     mapViewController.selectedLocations = selectedLocations;
@@ -104,8 +102,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
-    
-    //[selectedLocations addObject:[locationsincategory objectAtIndex:indexPath.row]];
     
     Location * aLocation = [locationsincategory objectAtIndex:indexPath.row];
     

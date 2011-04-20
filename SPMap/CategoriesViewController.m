@@ -12,7 +12,7 @@
 
 @implementation CategoriesViewController
 
-@synthesize selectedCategories;
+//@synthesize selectedCategories;
 
 - (void) viewDidLoad {
     
@@ -103,7 +103,7 @@
 
 - (void)dealloc
 {
-    [selectedCategories release];
+    //[selectedCategories release];
     [category release];
     [super dealloc];
 }
