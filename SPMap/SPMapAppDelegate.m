@@ -29,8 +29,9 @@
 @synthesize downloadCache;
 @synthesize window=_window;
 @synthesize navigationController=_navigationController;
-@synthesize mapVC;
+//@synthesize mapVC;
 @synthesize locations;
+@synthesize categories;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
@@ -39,11 +40,13 @@
     // instantiate a set to hold category objects
     categories = [[NSMutableSet alloc] init];
     [self checkNetwork];
-    [self loadData];
-    
+    //[self loadData];
+    [self loadXML];
     self.window.rootViewController = self.navigationController;
     //  set the map view controller's data
-    mapVC = (MapViewController*) [self.navigationController topViewController];
+    //mapVC = (MapViewController*) [self.navigationController topViewController];
+    //[mapVC setLocations:locations];
+    //[mapVC setCategories:categories]; 
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -124,7 +127,7 @@
     if (statusCode == 404)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
-                                                        message:@"Your request cannot be process currently, please try again later." 
+                                                        message:@"Update of database failed." 
                                                        delegate:self 
                                               cancelButtonTitle:nil 
                                               otherButtonTitles:@"OK", nil];
@@ -140,6 +143,13 @@
     //  file is found
     else
     {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Datebase Updated" 
+                                                        message:@"Your database has been updated to the latest version." 
+                                                       delegate:self 
+                                              cancelButtonTitle:nil 
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
         DebugLog(@"Locations.xml found");
         [self loadXML];
     }
@@ -151,7 +161,7 @@
     DebugLog(@"unable to connect to server for Locations.xml");
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
-                                                    message:@"Your request cannot be process currently, please try again later." 
+                                                    message:@"Update of database failed." 
                                                    delegate:self 
                                           cancelButtonTitle:nil 
                                           otherButtonTitles:@"OK", nil];
@@ -161,11 +171,13 @@
 
 - (void)loadXML {
     
-    NSString *filePath = [downloadCache pathToStoreCachedResponseDataForRequest:request];
-    DebugLog(@"filePath is %@", filePath);
+    //NSString *filePath = [downloadCache pathToStoreCachedResponseDataForRequest:request];
+    //DebugLog(@"filePath is %@", filePath);
+    
+    tbxml = [[TBXML tbxmlWithXMLFile:@"Locations.xml"] retain];
     
 	// Load and parse the Locations.xml file
-	tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:filePath]] retain];
+	//tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:filePath]] retain];
     
 	// Obtain root element
 	TBXMLElement * root = tbxml.rootXMLElement;
@@ -226,15 +238,15 @@
         [tbxml release];
     }
     DebugLog(@"categories is %@", [categories description]);
-    [mapVC setLocations:locations];
-    [mapVC setCategories:categories]; 
+    //[mapVC setLocations:locations];
+    //[mapVC setCategories:categories]; 
 }
 
 - (void)dealloc
 {
     [_window release];
     [_navigationController release];
-    [mapVC release];
+    //[mapVC release];
     [request clearDelegatesAndCancel];
     [request release];
     [operationQueue cancelAllOperations];

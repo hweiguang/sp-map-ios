@@ -11,7 +11,7 @@
 
 @class ASIHTTPRequest;
 @class TBXML;
-@class MapViewController;
+//@class MapViewController;
 
 @interface SPMapAppDelegate : NSObject <UIApplicationDelegate> {
 
@@ -20,13 +20,14 @@
     id <ASICacheDelegate> downloadCache;
     TBXML *tbxml;
     NSMutableArray *locations; //Array for storing all locations from XML
-    NSMutableSet *categories; //Set for displaying categories in tableView
-    MapViewController *mapVC;
+    NSMutableSet *categories; //Set for storing all categories from XML
+    //MapViewController *mapVC;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 @property (nonatomic, retain) NSMutableArray *locations;
-@property (nonatomic, retain) MapViewController *mapVC;
+@property (nonatomic, retain) NSMutableSet *categories;
+//@property (nonatomic, retain) MapViewController *mapVC;
 
 @end

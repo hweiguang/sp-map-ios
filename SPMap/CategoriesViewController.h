@@ -14,9 +14,9 @@
     NSMutableSet *selectedCategories;
     
 }
-@property (nonatomic, retain) NSMutableArray *category;
+//@property (nonatomic, retain) NSMutableArray *category;
 @property (nonatomic, retain) NSMutableSet *selectedCategories;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil withCategories:(NSMutableSet*)theSet;
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil withCategories:(NSMutableSet*)theSet;
 
 @end
