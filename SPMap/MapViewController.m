@@ -19,8 +19,8 @@
 @synthesize mapView = _mapView;
 @synthesize graphicsLayer = _graphicsLayer;
 @synthesize CalloutTemplate = _CalloutTemplate;
-@synthesize selectedCategories;
-@synthesize lastSelectedCategories;
+//@synthesize selectedCategories;
+//@synthesize lastSelectedCategories;
 
 @synthesize selectedLocations;
 
@@ -31,10 +31,6 @@
     self.title = @"SP Map";
     self.navigationItem.hidesBackButton = YES;
     self.mapView.callout.hidden = YES;
-    
-    //Check selectedCategories and display callOuts accordingly
-    DebugLog(@"lastSelectedCategories %@", [lastSelectedCategories description]);
-    DebugLog(@"selectedCategories %@", [selectedCategories description]);
     
     [self showCallout];
     /*
@@ -77,13 +73,13 @@
     DebugLog(@"selectedLocations%@",selectedLocations);
     
     //  check for return view
-    isReturnView = FALSE;
+    //isReturnView = FALSE;
     // Getting locations array from appDelegate
 	locations = appDelegate.locations;
     // instantiate a set to hold selected category objects
-    selectedCategories = [[NSMutableSet alloc] init];
+    //selectedCategories = [[NSMutableSet alloc] init];
     // instantiate a set to hold a copy of selected category objects
-    lastSelectedCategories = [[NSMutableSet alloc] init];
+    //lastSelectedCategories = [[NSMutableSet alloc] init];
     
     //set map view delegate
 	self.mapView.mapViewDelegate = self;
@@ -313,15 +309,15 @@
             {
                 //we have one result, center at that point
                 [self.mapView centerAtPoint:pt animated:NO];
-            }
-            */
+            }*/
+            
             //release the graphic
             [graphic release];            
         }
         
-    }
+    }/*
     //if we have more than one result, zoom to the extent of all callOuts
-    /*if (numberofpins > 1)
+    if (numberofpins > 1)
     {         
         AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin ymin:ymin xmax:xmax ymax:ymax spatialReference:self.mapView.spatialReference];
         [extent expandByFactor:1.5];
@@ -370,8 +366,8 @@
     self.graphicsLayer = nil;
 	self.CalloutTemplate = nil;
     [locations release];
-    [selectedCategories release];
-    [lastSelectedCategories release];
+    //[selectedCategories release];
+    //[lastSelectedCategories release];
     [super dealloc];
 }
 
