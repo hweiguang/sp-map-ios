@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ASICacheDelegate.h"
+#import "Location.h"
 
 @class ASIHTTPRequest;
 @class TBXML;
@@ -20,6 +21,14 @@
     TBXML *tbxml;
     NSMutableArray *locations; //Array for storing all locations from XML
     NSMutableSet *categories; //Set for storing all categories from XML
+    
+    //  these variables are used during parsing
+    Location *theLocation;
+    NSMutableArray *currentParseBatch;
+    NSUInteger parsedLocationsCounter;
+    NSMutableString *currentParsedCharacterData;
+    BOOL accumulatingParsedCharacterData;
+    BOOL didAbortParsing;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -27,6 +36,10 @@
 @property (nonatomic, retain) NSMutableArray *locations;
 @property (nonatomic, retain) NSMutableSet *categories;
 @property (nonatomic, retain) id <ASICacheDelegate> downloadCache;
+
+@property (nonatomic, retain) Location *theLocation;
+@property (nonatomic, retain) NSMutableArray *currentParseBatch;
+@property (nonatomic, retain) NSMutableString *currentParsedCharacterData;
 
 -(void)loadData;
 -(void)loadXML;

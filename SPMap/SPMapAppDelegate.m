@@ -21,6 +21,9 @@
 @synthesize navigationController=_navigationController;
 @synthesize locations;
 @synthesize categories;
+@synthesize theLocation;
+@synthesize currentParseBatch;
+@synthesize currentParsedCharacterData;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
@@ -128,15 +131,20 @@
     //  file is found
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Database Updated" 
-                                                        message:@"Your database has been updated to the latest version." 
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Database Updating" 
+                                                        message:@"Your database is being updated to the latest version." 
                                                        delegate:self 
                                               cancelButtonTitle:nil 
                                               otherButtonTitles:@"OK", nil];
         [alert show];
         [alert release];
         DebugLog(@"Locations.xml found");
-        [self loadXML];
+        //
+        //[NSThread detachNewThreadSelector:@selector(loadXML:) toTarget:self withObject:nil];
+        // earthquakeData will be retained by the thread until parseEarthquakeData: has finished executing, so we no longer need
+        // a reference to it in the main thread.
+        //self.earthquakeData = nil;
+        //[self loadXML];
     }
 }
 
@@ -156,13 +164,17 @@
 
 - (void)loadXML {
     
-    NSString *filePath = [downloadCache pathToStoreCachedResponseDataForRequest:request];
+    // You must create a autorelease pool for all secondary threads.
+//    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    
+    //NSString *filePath = [downloadCache pathToStoreCachedResponseDataForRequest:request];
+    
     //DebugLog(@"filePath is %@", filePath);
     
-    //tbxml = [[TBXML tbxmlWithXMLFile:@"Locations.xml"] retain];
+    tbxml = [[TBXML tbxmlWithXMLFile:@"Locations.xml"] retain];
     
 	// Load and parse the Locations.xml file
-	tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:filePath]] retain];
+	//tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:filePath]] retain];
     
 	// Obtain root element
 	TBXMLElement * root = tbxml.rootXMLElement;
@@ -223,7 +235,21 @@
         [tbxml release];
     }
     DebugLog(@"categories is %@", [categories description]);
+//    [pool release];
 }
+
+
+// The secondary (parsing) thread calls addToEarthquakeList: on the main thread with batches of parsed objects. 
+// The batch size is set via the kSizeOfEarthquakeBatch constant.
+- (void)addLocationsToList:(NSArray *)locations {
+    /*
+    NSMutableArray *locations; //Array for storing all locations from XML
+    NSMutableSet *categories; //Set for storing all categories from XML
+    [self.earthquakeList addObjectsFromArray:locations];
+    // The table needs to be reloaded to reflect the new content of the list.
+     */
+}
+
 
 - (void)dealloc
 {
