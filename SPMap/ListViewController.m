@@ -105,7 +105,7 @@
     
     Location * aLocation = [locationsincategory objectAtIndex:indexPath.row];
     
-    selectedLocations = aLocation.subtitle;
+    selectedLocations = aLocation.title;
     
     mapViewController.selectedLocations = selectedLocations;
     
