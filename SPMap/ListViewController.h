@@ -12,6 +12,7 @@
     
     NSString *places;
     NSMutableArray *locations;
+    NSMutableArray *locationsincategory;
     NSMutableArray *selectedLocations;
 }
 

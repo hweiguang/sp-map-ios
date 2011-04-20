@@ -12,6 +12,7 @@
 #import "AboutViewController.h"
 #import "SPMapAppDelegate.h"
 #import "Constants.h"
+#import "ListViewController.h"
 
 @implementation MapViewController
 
@@ -33,6 +34,8 @@
     DebugLog(@"lastSelectedCategories %@", [lastSelectedCategories description]);
     DebugLog(@"selectedCategories %@", [selectedCategories description]);
     
+    [self showCallout];
+    /*
     if ([selectedCategories count] == 0 && isReturnView) {
         
         // Remove all graphics
@@ -50,9 +53,10 @@
     
     else if (![lastSelectedCategories isEqualToSet:selectedCategories])
         [self showCallout];
+     */
     [super viewWillAppear:animated];
 }
-
+/*
 - (void)viewWillDisappear:(BOOL)animated
 {
     //  keep a copy of selected categories to check differences next time when view appear again
@@ -61,7 +65,7 @@
     isReturnView = TRUE;
     [super viewWillDisappear:animated];
 }
-
+*/
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -76,8 +80,6 @@
     selectedCategories = [[NSMutableSet alloc] init];
     // instantiate a set to hold a copy of selected category objects
     lastSelectedCategories = [[NSMutableSet alloc] init];
-    
-    [self showCallout];
     
     //set map view delegate
 	self.mapView.mapViewDelegate = self;

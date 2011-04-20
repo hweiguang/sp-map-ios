@@ -21,14 +21,17 @@
 {
     [super dealloc];
     [places release];
-    [selectedLocations release];
+    [locationsincategory release];
 }
 
 - (void)showAll {
     
     MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
-    mapViewController.selectedCategories = [NSMutableSet setWithObject:places];
-    DebugLog(@"ListView SelectedCategory%@",mapViewController.selectedCategories);
+    
+    [selectedLocations addObject:places];
+    
+    DebugLog(@"selectedLocations%@",selectedLocations);
+    
     [self.navigationController pushViewController:mapViewController animated:YES];
     [mapViewController release];    
 }
@@ -49,19 +52,19 @@
     // Set title to show select category name
     self.title = places;
     
-    SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-    
-    locations = appDelegate.locations;
     selectedLocations = [[NSMutableArray alloc]init];
+    
+    SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    // Getting locations array from appDelegate
+    locations = appDelegate.locations;
+    // Setting up selectedLocations array for display
+    locationsincategory = [[NSMutableArray alloc]init];
     //loop through all locations and add locations that are in the category
     for (int i=0; i<[locations count]; i++)
     {
         Location *myLocation = [locations objectAtIndex:i];
         if ([myLocation.category isEqualToString:places])
-        {
-            [selectedLocations addObject:myLocation];
-             DebugLog(@"selectedlocations%@",[selectedLocations description]);
-        }
+            [locationsincategory addObject:myLocation];
     }
 }
 
@@ -74,7 +77,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return [selectedLocations count];
+	return [locationsincategory count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -85,10 +88,9 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
-    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
-    Location * aLocation = [selectedLocations objectAtIndex:indexPath.row];
+    Location * aLocation = [locationsincategory objectAtIndex:indexPath.row];
     cell.textLabel.text = aLocation.title;
     cell.detailTextLabel.text = aLocation.subtitle;
     
@@ -99,9 +101,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-     MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
-     [self.navigationController pushViewController:mapViewController animated:YES];
-     [mapViewController release];
+    MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
+    
+    [selectedLocations addObject:[locations objectAtIndex:indexPath.row]];
+    
+    DebugLog(@"selectedLocations%@",selectedLocations);
+    
+    [self.navigationController pushViewController:mapViewController animated:YES];
+    [mapViewController release];
 }
 
 @end
