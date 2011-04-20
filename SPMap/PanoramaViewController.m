@@ -52,6 +52,9 @@
 }
 
 - (void)dealloc {
+    [webView release];
+    [activity release];
+    [selectedPanorama release];
     [super dealloc];
 }
 

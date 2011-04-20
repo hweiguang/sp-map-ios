@@ -29,8 +29,8 @@
     // instantiate a set to hold category objects
     categories = [[NSMutableSet alloc] init];
     [self checkNetwork];
-    //[self loadData];
-    [self loadXML];
+    [self loadData];
+    //[self loadXML];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;
@@ -156,13 +156,13 @@
 
 - (void)loadXML {
     
-    //NSString *filePath = [downloadCache pathToStoreCachedResponseDataForRequest:request];
+    NSString *filePath = [downloadCache pathToStoreCachedResponseDataForRequest:request];
     //DebugLog(@"filePath is %@", filePath);
     
-    tbxml = [[TBXML tbxmlWithXMLFile:@"Locations.xml"] retain];
+    //tbxml = [[TBXML tbxmlWithXMLFile:@"Locations.xml"] retain];
     
 	// Load and parse the Locations.xml file
-	//tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:filePath]] retain];
+	tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:filePath]] retain];
     
 	// Obtain root element
 	TBXMLElement * root = tbxml.rootXMLElement;

@@ -11,10 +11,7 @@
 
 @interface CategoriesViewController : UITableViewController {
     NSMutableArray *category;
-    //NSMutableSet *selectedCategories;
     
 }
-
-//@property (nonatomic, retain) NSMutableSet *selectedCategories;
 
 @end
