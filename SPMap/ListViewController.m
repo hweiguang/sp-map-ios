@@ -28,7 +28,11 @@
     
     MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
     
-    [selectedLocations addObject:places];
+    //[selectedLocations addObject:places];
+    
+    selectedLocations = places;
+    
+    mapViewController.selectedLocations = selectedLocations;
     
     DebugLog(@"selectedLocations%@",selectedLocations);
     
@@ -51,8 +55,6 @@
     
     // Set title to show select category name
     self.title = places;
-    
-    selectedLocations = [[NSMutableArray alloc]init];
     
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     // Getting locations array from appDelegate
@@ -103,7 +105,13 @@
 {
     MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
     
-    [selectedLocations addObject:[locations objectAtIndex:indexPath.row]];
+    //[selectedLocations addObject:[locationsincategory objectAtIndex:indexPath.row]];
+    
+    Location * aLocation = [locationsincategory objectAtIndex:indexPath.row];
+    
+    selectedLocations = aLocation.subtitle;
+    
+    mapViewController.selectedLocations = selectedLocations;
     
     DebugLog(@"selectedLocations%@",selectedLocations);
     

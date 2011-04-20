@@ -19,6 +19,8 @@
     NSMutableSet *selectedCategories; //Set for keeping selectedCategory state
     NSMutableSet *lastSelectedCategories; //Keep track of selected categories
     
+    NSString *selectedLocations; //Array with selectedLocations from ListView
+    
     BOOL isReturnView;
 }
 
@@ -27,6 +29,8 @@
 @property (nonatomic, retain) AGSCalloutTemplate *CalloutTemplate;
 @property (nonatomic, retain) NSMutableSet *selectedCategories;
 @property (nonatomic, retain) NSMutableSet *lastSelectedCategories;
+
+@property (nonatomic, retain) NSString *selectedLocations;
 
 - (IBAction) showCategories;
 - (IBAction) showAbout;
