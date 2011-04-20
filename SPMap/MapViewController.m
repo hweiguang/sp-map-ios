@@ -18,8 +18,6 @@
 @synthesize mapView = _mapView;
 @synthesize graphicsLayer = _graphicsLayer;
 @synthesize CalloutTemplate = _CalloutTemplate;
-//@synthesize locations;
-//@synthesize categories;
 @synthesize selectedCategories;
 @synthesize lastSelectedCategories;
 
@@ -72,11 +70,8 @@
     
     //  check for return view
     isReturnView = FALSE;
-    // instantiate an array to hold location objects
-	locations = [[NSMutableArray alloc] initWithArray:appDelegate.locations];
-    DebugLog(@"locations array in mapVC%@",[locations description]);
-    // instantiate a set to hold category objects
-    //categories = [[NSMutableSet alloc] init];
+    // Getting locations array from appDelegate
+	locations = appDelegate.locations;
     // instantiate a set to hold selected category objects
     selectedCategories = [[NSMutableSet alloc] init];
     // instantiate a set to hold a copy of selected category objects
@@ -141,8 +136,7 @@
     AboutViewController *aboutViewController = [[AboutViewController alloc]init];
     aboutViewController.title = @"About";
     [self.navigationController pushViewController:aboutViewController animated:YES];
-	[aboutViewController release];
-    
+	[aboutViewController release];    
 }
 
 - (void) showCallout
@@ -258,7 +252,6 @@
     }
     
     //Transferring graphic.attributes to detailViewController
-    DebugLog(@"Attributes%@", graphic.attributes);
     detailViewController.details = [NSDictionary dictionaryWithDictionary:graphic.attributes];
     
     // Push the next view
@@ -276,7 +269,6 @@
     self.graphicsLayer = nil;
 	self.CalloutTemplate = nil;
     [locations release];
-    //[categories release];
     [selectedCategories release];
     [lastSelectedCategories release];
     [super dealloc];

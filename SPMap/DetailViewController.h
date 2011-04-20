@@ -24,8 +24,9 @@
 @property (nonatomic, retain) UIActivityIndicatorView *activity;
 @property (nonatomic, retain) IBOutlet UITextView * textView;
 @property (nonatomic, retain) NSDictionary *details;
-
 @property (nonatomic, retain) UIToolbar *toolbar;
 @property (nonatomic, retain) UIBarButtonItem *panoramaButtonItem;
+
+- (void)grabImageInTheBackground;
 
 @end

@@ -15,21 +15,10 @@
 #import "Constants.h"
 #import "Reachability.h"
 
-@interface SPMapAppDelegate()
-
--(void)loadData;
--(void)loadXML;
--(void)checkNetwork;
-
-@property (nonatomic, retain) id <ASICacheDelegate> downloadCache;
-
-@end
-
 @implementation SPMapAppDelegate
 @synthesize downloadCache;
 @synthesize window=_window;
 @synthesize navigationController=_navigationController;
-//@synthesize mapVC;
 @synthesize locations;
 @synthesize categories;
 
@@ -43,10 +32,6 @@
     //[self loadData];
     [self loadXML];
     self.window.rootViewController = self.navigationController;
-    //  set the map view controller's data
-    //mapVC = (MapViewController*) [self.navigationController topViewController];
-    //[mapVC setLocations:locations];
-    //[mapVC setCategories:categories]; 
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -73,7 +58,7 @@
             
         case kReachableViaWWAN:
             alert = [[UIAlertView alloc] initWithTitle:@"3G Network Detected" 
-                                               message:@"You may experience slow loading time when using SP Map." 
+                                               message:@"For best experience please connect to a Wifi Hotspot." 
                                               delegate:self 
                                      cancelButtonTitle:nil 
                                      otherButtonTitles:@"OK", nil];
@@ -143,7 +128,7 @@
     //  file is found
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Datebase Updated" 
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Database Updated" 
                                                         message:@"Your database has been updated to the latest version." 
                                                        delegate:self 
                                               cancelButtonTitle:nil 
@@ -238,15 +223,12 @@
         [tbxml release];
     }
     DebugLog(@"categories is %@", [categories description]);
-    //[mapVC setLocations:locations];
-    //[mapVC setCategories:categories]; 
 }
 
 - (void)dealloc
 {
     [_window release];
     [_navigationController release];
-    //[mapVC release];
     [request clearDelegatesAndCancel];
     [request release];
     [operationQueue cancelAllOperations];

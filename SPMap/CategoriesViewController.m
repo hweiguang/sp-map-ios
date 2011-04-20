@@ -12,28 +12,14 @@
 
 @implementation CategoriesViewController
 
-//@synthesize category;
 @synthesize selectedCategories;
-/*
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil withCategories:(NSMutableSet*)theSet 
-{
-	if (!(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
-        return nil;
-    
-    // Allocating category with NSMutableSet theSet
-    category  = [[NSMutableArray alloc] initWithArray:[theSet allObjects]];
-    //  sort the list of categories
-    [category sortUsingSelector:@selector(compare:)];
-	return self;
-}
-*/
 
 - (void) viewDidLoad {
     
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-    
+    // Getting category set from appDelegate
     category = [[NSMutableArray alloc] initWithSet:appDelegate.categories];
-    
+    // Sort the array by alphabet
     [category sortUsingSelector:@selector(compare:)];
     
 }

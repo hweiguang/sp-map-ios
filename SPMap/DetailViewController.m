@@ -13,12 +13,6 @@
 #import "PanoramaViewController.h"
 #import "Constants.h"
 
-@interface DetailViewController()
-
-- (void)grabImageInTheBackground;
-
-@end
-
 @implementation DetailViewController
 @synthesize textView,details,activity,panoramaButtonItem,toolbar;
 
