@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest
+END
+ASIHTTPRequest.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIHTTPRequest.m
+END
+ASINetworkQueue.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASINetworkQueue.h
+END
+ASICacheDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASICacheDelegate.h
+END
+ASIProgressDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIProgressDelegate.h
+END
+ASIAuthenticationDialog.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIAuthenticationDialog.h
+END
+ASIDataDecompressor.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIDataDecompressor.h
+END
+ASIDownloadCache.m
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIDownloadCache.m
+END
+ASINetworkQueue.m
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASINetworkQueue.m
+END
+ASIAuthenticationDialog.m
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIAuthenticationDialog.m
+END
+ASIDataDecompressor.m
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIDataDecompressor.m
+END
+ASIFormDataRequest.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIFormDataRequest.h
+END
+ASIFormDataRequest.m
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIFormDataRequest.m
+END
+ASIInputStream.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIInputStream.h
+END
+ASIHTTPRequestConfig.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIHTTPRequestConfig.h
+END
+ASIInputStream.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIInputStream.m
+END
+ASIHTTPRequestDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIHTTPRequestDelegate.h
+END
+ASIWebPageRequest.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIWebPageRequest.h
+END
+ASIDataCompressor.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIDataCompressor.h
+END
+ASIHTTPRequest.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIHTTPRequest.h
+END
+ASIWebPageRequest.m
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIWebPageRequest.m
+END
+ASIDownloadCache.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIDownloadCache.h
+END
+ASIDataCompressor.m
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/spiphone/!svn/ver/30/SPMap/SPMap/ASIHTTPRequest/ASIDataCompressor.m
+END
