@@ -64,14 +64,38 @@
 
 - (void)mapViewDidLoad:(AGSMapView *)mapView {
     
-	//create extent to be used as default
-	AGSEnvelope *envelope = [AGSEnvelope envelopeWithXmin:103.777302
-													 ymin:1.308708 
-													 xmax:103.780270 
-													 ymax:1.312159 
-										 spatialReference:self.mapView.spatialReference];
-    
-	[self.mapView zoomToEnvelope:envelope animated:NO];
+    if (selectedLocations == nil) {
+        //Default extend to be used
+        AGSEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:103.777302
+                                                              ymin:1.308708
+                                                              xmax:103.780270 
+                                                              ymax:1.312159
+                                                  spatialReference:self.mapView.spatialReference];
+        
+        [self.mapView zoomToEnvelope:extent animated:NO];
+    }
+    if (selectedLocations != nil) {
+
+        //Zoom to fit all the pins on map
+        AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin
+                                                                     ymin:ymin
+                                                                     xmax:xmax 
+                                                                     ymax:ymax
+                                                         spatialReference:self.mapView.spatialReference];
+        [extent expandByFactor:1.5];
+        [self.mapView zoomToEnvelope:extent animated:NO];
+        
+        DebugLog(@"extent%@",[extent description]);
+    }
+    if (ptcount ==1) {
+        
+        AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:103.774022
+                                                                     ymin:1.305069
+                                                                     xmax:103.782409 
+                                                                     ymax:1.314819
+                                                         spatialReference:self.mapView.spatialReference];
+        [self.mapView zoomToEnvelope:extent animated:NO];
+    }
 	//Start locating
 	[self.mapView.gps start];
 }
@@ -99,13 +123,15 @@
     self.mapView.callout.hidden = YES;
     
     //use these to calculate extent of results
-    double xmin = DBL_MAX;
-    double ymin = DBL_MAX;
-    double xmax = -DBL_MAX;
-    double ymax = -DBL_MAX;
+    xmin = DBL_MAX;
+    ymin = DBL_MAX;
+    xmax = -DBL_MAX;
+    ymax = -DBL_MAX;
     
     //create the callout template, used when the user displays the callout
     self.CalloutTemplate = [[[AGSCalloutTemplate alloc]init] autorelease];
+    
+    ptcount = 0;
     
     //loop through all locations and add to graphics layer
     for (int i=0; i<[locations count]; i++)
@@ -120,6 +146,8 @@
             
             //Adding coordinates to the point
             AGSPoint *pt = [AGSPoint pointWithX:longitude y:latitude spatialReference:self.mapView.spatialReference];
+            
+            ptcount++;
             
             //accumulate the min/max
             if (pt.x  < xmin)
@@ -153,32 +181,18 @@
             self.CalloutTemplate.detailTemplate = @"${subtitle}";
             
             //create the graphic
-            AGSGraphic *graphic = [[AGSGraphic alloc] initWithGeometry: pt
+            AGSGraphic *graphic = [[AGSGraphic alloc] initWithGeometry:pt
                                                                 symbol:marker
                                                             attributes:attribs
                                                   infoTemplateDelegate:self.CalloutTemplate];
             
             //add the graphic to the graphics layer
             [self.graphicsLayer addGraphic:graphic];
-            /*
-            if (numberofpins == 1)
-            {
-                //we have one result, center at that point
-                [self.mapView centerAtPoint:pt animated:NO];
-            }*/
             
-            //release the graphic
-            [graphic release];            
-        }
-        
-    }/*
-    //if we have more than one result, zoom to the extent of all callOuts
-    if (numberofpins > 1)
-    {         
-        AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin ymin:ymin xmax:xmax ymax:ymax spatialReference:self.mapView.spatialReference];
-        [extent expandByFactor:1.5];
-        [self.mapView zoomToEnvelope:extent animated:YES];
-    }*/
+			//release the graphic
+			[graphic release];            
+		}
+    }
     //since we've added graphics, make sure to redraw
     [self.graphicsLayer dataChanged];
 }

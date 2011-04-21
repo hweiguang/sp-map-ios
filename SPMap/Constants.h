@@ -18,4 +18,3 @@
 #define panoramaHostname        @"http://mobileapp.sp.edu.sg/spmap/panoramas/"
 #define kReachabilityHostname   @"mobileapp.sp.edu.sg"
 
-
