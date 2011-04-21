@@ -135,7 +135,6 @@
                                               otherButtonTitles:@"OK", nil];
         [alert show];
         [alert release];
-        
         DebugLog(@"Locations.xml found");
         BOOL hasServerCopy = YES;
         [self loadXML:hasServerCopy];
