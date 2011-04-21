@@ -65,6 +65,12 @@
     
     panoramaViewController.selectedPanorama = [details valueForKey:@"panorama"];
     
+    UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] initWithTitle:@"Back" 
+                                                                   style:UIBarButtonItemStylePlain 
+                                                                  target:nil action:nil];
+	self.navigationItem.backBarButtonItem = backbutton;
+    [backbutton release];
+    
     panoramaViewController.title = @"Panorama";
     [self.navigationController pushViewController:panoramaViewController animated:YES];
 	[panoramaViewController release];
