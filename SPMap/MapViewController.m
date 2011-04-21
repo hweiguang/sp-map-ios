@@ -84,8 +84,6 @@
                                                          spatialReference:self.mapView.spatialReference];
         [extent expandByFactor:1.5];
         [self.mapView zoomToEnvelope:extent animated:NO];
-        
-        DebugLog(@"extent%@",[extent description]);
     }
     if (ptcount ==1) {
         

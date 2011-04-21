@@ -56,7 +56,14 @@
     
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     // Getting locations array from appDelegate
-    locations = appDelegate.locations;
+    locations = [[NSMutableArray alloc] initWithArray:appDelegate.locations];
+    //Sorting the location array
+    NSSortDescriptor *alphaDesc = [[NSSortDescriptor alloc] initWithKey:@"title" 
+                                                              ascending:YES
+                                                               selector:@selector(localizedCaseInsensitiveCompare:)];
+    [locations sortUsingDescriptors:[NSMutableArray arrayWithObjects:alphaDesc, nil]];	
+    [alphaDesc release], alphaDesc = nil;
+    
     // Setting up selectedLocations array for display
     locationsincategory = [[NSMutableArray alloc]init];
     //loop through all locations and add locations that are in the category
