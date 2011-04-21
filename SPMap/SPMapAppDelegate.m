@@ -21,9 +21,6 @@
 @synthesize navigationController=_navigationController;
 @synthesize locations;
 @synthesize categories;
-@synthesize theLocation;
-@synthesize currentParseBatch;
-@synthesize currentParsedCharacterData;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
@@ -32,8 +29,7 @@
     // instantiate a set to hold category objects
     categories = [[NSMutableSet alloc] init];
     [self checkNetwork];
-    [self loadData];
-    //[self loadXML];
+    [NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;
@@ -61,7 +57,7 @@
             
         case kReachableViaWWAN:
             alert = [[UIAlertView alloc] initWithTitle:@"3G Network Detected" 
-                                               message:@"For best experience please connect to a Wifi Hotspot." 
+                                               message:@"You may experience slow loading time when using SP Map" 
                                               delegate:self 
                                      cancelButtonTitle:nil 
                                      otherButtonTitles:@"OK", nil];
@@ -80,6 +76,8 @@
 
 -(void)loadData
 {    
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    
     if (!operationQueue) {
         operationQueue = [[NSOperationQueue alloc] init];
     }
@@ -103,6 +101,8 @@
     [request setDidFailSelector:@selector(requestWentWrong:)];
     [operationQueue addOperation:request];  // request is an NSOperationQueue
     
+    [pool release];
+    
 }
 
 //  connected
@@ -114,37 +114,31 @@
     //  file not found
     if (statusCode == 404)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
-                                                        message:@"Update of database failed." 
-                                                       delegate:self 
-                                              cancelButtonTitle:nil 
-                                              otherButtonTitles:@"OK", nil];
-        [alert show];
-        [alert release];
         DebugLog(@"Locations.xml not found");
+        BOOL hasServerCopy = NO;
+        [self loadXML:hasServerCopy];
     }
     //  file is nil
     else if (responseData == nil)
     {
         DebugLog(@"Locations.xml is nil");
+        BOOL hasServerCopy = NO;
+        [self loadXML:hasServerCopy];
     }
     //  file is found
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Database Updating" 
-                                                        message:@"Your database is being updated to the latest version." 
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Updated" 
+                                                        message:@"POIs list has been refreshed." 
                                                        delegate:self 
                                               cancelButtonTitle:nil 
                                               otherButtonTitles:@"OK", nil];
         [alert show];
         [alert release];
+        
         DebugLog(@"Locations.xml found");
-        //
-        //[NSThread detachNewThreadSelector:@selector(loadXML:) toTarget:self withObject:nil];
-        // earthquakeData will be retained by the thread until parseEarthquakeData: has finished executing, so we no longer need
-        // a reference to it in the main thread.
-        //self.earthquakeData = nil;
-        //[self loadXML];
+        BOOL hasServerCopy = YES;
+        [self loadXML:hasServerCopy];
     }
 }
 
@@ -152,29 +146,27 @@
 - (void)requestWentWrong:(ASIHTTPRequest *)theRequest
 {
     DebugLog(@"unable to connect to server for Locations.xml");
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
-                                                    message:@"Update of database failed." 
-                                                   delegate:self 
-                                          cancelButtonTitle:nil 
-                                          otherButtonTitles:@"OK", nil];
-    [alert show];
-    [alert release];
+    BOOL hasServerCopy = NO;
+    [self loadXML:hasServerCopy];
 }
 
-- (void)loadXML {
+- (void)loadXML:(BOOL)hasServerCopy {
     
-    // You must create a autorelease pool for all secondary threads.
-//    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    if (hasServerCopy == NO)
+    {
+        // Load and parse the Locations.xml file
+        tbxml = [[TBXML tbxmlWithXMLFile:@"Locations.xml"] retain];
+        DebugLog(@"Local XML");
+    }
     
-    //NSString *filePath = [downloadCache pathToStoreCachedResponseDataForRequest:request];
-    
-    //DebugLog(@"filePath is %@", filePath);
-    
-    tbxml = [[TBXML tbxmlWithXMLFile:@"Locations.xml"] retain];
-    
-	// Load and parse the Locations.xml file
-	//tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:filePath]] retain];
+    if (hasServerCopy == YES) 
+    {
+        NSString *filePath = [downloadCache pathToStoreCachedResponseDataForRequest:request];
+        DebugLog(@"filePath is %@", filePath);
+        // Load and parse the Locations.xml file
+        tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:filePath]] retain];
+        DebugLog(@"Server XML");
+    } 
     
 	// Obtain root element
 	TBXMLElement * root = tbxml.rootXMLElement;
@@ -235,21 +227,7 @@
         [tbxml release];
     }
     DebugLog(@"categories is %@", [categories description]);
-//    [pool release];
 }
-
-
-// The secondary (parsing) thread calls addToEarthquakeList: on the main thread with batches of parsed objects. 
-// The batch size is set via the kSizeOfEarthquakeBatch constant.
-- (void)addLocationsToList:(NSArray *)locations {
-    /*
-    NSMutableArray *locations; //Array for storing all locations from XML
-    NSMutableSet *categories; //Set for storing all categories from XML
-    [self.earthquakeList addObjectsFromArray:locations];
-    // The table needs to be reloaded to reflect the new content of the list.
-     */
-}
-
 
 - (void)dealloc
 {
