@@ -8,6 +8,7 @@
 
 #import "SPMapAppDelegate.h"
 #import "MapViewController.h"
+#import "CategoriesViewController.h"
 #import "ASIHTTPRequest.h"
 #import "ASIDownloadCache.h"
 #import "TBXML.h"
