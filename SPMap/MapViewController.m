@@ -24,11 +24,10 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     self.title = @"SP Map";
     self.navigationItem.hidesBackButton = YES;
-    self.mapView.callout.hidden = YES;
     [self showCallout];
-    [super viewWillAppear:animated];
 }
 
 - (void)viewDidLoad
@@ -54,10 +53,11 @@
 	[self.mapView addMapLayer:self.graphicsLayer withName:@"Graphics Layer"];
     
     // Adding esriLogo watermark
-    UIImageView *watermarkIV = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 345, 43, 25)]autorelease];
+    UIImageView *watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 345, 43, 25)];
 	watermarkIV.image = [UIImage imageNamed:@"esriLogo.png"];
 	watermarkIV.userInteractionEnabled = NO;
 	[self.view addSubview:watermarkIV];
+    [watermarkIV release];
 }
 
 - (void)mapViewDidLoad:(AGSMapView *)mapView {
@@ -93,7 +93,7 @@
         [self.mapView zoomToEnvelope:extent animated:NO];
     }
 	//Start locating
-	[self.mapView.gps start];
+	//[self.mapView.gps start];
 }
 
 - (IBAction) showCategories {
@@ -111,7 +111,7 @@
                                                                                     bundle:nil];
     aboutViewController.title = @"About";
     [self.navigationController pushViewController:aboutViewController animated:YES];
-	[aboutViewController release];    
+	[aboutViewController release];
 }
 
 - (void) showCallout
