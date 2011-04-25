@@ -54,11 +54,10 @@
 	[self.mapView addMapLayer:self.graphicsLayer withName:@"Graphics Layer"];
     
     // Adding esriLogo watermark
-    UIImageView *watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 345, 43, 25)];
+    UIImageView *watermarkIV = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 345, 43, 25)]autorelease];
 	watermarkIV.image = [UIImage imageNamed:@"esriLogo.png"];
 	watermarkIV.userInteractionEnabled = NO;
 	[self.view addSubview:watermarkIV];
-    [watermarkIV release];
 }
 
 - (void)mapViewDidLoad:(AGSMapView *)mapView {
