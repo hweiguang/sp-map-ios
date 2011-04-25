@@ -15,7 +15,9 @@
 
 - (void)viewDidLoad {
 	
-	UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(Refresh)];
+	UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                                                                        target:self
+                                                                                        action:@selector(Refresh)];
 	self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 	[rightBarButtonItem release];
     

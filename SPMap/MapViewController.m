@@ -37,8 +37,6 @@
     
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
-    DebugLog(@"selectedLocations%@",selectedLocations);
-    
     // Getting locations array from appDelegate
 	locations = appDelegate.locations;
     
@@ -56,15 +54,16 @@
 	[self.mapView addMapLayer:self.graphicsLayer withName:@"Graphics Layer"];
     
     // Adding esriLogo watermark
-    UIImageView *watermarkIV = [[[UIImageView alloc] initWithFrame:CGRectMake(0, 345, 43, 25)] autorelease];
+    UIImageView *watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 345, 43, 25)];
 	watermarkIV.image = [UIImage imageNamed:@"esriLogo.png"];
 	watermarkIV.userInteractionEnabled = NO;
 	[self.view addSubview:watermarkIV];
+    [watermarkIV release];
 }
 
 - (void)mapViewDidLoad:(AGSMapView *)mapView {
     
-    if (selectedLocations == nil) {
+    if (ptcount == 0) {
         //Default extend to be used
         AGSEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:103.777302
                                                               ymin:1.308708
@@ -74,7 +73,16 @@
         
         [self.mapView zoomToEnvelope:extent animated:NO];
     }
-    if (selectedLocations != nil) {
+    if (ptcount == 1) {
+        
+        AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:103.774022
+                                                                     ymin:1.305069
+                                                                     xmax:103.782409 
+                                                                     ymax:1.314819
+                                                         spatialReference:self.mapView.spatialReference];
+        [self.mapView zoomToEnvelope:extent animated:NO];
+    }
+    if (ptcount > 1) {
 
         //Zoom to fit all the pins on map
         AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin
@@ -85,22 +93,14 @@
         [extent expandByFactor:1.5];
         [self.mapView zoomToEnvelope:extent animated:NO];
     }
-    if (ptcount ==1) {
-        
-        AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:103.774022
-                                                                     ymin:1.305069
-                                                                     xmax:103.782409 
-                                                                     ymax:1.314819
-                                                         spatialReference:self.mapView.spatialReference];
-        [self.mapView zoomToEnvelope:extent animated:NO];
-    }
 	//Start locating
 	[self.mapView.gps start];
 }
 
 - (IBAction) showCategories {
     
-    CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc]initWithNibName:@"CategoriesViewController" bundle:nil];
+    CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc]initWithNibName:@"CategoriesViewController" 
+                                                                                                   bundle:nil];
 	categoriesViewController.title = @"Categories";
 	[self.navigationController pushViewController:categoriesViewController animated:YES];
 	[categoriesViewController release];
@@ -108,7 +108,8 @@
 
 - (IBAction) showAbout {
     
-    AboutViewController *aboutViewController = [[AboutViewController alloc]init];
+    AboutViewController *aboutViewController = [[AboutViewController alloc]initWithNibName:@"AboutViewController"
+                                                                                    bundle:nil];
     aboutViewController.title = @"About";
     [self.navigationController pushViewController:aboutViewController animated:YES];
 	[aboutViewController release];    
@@ -230,6 +231,7 @@
     self.graphicsLayer = nil;
 	self.CalloutTemplate = nil;
     [locations release];
+    [selectedLocations release];
     [super dealloc];
 }
 

@@ -192,7 +192,7 @@ Fax: 6772-1951" photos="estatesanddevelopment.jpg">
 	<location id="26" title="DBS/UOB ATMs" subtitle="Outside Foodcourt 5" lat="1.30912" lon="103.777174" description="Short of cash at any time of the day? No problems, just head down to the DBS/UOB ATM located at Food court 5. For OCBC card holders, you would need to head down to T1A, where the ATM machine is located." photos="foodcourt5atm.jpg">
 		<category>ATM</category>
 	</location>
-	<location id="27" title="POSB/Citibank/UOB ATMs @ MRT" subtitle="At Dover MRT station" lat="1.311643" lon="103.77838" description="Short of cash at any time of the day? No problems, just head down to the POSB/Citibank/UOB ATM machine located at Dover MRT station. There is also an AXS machine. For OCBC card holders, head down to T1A, where OCBC ATM machines are located." photos="mrtatm.jpg">
+	<location id="27" title="POSB/Citibank/UOB ATMs" subtitle="At Dover MRT station" lat="1.311643" lon="103.77838" description="Short of cash at any time of the day? No problems, just head down to the POSB/Citibank/UOB ATM machine located at Dover MRT station. There is also an AXS machine. For OCBC card holders, head down to T1A, where OCBC ATM machines are located." photos="mrtatm.jpg">
 		<category>ATM</category>
 	</location>
 	<location id="28" title="The SP Auditorium" subtitle="Next to Dover MRT station and Convention Centre" lat="1.31064" lon="103.777652" description="The venue of many important events in the Polytechnic, the Auditorium can seat over 550 people. It is a nucleus for numerous exciting activities on campus." photos="auditorium.jpg">
@@ -204,7 +204,7 @@ Fax: 6772-1951" photos="estatesanddevelopment.jpg">
 	<location id="30" title="Plaza" subtitle="Next to Dover MRT station and Convention Centre" lat="1.310716" lon="103.778092" description="Seated in front of the MRT station is a plaza area which consists of a skate park and a McDonald's. This adds vibrancy to the polytechnic." photos="plaza.jpg" panorama="25-SPPlaza/25-SPPlaza.html">
 		<category>Plaza and Hall</category>
 	</location>
-	<location id="31" title="The Hall" subtitle="At Staff Centre, Level 2" lat="1.309497" lon="103.776573" description="The Hall is where some major events and press conferences are held." photos="staffcentre.jpg">
+	<location id="31" title="The Hall" subtitle="At Staff Centre, Level 2" lat="1.309497" lon="103.776573" description="The Hall is where some major events and press conferences are held." photos="thehall.jpg">
 		<category>Plaza and Hall</category>
 	</location>
 	<location id="32" title="Hotshot Cafe @ Colours" subtitle="At Main Library, Level 1" lat="1.308486" lon="103.779977" description="Opening Hours
@@ -250,7 +250,7 @@ Foodcourt 2 is also known affectionately to some SP students as McDonalds - even
 Opening Hours
 Mon-Fri: 8am-9pm
 Sat: 8am-6pm
-Tel: 6872-5579" photos="foodcourt3.jpg">
+Tel: 6872-5579" photos="burgerking.jpg">
 		<category>Dining</category>
 	</location>
 	<location id="40" title="Foodcourt 4" subtitle="At T17, Basement 1 and 2" lat="1.310683" lon="103.777145" description="Opening Hours
@@ -274,7 +274,7 @@ Sat: 8am-3pm
 
 School Vacation
 Mon-Sat: 8am-3pm
-Tel: 6774-4950" photos="foodcourt5.jpg">
+Tel: 6774-4950" photos="starbucks.jpg">
 		<category>Dining</category>
 	</location>
 	<location id="43" title="Subway" subtitle="At Foodcourt 5" lat="1.309452" lon="103.777072" description="Opening Hours 
@@ -292,7 +292,7 @@ Sat: 10am-2pm
 School Vacation
 Mon-Fri: 10am-5pm
 Sat: 10am-2pm
-Tel: 6775-1310" photos="foodcourt5.jpg">
+Tel: 6775-1310" photos="kfc.jpg">
 		<category>Dining</category>
 	</location>
 	<location id="45" title="Foodcourt 6" subtitle="At T22, Level 2" lat="1.311076" lon="103.775556" description="Foodcourt 6 is the hunting ground of students from the SP Business School, and School of Digital Media and Infocomm Technology - for food of course! A truly spacious and well-ventilated setting, overlooking the SP Sports Complex." photos="foodcourt6.jpg">
@@ -342,19 +342,19 @@ One is great but two is awesome! The second McDonald’s outlet that is at T16, 
 	<location id="58" title="MLT1" subtitle="Beside Foodcourt 1" lat="1.307847" lon="103.78109" description="Beside foodcourt 1." photos="mlt1.jpg">
 		<category>Lecture Theatre</category>
 	</location>
-	<location id="59" title="MLT8" subtitle="Beside T19" lat="1.3114" lon="103.776049" description="Located beside T19" photos="mlt8.jpg">
+	<location id="59" title="MLT8" subtitle="Beside T19" lat="1.3114" lon="103.776049" description="Located beside T19" photos="mlt8-12.jpg">
 		<category>Lecture Theatre</category>
 	</location>
-	<location id="60" title="MLT9" subtitle="Beside T19" lat="1.311531" lon="103.776078" description="Located beside T19." photos="mlt9.jpg">
+	<location id="60" title="MLT9" subtitle="Beside T19" lat="1.311531" lon="103.776078" description="Located beside T19." photos="mlt8-12.jpg">
 		<category>Lecture Theatre</category>
 	</location>
-	<location id="61" title="MLT10" subtitle="Beside T19" lat="1.311574" lon="103.775978" description="Located beside T19." photos="mlt10.jpg">
+	<location id="61" title="MLT10" subtitle="Beside T19" lat="1.311574" lon="103.775978" description="Located beside T19." photos="mlt8-12.jpg">
 		<category>Lecture Theatre</category>
 	</location>
-	<location id="62" title="MLT11" subtitle="Beside T19" lat="1.311435" lon="103.775919" description="Located beside T19." photos="mlt11.jpg">
+	<location id="62" title="MLT11" subtitle="Beside T19" lat="1.311435" lon="103.775919" description="Located beside T19." photos="mlt8-12.jpg">
 		<category>Lecture Theatre</category>
 	</location>
-	<location id="63" title="MLT12" subtitle="Between T20 and T21" lat="1.311574" lon="103.775622" description="Located at Business Block, between T20 and T21." photos="mlt12.jpg">
+	<location id="63" title="MLT12" subtitle="Between T20 and T21" lat="1.311574" lon="103.775622" description="Located at Business Block, between T20 and T21." photos="mlt8-12.jpg">
 		<category>Lecture Theatre</category>
 	</location>
 	<location id="64" title="LT12A" subtitle="At T12, Level 1" lat="1.310579" lon="103.778649" description="Located at T12, level 1." photos="lt12a.jpg">
@@ -381,10 +381,10 @@ One is great but two is awesome! The second McDonald’s outlet that is at T16, 
 	<location id="71" title="LT17B" subtitle="At T17, Basement 1" lat="1.310502" lon="103.777498" description="Located at T17, basement 1." photos="lt17b.jpg">
 		<category>Lecture Theatre</category>
 	</location>
-	<location id="72" title="LT18A" subtitle="At T18, Level 1" lat="1.310824" lon="103.777833" description="Located at T18, level 2." photos="lt18a.jpg">
+	<location id="72" title="LT18A" subtitle="At T18, Level 1" lat="1.310824" lon="103.777833" description="Located at T18, level 2." photos="lt18.jpg">
 		<category>Lecture Theatre</category>
 	</location>
-	<location id="73" title="LT18B" subtitle="At T18,  Basement 2" lat="1.31091" lon="103.777672" description="Located at T18, basement 2." photos="lt18b.jpg">
+	<location id="73" title="LT18B" subtitle="At T18,  Basement 2" lat="1.31091" lon="103.777672" description="Located at T18, basement 2." photos="lt18.jpg">
 		<category>Lecture Theatre</category>
 	</location>
 	<location id="74" title="Hilltop Library" subtitle="Beside T22" lat="1.311332" lon="103.77452" description="Hilltop Library
@@ -521,7 +521,6 @@ Tel: 6772-1260
 Email: ServiceDeskMail@sp.edu.sg" photos="spicet21.jpg">
 		<category>IT Services</category>
 	</location>
-
 	<location id="98" title="SPICE Service Desk, T3" subtitle="At T3, Level 3, Room 1" lat="1.307626" lon="103.78063" description="Opening Hours
 Mon-Fri: 8am-6pm
 Tel: 6772-1260

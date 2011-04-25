@@ -21,7 +21,9 @@
 {
     [super dealloc];
     [places release];
+    [locations release];
     [locationsincategory release];
+    [selectedLocations release];
 }
 
 - (void)showAll {
@@ -62,7 +64,8 @@
                                                               ascending:YES
                                                                selector:@selector(localizedCaseInsensitiveCompare:)];
     [locations sortUsingDescriptors:[NSMutableArray arrayWithObjects:alphaDesc, nil]];	
-    [alphaDesc release], alphaDesc = nil;
+    [alphaDesc release]; 
+    alphaDesc = nil;
     
     // Setting up selectedLocations array for display
     locationsincategory = [[NSMutableArray alloc]init];
