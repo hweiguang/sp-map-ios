@@ -45,7 +45,7 @@
     [super viewDidLoad];
     //Add a Show All button to display all the pins in this category on the Map
     UIBarButtonItem *showallButton = [[UIBarButtonItem alloc] initWithTitle:@"Show All"
-                                                                      style:UIBarButtonItemStyleBordered
+                                                                      style:UIBarButtonItemStyleDone
                                                                      target:self 
                                                                      action:@selector(showAll)];
 	self.navigationItem.rightBarButtonItem = showallButton;

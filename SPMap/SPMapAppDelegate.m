@@ -57,7 +57,7 @@
             break;
             
         case kReachableViaWWAN:
-            alert = [[UIAlertView alloc] initWithTitle:@"3G Network Detected" 
+            alert = [[UIAlertView alloc] initWithTitle:@"Slow Network Detected" 
                                                message:@"You may experience slow loading time when using SP Map" 
                                               delegate:self 
                                      cancelButtonTitle:nil 
@@ -129,13 +129,6 @@
     //  file is found
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Updated" 
-                                                        message:@"POIs list has been refreshed." 
-                                                       delegate:self 
-                                              cancelButtonTitle:nil 
-                                              otherButtonTitles:@"OK", nil];
-        [alert show];
-        [alert release];
         DebugLog(@"Locations.xml found");
         BOOL hasServerCopy = YES;
         [self loadXML:hasServerCopy];
