@@ -53,7 +53,6 @@
                                      otherButtonTitles:@"OK", nil];
             [alert show];
             [alert release];
-            DebugLog(@"Access Not Available");
             break;
             
         case kReachableViaWWAN:
@@ -64,7 +63,6 @@
                                      otherButtonTitles:@"OK", nil];
             [alert show];
             [alert release];
-            DebugLog(@"Reachable via WWAN");
             break;
             
         case kReachableViaWiFi:
@@ -85,8 +83,6 @@
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    
-    DebugLog(@"documentsDirectory %@", documentsDirectory);
     
     ASIDownloadCache *cache = [[[ASIDownloadCache alloc] init] autorelease];
     [cache setStoragePath:documentsDirectory];
@@ -115,21 +111,18 @@
     //  file not found
     if (statusCode == 404)
     {
-        DebugLog(@"Locations.xml not found");
         BOOL hasServerCopy = NO;
         [self loadXML:hasServerCopy];
     }
     //  file is nil
     else if (responseData == nil)
     {
-        DebugLog(@"Locations.xml is nil");
         BOOL hasServerCopy = NO;
         [self loadXML:hasServerCopy];
     }
     //  file is found
     else
     {
-        DebugLog(@"Locations.xml found");
         BOOL hasServerCopy = YES;
         [self loadXML:hasServerCopy];
     }
@@ -138,7 +131,6 @@
 //  unable to connect
 - (void)requestWentWrong:(ASIHTTPRequest *)theRequest
 {
-    DebugLog(@"unable to connect to server for Locations.xml");
     BOOL hasServerCopy = NO;
     [self loadXML:hasServerCopy];
 }
@@ -155,7 +147,6 @@
     if (hasServerCopy == YES) 
     {
         NSString *filePath = [downloadCache pathToStoreCachedResponseDataForRequest:request];
-        DebugLog(@"filePath is %@", filePath);
         // Load and parse the Locations.xml file
         tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:filePath]] retain];
         DebugLog(@"Server XML");
@@ -181,8 +172,6 @@
             aLocation.description = [TBXML valueOfAttributeNamed:@"description" forElement:location];
             aLocation.photos = [TBXML valueOfAttributeNamed:@"photos" forElement:location];
             aLocation.panorama = [TBXML valueOfAttributeNamed:@"panorama" forElement:location];
-            if (aLocation.panorama != NULL)
-                DebugLog(@"Panorama%@" , aLocation.panorama);
             
             NSString * lat = [TBXML valueOfAttributeNamed:@"lat" forElement:location];
             aLocation.lat = [NSNumber numberWithFloat:[lat floatValue]];

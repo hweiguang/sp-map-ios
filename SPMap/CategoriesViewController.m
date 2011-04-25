@@ -46,7 +46,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    ListViewController *listViewController = [[ListViewController alloc] initWithNibName:@"ListViewController" bundle:nil];
+    ListViewController *listViewController = [[ListViewController alloc] initWithNibName:@"ListViewController" 
+                                                                                  bundle:nil];
     
     //Pass the selected object to the next view
     listViewController.places = [category objectAtIndex:indexPath.row];

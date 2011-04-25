@@ -14,12 +14,8 @@
 @synthesize webView,activity,selectedPanorama;
 
 - (void)viewDidLoad {
-	
-	UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                                                                        target:self
-                                                                                        action:@selector(Refresh)];
-	self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-	[rightBarButtonItem release];
+    
+    [super viewDidLoad];
     
     // Getting Panorama Link
     NSString *panoramalink = [panoramaHostname stringByAppendingString:selectedPanorama];
@@ -30,8 +26,6 @@
     [webView loadRequest:request];
     
     timer = [NSTimer scheduledTimerWithTimeInterval:(1.0/2.0) target:self selector:@selector(loading) userInfo:nil repeats:YES];
-	
-    [super viewDidLoad];
 }
 
 - (void) loading {
@@ -41,11 +35,6 @@
 	else
 		[activity startAnimating];
 	
-}
-
-- (void) Refresh {
-	
-	[webView reload];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

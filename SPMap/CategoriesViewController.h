@@ -11,7 +11,6 @@
 
 @interface CategoriesViewController : UITableViewController {
     NSMutableArray *category;
-    
 }
 
 @end
