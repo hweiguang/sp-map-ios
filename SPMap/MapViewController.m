@@ -20,6 +20,15 @@
 @synthesize CalloutTemplate = _CalloutTemplate;
 @synthesize selectedLocations;
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewWillAppear:(BOOL)animated
@@ -33,7 +42,7 @@
     [super viewDidLoad];
     
     self.title = @"SP Map";
-    self.navigationItem.hidesBackButton = YES;
+    //self.navigationItem.hidesBackButton = YES;
     
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
@@ -73,7 +82,7 @@
 {
     accuracy = newLocation.horizontalAccuracy;
     
-    if (accuracy <= 75) {
+    if (accuracy <= 100) {
         //Start locating
         [self.mapView.gps start];
     } else {
@@ -110,7 +119,7 @@
     
     [self.mapView zoomToEnvelope:extent animated:NO];
     
-    if (accuracy <= 75) {
+    if (accuracy <= 100) {
         //Start locating
         [self.mapView.gps start];
     }
