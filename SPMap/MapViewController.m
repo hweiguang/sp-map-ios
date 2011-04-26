@@ -42,7 +42,7 @@
     [super viewDidLoad];
     
     self.title = @"SP Map";
-    //self.navigationItem.hidesBackButton = YES;
+    self.navigationItem.hidesBackButton = YES;
     
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
