@@ -25,8 +25,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.title = @"SP Map";
-    self.navigationItem.hidesBackButton = YES;
     [self showCallout];
 }
 
@@ -34,7 +32,16 @@
 {
     [super viewDidLoad];
     
+    self.title = @"SP Map";
+    self.navigationItem.hidesBackButton = YES;
+    
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    
+    locationManager =[[CLLocationManager alloc]init];
+    locationManager.delegate = self;
+    locationManager.distanceFilter =  kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    [locationManager startUpdatingLocation];
     
     // Getting locations array from appDelegate
 	locations = appDelegate.locations;
@@ -60,40 +67,46 @@
     [watermarkIV release];
 }
 
+- (void)locationManager:(CLLocationManager *)manager 
+    didUpdateToLocation:(CLLocation *)newLocation 
+           fromLocation:(CLLocation *)oldLocation
+{
+    if (newLocation.horizontalAccuracy <= 75) {
+        //Start locating
+        [self.mapView.gps start];
+    } else {
+        [self.mapView.gps stop];
+    }
+}
+
 - (void)mapViewDidLoad:(AGSMapView *)mapView {
     
+    // Setting the extend to be used depending on the number of pins to be displayed
     if (ptcount == 0) {
-        //Default extend to be used
-        AGSEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:103.777302
-                                                              ymin:1.308708
-                                                              xmax:103.780270 
-                                                              ymax:1.312159
-                                                  spatialReference:self.mapView.spatialReference];
+        xmin = 103.777302;
+        ymin = 1.308708;
+        xmax = 103.780270; 
+        ymax = 1.312159;
         
-        [self.mapView zoomToEnvelope:extent animated:NO];
     }
     if (ptcount == 1) {
-        
-        AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:103.774022
-                                                                     ymin:1.305069
-                                                                     xmax:103.782409 
-                                                                     ymax:1.314819
-                                                         spatialReference:self.mapView.spatialReference];
-        [self.mapView zoomToEnvelope:extent animated:NO];
+        xmin = 103.774022;
+        ymin = 1.305069;
+        xmax = 103.782409;
+        ymax = 1.314819;
     }
+    
+    AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin
+                                                                 ymin:ymin
+                                                                 xmax:xmax
+                                                                 ymax:ymax
+                                                     spatialReference:self.mapView.spatialReference];
+    
     if (ptcount > 1) {
-
-        //Zoom to fit all the pins on map
-        AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin
-                                                                     ymin:ymin
-                                                                     xmax:xmax 
-                                                                     ymax:ymax
-                                                         spatialReference:self.mapView.spatialReference];
         [extent expandByFactor:1.5];
-        [self.mapView zoomToEnvelope:extent animated:NO];
     }
-	//Start locating
-	//[self.mapView.gps start];
+    
+    [self.mapView zoomToEnvelope:extent animated:NO];
 }
 
 - (IBAction) showCategories {
@@ -231,6 +244,7 @@
 	self.CalloutTemplate = nil;
     [locations release];
     [selectedLocations release];
+    [locationManager release];
     [super dealloc];
 }
 

@@ -8,7 +8,6 @@
 
 #import "SPMapAppDelegate.h"
 #import "MapViewController.h"
-#import "CategoriesViewController.h"
 #import "ASIHTTPRequest.h"
 #import "ASIDownloadCache.h"
 #import "TBXML.h"
@@ -29,7 +28,9 @@
 	locations = [[NSMutableArray alloc] init];
     // instantiate a set to hold category objects
     categories = [[NSMutableSet alloc] init];
+    //Reachability
     [self checkNetwork];
+    //Download XML file from server and parse if unavailable parse local copy
     [NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
