@@ -50,7 +50,7 @@
                                                                                   bundle:nil];
     
     //Pass the selected object to the next view
-    listViewController.places = [category objectAtIndex:indexPath.row];
+    listViewController.selectedCategory = [category objectAtIndex:indexPath.row];
     
     [self.navigationController pushViewController:listViewController animated:YES];
     [listViewController release];

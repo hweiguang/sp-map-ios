@@ -13,28 +13,23 @@
 
 @implementation ListViewController
 
-@synthesize places;
+@synthesize selectedCategory;
 @synthesize locations;
-@synthesize selectedLocations;
 
 - (void)dealloc
 {
     [super dealloc];
-    [places release];
+    [selectedCategory release];
     [locations release];
     [locationsincategory release];
-    [selectedLocations release];
 }
 
 - (void)showAll {
     
     MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
     
-    selectedLocations = places;
-    
-    mapViewController.selectedLocations = selectedLocations;
-    
-    DebugLog(@"selectedLocations%@",selectedLocations);
+    //Passing the selectedCategory to the map to display all the locations that are in the selected category
+    mapViewController.selectedLocations = selectedCategory;
     
     [self.navigationController pushViewController:mapViewController animated:YES];
     [mapViewController release];    
@@ -54,7 +49,7 @@
     [showallButton release];
     
     // Set title to show select category name
-    self.title = places;
+    self.title = selectedCategory;
     
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     // Getting locations array from appDelegate
@@ -73,7 +68,7 @@
     for (int i=0; i<[locations count]; i++)
     {
         Location *myLocation = [locations objectAtIndex:i];
-        if ([myLocation.category isEqualToString:places])
+        if ([myLocation.category isEqualToString:selectedCategory])
             [locationsincategory addObject:myLocation];
     }
 }
@@ -115,11 +110,10 @@
     
     Location * aLocation = [locationsincategory objectAtIndex:indexPath.row];
     
-    selectedLocations = aLocation.title;
+    selectedCategory = aLocation.title;
     
-    mapViewController.selectedLocations = selectedLocations;
-    
-    DebugLog(@"selectedLocations%@",selectedLocations);
+    //Passing the title of the selected Location to the map
+    mapViewController.selectedLocations = selectedCategory;
     
     [self.navigationController pushViewController:mapViewController animated:YES];
     [mapViewController release];

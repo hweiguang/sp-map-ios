@@ -10,15 +10,13 @@
 
 @interface ListViewController : UITableViewController {
     
-    NSString *places;
+    NSString *selectedCategory;
     NSMutableArray *locations;
     NSMutableArray *locationsincategory;
-    NSString *selectedLocations;
 }
 
-@property (nonatomic, retain) NSString *places;
+@property (nonatomic, retain) NSString *selectedCategory;
 @property (nonatomic, retain) NSMutableArray *locations;
-@property (nonatomic, retain) NSString *selectedLocations;
 
 - (void)showAll;
 
