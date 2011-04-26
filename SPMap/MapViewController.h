@@ -10,7 +10,7 @@
 #import "ArcGIS.h"
 #import "Location.h"
 
-@interface MapViewController : UIViewController <AGSMapViewDelegate> {
+@interface MapViewController : UIViewController <AGSMapViewDelegate,CLLocationManagerDelegate> {
     AGSMapView *_mapView;
     AGSGraphicsLayer *_graphicsLayer;
 	AGSCalloutTemplate *_CalloutTemplate;
@@ -25,6 +25,9 @@
     
     //Integer used to count the number of points to be displayed 
     int ptcount;
+    
+    //Location Manager used to check the accuracy of the GPS signal
+    CLLocationManager *locationManager;
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;
