@@ -28,6 +28,7 @@
     
     //Location Manager used to check the accuracy of the GPS signal
     CLLocationManager *locationManager;
+    double accuracy;
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;

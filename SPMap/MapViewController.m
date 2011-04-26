@@ -71,7 +71,9 @@
     didUpdateToLocation:(CLLocation *)newLocation 
            fromLocation:(CLLocation *)oldLocation
 {
-    if (newLocation.horizontalAccuracy <= 75) {
+    accuracy = newLocation.horizontalAccuracy;
+    
+    if (accuracy <= 75) {
         //Start locating
         [self.mapView.gps start];
     } else {
@@ -107,6 +109,11 @@
     }
     
     [self.mapView zoomToEnvelope:extent animated:NO];
+    
+    if (accuracy <= 75) {
+        //Start locating
+        [self.mapView.gps start];
+    }
 }
 
 - (IBAction) showCategories {
@@ -116,6 +123,7 @@
 	categoriesViewController.title = @"Categories";
 	[self.navigationController pushViewController:categoriesViewController animated:YES];
 	[categoriesViewController release];
+    [locationManager stopUpdatingLocation];
 }
 
 - (IBAction) showAbout {
@@ -125,6 +133,7 @@
     aboutViewController.title = @"About";
     [self.navigationController pushViewController:aboutViewController animated:YES];
 	[aboutViewController release];
+    [locationManager stopUpdatingLocation];
 }
 
 - (void) showCallout
@@ -231,6 +240,7 @@
     // Push the next view
 	[self.navigationController pushViewController:detailViewController animated:YES];
 	[detailViewController release];
+    [locationManager stopUpdatingLocation];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
