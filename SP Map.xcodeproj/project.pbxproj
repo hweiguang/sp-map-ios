@@ -28,6 +28,7 @@
 		0FBC6138135460C70042F842 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 0FBC6137135460C70042F842 /* iTunesArtwork */; };
 		870BDDC51349C98F0040D32D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870BDDC31349C98E0040D32D /* DetailViewController.m */; };
 		870BDDC61349C98F0040D32D /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 870BDDC41349C98F0040D32D /* DetailViewController.xib */; };
+		871EE1761367BEC100E111FC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 871EE1751367BEC100E111FC /* Icon@2x.png */; };
 		874C86311341CAC4001D4E4B /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874C862F1341CAC4001D4E4B /* CategoriesViewController.m */; };
 		874C86321341CAC4001D4E4B /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 874C86301341CAC4001D4E4B /* CategoriesViewController.xib */; };
 		875867C7134B0967006BAB6B /* aboutData.html in Resources */ = {isa = PBXBuildFile; fileRef = 875867C6134B0967006BAB6B /* aboutData.html */; };
@@ -66,8 +67,6 @@
 		87CE3D02134EFAA100621C57 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CE3CFA134EFAA100621C57 /* Icon-Small.png */; };
 		87CE3D03134EFAA100621C57 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CE3CFB134EFAA100621C57 /* Icon-Small@2x.png */; };
 		87CE3D04134EFAA100621C57 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CE3CFC134EFAA100621C57 /* Icon.png */; };
-		87CE3D05134EFAA100621C57 /* image001.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CE3CFD134EFAA100621C57 /* image001.png */; };
-		87CE3D06134EFAA100621C57 /* image002.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CE3CFE134EFAA100621C57 /* image002.png */; };
 		87D5AF8B134F5D61006C4412 /* PanoramaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D5AF89134F5D61006C4412 /* PanoramaViewController.m */; };
 		87D5AF8C134F5D61006C4412 /* PanoramaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D5AF8A134F5D61006C4412 /* PanoramaViewController.xib */; };
 		87D858FD1352EC4400AA7ACB /* esriLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D858FB1352EC4400AA7ACB /* esriLogo.png */; };
@@ -117,6 +116,7 @@
 		870BDDC21349C98E0040D32D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		870BDDC31349C98E0040D32D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		870BDDC41349C98F0040D32D /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailViewController.xib; path = SPMap/DetailViewController.xib; sourceTree = "<group>"; };
+		871EE1751367BEC100E111FC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = "<group>"; };
 		874C862E1341CAC4001D4E4B /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
 		874C862F1341CAC4001D4E4B /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
 		874C86301341CAC4001D4E4B /* CategoriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoriesViewController.xib; path = SPMap/CategoriesViewController.xib; sourceTree = "<group>"; };
@@ -165,8 +165,6 @@
 		87CE3CFA134EFAA100621C57 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Resources/Icon-Small.png"; sourceTree = "<group>"; };
 		87CE3CFB134EFAA100621C57 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Resources/Icon-Small@2x.png"; sourceTree = "<group>"; };
 		87CE3CFC134EFAA100621C57 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
-		87CE3CFD134EFAA100621C57 /* image001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image001.png; path = Resources/image001.png; sourceTree = "<group>"; };
-		87CE3CFE134EFAA100621C57 /* image002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image002.png; path = Resources/image002.png; sourceTree = "<group>"; };
 		87D5AF88134F5D61006C4412 /* PanoramaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoramaViewController.h; sourceTree = "<group>"; };
 		87D5AF89134F5D61006C4412 /* PanoramaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoramaViewController.m; sourceTree = "<group>"; };
 		87D5AF8A134F5D61006C4412 /* PanoramaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PanoramaViewController.xib; path = SPMap/PanoramaViewController.xib; sourceTree = "<group>"; };
@@ -265,8 +263,7 @@
 				87CE3CFA134EFAA100621C57 /* Icon-Small.png */,
 				87CE3CFB134EFAA100621C57 /* Icon-Small@2x.png */,
 				87CE3CFC134EFAA100621C57 /* Icon.png */,
-				87CE3CFD134EFAA100621C57 /* image001.png */,
-				87CE3CFE134EFAA100621C57 /* image002.png */,
+				871EE1751367BEC100E111FC /* Icon@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -465,8 +462,6 @@
 				87CE3D02134EFAA100621C57 /* Icon-Small.png in Resources */,
 				87CE3D03134EFAA100621C57 /* Icon-Small@2x.png in Resources */,
 				87CE3D04134EFAA100621C57 /* Icon.png in Resources */,
-				87CE3D05134EFAA100621C57 /* image001.png in Resources */,
-				87CE3D06134EFAA100621C57 /* image002.png in Resources */,
 				87D5AF8C134F5D61006C4412 /* PanoramaViewController.xib in Resources */,
 				87A5ABFD1352A0E10043C395 /* Panorama.png in Resources */,
 				87D858FD1352EC4400AA7ACB /* esriLogo.png in Resources */,
@@ -479,6 +474,7 @@
 				0FBC6138135460C70042F842 /* iTunesArtwork in Resources */,
 				87A65D27135694B70067B317 /* ListViewController.xib in Resources */,
 				878F4BCD135D26A9000B6C59 /* Locations.xml in Resources */,
+				871EE1761367BEC100E111FC /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

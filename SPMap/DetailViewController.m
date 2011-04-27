@@ -42,7 +42,6 @@
     [self.textView setText:description];
     
     NSString *panorama = [details valueForKey:@"panorama"];
-    DebugLog(@"panorama%@",panorama);
     
     [self grabImageInTheBackground];
     

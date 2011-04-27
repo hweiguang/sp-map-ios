@@ -209,7 +209,7 @@
         // release resources
         [tbxml release];
     }
-    DebugLog(@"categories is %@", [categories description]);
+    DebugLog(@"Categories %@", [categories description]);
 }
 
 - (void)dealloc

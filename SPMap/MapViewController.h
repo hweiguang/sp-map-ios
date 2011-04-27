@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "ArcGIS.h"
-#import "Location.h"
 
 @interface MapViewController : UIViewController <AGSMapViewDelegate,CLLocationManagerDelegate> {
     AGSMapView *_mapView;
