@@ -151,6 +151,11 @@
     }
 }
 
+- (IBAction) centerUserLocation {
+    
+    self.mapView.gps.autoPan = TRUE;
+}
+
 - (IBAction) showCategories {
     
     CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc]initWithNibName:@"CategoriesViewController" 
