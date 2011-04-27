@@ -42,28 +42,22 @@
     Reachability* wifiReach = [[Reachability reachabilityWithHostName:kReachabilityHostname] retain];
     NetworkStatus netStatus = [wifiReach currentReachabilityStatus];
     
-    UIAlertView *alert; 
-    
     switch (netStatus)
     {
-        case kNotReachable:
-            alert = [[UIAlertView alloc] initWithTitle:@"No Internet Connection" 
-                                               message:@"Please make sure you are connected to the Internet before using SP Map." 
-                                              delegate:self 
-                                     cancelButtonTitle:nil 
-                                     otherButtonTitles:@"OK", nil];
+        case kNotReachable: 
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Connection" 
+                                                            message:@"Please ensure you are connected to the Internet before using SP Map." 
+                                                           delegate:self 
+                                                  cancelButtonTitle:nil 
+                                                  otherButtonTitles:@"OK", nil];
             [alert show];
             [alert release];
+        }
             break;
             
         case kReachableViaWWAN:
-            alert = [[UIAlertView alloc] initWithTitle:@"Slow Network Detected" 
-                                               message:@"You may experience slow loading time when using SP Map" 
-                                              delegate:self 
-                                     cancelButtonTitle:nil 
-                                     otherButtonTitles:@"OK", nil];
-            [alert show];
-            [alert release];
+            DebugLog(@"Reachable via WWAN");
             break;
             
         case kReachableViaWiFi:

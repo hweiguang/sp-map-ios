@@ -39,7 +39,6 @@
     
     self.navigationItem.title = @"SP Map";
     self.navigationItem.hidesBackButton = YES;
-    DebugLog(@"Title %@",self.navigationItem.title);
     
     //Start checking the accuracy of GPS
     locationManager =[[CLLocationManager alloc]init];
@@ -100,6 +99,20 @@
         [self.mapView.gps start];
     } else {
         [self.mapView.gps stop];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    
+    if (status == kCLAuthorizationStatusDenied) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
+                                                        message:@"Please ensure your location service is on in settings." 
+                                                       delegate:self 
+                                              cancelButtonTitle:nil 
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
     }
 }
 
