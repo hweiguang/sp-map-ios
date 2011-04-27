@@ -34,23 +34,35 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     [self showCallout];
+    
+    self.navigationItem.title = @"SP Map";
+    self.navigationItem.hidesBackButton = YES;
+    DebugLog(@"Title %@",self.navigationItem.title);
+    
+    //Start checking the accuracy of GPS
+    locationManager =[[CLLocationManager alloc]init];
+    locationManager.delegate = self;
+    locationManager.distanceFilter =  kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    [locationManager startUpdatingLocation];
+    
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    
+    //Stop location services
+    [locationManager stopUpdatingLocation];
+    [self.mapView.gps stop];
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.title = @"SP Map";
-    self.navigationItem.hidesBackButton = YES;
-    
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-    
-    locationManager =[[CLLocationManager alloc]init];
-    locationManager.delegate = self;
-    locationManager.distanceFilter =  kCLDistanceFilterNone;
-    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-    [locationManager startUpdatingLocation];
     
     // Getting locations array from appDelegate
 	locations = appDelegate.locations;
@@ -80,6 +92,7 @@
     didUpdateToLocation:(CLLocation *)newLocation 
            fromLocation:(CLLocation *)oldLocation
 {
+    //Checking the accuracy of GPS. display location if accuracy is less then 100 metres
     accuracy = newLocation.horizontalAccuracy;
     
     if (accuracy <= 100) {
@@ -120,7 +133,7 @@
     [self.mapView zoomToEnvelope:extent animated:NO];
     
     if (accuracy <= 100) {
-        //Start locating
+        //display location if accuracy is less then 100 metres
         [self.mapView.gps start];
     }
 }
@@ -130,9 +143,14 @@
     CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc]initWithNibName:@"CategoriesViewController" 
                                                                                                    bundle:nil];
 	categoriesViewController.title = @"Categories";
+    
+    UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
+	backbutton.title = @"Back";
+	self.navigationItem.backBarButtonItem = backbutton;
+	[backbutton release];
+    
 	[self.navigationController pushViewController:categoriesViewController animated:YES];
 	[categoriesViewController release];
-    [locationManager stopUpdatingLocation];
 }
 
 - (IBAction) showAbout {
@@ -140,15 +158,21 @@
     AboutViewController *aboutViewController = [[AboutViewController alloc]initWithNibName:@"AboutViewController"
                                                                                     bundle:nil];
     aboutViewController.title = @"About";
+    
+    UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
+	backbutton.title = @"Back";
+	self.navigationItem.backBarButtonItem = backbutton;
+	[backbutton release];
+    
     [self.navigationController pushViewController:aboutViewController animated:YES];
 	[aboutViewController release];
-    [locationManager stopUpdatingLocation];
 }
 
 - (void) showCallout
 {
     // Remove all graphics if some are created earlier
     [self.graphicsLayer removeAllGraphics];
+    // Hide callout
     self.mapView.callout.hidden = YES;
     
     //use these to calculate extent of results
@@ -160,6 +184,7 @@
     //create the callout template, used when the user displays the callout
     self.CalloutTemplate = [[[AGSCalloutTemplate alloc]init] autorelease];
     
+    // variable used to count the number of pins to be display
     ptcount = 0;
     
     //loop through all locations and add to graphics layer
@@ -234,6 +259,7 @@
     
     DetailViewController *detailViewController;
     
+    // Check if panorama is available or not
     if (panorama == nil) {
         detailViewController = [[DetailViewController alloc]
                                 initWithNibName:@"DetailViewController" bundle:nil];
@@ -243,13 +269,17 @@
                                 initWithNibName:@"TBDetailViewController" bundle:nil];
     }
     
+    UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
+	backbutton.title = @"Back";
+	self.navigationItem.backBarButtonItem = backbutton;
+	[backbutton release];
+    
     //Transferring graphic.attributes to detailViewController
     detailViewController.details = [NSDictionary dictionaryWithDictionary:graphic.attributes];
     
     // Push the next view
 	[self.navigationController pushViewController:detailViewController animated:YES];
 	[detailViewController release];
-    [locationManager stopUpdatingLocation];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

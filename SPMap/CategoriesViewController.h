@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface CategoriesViewController : UITableViewController {
     NSMutableArray *category;
 }

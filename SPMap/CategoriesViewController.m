@@ -61,6 +61,11 @@
     //Pass the selected object to the next view
     listViewController.selectedCategory = [category objectAtIndex:indexPath.row];
     
+    UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
+	backbutton.title = @"Back";
+	self.navigationItem.backBarButtonItem = backbutton;
+	[backbutton release];
+    
     [self.navigationController pushViewController:listViewController animated:YES];
     [listViewController release];
 }

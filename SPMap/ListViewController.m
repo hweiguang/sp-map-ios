@@ -49,6 +49,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     //Add a Show All button to display all the pins in this category on the Map
     UIBarButtonItem *showallButton = [[UIBarButtonItem alloc] initWithTitle:@"Show All"
                                                                       style:UIBarButtonItemStyleDone
@@ -63,7 +64,7 @@
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     // Getting locations array from appDelegate
     locations = [[NSMutableArray alloc] initWithArray:appDelegate.locations];
-    //Sorting the location array
+    //Sorting the location array by alphabet
     NSSortDescriptor *alphaDesc = [[NSSortDescriptor alloc] initWithKey:@"title" 
                                                               ascending:YES
                                                                selector:@selector(localizedCaseInsensitiveCompare:)];
