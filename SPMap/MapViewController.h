@@ -37,6 +37,7 @@
 
 - (IBAction) showCategories;
 - (IBAction) showAbout;
+- (IBAction) centerUserLocation;
 - (void) showCallout;
 
 @end
