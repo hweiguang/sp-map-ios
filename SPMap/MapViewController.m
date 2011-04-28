@@ -107,7 +107,7 @@
     if (status == kCLAuthorizationStatusDenied) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
-                                                        message:@"Please ensure your location service is on in settings." 
+                                                        message:@"Please ensure your location service is turned on in settings." 
                                                        delegate:self 
                                               cancelButtonTitle:nil 
                                               otherButtonTitles:@"OK", nil];
@@ -153,7 +153,18 @@
 
 - (IBAction) centerUserLocation {
     
+    if (accuracy > 100) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
+                                                        message:@"Your location cannot be determine at this moment. Please try again later." 
+                                                       delegate:self 
+                                              cancelButtonTitle:nil 
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
+    } else {
+    
     self.mapView.gps.autoPan = TRUE;
+    }
 }
 
 - (IBAction) showCategories {
