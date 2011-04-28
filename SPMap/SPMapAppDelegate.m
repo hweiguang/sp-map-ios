@@ -47,7 +47,7 @@
         case kNotReachable: 
         {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Connection" 
-                                                            message:@"Please ensure you are connected to the Internet before using SP Map." 
+                                                            message:@"Please ensure you are connected to the Internet." 
                                                            delegate:self 
                                                   cancelButtonTitle:nil 
                                                   otherButtonTitles:@"OK", nil];

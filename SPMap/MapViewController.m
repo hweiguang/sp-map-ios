@@ -111,7 +111,7 @@
     if (status == kCLAuthorizationStatusDenied) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
-                                                        message:@"Please ensure your location service is turned on in settings." 
+                                                        message:@"Please ensure your location service is turned ON in settings." 
                                                        delegate:self 
                                               cancelButtonTitle:nil 
                                               otherButtonTitles:@"OK", nil];
@@ -158,16 +158,16 @@
 }
 
 - (IBAction) centerUserLocation {
-    
     if (accuracy > 100 || lat == 0 || lon == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
-                                                        message:@"Your location cannot be determine at this moment. Please try again later." 
+                                                        message:@"Your location cannot be determined at this moment. Please try again later." 
                                                        delegate:self 
                                               cancelButtonTitle:nil 
                                               otherButtonTitles:@"OK", nil];
         [alert show];
         [alert release];
-    } else 
+    }
+    else
     {
         AGSPoint *pt = [AGSPoint pointWithX:lon y:lat spatialReference:self.mapView.spatialReference];
         [self.mapView centerAtPoint:pt animated:YES];
