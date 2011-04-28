@@ -25,9 +25,11 @@
     //Integer used to count the number of points to be displayed 
     int ptcount;
     
-    //Location Manager used to check the accuracy of the GPS signal
+    //Location Manager used to check the accuracy of the GPS signal and getting the location coordinate
     CLLocationManager *locationManager;
     double accuracy;
+    double lat;
+    double lon;
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;
