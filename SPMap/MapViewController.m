@@ -100,6 +100,10 @@
     } else {
         [self.mapView.gps stop];
     }
+    
+    // Getting the location coordinate
+    lat = newLocation.coordinate.latitude;
+    lon = newLocation.coordinate.longitude;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -113,6 +117,8 @@
                                               otherButtonTitles:@"OK", nil];
         [alert show];
         [alert release];
+        
+        return;
     }
 }
 
@@ -153,7 +159,7 @@
 
 - (IBAction) centerUserLocation {
     
-    if (accuracy > 100) {
+    if (accuracy > 100 || lat == 0 || lon == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
                                                         message:@"Your location cannot be determine at this moment. Please try again later." 
                                                        delegate:self 
@@ -161,9 +167,10 @@
                                               otherButtonTitles:@"OK", nil];
         [alert show];
         [alert release];
-    } else {
-    
-    self.mapView.gps.autoPan = TRUE;
+    } else 
+    {
+        AGSPoint *pt = [AGSPoint pointWithX:lon y:lat spatialReference:self.mapView.spatialReference];
+        [self.mapView centerAtPoint:pt animated:YES];
     }
 }
 
