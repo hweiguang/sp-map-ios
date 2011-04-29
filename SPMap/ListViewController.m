@@ -75,9 +75,9 @@
     //    [UIView setAnimationDuration: 1.5];
     //    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:YES];
     
-    [self.navigationController setViewControllers :controllers animated:YES];
+    //[self.navigationController setViewControllers :controllers animated:YES];
     
-    [UIView commitAnimations];
+    //[UIView commitAnimations];
 }
 
 #pragma mark - View lifecycle
@@ -192,9 +192,9 @@
 //    [UIView setAnimationDuration: 1.5];
 //    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.navigationController.view cache:YES];
     
-    [self.navigationController setViewControllers :controllers animated:YES];
+    //[self.navigationController setViewControllers :controllers animated:YES];
     
-    [UIView commitAnimations];
+    //[UIView commitAnimations];
 
 }
 

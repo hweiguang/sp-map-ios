@@ -46,7 +46,6 @@
 		877976B01352EFB100D389CC /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 877976AD1352EFB100D389CC /* Default-Portrait~ipad.png */; };
 		877976B11352EFB100D389CC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 877976AE1352EFB100D389CC /* Default.png */; };
 		877976B21352EFB100D389CC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 877976AF1352EFB100D389CC /* Default@2x.png */; };
-		8784105E1353DDF200F0E44F /* libArcGIS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8784105D1353DDF200F0E44F /* libArcGIS.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		878F4BCD135D26A9000B6C59 /* Locations.xml in Resources */ = {isa = PBXBuildFile; fileRef = 878F4BCC135D26A9000B6C59 /* Locations.xml */; };
 		87A5ABFD1352A0E10043C395 /* Panorama.png in Resources */ = {isa = PBXBuildFile; fileRef = 87A5ABFC1352A0E10043C395 /* Panorama.png */; };
 		87A65D26135694B70067B317 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A65D24135694B70067B317 /* ListViewController.m */; };
@@ -75,6 +74,7 @@
 		87EB6B7D1341BD3E0083A16C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EB6B7B1341BD3E0083A16C /* MapViewController.m */; };
 		87EB6B7E1341BD3E0083A16C /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87EB6B7C1341BD3E0083A16C /* MapViewController.xib */; };
 		87F2AC6A1341C67A004A851C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F2AC691341C67A004A851C /* libz.dylib */; };
+		87F990A31369608B001ACC86 /* libArcGIS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F990A21369608B001ACC86 /* libArcGIS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,7 +139,6 @@
 		877976AD1352EFB100D389CC /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "Resources/Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		877976AE1352EFB100D389CC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		877976AF1352EFB100D389CC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
-		8784105D1353DDF200F0E44F /* libArcGIS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libArcGIS.a; path = ../../../../Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib/libArcGIS.a; sourceTree = "<group>"; };
 		878F4BCC135D26A9000B6C59 /* Locations.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Locations.xml; path = Resources/Locations.xml; sourceTree = "<group>"; };
 		87A5ABFC1352A0E10043C395 /* Panorama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Panorama.png; path = Resources/Panorama.png; sourceTree = "<group>"; };
 		87A65D23135694B70067B317 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
@@ -176,6 +175,7 @@
 		87EB6B7B1341BD3E0083A16C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		87EB6B7C1341BD3E0083A16C /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = SPMap/MapViewController.xib; sourceTree = "<group>"; };
 		87F2AC691341C67A004A851C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		87F990A21369608B001ACC86 /* libArcGIS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libArcGIS.a; path = ../../../Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib/libArcGIS.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,7 +194,7 @@
 				0F2858521349817A00BC9B70 /* libxml2.2.7.3.dylib in Frameworks */,
 				0F2858501349805900BC9B70 /* libz.1.2.3.dylib in Frameworks */,
 				87F2AC6A1341C67A004A851C /* libz.dylib in Frameworks */,
-				8784105E1353DDF200F0E44F /* libArcGIS.a in Frameworks */,
+				87F990A31369608B001ACC86 /* libArcGIS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +318,7 @@
 				0F2858511349817A00BC9B70 /* libxml2.2.7.3.dylib */,
 				87F2AC691341C67A004A851C /* libz.dylib */,
 				0F28584F1349805800BC9B70 /* libz.1.2.3.dylib */,
-				8784105D1353DDF200F0E44F /* libArcGIS.a */,
+				87F990A21369608B001ACC86 /* libArcGIS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
