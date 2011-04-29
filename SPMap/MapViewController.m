@@ -36,6 +36,7 @@
     [super viewWillAppear:animated];
     
     [self showCallout];
+    [self setExtent];
     
     self.navigationItem.title = @"SP Map";
     
@@ -122,15 +123,18 @@
 }
 
 - (void)mapViewDidLoad:(AGSMapView *)mapView {
+    // Setting default extend when the map first loaded
+    AGSEnvelope *extent = [AGSEnvelope envelopeWithXmin:103.777302
+                                                   ymin:1.308708
+                                                   xmax:103.780270
+                                                   ymax:1.312159
+                                       spatialReference:self.mapView.spatialReference];
+    [self.mapView zoomToEnvelope:extent animated:NO];
+}
+
+- (void) setExtent {
     
     // Setting the extend to be used depending on the number of pins to be displayed
-    if (ptcount == 0) {
-        xmin = 103.777302;
-        ymin = 1.308708;
-        xmax = 103.780270; 
-        ymax = 1.312159;
-        
-    }
     if (ptcount == 1) {
         xmin = 103.774022;
         ymin = 1.305069;
@@ -150,10 +154,6 @@
     
     [self.mapView zoomToEnvelope:extent animated:NO];
     
-    if (accuracy <= 100) {
-        //display location if accuracy is less then 100 metres
-        [self.mapView.gps start];
-    }
 }
 
 - (IBAction) centerUserLocation {
