@@ -38,7 +38,6 @@
     [self showCallout];
     
     self.navigationItem.title = @"SP Map";
-    self.navigationItem.hidesBackButton = YES;
     
     //Start checking the accuracy of GPS
     locationManager =[[CLLocationManager alloc]init];
@@ -184,8 +183,10 @@
 	backbutton.title = @"Back";
 	self.navigationItem.backBarButtonItem = backbutton;
 	[backbutton release];
-    
+    NSArray *arrayViewControllers = [self.navigationController viewControllers];
+    DebugLog(@"vc count %d", [arrayViewControllers count]);
 	[self.navigationController pushViewController:categoriesViewController animated:YES];
+    DebugLog(@"vc count %d", [arrayViewControllers count]);
 	[categoriesViewController release];
 }
 
