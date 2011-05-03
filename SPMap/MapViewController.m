@@ -35,8 +35,10 @@
 {
     [super viewWillAppear:animated];
     
-    [self showCallout];
-    [self setMapExtent];
+    if (selectedLocations != nil) {
+        [self showCallout];
+        [self setMapExtent];
+    }
     
     self.navigationItem.title = @"SP Map";
     self.navigationItem.hidesBackButton = YES;
@@ -55,6 +57,7 @@
     //Stop location services
     [locationManager stopUpdatingLocation];
     [self.mapView.gps stop];
+    selectedLocations = nil;
 }
 
 - (void)viewDidLoad
@@ -64,7 +67,6 @@
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
     // Getting locations array from appDelegate
-    //locations = [[NSMutableArray alloc]initWithArray:appDelegate.locations]; 
     locations = appDelegate.locations;
     
     //set map view delegate
@@ -163,6 +165,7 @@
 	[backbutton release];
     
 	[self.navigationController pushViewController:categoriesViewController animated:YES];
+    
 	[categoriesViewController release];
 }
 
@@ -184,6 +187,12 @@
 - (void) setMapExtent {
     
     // Setting the extend to be used depending on the number of pins to be displayed
+    if (ptcount ==0) {
+        xmin = 103.777302;
+        ymin = 1.308708;
+        xmax = 103.780270;
+        ymax = 1.312159;
+    }
     if (ptcount == 1) {
         xmin = 103.774022;
         ymin = 1.305069;
@@ -225,7 +234,7 @@
     for (int i=0; i<[locations count]; i++)
     {
         Location *myLocation = [locations objectAtIndex:i];
-        if ([selectedLocations isEqualToString:myLocation.category] ||
+        if ([selectedLocations isEqualToString:myLocation.category] || 
             [selectedLocations isEqualToString:myLocation.title])
         {
             //Setting the lat and lon from Location class
@@ -313,6 +322,7 @@
     
     // Push the next view
 	[self.navigationController pushViewController:detailViewController animated:YES];
+    
 	[detailViewController release];
 }
 
