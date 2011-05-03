@@ -18,25 +18,3 @@
 #define panoramaHostname        @"http://mobileapp.sp.edu.sg/spmap/panoramas/"
 #define kReachabilityHostname   @"mobileapp.sp.edu.sg"
 
-/*
- All the view controllers are to be tagged.  The Navigation Controller contains the tagged view controllers when they
- are added. This is ensured that no duplicate or extra view controllers are added or created.
- The reason due to the workflow of the application.  The flow is as follows:
- 
-    (104)     (101)      (102)           (103)            
- About VC <-> Map VC <-> Category VC <-> List VC
-                X
-                |
-                X
-            Detail VC (105,106) <-> Panorama VC (107)
- 
- 
- The first and last Map VC in the flow is the same VC.  There is a need to navigate between the parent / child vc using
- the back button or selecting an option.
- 
- Detail VC (105) is for details without additional panorama view
- Detail VC (106) is for details with panorama view
- 
- Therefore, check if such VC exists within the Navigation Controller before adding the VC to the Navigation Controller
- */
-

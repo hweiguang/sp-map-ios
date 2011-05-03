@@ -40,7 +40,7 @@
 - (IBAction) showCategories;
 - (IBAction) showAbout;
 - (IBAction) centerUserLocation;
-- (void) setExtent; 
 - (void) showCallout;
+- (void) setMapExtent;
 
 @end

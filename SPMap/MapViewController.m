@@ -36,9 +36,10 @@
     [super viewWillAppear:animated];
     
     [self showCallout];
-    [self setExtent];
+    [self setMapExtent];
     
     self.navigationItem.title = @"SP Map";
+    self.navigationItem.hidesBackButton = YES;
     
     //Start checking the accuracy of GPS
     locationManager =[[CLLocationManager alloc]init];
@@ -54,7 +55,6 @@
     //Stop location services
     [locationManager stopUpdatingLocation];
     [self.mapView.gps stop];
-    
 }
 
 - (void)viewDidLoad
@@ -64,7 +64,8 @@
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
     // Getting locations array from appDelegate
-	locations = appDelegate.locations;
+    //locations = [[NSMutableArray alloc]initWithArray:appDelegate.locations]; 
+    locations = appDelegate.locations;
     
     //set map view delegate
 	self.mapView.mapViewDelegate = self;
@@ -123,37 +124,14 @@
 }
 
 - (void)mapViewDidLoad:(AGSMapView *)mapView {
-    // Setting default extend when the map first loaded
-    AGSEnvelope *extent = [AGSEnvelope envelopeWithXmin:103.777302
-                                                   ymin:1.308708
-                                                   xmax:103.780270
-                                                   ymax:1.312159
-                                       spatialReference:self.mapView.spatialReference];
-    [self.mapView zoomToEnvelope:extent animated:NO];
-}
-
-- (void) setExtent {
     
-    // Setting the extend to be used depending on the number of pins to be displayed
-    if (ptcount == 1) {
-        xmin = 103.774022;
-        ymin = 1.305069;
-        xmax = 103.782409;
-        ymax = 1.314819;
-    }
+    AGSEnvelope *defaultextent = [AGSEnvelope envelopeWithXmin:103.777302
+                                                          ymin:1.308708
+                                                          xmax:103.780270
+                                                          ymax:1.312159
+                                              spatialReference:self.mapView.spatialReference];
     
-    AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin
-                                                                 ymin:ymin
-                                                                 xmax:xmax
-                                                                 ymax:ymax
-                                                     spatialReference:self.mapView.spatialReference];
-    
-    if (ptcount > 1) {
-        [extent expandByFactor:1.5];
-    }
-    
-    [self.mapView zoomToEnvelope:extent animated:NO];
-    
+    [self.mapView zoomToEnvelope:defaultextent animated:NO];
 }
 
 - (IBAction) centerUserLocation {
@@ -183,10 +161,8 @@
 	backbutton.title = @"Back";
 	self.navigationItem.backBarButtonItem = backbutton;
 	[backbutton release];
-    NSArray *arrayViewControllers = [self.navigationController viewControllers];
-    DebugLog(@"vc count %d", [arrayViewControllers count]);
+    
 	[self.navigationController pushViewController:categoriesViewController animated:YES];
-    DebugLog(@"vc count %d", [arrayViewControllers count]);
 	[categoriesViewController release];
 }
 
@@ -203,6 +179,27 @@
     
     [self.navigationController pushViewController:aboutViewController animated:YES];
 	[aboutViewController release];
+}
+
+- (void) setMapExtent {
+    
+    // Setting the extend to be used depending on the number of pins to be displayed
+    if (ptcount == 1) {
+        xmin = 103.774022;
+        ymin = 1.305069;
+        xmax = 103.782409;
+        ymax = 1.314819;
+    }
+    AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin
+                                                                 ymin:ymin
+                                                                 xmax:xmax
+                                                                 ymax:ymax
+                                                     spatialReference:self.mapView.spatialReference];
+    if (ptcount > 1) {
+        [extent expandByFactor:1.5];
+    }
+    
+    [self.mapView zoomToEnvelope:extent animated:NO];
 }
 
 - (void) showCallout
@@ -328,7 +325,6 @@
     self.mapView = nil;
     self.graphicsLayer = nil;
 	self.CalloutTemplate = nil;
-    [locations release];
     [selectedLocations release];
     [locationManager release];
     [super dealloc];

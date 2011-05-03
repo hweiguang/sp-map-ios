@@ -16,7 +16,6 @@
 }
 
 @property (nonatomic, retain) NSString *selectedCategory;
-@property (nonatomic, retain) NSMutableArray *locations;
 
 - (void)showAll;
 

@@ -65,17 +65,8 @@
 	backbutton.title = @"Back";
 	self.navigationItem.backBarButtonItem = backbutton;
 	[backbutton release];
-        
-    NSArray *arrayViewControllers = [self.navigationController viewControllers];
-    DebugLog(@"appdelegate count %d", [arrayViewControllers count]);
-    
-    for (int count = 0; count < [arrayViewControllers count];  count++) {
-        DebugLog(@"the vc is %@", [arrayViewControllers objectAtIndex:count]);
-    }
     
     [self.navigationController pushViewController:listViewController animated:YES];
-    
-    
     [listViewController release];
 }
 
