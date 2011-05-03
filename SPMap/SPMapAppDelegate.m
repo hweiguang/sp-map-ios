@@ -34,12 +34,6 @@
     [NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
-    NSArray *arrayViewControllers = [self.navigationController viewControllers];
-    DebugLog(@"appdelegate count %d", [arrayViewControllers count]);
-
-    for (int count = 0; count < [arrayViewControllers count];  count++) {
-        DebugLog(@"the vc is %@", [arrayViewControllers objectAtIndex:count]);
-    }
     return YES;
 }
 
