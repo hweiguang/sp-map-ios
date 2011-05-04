@@ -14,7 +14,7 @@
 #import "Constants.h"
 
 @implementation DetailViewController
-@synthesize textView,details,activity,panoramaButtonItem,toolbar;
+@synthesize textView,details,activity;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,32 +41,10 @@
     NSString *description = [details valueForKey:@"description"];
     [self.textView setText:description];
     
-    NSString *panorama = [details valueForKey:@"panorama"];
-    
     [self grabImageInTheBackground];
-    
-    //Check for panorama if there is one add toolbar with a button
-    if (panorama != nil) {
-        
-        toolbar = [UIToolbar new];
-		toolbar.barStyle = UIBarStyleBlack;
-		[toolbar sizeToFit];
-		toolbar.frame = CGRectMake(0, 366, 320, 50);
-        
-        [self.view addSubview:toolbar];
-        
-        panoramaButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Panorama.png"]
-                                                              style:UIBarButtonItemStylePlain
-                                                             target:self
-                                                             action:@selector(panoramaButtonAction:)];
-        
-        NSArray *items = [NSArray arrayWithObjects:panoramaButtonItem,nil];
-        
-        [self.toolbar setItems:items animated:NO];
-    }   
 }
 
-- (void)panoramaButtonAction:(id)sender
+- (IBAction)panoramaButtonAction
 {
     PanoramaViewController *panoramaViewController = [[PanoramaViewController alloc]
                                                       initWithNibName:@"PanoramaViewController" bundle:nil];
@@ -107,7 +85,6 @@
         imageView.image = [UIImage imageNamed:@"UnavailableImage.png"];        
         [activity stopAnimating];
     }
-    
 }
 
 //  connected
@@ -147,8 +124,6 @@
 	[activity release];
     [textView release];
     [details release];
-    [panoramaButtonItem release];
-    [toolbar release];
     [activity stopAnimating];
     [request clearDelegatesAndCancel];
     [request release];

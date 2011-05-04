@@ -46,11 +46,10 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUITextView" id="1988564">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">274</int>
+						<int key="NSvFlags">282</int>
 						<string key="NSFrame">{{0, 208}, {320, 252}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -68,7 +67,7 @@
 					</object>
 					<object class="IBUIImageView" id="257533541">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">293</int>
+						<int key="NSvFlags">306</int>
 						<string key="NSFrameSize">{320, 200}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -78,7 +77,7 @@
 					</object>
 					<object class="IBUIActivityIndicatorView" id="150729113">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">-2147483355</int>
+						<int key="NSvFlags">-2147483347</int>
 						<string key="NSFrame">{{150, 93}, {20, 20}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -230,6 +229,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">DetailViewController</string>
 					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">panoramaButtonAction</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">panoramaButtonAction</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">panoramaButtonAction</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">

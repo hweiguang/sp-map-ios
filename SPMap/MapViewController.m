@@ -83,10 +83,15 @@
 	[self.mapView addMapLayer:self.graphicsLayer withName:@"Graphics Layer"];
     
     // Adding esriLogo watermark
-    UIImageView *watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 345, 43, 25)];
-	watermarkIV.image = [UIImage imageNamed:@"esriLogo.png"];
-	watermarkIV.userInteractionEnabled = NO;
-	[self.view addSubview:watermarkIV];
+    UIImageView *watermarkIV;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 891, 43, 25)];
+    }
+    else {
+        watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 345, 43, 25)];
+    }
+    watermarkIV.image = [UIImage imageNamed:@"esriLogo.png"];
+    [self.view addSubview:watermarkIV];
     [watermarkIV release];
 }
 
@@ -157,16 +162,16 @@
     
     CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc]initWithNibName:@"CategoriesViewController" 
                                                                                                    bundle:nil];
-	categoriesViewController.title = @"Categories";
+    categoriesViewController.title = @"Categories";
     
     UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
-	backbutton.title = @"Back";
-	self.navigationItem.backBarButtonItem = backbutton;
-	[backbutton release];
+    backbutton.title = @"Back";
+    self.navigationItem.backBarButtonItem = backbutton;
+    [backbutton release];
     
-	[self.navigationController pushViewController:categoriesViewController animated:YES];
+    [self.navigationController pushViewController:categoriesViewController animated:YES];
     
-	[categoriesViewController release];
+    [categoriesViewController release];
 }
 
 - (IBAction) showAbout {
@@ -176,12 +181,12 @@
     aboutViewController.title = @"About";
     
     UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
-	backbutton.title = @"Back";
-	self.navigationItem.backBarButtonItem = backbutton;
-	[backbutton release];
+    backbutton.title = @"Back";
+    self.navigationItem.backBarButtonItem = backbutton;
+    [backbutton release];
     
     [self.navigationController pushViewController:aboutViewController animated:YES];
-	[aboutViewController release];
+    [aboutViewController release];
 }
 
 - (void) setMapExtent {
@@ -286,9 +291,9 @@
             //add the graphic to the graphics layer
             [self.graphicsLayer addGraphic:graphic];
             
-			//release the graphic
-			[graphic release];            
-		}
+            //release the graphic
+            [graphic release];            
+        }
     }
     //since we've added graphics, make sure to redraw
     [self.graphicsLayer dataChanged];
@@ -313,17 +318,17 @@
     }
     
     UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
-	backbutton.title = @"Back";
-	self.navigationItem.backBarButtonItem = backbutton;
-	[backbutton release];
+    backbutton.title = @"Back";
+    self.navigationItem.backBarButtonItem = backbutton;
+    [backbutton release];
     
     //Transferring graphic.attributes to detailViewController
     detailViewController.details = [NSDictionary dictionaryWithDictionary:graphic.attributes];
     
     // Push the next view
-	[self.navigationController pushViewController:detailViewController animated:YES];
+    [self.navigationController pushViewController:detailViewController animated:YES];
     
-	[detailViewController release];
+    [detailViewController release];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -334,7 +339,7 @@
 {
     self.mapView = nil;
     self.graphicsLayer = nil;
-	self.CalloutTemplate = nil;
+    self.CalloutTemplate = nil;
     [selectedLocations release];
     [locationManager release];
     [super dealloc];
