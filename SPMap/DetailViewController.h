@@ -16,17 +16,13 @@
     NSDictionary *details;
     ASIHTTPRequest *request; 
     NSOperationQueue *operationQueue;
-    
-    UIToolbar *toolbar;
-    UIBarButtonItem *panoramaButtonItem;
 }
 
 @property (nonatomic, retain) UIActivityIndicatorView *activity;
 @property (nonatomic, retain) IBOutlet UITextView * textView;
 @property (nonatomic, retain) NSDictionary *details;
-@property (nonatomic, retain) UIToolbar *toolbar;
-@property (nonatomic, retain) UIBarButtonItem *panoramaButtonItem;
 
 - (void)grabImageInTheBackground;
+- (IBAction)panoramaButtonAction;
 
 @end

@@ -71,6 +71,7 @@
 		87D5AF8C134F5D61006C4412 /* PanoramaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D5AF8A134F5D61006C4412 /* PanoramaViewController.xib */; };
 		87D858FD1352EC4400AA7ACB /* esriLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D858FB1352EC4400AA7ACB /* esriLogo.png */; };
 		87D858FE1352EC4400AA7ACB /* esriLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D858FC1352EC4400AA7ACB /* esriLogo@2x.png */; };
+		87D96E051370DC91001C9AF0 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D96E031370DC91001C9AF0 /* MainWindow-iPad.xib */; };
 		87EB6B7D1341BD3E0083A16C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EB6B7B1341BD3E0083A16C /* MapViewController.m */; };
 		87EB6B7E1341BD3E0083A16C /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87EB6B7C1341BD3E0083A16C /* MapViewController.xib */; };
 		87F2AC6A1341C67A004A851C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F2AC691341C67A004A851C /* libz.dylib */; };
@@ -171,6 +172,7 @@
 		87D5AF8A134F5D61006C4412 /* PanoramaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PanoramaViewController.xib; path = SPMap/PanoramaViewController.xib; sourceTree = "<group>"; };
 		87D858FB1352EC4400AA7ACB /* esriLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = esriLogo.png; path = Resources/esriLogo.png; sourceTree = "<group>"; };
 		87D858FC1352EC4400AA7ACB /* esriLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "esriLogo@2x.png"; path = "Resources/esriLogo@2x.png"; sourceTree = "<group>"; };
+		87D96E041370DC91001C9AF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "SPMap/iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		87EB6B7A1341BD3E0083A16C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		87EB6B7B1341BD3E0083A16C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		87EB6B7C1341BD3E0083A16C /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = SPMap/MapViewController.xib; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				87AF1E001341BAF700BFD71D /* SPMap */,
 				87EB6B7F1341BD4F0083A16C /* XIB Files */,
 				874C86391341CAF1001D4E4B /* Resources */,
+				87D96E021370DC8F001C9AF0 /* iPad */,
 				87AF1E011341BAF700BFD71D /* Supporting Files */,
 				87AF1DF91341BAF700BFD71D /* Frameworks */,
 				87AF1DF71341BAF700BFD71D /* Products */,
@@ -370,6 +373,14 @@
 				87B1AD3B134B06DF0049DB59 /* AboutViewController.m */,
 			);
 			name = Class;
+			sourceTree = "<group>";
+		};
+		87D96E021370DC8F001C9AF0 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				87D96E031370DC91001C9AF0 /* MainWindow-iPad.xib */,
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 		87DAB0F3134558E700D85DB7 /* Debug */ = {
@@ -479,6 +490,7 @@
 				878F4BCD135D26A9000B6C59 /* Locations.xml in Resources */,
 				871EE1761367BEC100E111FC /* Icon@2x.png in Resources */,
 				8705701B13681C980024D62D /* Location.png in Resources */,
+				87D96E051370DC91001C9AF0 /* MainWindow-iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +545,14 @@
 			name = MainWindow.xib;
 			sourceTree = "<group>";
 		};
+		87D96E031370DC91001C9AF0 /* MainWindow-iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87D96E041370DC91001C9AF0 /* en */,
+			);
+			name = "MainWindow-iPad.xib";
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -575,6 +595,7 @@
 				PRODUCT_NAME = "SP Map";
 				PROVISIONING_PROFILE = "24EE722B-115C-42B9-B895-61CC7AC69F8C";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "24EE722B-115C-42B9-B895-61CC7AC69F8C";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -642,6 +663,7 @@
 				PRODUCT_NAME = "SP Map";
 				PROVISIONING_PROFILE = "24EE722B-115C-42B9-B895-61CC7AC69F8C";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "24EE722B-115C-42B9-B895-61CC7AC69F8C";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -667,6 +689,7 @@
 				PRODUCT_NAME = "SP Map";
 				PROVISIONING_PROFILE = "24EE722B-115C-42B9-B895-61CC7AC69F8C";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "24EE722B-115C-42B9-B895-61CC7AC69F8C";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
