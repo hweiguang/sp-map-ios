@@ -34,7 +34,11 @@
     
     [webView loadRequest:request];
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:(1.0/2.0) target:self selector:@selector(loading) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:(1.0/2.0)
+                                             target:self 
+                                           selector:@selector(loading) 
+                                           userInfo:nil 
+                                            repeats:YES];
 }
 
 - (void) loading {
