@@ -35,8 +35,9 @@
 {
     [super viewWillAppear:animated];
     
+    //If user makes a selection in the listView reload the Callouts and reset the mapExtent
     if (selectedLocations != nil) {
-        [self showCallout];
+        [self loadCallout];
         [self setMapExtent];
     }
     
@@ -57,6 +58,8 @@
     //Stop location services
     [locationManager stopUpdatingLocation];
     [self.mapView.gps stop];
+    
+    //Set selectedLocations to nil, if user makes a selection in the listView selectedLocations will be reassigned
     selectedLocations = nil;
 }
 
@@ -106,6 +109,7 @@
         //Start locating
         [self.mapView.gps start];
     } else {
+        //Stop locating
         [self.mapView.gps stop];
     }
     
@@ -116,6 +120,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     
+    //User denied location service
     if (status == kCLAuthorizationStatusDenied) {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
@@ -132,6 +137,7 @@
 
 - (void)mapViewDidLoad:(AGSMapView *)mapView {
     
+    //Default extent when the map first load
     AGSEnvelope *defaultextent = [AGSEnvelope envelopeWithXmin:103.777302
                                                           ymin:1.308708
                                                           xmax:103.780270
@@ -142,6 +148,7 @@
 }
 
 - (IBAction) centerUserLocation {
+    //Accuracy is more then 100m or no location available
     if (accuracy > 100 || lat == 0 || lon == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
                                                         message:@"Your location cannot be determined at this moment. Please try again later." 
@@ -153,6 +160,7 @@
     }
     else
     {
+        //Center at user point
         AGSPoint *pt = [AGSPoint pointWithX:lon y:lat spatialReference:self.mapView.spatialReference];
         [self.mapView centerAtPoint:pt animated:YES];
     }
@@ -170,7 +178,6 @@
     [backbutton release];
     
     [self.navigationController pushViewController:categoriesViewController animated:YES];
-    
     [categoriesViewController release];
 }
 
@@ -192,7 +199,7 @@
 - (void) setMapExtent {
     
     // Setting the extend to be used depending on the number of pins to be displayed
-    if (ptcount ==0) {
+    if (ptcount == 0) {
         xmin = 103.777302;
         ymin = 1.308708;
         xmax = 103.780270;
@@ -204,6 +211,7 @@
         xmax = 103.782409;
         ymax = 1.314819;
     }
+    //If ptcount is more then 1 the values will be taken from loadCallout
     AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin
                                                                  ymin:ymin
                                                                  xmax:xmax
@@ -216,7 +224,7 @@
     [self.mapView zoomToEnvelope:extent animated:NO];
 }
 
-- (void) showCallout
+- (void) loadCallout
 {
     // Remove all graphics if some are created earlier
     [self.graphicsLayer removeAllGraphics];
@@ -301,8 +309,10 @@
 
 - (void)mapView:(AGSMapView *) mapView didClickCalloutAccessoryButtonForGraphic:(AGSGraphic *) graphic
 {
+    //Getting the attributes from NSMutableDictionary *attribs in loadCallout
     NSDictionary *graphicAttributes =[NSDictionary dictionaryWithDictionary:graphic.attributes];
     
+    //Extracting the key panorama from dictionary
     NSString *panorama = [graphicAttributes valueForKey:@"panorama"];
     
     DetailViewController *detailViewController;
@@ -327,7 +337,6 @@
     
     // Push the next view
     [self.navigationController pushViewController:detailViewController animated:YES];
-    
     [detailViewController release];
 }
 
