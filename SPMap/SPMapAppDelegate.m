@@ -21,6 +21,7 @@
 @synthesize navigationController=_navigationController;
 @synthesize locations;
 @synthesize categories;
+@synthesize mapViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
@@ -32,7 +33,22 @@
     [self checkNetwork];
     //Download XML file from server and parse if unavailable parse local copy
     [NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
-    self.window.rootViewController = self.navigationController;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        mapViewController = [[MapViewController alloc] initWithNibName:@"MapViewController-iPad" bundle:nil];
+        
+        [self.window addSubview:mapViewController.view];
+    } 
+    else {
+        
+        mapViewController = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
+        
+        [self.window addSubview:mapViewController.view];
+        
+        self.window.rootViewController = self.navigationController;
+    }
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
