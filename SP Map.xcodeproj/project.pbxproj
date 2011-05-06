@@ -76,7 +76,6 @@
 		87EB6B7E1341BD3E0083A16C /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87EB6B7C1341BD3E0083A16C /* MapViewController.xib */; };
 		87F2AC6A1341C67A004A851C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F2AC691341C67A004A851C /* libz.dylib */; };
 		87F990A31369608B001ACC86 /* libArcGIS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F990A21369608B001ACC86 /* libArcGIS.a */; };
-		87FBFE8C13729650008CC323 /* MapViewController-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87FBFE8B13729650008CC323 /* MapViewController-iPad.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -179,7 +178,6 @@
 		87EB6B7C1341BD3E0083A16C /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = SPMap/MapViewController.xib; sourceTree = "<group>"; };
 		87F2AC691341C67A004A851C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		87F990A21369608B001ACC86 /* libArcGIS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libArcGIS.a; path = ../../../Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib/libArcGIS.a; sourceTree = "<group>"; };
-		87FBFE8B13729650008CC323 /* MapViewController-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MapViewController-iPad.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,7 +388,6 @@
 			isa = PBXGroup;
 			children = (
 				87EB6B7C1341BD3E0083A16C /* MapViewController.xib */,
-				87FBFE8B13729650008CC323 /* MapViewController-iPad.xib */,
 				874C86301341CAC4001D4E4B /* CategoriesViewController.xib */,
 				87A65D25135694B70067B317 /* ListViewController.xib */,
 				870BDDC41349C98F0040D32D /* DetailViewController.xib */,
@@ -486,7 +483,6 @@
 				871EE1761367BEC100E111FC /* Icon@2x.png in Resources */,
 				8705701B13681C980024D62D /* Location.png in Resources */,
 				87D96E051370DC91001C9AF0 /* MainWindow-iPad.xib in Resources */,
-				87FBFE8C13729650008CC323 /* MapViewController-iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
