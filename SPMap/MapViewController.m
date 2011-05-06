@@ -19,6 +19,7 @@
 @synthesize graphicsLayer = _graphicsLayer;
 @synthesize CalloutTemplate = _CalloutTemplate;
 @synthesize selectedLocations;
+@synthesize toolbar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -69,6 +70,8 @@
     
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
+    [self loadToolbar];
+    
     // Getting locations array from appDelegate
     locations = appDelegate.locations;
     
@@ -91,7 +94,7 @@
         watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 891, 43, 25)];
     }
     else {
-        watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 345, 43, 25)];
+        watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 347, 43, 25)];
     }
     watermarkIV.image = [UIImage imageNamed:@"esriLogo.png"];
     [self.view addSubview:watermarkIV];
@@ -116,6 +119,56 @@
     // Getting the location coordinate
     lat = newLocation.coordinate.latitude;
     lon = newLocation.coordinate.longitude;
+}
+
+- (void) loadToolbar {
+    
+    toolbar = [UIToolbar new];
+    toolbar.barStyle = UIBarStyleBlack;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+        toolbar.frame = CGRectMake(0, 372, 320, 44);
+    else
+        toolbar.frame = CGRectMake(0, 916, 768, 44);
+    
+    [self.view addSubview:toolbar];
+    
+    UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                              target:nil action:nil];
+    
+    UIBarButtonItem *fixedItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                               target:nil action:nil];
+    fixedItem.width = 35; //Setting the width of the spacer
+    
+    UIBarButtonItem *centerUserLocationButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Location.png"]
+                                                                                     style:UIBarButtonItemStylePlain
+                                                                                    target:self
+                                                                                    action:@selector(centerUserLocation:)];
+    
+    UIBarButtonItem *showCategoriesButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Category.png"]
+                                                                                 style:UIBarButtonItemStylePlain
+                                                                                target:self
+                                                                                action:@selector(showCategories:)];
+    
+    UIBarButtonItem *showAboutButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"About.png"]
+                                                                            style:UIBarButtonItemStylePlain
+                                                                           target:self
+                                                                           action:@selector(showAbout:)];
+    
+    NSArray *items = [NSArray arrayWithObjects:
+                      centerUserLocationButtonItem,
+                      fixedItem,
+                      showCategoriesButtonItem,
+                      flexItem,
+                      showAboutButtonItem,
+                      nil];
+    
+    [self.toolbar setItems:items animated:NO];
+    [centerUserLocationButtonItem release];
+    [fixedItem release];
+    [showCategoriesButtonItem release];
+    [flexItem release];
+    [showAboutButtonItem release];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -147,7 +200,7 @@
     [self.mapView zoomToEnvelope:defaultextent animated:NO];
 }
 
-- (IBAction) centerUserLocation {
+- (void) centerUserLocation:(id)sender {
     //Accuracy is more then 100m or no location available
     if (accuracy > 100 || lat == 0 || lon == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
@@ -166,7 +219,7 @@
     }
 }
 
-- (IBAction) showCategories {
+- (void) showCategories:(id)sender {
     
     CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc]initWithNibName:@"CategoriesViewController" 
                                                                                                    bundle:nil];
@@ -181,7 +234,7 @@
     [categoriesViewController release];
 }
 
-- (IBAction) showAbout {
+- (void) showAbout:(id)sender {
     
     AboutViewController *aboutViewController = [[AboutViewController alloc]initWithNibName:@"AboutViewController"
                                                                                     bundle:nil];
@@ -341,7 +394,10 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        return YES;
+    else
+        return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (void)dealloc

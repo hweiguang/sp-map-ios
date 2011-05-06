@@ -30,17 +30,22 @@
     double accuracy;
     double lat;
     double lon;
+    
+    //Toolbar on iPhone only
+    UIToolbar *toolbar;
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;
 @property (nonatomic, retain) AGSGraphicsLayer *graphicsLayer;
 @property (nonatomic, retain) AGSCalloutTemplate *CalloutTemplate;
 @property (nonatomic, retain) NSString *selectedLocations;
+@property (nonatomic, retain) UIToolbar *toolbar;
 
-- (IBAction) showCategories;
-- (IBAction) showAbout;
-- (IBAction) centerUserLocation;
+- (void) showCategories:(id)sender;
+- (void) showAbout:(id)sender;
+- (void) centerUserLocation:(id)sender;
 - (void) loadCallout;
 - (void) setMapExtent;
+- (void) loadToolbar;
 
 @end
