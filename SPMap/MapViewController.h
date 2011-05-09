@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ArcGIS.h"
+#import "SPMapAppDelegate.h"
+
+@class OverlayViewController;
 
 @interface MapViewController : UIViewController <AGSMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate> {
     AGSMapView *_mapView;
@@ -15,6 +18,8 @@
 	AGSCalloutTemplate *_CalloutTemplate;
     NSMutableArray *locations; //Array for storing all locations from XML
     NSString *selectedLocations; //selectedLocations from ListView
+    
+    SPMapAppDelegate * appDelegate;
     
     //Doubles for calculating the map extent to be displayed
     double xmin;
@@ -33,6 +38,13 @@
     
     UIToolbar *toolBar;
     UISearchBar *searchBar;
+    
+    //Overlay for Search Results
+    OverlayViewController *overlayViewController;
+    
+    NSMutableArray *searchResults;
+    BOOL searching;
+	BOOL letUserSelectRow;
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;
@@ -40,6 +52,7 @@
 @property (nonatomic, retain) AGSCalloutTemplate *CalloutTemplate;
 @property (nonatomic, retain) NSString *selectedLocations;
 @property (nonatomic, retain) UIToolbar *toolBar;
+@property (nonatomic, retain) NSMutableArray *searchResults;
 
 - (void) showCategories:(id)sender;
 - (void) showAbout:(id)sender;
@@ -48,5 +61,6 @@
 - (void) setMapExtent;
 - (void) addtoolBar;
 - (void) addsearchBar;
+- (void) searchLocations;
 
 @end

@@ -21,6 +21,7 @@
 @synthesize navigationController=_navigationController;
 @synthesize locations;
 @synthesize categories;
+@synthesize searchArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
@@ -28,6 +29,8 @@
 	locations = [[NSMutableArray alloc] init];
     // instantiate a set to hold category objects
     categories = [[NSMutableSet alloc] init];
+    
+    searchArray = [[NSMutableArray alloc] init];
     
     //Reachability
     [self checkNetwork];
@@ -197,6 +200,7 @@
             
             // add our location object to the locations array and release the resource
 			[locations addObject:aLocation];
+            [searchArray addObject:aLocation.title];
             [aLocation release];
             
 			// find the next sibling element named "location"

@@ -26,6 +26,8 @@
 		0FBC612E135447980042F842 /* TBDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FBC612D135447980042F842 /* TBDetailViewController.xib */; };
 		0FBC613613545B830042F842 /* UnavailableImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FBC613513545B830042F842 /* UnavailableImage.png */; };
 		0FBC6138135460C70042F842 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 0FBC6137135460C70042F842 /* iTunesArtwork */; };
+		8703B9EA1377CA45006D0808 /* OverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8703B9E81377CA44006D0808 /* OverlayViewController.m */; };
+		8703B9EB1377CA45006D0808 /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8703B9E91377CA45006D0808 /* OverlayViewController.xib */; };
 		8705701B13681C980024D62D /* Location.png in Resources */ = {isa = PBXBuildFile; fileRef = 8705701A13681C980024D62D /* Location.png */; };
 		870BDDC51349C98F0040D32D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870BDDC31349C98E0040D32D /* DetailViewController.m */; };
 		870BDDC61349C98F0040D32D /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 870BDDC41349C98F0040D32D /* DetailViewController.xib */; };
@@ -115,6 +117,9 @@
 		0FBC613513545B830042F842 /* UnavailableImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UnavailableImage.png; path = Resources/UnavailableImage.png; sourceTree = "<group>"; };
 		0FBC6137135460C70042F842 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/iTunesArtwork; sourceTree = "<group>"; };
 		0FC747AA1352D1D6008684CB /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		8703B9E71377CA44006D0808 /* OverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayViewController.h; sourceTree = "<group>"; };
+		8703B9E81377CA44006D0808 /* OverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayViewController.m; sourceTree = "<group>"; };
+		8703B9E91377CA45006D0808 /* OverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OverlayViewController.xib; path = SPMap/OverlayViewController.xib; sourceTree = "<group>"; };
 		8705701A13681C980024D62D /* Location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Location.png; path = Resources/Location.png; sourceTree = "<group>"; };
 		870BDDC21349C98E0040D32D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		870BDDC31349C98E0040D32D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
@@ -371,6 +376,8 @@
 				87D5AF89134F5D61006C4412 /* PanoramaViewController.m */,
 				87B1AD3A134B06DF0049DB59 /* AboutViewController.h */,
 				87B1AD3B134B06DF0049DB59 /* AboutViewController.m */,
+				8703B9E71377CA44006D0808 /* OverlayViewController.h */,
+				8703B9E81377CA44006D0808 /* OverlayViewController.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -388,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				87EB6B7C1341BD3E0083A16C /* MapViewController.xib */,
+				8703B9E91377CA45006D0808 /* OverlayViewController.xib */,
 				874C86301341CAC4001D4E4B /* CategoriesViewController.xib */,
 				87A65D25135694B70067B317 /* ListViewController.xib */,
 				870BDDC41349C98F0040D32D /* DetailViewController.xib */,
@@ -483,6 +491,7 @@
 				871EE1761367BEC100E111FC /* Icon@2x.png in Resources */,
 				8705701B13681C980024D62D /* Location.png in Resources */,
 				87D96E051370DC91001C9AF0 /* MainWindow-iPad.xib in Resources */,
+				8703B9EB1377CA45006D0808 /* OverlayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +524,7 @@
 				87B1AD3D134B06DF0049DB59 /* AboutViewController.m in Sources */,
 				87D5AF8B134F5D61006C4412 /* PanoramaViewController.m in Sources */,
 				87A65D26135694B70067B317 /* ListViewController.m in Sources */,
+				8703B9EA1377CA45006D0808 /* OverlayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

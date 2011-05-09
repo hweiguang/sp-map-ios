@@ -20,12 +20,14 @@
     TBXML *tbxml;
     NSMutableArray *locations; //Array for storing all locations from XML
     NSMutableSet *categories; //Set for storing all categories from XML
+    NSMutableArray *searchArray;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 @property (nonatomic, retain) NSMutableArray *locations;
 @property (nonatomic, retain) NSMutableSet *categories;
+@property (nonatomic, retain) NSMutableArray *searchArray;
 @property (nonatomic, retain) id <ASICacheDelegate> downloadCache;
 
 - (void)checkNetwork;
