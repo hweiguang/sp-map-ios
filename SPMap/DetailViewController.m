@@ -31,6 +31,8 @@
 {
     [super viewDidLoad];
     
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
     if (!operationQueue) {
         operationQueue = [[NSOperationQueue alloc] init];
     }

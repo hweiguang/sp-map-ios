@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ArcGIS.h"
 
-@interface MapViewController : UIViewController <AGSMapViewDelegate,CLLocationManagerDelegate> {
+@interface MapViewController : UIViewController <AGSMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate> {
     AGSMapView *_mapView;
     AGSGraphicsLayer *_graphicsLayer;
 	AGSCalloutTemplate *_CalloutTemplate;
@@ -31,21 +31,22 @@
     double lat;
     double lon;
     
-    //Toolbar on iPhone only
-    UIToolbar *toolbar;
+    UIToolbar *toolBar;
+    UISearchBar *searchBar;
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;
 @property (nonatomic, retain) AGSGraphicsLayer *graphicsLayer;
 @property (nonatomic, retain) AGSCalloutTemplate *CalloutTemplate;
 @property (nonatomic, retain) NSString *selectedLocations;
-@property (nonatomic, retain) UIToolbar *toolbar;
+@property (nonatomic, retain) UIToolbar *toolBar;
 
 - (void) showCategories:(id)sender;
 - (void) showAbout:(id)sender;
 - (void) centerUserLocation:(id)sender;
 - (void) loadCallout;
 - (void) setMapExtent;
-- (void) loadToolbar;
+- (void) addtoolBar;
+- (void) addsearchBar;
 
 @end

@@ -31,6 +31,8 @@
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
+    
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 	
 	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"aboutData" ofType:@"html"];
     
