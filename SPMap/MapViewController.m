@@ -10,8 +10,8 @@
 #import "CategoriesViewController.h"
 #import "DetailViewController.h"
 #import "AboutViewController.h"
-#import "SPMapAppDelegate.h"
 #import "Constants.h"
+#import "OverlayViewController.h"
 
 @implementation MapViewController
 
@@ -20,6 +20,7 @@
 @synthesize CalloutTemplate = _CalloutTemplate;
 @synthesize selectedLocations;
 @synthesize toolBar;
+@synthesize searchResults;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -67,7 +68,9 @@
 {
     [super viewDidLoad];
     
-    SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    appDelegate = [UIApplication sharedApplication].delegate;
+    
+	searchResults = [[NSMutableArray alloc] init];
     
     [self addtoolBar];
     [self addsearchBar];
@@ -123,9 +126,11 @@
 
 - (void) addsearchBar {
     
+    searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
     searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0,0,320,44)];
     searchBar.barStyle = UIBarStyleBlack;
-    searchBar.placeholder = @"Search Singapore Polytechnic";
+    searchBar.placeholder = @"Search SP Map";
+    searchBar.delegate = self;
     [searchBar sizeToFit];
     [self.view addSubview:searchBar];
 }
@@ -403,6 +408,95 @@
     [detailViewController release];
 }
 
+- (void) searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar {
+    
+    [searchBar setShowsCancelButton:YES animated:YES];
+	
+    //This method is called again when the user clicks back from teh detail view.
+    //So the overlay is displayed on the results, which is something we do not want to happen.
+    if(searching)
+        return;
+    
+	//Add the overlay view.
+	if(overlayViewController == nil)
+		overlayViewController = [[OverlayViewController alloc] initWithNibName:@"OverlayViewController"
+                                                                        bundle:nil];
+	
+	CGFloat yaxis = self.navigationController.navigationBar.frame.size.height;
+	CGFloat width = self.view.frame.size.width;
+	CGFloat height = self.view.frame.size.height;
+	CGRect frame = CGRectMake(0, yaxis, width, height);
+	overlayViewController.view.frame = frame;	
+	overlayViewController.view.backgroundColor = [UIColor grayColor];
+	overlayViewController.view.alpha = 0.5;
+	
+	//overlayViewController.mapViewController = self;
+	
+	[self.view insertSubview:overlayViewController.view aboveSubview:self.mapView];
+	
+    searching = YES;
+    letUserSelectRow = NO;
+    //self.tableView.scrollEnabled = NO;
+    
+}
+
+- (void) searchBarCancelButtonClicked:(UISearchBar *)theSearchBar {
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+}
+
+- (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    overlayViewController.view.backgroundColor = [UIColor whiteColor];
+    overlayViewController.view.alpha = 1;
+    
+	//Remove all objects first.
+	[searchResults removeAllObjects];
+	
+	if([searchText length] > 0) {
+		searching = YES;
+		letUserSelectRow = YES;
+		//self.tableView.scrollEnabled = YES;
+		[self searchLocations];
+	}
+	else {
+		
+		[self.view insertSubview:overlayViewController.view aboveSubview:self.parentViewController.view];
+		
+		searching = NO;
+		letUserSelectRow = NO;
+		//self.tableView.scrollEnabled = NO;
+	}
+	
+	//[self.tableView reloadData];
+}
+
+- (void) searchBarTextDidEndEditing:(UISearchBar *)theSearchBar {
+    searchBar.text = @"";
+	[overlayViewController.view removeFromSuperview];
+	[overlayViewController release];
+	overlayViewController = nil;
+}
+
+- (void) searchLocations {
+    
+    appDelegate = [UIApplication sharedApplication].delegate;
+    
+    NSString *searchText = searchBar.text;
+    NSMutableArray *searchArray = [[NSMutableArray alloc] initWithArray:appDelegate.searchArray];
+	
+	for (NSString *sTemp in searchArray)
+	{
+		NSRange titleResultsRange = [sTemp rangeOfString:searchText options:NSCaseInsensitiveSearch];
+		
+		if (titleResultsRange.length > 0)
+			[searchResults addObject:sTemp];
+	}
+	
+	[searchArray release];
+	searchArray = nil;
+    DebugLog(@"searchResults%@", [searchResults description]);
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
@@ -412,6 +506,9 @@
     self.mapView = nil;
     self.graphicsLayer = nil;
     self.CalloutTemplate = nil;
+    [overlayViewController release];
+    [toolBar release];
+    [searchBar release];
     [selectedLocations release];
     [locationManager release];
     [super dealloc];
