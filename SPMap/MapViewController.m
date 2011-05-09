@@ -19,7 +19,7 @@
 @synthesize graphicsLayer = _graphicsLayer;
 @synthesize CalloutTemplate = _CalloutTemplate;
 @synthesize selectedLocations;
-@synthesize toolbar;
+@synthesize toolBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,8 +42,7 @@
         [self setMapExtent];
     }
     
-    self.navigationItem.title = @"SP Map";
-    self.navigationItem.hidesBackButton = YES;
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     //Start checking the accuracy of GPS
     locationManager =[[CLLocationManager alloc]init];
@@ -70,7 +69,8 @@
     
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
-    [self loadToolbar];
+    [self addtoolBar];
+    [self addsearchBar];
     
     // Getting locations array from appDelegate
     locations = appDelegate.locations;
@@ -91,10 +91,10 @@
     // Adding esriLogo watermark
     UIImageView *watermarkIV;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 891, 43, 25)];
+        watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 935, 43, 25)];
     }
     else {
-        watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 347, 43, 25)];
+        watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 391, 43, 25)];
     }
     watermarkIV.image = [UIImage imageNamed:@"esriLogo.png"];
     [self.view addSubview:watermarkIV];
@@ -121,17 +121,27 @@
     lon = newLocation.coordinate.longitude;
 }
 
-- (void) loadToolbar {
+- (void) addsearchBar {
     
-    toolbar = [UIToolbar new];
-    toolbar.barStyle = UIBarStyleBlack;
+    searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0,0,320,44)];
+    searchBar.barStyle = UIBarStyleBlack;
+    searchBar.placeholder = @"Search Singapore Polytechnic";
+    [searchBar sizeToFit];
+    [self.view addSubview:searchBar];
+}
+
+- (void) addtoolBar {
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-        toolbar.frame = CGRectMake(0, 372, 320, 44);
+    toolBar = [UIToolbar new];
+    toolBar.barStyle = UIBarStyleBlack;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        toolBar.frame = CGRectMake(0, 416, 320, 44);
+    }
     else
-        toolbar.frame = CGRectMake(0, 916, 768, 44);
+        toolBar.frame = CGRectMake(0, 960, 768, 44);
     
-    [self.view addSubview:toolbar];
+    [self.view addSubview:toolBar];
     
     UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                               target:nil action:nil];
@@ -163,7 +173,7 @@
                       showAboutButtonItem,
                       nil];
     
-    [self.toolbar setItems:items animated:NO];
+    [self.toolBar setItems:items animated:NO];
     [centerUserLocationButtonItem release];
     [fixedItem release];
     [showCategoriesButtonItem release];
@@ -299,13 +309,13 @@
     //loop through all locations and add to graphics layer
     for (int i=0; i<[locations count]; i++)
     {
-        Location *myLocation = [locations objectAtIndex:i];
-        if ([selectedLocations isEqualToString:myLocation.category] || 
-            [selectedLocations isEqualToString:myLocation.title])
+        Location *location = [locations objectAtIndex:i];
+        if ([selectedLocations isEqualToString:location.category] || 
+            [selectedLocations isEqualToString:location.title])
         {
             //Setting the lat and lon from Location class
-            double latitude = [[myLocation lat] doubleValue];
-            double longitude = [[myLocation lon] doubleValue];
+            double latitude = [[location lat] doubleValue];
+            double longitude = [[location lon] doubleValue];
             
             //Adding coordinates to the point
             AGSPoint *pt = [AGSPoint pointWithX:longitude y:latitude spatialReference:self.mapView.spatialReference];
@@ -333,11 +343,11 @@
             marker.hotspot = CGPointMake(-9, -11);
             
             //creating an attribute for the callOuts
-            NSMutableDictionary *attribs = [NSMutableDictionary dictionaryWithObject:myLocation.title forKey:@"title"];
-            [attribs setValue:myLocation.subtitle forKey:@"subtitle"];
-            [attribs setValue:myLocation.description forKey:@"description"];
-            [attribs setValue:myLocation.photos forKey:@"photos"];
-            [attribs setValue:myLocation.panorama forKey:@"panorama"];
+            NSMutableDictionary *attribs = [NSMutableDictionary dictionaryWithObject:location.title forKey:@"title"];
+            [attribs setValue:location.subtitle forKey:@"subtitle"];
+            [attribs setValue:location.description forKey:@"description"];
+            [attribs setValue:location.photos forKey:@"photos"];
+            [attribs setValue:location.panorama forKey:@"panorama"];
             
             //set the title and subtitle of the callout
             self.CalloutTemplate.titleTemplate = @"${title}";
@@ -394,10 +404,7 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        return YES;
-    else
-        return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (void)dealloc

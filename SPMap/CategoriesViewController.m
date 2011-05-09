@@ -24,6 +24,7 @@
 - (void) viewDidLoad {
     
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     // Getting category set from appDelegate
     category = [[NSMutableArray alloc] initWithSet:appDelegate.categories];
     // Sort the array by alphabet

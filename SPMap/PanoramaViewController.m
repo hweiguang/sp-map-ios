@@ -26,6 +26,8 @@
     
     [super viewDidLoad];
     
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
     // Getting Panorama Link
     NSString *panoramalink = [panoramaHostname stringByAppendingString:selectedPanorama];
     
