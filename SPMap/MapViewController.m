@@ -10,8 +10,8 @@
 #import "CategoriesViewController.h"
 #import "DetailViewController.h"
 #import "AboutViewController.h"
-#import "SPMapAppDelegate.h"
 #import "Constants.h"
+#import "OverlayViewController.h"
 
 @implementation MapViewController
 
@@ -19,6 +19,8 @@
 @synthesize graphicsLayer = _graphicsLayer;
 @synthesize CalloutTemplate = _CalloutTemplate;
 @synthesize selectedLocations;
+@synthesize toolBar;
+@synthesize searchResults;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,8 +43,7 @@
         [self setMapExtent];
     }
     
-    self.navigationItem.title = @"SP Map";
-    self.navigationItem.hidesBackButton = YES;
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     //Start checking the accuracy of GPS
     locationManager =[[CLLocationManager alloc]init];
@@ -67,7 +68,12 @@
 {
     [super viewDidLoad];
     
-    SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    appDelegate = [UIApplication sharedApplication].delegate;
+    
+	searchResults = [[NSMutableArray alloc] init];
+    
+    [self addtoolBar];
+    [self addsearchBar];
     
     // Getting locations array from appDelegate
     locations = appDelegate.locations;
@@ -88,10 +94,10 @@
     // Adding esriLogo watermark
     UIImageView *watermarkIV;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 891, 43, 25)];
+        watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 935, 43, 25)];
     }
     else {
-        watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 345, 43, 25)];
+        watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 391, 43, 25)];
     }
     watermarkIV.image = [UIImage imageNamed:@"esriLogo.png"];
     [self.view addSubview:watermarkIV];
@@ -116,6 +122,68 @@
     // Getting the location coordinate
     lat = newLocation.coordinate.latitude;
     lon = newLocation.coordinate.longitude;
+}
+
+- (void) addsearchBar {
+    
+    searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
+    searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0,0,320,44)];
+    searchBar.barStyle = UIBarStyleBlack;
+    searchBar.placeholder = @"Search SP Map";
+    searchBar.delegate = self;
+    [searchBar sizeToFit];
+    [self.view addSubview:searchBar];
+}
+
+- (void) addtoolBar {
+    
+    toolBar = [UIToolbar new];
+    toolBar.barStyle = UIBarStyleBlack;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        toolBar.frame = CGRectMake(0, 416, 320, 44);
+    }
+    else
+        toolBar.frame = CGRectMake(0, 960, 768, 44);
+    
+    [self.view addSubview:toolBar];
+    
+    UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                              target:nil action:nil];
+    
+    UIBarButtonItem *fixedItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                               target:nil action:nil];
+    fixedItem.width = 35; //Setting the width of the spacer
+    
+    UIBarButtonItem *centerUserLocationButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Location.png"]
+                                                                                     style:UIBarButtonItemStylePlain
+                                                                                    target:self
+                                                                                    action:@selector(centerUserLocation:)];
+    
+    UIBarButtonItem *showCategoriesButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Category.png"]
+                                                                                 style:UIBarButtonItemStylePlain
+                                                                                target:self
+                                                                                action:@selector(showCategories:)];
+    
+    UIBarButtonItem *showAboutButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"About.png"]
+                                                                            style:UIBarButtonItemStylePlain
+                                                                           target:self
+                                                                           action:@selector(showAbout:)];
+    
+    NSArray *items = [NSArray arrayWithObjects:
+                      centerUserLocationButtonItem,
+                      fixedItem,
+                      showCategoriesButtonItem,
+                      flexItem,
+                      showAboutButtonItem,
+                      nil];
+    
+    [self.toolBar setItems:items animated:NO];
+    [centerUserLocationButtonItem release];
+    [fixedItem release];
+    [showCategoriesButtonItem release];
+    [flexItem release];
+    [showAboutButtonItem release];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -147,7 +215,7 @@
     [self.mapView zoomToEnvelope:defaultextent animated:NO];
 }
 
-- (IBAction) centerUserLocation {
+- (void) centerUserLocation:(id)sender {
     //Accuracy is more then 100m or no location available
     if (accuracy > 100 || lat == 0 || lon == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
@@ -166,7 +234,7 @@
     }
 }
 
-- (IBAction) showCategories {
+- (void) showCategories:(id)sender {
     
     CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc]initWithNibName:@"CategoriesViewController" 
                                                                                                    bundle:nil];
@@ -181,7 +249,7 @@
     [categoriesViewController release];
 }
 
-- (IBAction) showAbout {
+- (void) showAbout:(id)sender {
     
     AboutViewController *aboutViewController = [[AboutViewController alloc]initWithNibName:@"AboutViewController"
                                                                                     bundle:nil];
@@ -246,13 +314,13 @@
     //loop through all locations and add to graphics layer
     for (int i=0; i<[locations count]; i++)
     {
-        Location *myLocation = [locations objectAtIndex:i];
-        if ([selectedLocations isEqualToString:myLocation.category] || 
-            [selectedLocations isEqualToString:myLocation.title])
+        Location *location = [locations objectAtIndex:i];
+        if ([selectedLocations isEqualToString:location.category] || 
+            [selectedLocations isEqualToString:location.title])
         {
             //Setting the lat and lon from Location class
-            double latitude = [[myLocation lat] doubleValue];
-            double longitude = [[myLocation lon] doubleValue];
+            double latitude = [[location lat] doubleValue];
+            double longitude = [[location lon] doubleValue];
             
             //Adding coordinates to the point
             AGSPoint *pt = [AGSPoint pointWithX:longitude y:latitude spatialReference:self.mapView.spatialReference];
@@ -280,11 +348,11 @@
             marker.hotspot = CGPointMake(-9, -11);
             
             //creating an attribute for the callOuts
-            NSMutableDictionary *attribs = [NSMutableDictionary dictionaryWithObject:myLocation.title forKey:@"title"];
-            [attribs setValue:myLocation.subtitle forKey:@"subtitle"];
-            [attribs setValue:myLocation.description forKey:@"description"];
-            [attribs setValue:myLocation.photos forKey:@"photos"];
-            [attribs setValue:myLocation.panorama forKey:@"panorama"];
+            NSMutableDictionary *attribs = [NSMutableDictionary dictionaryWithObject:location.title forKey:@"title"];
+            [attribs setValue:location.subtitle forKey:@"subtitle"];
+            [attribs setValue:location.description forKey:@"description"];
+            [attribs setValue:location.photos forKey:@"photos"];
+            [attribs setValue:location.panorama forKey:@"panorama"];
             
             //set the title and subtitle of the callout
             self.CalloutTemplate.titleTemplate = @"${title}";
@@ -340,6 +408,76 @@
     [detailViewController release];
 }
 
+- (void) searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar {
+    
+    [searchBar setShowsCancelButton:YES animated:YES];
+    /*
+    //This method is called again when the user clicks back from teh detail view.
+    //So the overlay is displayed on the results, which is something we do not want to happen.
+    if(searching)
+        return;
+    */
+	//Add the overlay view.
+	if(overlayViewController == nil)
+		overlayViewController = [[OverlayViewController alloc] initWithNibName:@"OverlayViewController"
+                                                                        bundle:nil];
+	
+	CGFloat yaxis = self.navigationController.navigationBar.frame.size.height;
+	CGFloat width = self.view.frame.size.width;
+	CGFloat height = self.view.frame.size.height;
+	CGRect frame = CGRectMake(0, yaxis, width, height);
+	overlayViewController.view.frame = frame;	
+	
+	overlayViewController.mapViewController = self;
+	
+	[self.view insertSubview:overlayViewController.view aboveSubview:self.mapView];
+}
+
+- (void) searchBarCancelButtonClicked:(UISearchBar *)theSearchBar {
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+}
+
+- (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+	//Remove all objects first.
+	[searchResults removeAllObjects];
+	
+	if([searchText length] > 0) {
+		[self searchLocations];
+	}
+	else {
+		[self.view insertSubview:overlayViewController.view aboveSubview:self.parentViewController.view];
+	}
+}
+
+- (void) searchBarTextDidEndEditing:(UISearchBar *)theSearchBar {
+    searchBar.text = @"";
+	[overlayViewController.view removeFromSuperview];
+	[overlayViewController release];
+	overlayViewController = nil;
+}
+
+- (void) searchLocations {
+    
+    appDelegate = [UIApplication sharedApplication].delegate;
+    
+    NSString *searchText = searchBar.text;
+    NSMutableArray *searchArray = [[NSMutableArray alloc] initWithArray:appDelegate.searchArray];
+	
+	for (NSString *sTemp in searchArray)
+	{
+		NSRange titleResultsRange = [sTemp rangeOfString:searchText options:NSCaseInsensitiveSearch];
+		
+		if (titleResultsRange.length > 0)
+			[searchResults addObject:sTemp];
+	}
+	
+	[searchArray release];
+	searchArray = nil;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadsearchResults" object:nil];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
@@ -349,6 +487,9 @@
     self.mapView = nil;
     self.graphicsLayer = nil;
     self.CalloutTemplate = nil;
+    [overlayViewController release];
+    [toolBar release];
+    [searchBar release];
     [selectedLocations release];
     [locationManager release];
     [super dealloc];

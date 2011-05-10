@@ -21,6 +21,7 @@
 @synthesize navigationController=_navigationController;
 @synthesize locations;
 @synthesize categories;
+@synthesize searchArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
@@ -28,10 +29,15 @@
 	locations = [[NSMutableArray alloc] init];
     // instantiate a set to hold category objects
     categories = [[NSMutableSet alloc] init];
+    
+    searchArray = [[NSMutableArray alloc] init];
+    
     //Reachability
     [self checkNetwork];
+    
     //Download XML file from server and parse if unavailable parse local copy
     [NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
+    
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;
@@ -194,6 +200,7 @@
             
             // add our location object to the locations array and release the resource
 			[locations addObject:aLocation];
+            [searchArray addObject:aLocation.title];
             [aLocation release];
             
 			// find the next sibling element named "location"
@@ -203,6 +210,7 @@
         // release resources
         [tbxml release];
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCategories" object:nil];
     DebugLog(@"Categories %@", [categories description]);
 }
 

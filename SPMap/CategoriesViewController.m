@@ -29,6 +29,26 @@
     // Sort the array by alphabet
     [category sortUsingSelector:@selector(compare:)];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(reloadCategories) 
+                                                 name:@"reloadCategories" object:nil];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    
+}
+
+- (void) viewDidUnload {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void) reloadCategories {
+    SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    // Getting category set from appDelegate
+    category = [[NSMutableArray alloc] initWithSet:appDelegate.categories];
+    // Sort the array by alphabet
+    [category sortUsingSelector:@selector(compare:)];
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

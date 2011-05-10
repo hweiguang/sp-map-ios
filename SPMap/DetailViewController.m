@@ -14,7 +14,7 @@
 #import "Constants.h"
 
 @implementation DetailViewController
-@synthesize textView,details,activity;
+@synthesize textView,details,activity,toolbar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +31,8 @@
 {
     [super viewDidLoad];
     
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
     if (!operationQueue) {
         operationQueue = [[NSOperationQueue alloc] init];
     }
@@ -42,9 +44,32 @@
     [self.textView setText:description];
     
     [self grabImageInTheBackground];
+    
+    NSString *panorama = [details valueForKey:@"panorama"];
+    
+    if (panorama != nil) {
+        
+        toolbar = [UIToolbar new];
+        toolbar.barStyle = UIBarStyleBlack;
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+            toolbar.frame = CGRectMake(0, 372, 320, 44);
+        else
+            toolbar.frame = CGRectMake(0, 916, 768, 44);
+        
+        [self.view addSubview:toolbar];
+        
+        UIBarButtonItem *showPanoramaButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Panorama.png"]
+                                                                                   style:UIBarButtonItemStylePlain
+                                                                                  target:self
+                                                                                  action:@selector(showPanorama:)];
+        
+        NSArray *items = [NSArray arrayWithObjects:showPanoramaButtonItem,nil];
+        [self.toolbar setItems:items animated:NO];
+    }
 }
 
-- (IBAction)panoramaButtonAction
+- (void)showPanorama:(id)sender
 {
     PanoramaViewController *panoramaViewController = [[PanoramaViewController alloc]
                                                       initWithNibName:@"PanoramaViewController" bundle:nil];

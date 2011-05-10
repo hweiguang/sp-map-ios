@@ -38,6 +38,8 @@
 {
     [super viewDidLoad];
     
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
     //Add a Show All button to display all the pins in this category on the Map
     UIBarButtonItem *showallButton = [[UIBarButtonItem alloc] initWithTitle:@"Show All"
                                                                       style:UIBarButtonItemStyleDone

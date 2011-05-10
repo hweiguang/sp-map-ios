@@ -8,13 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "ArcGIS.h"
+#import "SPMapAppDelegate.h"
 
-@interface MapViewController : UIViewController <AGSMapViewDelegate,CLLocationManagerDelegate> {
+@class OverlayViewController;
+
+@interface MapViewController : UIViewController <AGSMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate> {
     AGSMapView *_mapView;
     AGSGraphicsLayer *_graphicsLayer;
 	AGSCalloutTemplate *_CalloutTemplate;
     NSMutableArray *locations; //Array for storing all locations from XML
     NSString *selectedLocations; //selectedLocations from ListView
+    
+    SPMapAppDelegate * appDelegate;
     
     //Doubles for calculating the map extent to be displayed
     double xmin;
@@ -30,17 +35,30 @@
     double accuracy;
     double lat;
     double lon;
+    
+    UIToolbar *toolBar;
+    UISearchBar *searchBar;
+    
+    //Overlay for Search Results
+    OverlayViewController *overlayViewController;
+    
+    NSMutableArray *searchResults;
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;
 @property (nonatomic, retain) AGSGraphicsLayer *graphicsLayer;
 @property (nonatomic, retain) AGSCalloutTemplate *CalloutTemplate;
 @property (nonatomic, retain) NSString *selectedLocations;
+@property (nonatomic, retain) UIToolbar *toolBar;
+@property (nonatomic, retain) NSMutableArray *searchResults;
 
-- (IBAction) showCategories;
-- (IBAction) showAbout;
-- (IBAction) centerUserLocation;
+- (void) showCategories:(id)sender;
+- (void) showAbout:(id)sender;
+- (void) centerUserLocation:(id)sender;
 - (void) loadCallout;
 - (void) setMapExtent;
+- (void) addtoolBar;
+- (void) addsearchBar;
+- (void) searchLocations;
 
 @end
