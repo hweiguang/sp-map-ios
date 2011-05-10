@@ -203,7 +203,6 @@
 			// find the next sibling element named "location"
 			location = [TBXML nextSiblingNamed:@"location" searchFromElement:location];
         }
-        
         // release resources
         [tbxml release];
     }
@@ -222,6 +221,7 @@
     [downloadCache release];
     [locations release];
     [categories release];
+    [searchArray release];
     [super dealloc];
 }
 

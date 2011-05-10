@@ -57,6 +57,7 @@
         
         NSArray *items = [NSArray arrayWithObjects:showPanoramaButtonItem,nil];
         [self.toolbar setItems:items animated:NO];
+        [showPanoramaButtonItem release];
     }
 }
 

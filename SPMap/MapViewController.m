@@ -500,6 +500,7 @@
     [searchBar release];
     [selectedLocations release];
     [locationManager release];
+    [searchResults release];
     [super dealloc];
 }
 
