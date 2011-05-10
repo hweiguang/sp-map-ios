@@ -151,6 +151,7 @@
     searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
     searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0,0,320,44)];
     searchBar.barStyle = UIBarStyleBlack;
+    searchBar.showsCancelButton = YES;
     searchBar.placeholder = @"Search SP Map";
     searchBar.delegate = self;
     [searchBar sizeToFit];
@@ -411,8 +412,6 @@
 
 - (void) searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar {
     
-    [searchBar setShowsCancelButton:YES animated:YES];
-    
     overlayViewController = [[OverlayViewController alloc] initWithNibName:@"OverlayViewController"
                                                                     bundle:nil];
 	
@@ -436,7 +435,6 @@
 }
 
 - (void) searchBarCancelButtonClicked:(UISearchBar *)theSearchBar {
-    [searchBar setShowsCancelButton:NO animated:YES];
     [searchBar resignFirstResponder];
 }
 

@@ -77,7 +77,6 @@
 {
     mapViewController.selectedLocations = [searchResults objectAtIndex:indexPath.row];
     [mapViewController loadCallout];
-    [mapViewController.searchBar setShowsCancelButton:NO animated:YES];
     [mapViewController.searchBar resignFirstResponder];
 }
 
