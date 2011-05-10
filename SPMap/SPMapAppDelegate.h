@@ -20,7 +20,7 @@
     TBXML *tbxml;
     NSMutableArray *locations; //Array for storing all locations from XML
     NSMutableSet *categories; //Set for storing all categories from XML
-    NSMutableArray *searchArray;
+    NSMutableArray *searchArray; //Array used for searching
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

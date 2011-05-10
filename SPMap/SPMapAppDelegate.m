@@ -25,11 +25,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
-    // instantiate an array to hold location objects
 	locations = [[NSMutableArray alloc] init];
-    // instantiate a set to hold category objects
     categories = [[NSMutableSet alloc] init];
-    
     searchArray = [[NSMutableArray alloc] init];
     
     //Reachability
@@ -210,8 +207,8 @@
         // release resources
         [tbxml release];
     }
+    //Inform CategoriesVC categories array is ready
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCategories" object:nil];
-    DebugLog(@"Categories %@", [categories description]);
 }
 
 - (void)dealloc

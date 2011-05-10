@@ -14,27 +14,11 @@
 @synthesize mapViewController;
 @synthesize searchResults;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)dealloc
 {
     [mapViewController release];
+    [searchResults release];
     [super dealloc];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -42,42 +26,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadsearchResults) name:@"reloadsearchResults" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(reloadsearchResults) 
+                                                 name:@"reloadsearchResults" object:nil];
 }
 
--(void) reloadsearchResults {
-    searchResults = mapViewController.searchResults;
+- (void) reloadsearchResults {
+    searchResults = [[NSMutableArray alloc]initWithArray:mapViewController.searchResults];
+    // Sort the array by alphabet
+    [searchResults sortUsingSelector:@selector(compare:)];
     [self.tableView reloadData];
-    DebugLog(@"searchResults%@",[searchResults description]);
-    DebugLog(@"%i", searchResults.count); // returns a value n
 }
 
-- (void)viewDidUnload
-{
+- (void) viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfRowInTableView:(UITableView *)tableView
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [searchResults count];
 }
@@ -89,7 +62,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
+    }    
     cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
     // Setting accessoryType
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -104,7 +77,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.view removeFromSuperview];
+    mapViewController.selectedLocations = [searchResults objectAtIndex:indexPath.row];
+    [mapViewController loadCallout];
+    [mapViewController.searchBar setShowsCancelButton:NO animated:YES];
+    [mapViewController.searchBar resignFirstResponder];
 }
 
 @end
