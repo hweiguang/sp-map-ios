@@ -16,7 +16,6 @@
 }
 
 @property (nonatomic, retain) MapViewController *mapViewController;
-@property (nonatomic, retain) NSMutableArray *searchResults;
 
 - (void) reloadsearchResults;
 

@@ -12,12 +12,10 @@
 @implementation OverlayViewController
 
 @synthesize mapViewController;
-@synthesize searchResults;
 
 - (void)dealloc
 {
     [mapViewController release];
-    [searchResults release];
     [super dealloc];
 }
 
@@ -32,7 +30,7 @@
 }
 
 - (void) reloadsearchResults {
-    searchResults = [[NSMutableArray alloc]initWithArray:mapViewController.searchResults];
+    searchResults = mapViewController.searchResults;
     // Sort the array by alphabet
     [searchResults sortUsingSelector:@selector(compare:)];
     [self.tableView reloadData];
