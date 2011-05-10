@@ -43,8 +43,6 @@
     OverlayViewController *overlayViewController;
     
     NSMutableArray *searchResults;
-    BOOL searching;
-	BOOL letUserSelectRow;
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;

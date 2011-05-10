@@ -411,12 +411,12 @@
 - (void) searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar {
     
     [searchBar setShowsCancelButton:YES animated:YES];
-	
+    /*
     //This method is called again when the user clicks back from teh detail view.
     //So the overlay is displayed on the results, which is something we do not want to happen.
     if(searching)
         return;
-    
+    */
 	//Add the overlay view.
 	if(overlayViewController == nil)
 		overlayViewController = [[OverlayViewController alloc] initWithNibName:@"OverlayViewController"
@@ -427,17 +427,10 @@
 	CGFloat height = self.view.frame.size.height;
 	CGRect frame = CGRectMake(0, yaxis, width, height);
 	overlayViewController.view.frame = frame;	
-	overlayViewController.view.backgroundColor = [UIColor grayColor];
-	overlayViewController.view.alpha = 0.5;
 	
-	//overlayViewController.mapViewController = self;
+	overlayViewController.mapViewController = self;
 	
 	[self.view insertSubview:overlayViewController.view aboveSubview:self.mapView];
-	
-    searching = YES;
-    letUserSelectRow = NO;
-    //self.tableView.scrollEnabled = NO;
-    
 }
 
 - (void) searchBarCancelButtonClicked:(UISearchBar *)theSearchBar {
@@ -446,28 +439,15 @@
 }
 
 - (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    overlayViewController.view.backgroundColor = [UIColor whiteColor];
-    overlayViewController.view.alpha = 1;
-    
 	//Remove all objects first.
 	[searchResults removeAllObjects];
 	
 	if([searchText length] > 0) {
-		searching = YES;
-		letUserSelectRow = YES;
-		//self.tableView.scrollEnabled = YES;
 		[self searchLocations];
 	}
 	else {
-		
 		[self.view insertSubview:overlayViewController.view aboveSubview:self.parentViewController.view];
-		
-		searching = NO;
-		letUserSelectRow = NO;
-		//self.tableView.scrollEnabled = NO;
 	}
-	
-	//[self.tableView reloadData];
 }
 
 - (void) searchBarTextDidEndEditing:(UISearchBar *)theSearchBar {
@@ -494,7 +474,8 @@
 	
 	[searchArray release];
 	searchArray = nil;
-    DebugLog(@"searchResults%@", [searchResults description]);
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadsearchResults" object:nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

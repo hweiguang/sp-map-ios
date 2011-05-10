@@ -366,6 +366,8 @@
 				87AF1E0A1341BAF700BFD71D /* SPMapAppDelegate.m */,
 				87EB6B7A1341BD3E0083A16C /* MapViewController.h */,
 				87EB6B7B1341BD3E0083A16C /* MapViewController.m */,
+				8703B9E71377CA44006D0808 /* OverlayViewController.h */,
+				8703B9E81377CA44006D0808 /* OverlayViewController.m */,
 				874C862E1341CAC4001D4E4B /* CategoriesViewController.h */,
 				874C862F1341CAC4001D4E4B /* CategoriesViewController.m */,
 				87A65D23135694B70067B317 /* ListViewController.h */,
@@ -376,8 +378,6 @@
 				87D5AF89134F5D61006C4412 /* PanoramaViewController.m */,
 				87B1AD3A134B06DF0049DB59 /* AboutViewController.h */,
 				87B1AD3B134B06DF0049DB59 /* AboutViewController.m */,
-				8703B9E71377CA44006D0808 /* OverlayViewController.h */,
-				8703B9E81377CA44006D0808 /* OverlayViewController.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";

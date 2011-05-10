@@ -210,6 +210,7 @@
         // release resources
         [tbxml release];
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCategories" object:nil];
     DebugLog(@"Categories %@", [categories description]);
 }
 
