@@ -21,15 +21,7 @@
 @synthesize selectedLocations;
 @synthesize toolBar;
 @synthesize searchResults;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize searchBar;
 
 #pragma mark - View lifecycle
 
@@ -40,7 +32,6 @@
     //If user makes a selection in the listView reload the Callouts and reset the mapExtent
     if (selectedLocations != nil) {
         [self loadCallout];
-        [self setMapExtent];
     }
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
@@ -104,37 +95,6 @@
     [watermarkIV release];
 }
 
-- (void)locationManager:(CLLocationManager *)manager 
-    didUpdateToLocation:(CLLocation *)newLocation 
-           fromLocation:(CLLocation *)oldLocation
-{
-    //Checking the accuracy of GPS. display location if accuracy is less then 100 metres
-    accuracy = newLocation.horizontalAccuracy;
-    
-    if (accuracy <= 100) {
-        //Start locating
-        [self.mapView.gps start];
-    } else {
-        //Stop locating
-        [self.mapView.gps stop];
-    }
-    
-    // Getting the location coordinate
-    lat = newLocation.coordinate.latitude;
-    lon = newLocation.coordinate.longitude;
-}
-
-- (void) addsearchBar {
-    
-    searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
-    searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0,0,320,44)];
-    searchBar.barStyle = UIBarStyleBlack;
-    searchBar.placeholder = @"Search SP Map";
-    searchBar.delegate = self;
-    [searchBar sizeToFit];
-    [self.view addSubview:searchBar];
-}
-
 - (void) addtoolBar {
     
     toolBar = [UIToolbar new];
@@ -186,6 +146,39 @@
     [showAboutButtonItem release];
 }
 
+- (void) addsearchBar {
+    
+    searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
+    searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0,0,320,44)];
+    searchBar.barStyle = UIBarStyleBlack;
+    searchBar.placeholder = @"Search SP Map";
+    searchBar.delegate = self;
+    [searchBar sizeToFit];
+    [self.view addSubview:searchBar];
+}
+
+#pragma mark - Locations Services
+
+- (void)locationManager:(CLLocationManager *)manager 
+    didUpdateToLocation:(CLLocation *)newLocation 
+           fromLocation:(CLLocation *)oldLocation
+{
+    //Checking the accuracy of GPS. display location if accuracy is less then 100 metres
+    accuracy = newLocation.horizontalAccuracy;
+    
+    if (accuracy <= 100) {
+        //Start locating
+        [self.mapView.gps start];
+    } else {
+        //Stop locating
+        [self.mapView.gps stop];
+    }
+    
+    // Getting the location coordinate
+    lat = newLocation.coordinate.latitude;
+    lon = newLocation.coordinate.longitude;
+}
+
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     
     //User denied location service
@@ -234,6 +227,41 @@
     }
 }
 
+- (void)mapView:(AGSMapView *) mapView didClickCalloutAccessoryButtonForGraphic:(AGSGraphic *) graphic
+{
+    //Getting the attributes from NSMutableDictionary *attribs in loadCallout
+    NSDictionary *graphicAttributes =[NSDictionary dictionaryWithDictionary:graphic.attributes];
+    
+    //Extracting the key panorama from dictionary
+    NSString *panorama = [graphicAttributes valueForKey:@"panorama"];
+    
+    DetailViewController *detailViewController;
+    
+    // Check if panorama is available or not
+    if (panorama == nil) {
+        detailViewController = [[DetailViewController alloc]
+                                initWithNibName:@"DetailViewController" bundle:nil];
+    }
+    else {
+        detailViewController = [[DetailViewController alloc]
+                                initWithNibName:@"TBDetailViewController" bundle:nil];
+    }
+    
+    UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
+    backbutton.title = @"Back";
+    self.navigationItem.backBarButtonItem = backbutton;
+    [backbutton release];
+    
+    //Transferring graphic.attributes to detailViewController
+    detailViewController.details = [NSDictionary dictionaryWithDictionary:graphic.attributes];
+    
+    // Push the next view
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    [detailViewController release];
+}
+
+#pragma mark - Navigating to other views
+
 - (void) showCategories:(id)sender {
     
     CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc]initWithNibName:@"CategoriesViewController" 
@@ -264,6 +292,8 @@
     [aboutViewController release];
 }
 
+#pragma mark - Setting MapView and CallOuts
+
 - (void) setMapExtent {
     
     // Setting the extend to be used depending on the number of pins to be displayed
@@ -289,7 +319,7 @@
         [extent expandByFactor:1.5];
     }
     
-    [self.mapView zoomToEnvelope:extent animated:NO];
+    [self.mapView zoomToEnvelope:extent animated:YES];
 }
 
 - (void) loadCallout
@@ -373,61 +403,33 @@
     }
     //since we've added graphics, make sure to redraw
     [self.graphicsLayer dataChanged];
+    //Reload the MapExtent
+    [self setMapExtent];
 }
 
-- (void)mapView:(AGSMapView *) mapView didClickCalloutAccessoryButtonForGraphic:(AGSGraphic *) graphic
-{
-    //Getting the attributes from NSMutableDictionary *attribs in loadCallout
-    NSDictionary *graphicAttributes =[NSDictionary dictionaryWithDictionary:graphic.attributes];
-    
-    //Extracting the key panorama from dictionary
-    NSString *panorama = [graphicAttributes valueForKey:@"panorama"];
-    
-    DetailViewController *detailViewController;
-    
-    // Check if panorama is available or not
-    if (panorama == nil) {
-        detailViewController = [[DetailViewController alloc]
-                                initWithNibName:@"DetailViewController" bundle:nil];
-    }
-    else {
-        detailViewController = [[DetailViewController alloc]
-                                initWithNibName:@"TBDetailViewController" bundle:nil];
-    }
-    
-    UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
-    backbutton.title = @"Back";
-    self.navigationItem.backBarButtonItem = backbutton;
-    [backbutton release];
-    
-    //Transferring graphic.attributes to detailViewController
-    detailViewController.details = [NSDictionary dictionaryWithDictionary:graphic.attributes];
-    
-    // Push the next view
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [detailViewController release];
-}
+#pragma mark - Search
 
 - (void) searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar {
     
     [searchBar setShowsCancelButton:YES animated:YES];
-    /*
-    //This method is called again when the user clicks back from teh detail view.
-    //So the overlay is displayed on the results, which is something we do not want to happen.
-    if(searching)
-        return;
-    */
-	//Add the overlay view.
-	if(overlayViewController == nil)
-		overlayViewController = [[OverlayViewController alloc] initWithNibName:@"OverlayViewController"
-                                                                        bundle:nil];
+    
+    overlayViewController = [[OverlayViewController alloc] initWithNibName:@"OverlayViewController"
+                                                                    bundle:nil];
 	
 	CGFloat yaxis = self.navigationController.navigationBar.frame.size.height;
 	CGFloat width = self.view.frame.size.width;
-	CGFloat height = self.view.frame.size.height;
-	CGRect frame = CGRectMake(0, yaxis, width, height);
+    CGFloat height;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        height = (self.view.frame.size.height) - 260;
+    }
+    else {
+        height = (self.view.frame.size.height) - 308;
+    }
+    CGRect frame = CGRectMake(0, yaxis, width, height);
+    
 	overlayViewController.view.frame = frame;	
-	
+    
 	overlayViewController.mapViewController = self;
 	
 	[self.view insertSubview:overlayViewController.view aboveSubview:self.mapView];
@@ -439,19 +441,19 @@
 }
 
 - (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
 	//Remove all objects first.
 	[searchResults removeAllObjects];
-	
-	if([searchText length] > 0) {
+    
+    //Search only when there is text
+	if([searchText length] > 0)
 		[self searchLocations];
-	}
-	else {
-		[self.view insertSubview:overlayViewController.view aboveSubview:self.parentViewController.view];
-	}
 }
 
 - (void) searchBarTextDidEndEditing:(UISearchBar *)theSearchBar {
+    //Clear searchBar text
     searchBar.text = @"";
+    //Remove overlay
 	[overlayViewController.view removeFromSuperview];
 	[overlayViewController release];
 	overlayViewController = nil;
@@ -461,9 +463,12 @@
     
     appDelegate = [UIApplication sharedApplication].delegate;
     
+    //Get text from searchBar
     NSString *searchText = searchBar.text;
+    //Get array to be searched
     NSMutableArray *searchArray = [[NSMutableArray alloc] initWithArray:appDelegate.searchArray];
 	
+    //Search and add to searchResults array
 	for (NSString *sTemp in searchArray)
 	{
 		NSRange titleResultsRange = [sTemp rangeOfString:searchText options:NSCaseInsensitiveSearch];
@@ -475,8 +480,11 @@
 	[searchArray release];
 	searchArray = nil;
     
+    //Inform overlay that results is updated.
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadsearchResults" object:nil];
 }
+
+#pragma mark - Memory and Rotation
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

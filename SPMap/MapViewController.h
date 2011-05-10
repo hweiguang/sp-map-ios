@@ -41,7 +41,7 @@
     
     //Overlay for Search Results
     OverlayViewController *overlayViewController;
-    
+    //Array for storing search results
     NSMutableArray *searchResults;
 }
 
@@ -50,7 +50,9 @@
 @property (nonatomic, retain) AGSCalloutTemplate *CalloutTemplate;
 @property (nonatomic, retain) NSString *selectedLocations;
 @property (nonatomic, retain) UIToolbar *toolBar;
+@property (nonatomic, retain) UISearchBar *searchBar;
 @property (nonatomic, retain) NSMutableArray *searchResults;
+
 
 - (void) showCategories:(id)sender;
 - (void) showAbout:(id)sender;

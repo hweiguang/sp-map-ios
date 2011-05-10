@@ -16,15 +16,6 @@
 @implementation DetailViewController
 @synthesize textView,details,activity,toolbar;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -154,7 +145,7 @@
     [request release];
     [operationQueue cancelAllOperations];
     [operationQueue release];
-    
+    [toolbar release];
     [super dealloc];
 }
 
