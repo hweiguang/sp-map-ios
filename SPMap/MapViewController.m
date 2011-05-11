@@ -325,6 +325,7 @@
 
 - (void) loadCallout
 {
+    DebugLog(@"I'm Called");
     // Remove all graphics if some are created earlier
     [self.graphicsLayer removeAllGraphics];
     // Hide callout
@@ -439,13 +440,12 @@
 }
 
 - (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    
-	//Remove all objects first.
-	[searchResults removeAllObjects];
-    
     //Search only when there is text
-	if([searchText length] > 0)
+	if([searchText length] > 0) {
+        //Remove all objects first.
+        [searchResults removeAllObjects];
 		[self searchLocations];
+    }
 }
 
 - (void) searchBarTextDidEndEditing:(UISearchBar *)theSearchBar {

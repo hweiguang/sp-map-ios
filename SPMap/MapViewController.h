@@ -53,7 +53,6 @@
 @property (nonatomic, retain) UISearchBar *searchBar;
 @property (nonatomic, retain) NSMutableArray *searchResults;
 
-
 - (void) showCategories:(id)sender;
 - (void) showAbout:(id)sender;
 - (void) centerUserLocation:(id)sender;
