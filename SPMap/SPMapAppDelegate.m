@@ -24,7 +24,9 @@
 @synthesize searchArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
+{        
+    XMLLoaded = NO;
+    
 	locations = [[NSMutableArray alloc] init];
     categories = [[NSMutableSet alloc] init];
     searchArray = [[NSMutableArray alloc] init];
@@ -41,7 +43,7 @@
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url 
-{
+{    
     [self.navigationController popToRootViewControllerAnimated:YES];
     
     if (!url) {
@@ -67,9 +69,29 @@
     
     NSString *locationString = [URLString stringByReplacingOccurrencesOfString:@"spmap://" withString:@""];
     
-    DebugLog(@"locationString %@",locationString);
+    MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
     
+    mapViewController.selectedLocations = locationString;
+    
+    if (XMLLoaded == YES) {
+        [mapViewController loadCallout];
+    }
+    else {
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                 selector:@selector(loadCallout) 
+                                                     name:@"XMLLoaded" object:nil];  
+    }
     return YES;
+}
+
+- (void) loadCallout {
+    
+    MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
+    
+    [mapViewController loadCallout];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)checkNetwork {
@@ -240,6 +262,7 @@
     }
     //Inform CategoriesVC categories array is ready
     [[NSNotificationCenter defaultCenter] postNotificationName:@"XMLLoaded" object:nil];
+    XMLLoaded = YES;
 }
 
 - (void)dealloc

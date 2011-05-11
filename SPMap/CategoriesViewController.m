@@ -29,11 +29,6 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
-- (void) viewDidUnload {
-    [super viewDidUnload];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 - (void) reloadCategories {
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     // Getting category set from appDelegate
@@ -41,6 +36,7 @@
     // Sort the array by alphabet
     [category sortUsingSelector:@selector(compare:)];
     [self.tableView reloadData];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

@@ -325,7 +325,6 @@
 
 - (void) loadCallout
 {
-    DebugLog(@"I'm Called");
     // Remove all graphics if some are created earlier
     [self.graphicsLayer removeAllGraphics];
     // Hide callout
