@@ -24,7 +24,7 @@
     // Listen for updates from appDelegate
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(reloadCategories) 
-                                                 name:@"reloadCategories" object:nil];
+                                                 name:@"XMLLoaded" object:nil];
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }

@@ -40,6 +40,38 @@
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url 
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    if (!url) {
+        // The URL is nil. There's nothing more to do.
+        return NO;
+    }
+    
+    NSString *URLString = [url absoluteString];
+    
+    if (!URLString) {
+        // The URL's absoluteString is nil. There's nothing more to do.
+        return NO;
+    }
+    
+    // Your application is defining the new URL type, so you should know the maximum character
+    // count of the URL. Anything longer than what you expect is likely to be dangerous.
+    NSInteger maximumExpectedLength = 25;
+    
+    if ([URLString length] > maximumExpectedLength) {
+        // The URL is longer than we expect. Stop servicing it.
+        return NO;
+    }
+    
+    NSString *locationString = [URLString stringByReplacingOccurrencesOfString:@"spmap://" withString:@""];
+    
+    DebugLog(@"locationString %@",locationString);
+    
+    return YES;
+}
+
 - (void)checkNetwork {
     
     Reachability* wifiReach = [[Reachability reachabilityWithHostName:kReachabilityHostname] retain];
@@ -207,7 +239,7 @@
         [tbxml release];
     }
     //Inform CategoriesVC categories array is ready
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCategories" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"XMLLoaded" object:nil];
 }
 
 - (void)dealloc
