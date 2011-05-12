@@ -48,6 +48,13 @@
     
     if (!url) {
         // The URL is nil. There's nothing more to do.
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
+                                                        message:@"Invalid Location." 
+                                                       delegate:self 
+                                              cancelButtonTitle:nil 
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
         return NO;
     }
     
@@ -55,15 +62,13 @@
     
     if (!URLString) {
         // The URL's absoluteString is nil. There's nothing more to do.
-        return NO;
-    }
-    
-    // Your application is defining the new URL type, so you should know the maximum character
-    // count of the URL. Anything longer than what you expect is likely to be dangerous.
-    NSInteger maximumExpectedLength = 25;
-    
-    if ([URLString length] > maximumExpectedLength) {
-        // The URL is longer than we expect. Stop servicing it.
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
+                                                        message:@"Invalid Location." 
+                                                       delegate:self 
+                                              cancelButtonTitle:nil 
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
         return NO;
     }
     
@@ -114,11 +119,9 @@
             break;
             
         case kReachableViaWWAN:
-            DebugLog(@"Reachable via WWAN");
             break;
             
         case kReachableViaWiFi:
-            DebugLog(@"Reachable via WIFI");
             break;
     }
     
@@ -193,7 +196,6 @@
     {
         // Load and parse the Locations.xml file
         tbxml = [[TBXML tbxmlWithXMLFile:@"Locations.xml"] retain];
-        DebugLog(@"Local XML");
     }
     
     if (hasServerCopy == YES) 
@@ -201,7 +203,6 @@
         NSString *filePath = [downloadCache pathToStoreCachedResponseDataForRequest:request];
         // Load and parse the Locations.xml file
         tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:filePath]] retain];
-        DebugLog(@"Server XML");
     } 
     
 	// Obtain root element

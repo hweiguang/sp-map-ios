@@ -27,8 +27,9 @@
     double xmax;
     double ymax;
     
-    //Integer used to count the number of points to be displayed 
-    int ptcount;
+    int ptcount; //Integer used to count the number of points to be displayed
+    double ptlat; //point latitude
+    double ptlon; //point longitude
     
     //Location Manager used to check the accuracy of the GPS signal and getting the location coordinate
     CLLocationManager *locationManager;
@@ -43,6 +44,8 @@
     OverlayViewController *overlayViewController;
     //Array for storing search results
     NSMutableArray *searchResults;
+    
+    UIImageView *heading;
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;
@@ -61,5 +64,6 @@
 - (void) addtoolBar;
 - (void) addsearchBar;
 - (void) searchLocations;
+- (void) setupLocationManager;
 
 @end
