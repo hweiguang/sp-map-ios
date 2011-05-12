@@ -20,7 +20,9 @@
     TBXML *tbxml;
     NSMutableArray *locations; //Array for storing all locations from XML
     NSMutableSet *categories; //Set for storing all categories from XML
-    NSMutableArray *searchArray;
+    NSMutableArray *searchArray; //Array used for searching
+    
+    BOOL XMLLoaded;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -33,5 +35,6 @@
 - (void)checkNetwork;
 - (void)loadData;
 - (void)loadXML:(BOOL)hasServerCopy;
+- (void)loadCallout;
 
 @end

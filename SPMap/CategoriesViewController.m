@@ -12,16 +12,8 @@
 
 @implementation CategoriesViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void) viewDidLoad {
+    [super viewDidLoad];
     
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     // Getting category set from appDelegate
@@ -29,17 +21,12 @@
     // Sort the array by alphabet
     [category sortUsingSelector:@selector(compare:)];
     
+    // Listen for updates from appDelegate
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(reloadCategories) 
-                                                 name:@"reloadCategories" object:nil];
+                                                 name:@"XMLLoaded" object:nil];
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    
-    
-}
-
-- (void) viewDidUnload {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void) reloadCategories {
@@ -49,6 +36,7 @@
     // Sort the array by alphabet
     [category sortUsingSelector:@selector(compare:)];
     [self.tableView reloadData];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

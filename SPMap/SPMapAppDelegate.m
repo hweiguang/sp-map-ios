@@ -24,12 +24,11 @@
 @synthesize searchArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
-    // instantiate an array to hold location objects
-	locations = [[NSMutableArray alloc] init];
-    // instantiate a set to hold category objects
-    categories = [[NSMutableSet alloc] init];
+{        
+    XMLLoaded = NO;
     
+	locations = [[NSMutableArray alloc] init];
+    categories = [[NSMutableSet alloc] init];
     searchArray = [[NSMutableArray alloc] init];
     
     //Reachability
@@ -41,6 +40,58 @@
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url 
+{    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    if (!url) {
+        // The URL is nil. There's nothing more to do.
+        return NO;
+    }
+    
+    NSString *URLString = [url absoluteString];
+    
+    if (!URLString) {
+        // The URL's absoluteString is nil. There's nothing more to do.
+        return NO;
+    }
+    
+    // Your application is defining the new URL type, so you should know the maximum character
+    // count of the URL. Anything longer than what you expect is likely to be dangerous.
+    NSInteger maximumExpectedLength = 25;
+    
+    if ([URLString length] > maximumExpectedLength) {
+        // The URL is longer than we expect. Stop servicing it.
+        return NO;
+    }
+    
+    NSString *locationString = [URLString stringByReplacingOccurrencesOfString:@"spmap://" withString:@""];
+    
+    MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
+    
+    mapViewController.selectedLocations = locationString;
+    
+    if (XMLLoaded == YES) {
+        [mapViewController loadCallout];
+    }
+    else {
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                 selector:@selector(loadCallout) 
+                                                     name:@"XMLLoaded" object:nil];  
+    }
+    return YES;
+}
+
+- (void) loadCallout {
+    
+    MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
+    
+    [mapViewController loadCallout];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)checkNetwork {
@@ -206,12 +257,12 @@
 			// find the next sibling element named "location"
 			location = [TBXML nextSiblingNamed:@"location" searchFromElement:location];
         }
-        
         // release resources
         [tbxml release];
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCategories" object:nil];
-    DebugLog(@"Categories %@", [categories description]);
+    //Inform CategoriesVC categories array is ready
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"XMLLoaded" object:nil];
+    XMLLoaded = YES;
 }
 
 - (void)dealloc
@@ -225,6 +276,7 @@
     [downloadCache release];
     [locations release];
     [categories release];
+    [searchArray release];
     [super dealloc];
 }
 
