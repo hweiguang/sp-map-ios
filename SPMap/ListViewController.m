@@ -106,6 +106,8 @@
     //Passing the title of the selected Location to the map
     mapViewController.selectedLocations = selectedCategory;
     
+    [mapViewController loadCallout];
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -116,6 +118,8 @@
     
     //Passing the selectedCategory to the map to display all the locations that are in the selected category
     mapViewController.selectedLocations = selectedCategory;
+    
+    [mapViewController loadCallout];
     
     [self.navigationController popToRootViewControllerAnimated:YES];
 }

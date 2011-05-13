@@ -44,26 +44,32 @@
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url 
 {    
+    // Makes sure the user is presented with the MapView
     [self.navigationController popToRootViewControllerAnimated:YES];
     
     if (!url) {
-        // The URL is nil. There's nothing more to do.
+        // The URL is nil.Invalid Location.
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
+                                                        message:@"Invalid Location." 
+                                                       delegate:self 
+                                              cancelButtonTitle:nil 
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
         return NO;
     }
     
     NSString *URLString = [url absoluteString];
     
     if (!URLString) {
-        // The URL's absoluteString is nil. There's nothing more to do.
-        return NO;
-    }
-    
-    // Your application is defining the new URL type, so you should know the maximum character
-    // count of the URL. Anything longer than what you expect is likely to be dangerous.
-    NSInteger maximumExpectedLength = 25;
-    
-    if ([URLString length] > maximumExpectedLength) {
-        // The URL is longer than we expect. Stop servicing it.
+        // The URL's absoluteString is nil. Invalid Location.
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
+                                                        message:@"Invalid Location." 
+                                                       delegate:self 
+                                              cancelButtonTitle:nil 
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
         return NO;
     }
     
@@ -71,13 +77,15 @@
     
     MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
     
+    // Setting selectedLocations in MapView to the string that was passed in
     mapViewController.selectedLocations = locationString;
     
     if (XMLLoaded == YES) {
+        // if XML already loaded, load the callouts in mapview
         [mapViewController loadCallout];
     }
     else {
-        
+        // listen for notification. when XML is loaded loadCallout method will be called.
         [[NSNotificationCenter defaultCenter] addObserver:self 
                                                  selector:@selector(loadCallout) 
                                                      name:@"XMLLoaded" object:nil];  
@@ -114,11 +122,9 @@
             break;
             
         case kReachableViaWWAN:
-            DebugLog(@"Reachable via WWAN");
             break;
             
         case kReachableViaWiFi:
-            DebugLog(@"Reachable via WIFI");
             break;
     }
     
@@ -193,7 +199,6 @@
     {
         // Load and parse the Locations.xml file
         tbxml = [[TBXML tbxmlWithXMLFile:@"Locations.xml"] retain];
-        DebugLog(@"Local XML");
     }
     
     if (hasServerCopy == YES) 
@@ -201,7 +206,6 @@
         NSString *filePath = [downloadCache pathToStoreCachedResponseDataForRequest:request];
         // Load and parse the Locations.xml file
         tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:filePath]] retain];
-        DebugLog(@"Server XML");
     } 
     
 	// Obtain root element
@@ -260,9 +264,9 @@
         // release resources
         [tbxml release];
     }
-    //Inform CategoriesVC categories array is ready
+    // Notification to alert Database is ready
     [[NSNotificationCenter defaultCenter] postNotificationName:@"XMLLoaded" object:nil];
-    XMLLoaded = YES;
+    XMLLoaded = YES; 
 }
 
 - (void)dealloc
