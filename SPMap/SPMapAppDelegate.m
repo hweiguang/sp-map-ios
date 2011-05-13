@@ -44,10 +44,11 @@
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url 
 {    
+    // Makes sure the user is presented with the MapView
     [self.navigationController popToRootViewControllerAnimated:YES];
     
     if (!url) {
-        // The URL is nil. There's nothing more to do.
+        // The URL is nil.Invalid Location.
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
                                                         message:@"Invalid Location." 
                                                        delegate:self 
@@ -61,7 +62,7 @@
     NSString *URLString = [url absoluteString];
     
     if (!URLString) {
-        // The URL's absoluteString is nil. There's nothing more to do.
+        // The URL's absoluteString is nil. Invalid Location.
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
                                                         message:@"Invalid Location." 
                                                        delegate:self 
@@ -76,13 +77,15 @@
     
     MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
     
+    // Setting selectedLocations in MapView to the string that was passed in
     mapViewController.selectedLocations = locationString;
     
     if (XMLLoaded == YES) {
+        // if XML already loaded, load the callouts in mapview
         [mapViewController loadCallout];
     }
     else {
-        
+        // listen for notification. when XML is loaded loadCallout method will be called.
         [[NSNotificationCenter defaultCenter] addObserver:self 
                                                  selector:@selector(loadCallout) 
                                                      name:@"XMLLoaded" object:nil];  
@@ -261,9 +264,9 @@
         // release resources
         [tbxml release];
     }
-    //Inform CategoriesVC categories array is ready
+    // Notification to alert Database is ready
     [[NSNotificationCenter defaultCenter] postNotificationName:@"XMLLoaded" object:nil];
-    XMLLoaded = YES;
+    XMLLoaded = YES; 
 }
 
 - (void)dealloc

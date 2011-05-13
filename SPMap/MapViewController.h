@@ -37,6 +37,7 @@
     double lat;
     double lon;
     
+    // UIBars
     UIToolbar *toolBar;
     UISearchBar *searchBar;
     
@@ -45,7 +46,8 @@
     //Array for storing search results
     NSMutableArray *searchResults;
     
-    UIImageView *heading;
+    BOOL rotateMap; //if YES map will be rotated to user heading
+    UIBarButtonItem *rotateMapButtonItem;
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;
@@ -65,5 +67,6 @@
 - (void) addsearchBar;
 - (void) searchLocations;
 - (void) setupLocationManager;
+- (void) rotateMap:(id)sender;
 
 @end

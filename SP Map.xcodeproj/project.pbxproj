@@ -29,10 +29,11 @@
 		8703B9EA1377CA45006D0808 /* OverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8703B9E81377CA44006D0808 /* OverlayViewController.m */; };
 		8703B9EB1377CA45006D0808 /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8703B9E91377CA45006D0808 /* OverlayViewController.xib */; };
 		8705701B13681C980024D62D /* Location.png in Resources */ = {isa = PBXBuildFile; fileRef = 8705701A13681C980024D62D /* Location.png */; };
-		87075F9E137B7A0300D9046A /* Heading.png in Resources */ = {isa = PBXBuildFile; fileRef = 87075F9D137B7A0300D9046A /* Heading.png */; };
+		87075F9E137B7A0300D9046A /* HeadingOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 87075F9D137B7A0300D9046A /* HeadingOff.png */; };
 		870BDDC51349C98F0040D32D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870BDDC31349C98E0040D32D /* DetailViewController.m */; };
 		870BDDC61349C98F0040D32D /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 870BDDC41349C98F0040D32D /* DetailViewController.xib */; };
 		871EE1761367BEC100E111FC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 871EE1751367BEC100E111FC /* Icon@2x.png */; };
+		8726FCF3137BC2C500B98E5B /* HeadingOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 8726FCF2137BC2C500B98E5B /* HeadingOn.png */; };
 		874C86311341CAC4001D4E4B /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874C862F1341CAC4001D4E4B /* CategoriesViewController.m */; };
 		874C86321341CAC4001D4E4B /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 874C86301341CAC4001D4E4B /* CategoriesViewController.xib */; };
 		875867C7134B0967006BAB6B /* aboutData.html in Resources */ = {isa = PBXBuildFile; fileRef = 875867C6134B0967006BAB6B /* aboutData.html */; };
@@ -122,11 +123,12 @@
 		8703B9E81377CA44006D0808 /* OverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayViewController.m; sourceTree = "<group>"; };
 		8703B9E91377CA45006D0808 /* OverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OverlayViewController.xib; path = SPMap/OverlayViewController.xib; sourceTree = "<group>"; };
 		8705701A13681C980024D62D /* Location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Location.png; path = Resources/Location.png; sourceTree = "<group>"; };
-		87075F9D137B7A0300D9046A /* Heading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Heading.png; path = Resources/Heading.png; sourceTree = "<group>"; };
+		87075F9D137B7A0300D9046A /* HeadingOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeadingOff.png; path = Resources/HeadingOff.png; sourceTree = "<group>"; };
 		870BDDC21349C98E0040D32D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		870BDDC31349C98E0040D32D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		870BDDC41349C98F0040D32D /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailViewController.xib; path = SPMap/DetailViewController.xib; sourceTree = "<group>"; };
 		871EE1751367BEC100E111FC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = "<group>"; };
+		8726FCF2137BC2C500B98E5B /* HeadingOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeadingOn.png; path = Resources/HeadingOn.png; sourceTree = "<group>"; };
 		874C862E1341CAC4001D4E4B /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
 		874C862F1341CAC4001D4E4B /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
 		874C86301341CAC4001D4E4B /* CategoriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoriesViewController.xib; path = SPMap/CategoriesViewController.xib; sourceTree = "<group>"; };
@@ -263,7 +265,8 @@
 				87B1AD2E134B059A0049DB59 /* About.png */,
 				87B1AD2F134B059A0049DB59 /* Category.png */,
 				8705701A13681C980024D62D /* Location.png */,
-				87075F9D137B7A0300D9046A /* Heading.png */,
+				8726FCF2137BC2C500B98E5B /* HeadingOn.png */,
+				87075F9D137B7A0300D9046A /* HeadingOff.png */,
 				87A5ABFC1352A0E10043C395 /* Panorama.png */,
 				87AD5013134B091800E65239 /* SP_logo.jpg */,
 				876C5CD91341CB9A0091A192 /* BluePushpin.png */,
@@ -495,7 +498,8 @@
 				8705701B13681C980024D62D /* Location.png in Resources */,
 				87D96E051370DC91001C9AF0 /* MainWindow-iPad.xib in Resources */,
 				8703B9EB1377CA45006D0808 /* OverlayViewController.xib in Resources */,
-				87075F9E137B7A0300D9046A /* Heading.png in Resources */,
+				87075F9E137B7A0300D9046A /* HeadingOff.png in Resources */,
+				8726FCF3137BC2C500B98E5B /* HeadingOn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
