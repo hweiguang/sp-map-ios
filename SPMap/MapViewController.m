@@ -28,31 +28,22 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    //If user makes a selection in the listView reload the Callouts and reset the mapExtent
-    if (selectedLocations != nil) {
-        [self loadCallout];
-    }
-    
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
     //Start checking the accuracy of GPS
-    locationManager =[[CLLocationManager alloc]init];
-    locationManager.delegate = self;
-    locationManager.distanceFilter =  kCLDistanceFilterNone;
-    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     [locationManager startUpdatingLocation];
-    
+    //Star updating user heading
+    [locationManager startUpdatingHeading];
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
-    
     //Stop location services
     [locationManager stopUpdatingLocation];
+    [locationManager stopUpdatingHeading];
     [self.mapView.gps stop];
-    
-    //Set selectedLocations to nil, if user makes a selection in the listView selectedLocations will be reassigned
-    selectedLocations = nil;
+    //Make sure the map no longer rotates
+    rotateMap = NO;
+    [_mapView setTransform:CGAffineTransformMakeRotation(0)];
+    rotateMapButtonItem.image = [UIImage imageNamed:@"HeadingOff.png"];
 }
 
 - (void)viewDidLoad
@@ -65,6 +56,7 @@
     
     [self addtoolBar];
     [self addsearchBar];
+    [self setupLocationManager];
     
     // Getting locations array from appDelegate
     locations = appDelegate.locations;
@@ -76,6 +68,7 @@
 	AGSTiledMapServiceLayer *tiledLayer = [[AGSTiledMapServiceLayer alloc]
 										   initWithURL:[NSURL URLWithString:kMapServiceURL]];
 	[self.mapView addMapLayer:tiledLayer withName:@"SP Map"];
+    
     [tiledLayer release];
     
     //create and add graphics layer to map
@@ -130,10 +123,17 @@
                                                                            target:self
                                                                            action:@selector(showAbout:)];
     
+    rotateMapButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"HeadingOff.png"]
+                                                           style:UIBarButtonItemStylePlain
+                                                          target:self
+                                                          action:@selector(rotateMap:)];
+    
     NSArray *items = [NSArray arrayWithObjects:
+                      showCategoriesButtonItem,
+                      fixedItem,
                       centerUserLocationButtonItem,
                       fixedItem,
-                      showCategoriesButtonItem,
+                      rotateMapButtonItem,
                       flexItem,
                       showAboutButtonItem,
                       nil];
@@ -144,10 +144,10 @@
     [showCategoriesButtonItem release];
     [flexItem release];
     [showAboutButtonItem release];
+    [rotateMapButtonItem release];
 }
 
 - (void) addsearchBar {
-    
     searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
     searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0,0,320,44)];
     searchBar.barStyle = UIBarStyleBlack;
@@ -159,6 +159,13 @@
 }
 
 #pragma mark - Locations Services
+
+- (void)setupLocationManager {
+    locationManager =[[CLLocationManager alloc]init];
+    locationManager.delegate = self;
+    locationManager.distanceFilter =  kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+}
 
 - (void)locationManager:(CLLocationManager *)manager 
     didUpdateToLocation:(CLLocation *)newLocation 
@@ -180,11 +187,22 @@
     lon = newLocation.coordinate.longitude;
 }
 
+- (void)locationManager:(CLLocationManager*)manager didUpdateHeading:(CLHeading*)newHeading
+{    
+    if (newHeading.headingAccuracy > 0 && rotateMap == YES)
+    {
+        CLLocationDirection trueHeading = newHeading.trueHeading;
+        [_mapView setTransform:CGAffineTransformMakeRotation(trueHeading * M_PI / -180.0)];
+    }
+}
+
+- (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager {
+    return YES;
+}
+
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    
     //User denied location service
     if (status == kCLAuthorizationStatusDenied) {
-        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
                                                         message:@"Please ensure your location service is turned ON in settings." 
                                                        delegate:self 
@@ -192,18 +210,16 @@
                                               otherButtonTitles:@"OK", nil];
         [alert show];
         [alert release];
-        
         return;
     }
 }
 
 - (void)mapViewDidLoad:(AGSMapView *)mapView {
-    
     //Default extent when the map first load
-    AGSEnvelope *defaultextent = [AGSEnvelope envelopeWithXmin:103.777302
-                                                          ymin:1.308708
-                                                          xmax:103.780270
-                                                          ymax:1.312159
+    AGSEnvelope *defaultextent = [AGSEnvelope envelopeWithXmin:103.775713
+                                                          ymin:1.306768
+                                                          xmax:103.781424
+                                                          ymax:1.314663
                                               spatialReference:self.mapView.spatialReference];
     
     [self.mapView zoomToEnvelope:defaultextent animated:NO];
@@ -225,6 +241,33 @@
         //Center at user point
         AGSPoint *pt = [AGSPoint pointWithX:lon y:lat spatialReference:self.mapView.spatialReference];
         [self.mapView centerAtPoint:pt animated:YES];
+    }
+}
+
+- (void) rotateMap:(id)sender {
+    
+    BOOL headingAvailable = [CLLocationManager headingAvailable];
+    
+    if (headingAvailable == NO) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Heading Unavailable" 
+                                                        message:@"Your heading cannot be determined."
+                                                       delegate:self 
+                                              cancelButtonTitle:nil 
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
+        return;
+    }
+    
+    if (rotateMap == YES) {
+        rotateMap = NO;
+        [_mapView setTransform:CGAffineTransformMakeRotation(0)];
+        rotateMapButtonItem.image = [UIImage imageNamed:@"HeadingOff.png"];
+    }
+    else {
+        [self centerUserLocation:(id)sender];
+        rotateMap = YES;
+        rotateMapButtonItem.image = [UIImage imageNamed:@"HeadingOn.png"];
     }
 }
 
@@ -296,20 +339,24 @@
 #pragma mark - Setting MapView and CallOuts
 
 - (void) setMapExtent {
-    
     // Setting the extend to be used depending on the number of pins to be displayed
+    if (ptcount <= 1) {
+        xmin = 103.775713;
+        ymin = 1.306768;
+        xmax = 103.781424;
+        ymax = 1.314663;
+    }
+    
     if (ptcount == 0) {
-        xmin = 103.777302;
-        ymin = 1.308708;
-        xmax = 103.780270;
-        ymax = 1.312159;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
+                                                        message:@"Invalid Location." 
+                                                       delegate:self 
+                                              cancelButtonTitle:nil 
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+        [alert release];
     }
-    if (ptcount == 1) {
-        xmin = 103.774022;
-        ymin = 1.305069;
-        xmax = 103.782409;
-        ymax = 1.314819;
-    }
+    
     //If ptcount is more then 1 the values will be taken from loadCallout
     AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin
                                                                  ymin:ymin
@@ -317,10 +364,16 @@
                                                                  ymax:ymax
                                                      spatialReference:self.mapView.spatialReference];
     if (ptcount > 1) {
-        [extent expandByFactor:1.5];
+        [extent expandByFactor:4.0];
     }
     
-    [self.mapView zoomToEnvelope:extent animated:YES];
+    [self.mapView zoomToEnvelope:extent animated:NO];
+    
+    if (ptcount == 1) {
+        // Center the map at point if only one point is to be displayed
+        AGSPoint *pt = [AGSPoint pointWithX:ptlon y:ptlat spatialReference:self.mapView.spatialReference];
+        [self.mapView centerAtPoint:pt animated:NO];
+    }    
 }
 
 - (void) loadCallout
@@ -350,11 +403,11 @@
             [selectedLocations isEqualToString:location.title])
         {
             //Setting the lat and lon from Location class
-            double latitude = [[location lat] doubleValue];
-            double longitude = [[location lon] doubleValue];
+            ptlat = [[location lat] doubleValue];
+            ptlon = [[location lon] doubleValue];
             
             //Adding coordinates to the point
-            AGSPoint *pt = [AGSPoint pointWithX:longitude y:latitude spatialReference:self.mapView.spatialReference];
+            AGSPoint *pt = [AGSPoint pointWithX:ptlon y:ptlat spatialReference:self.mapView.spatialReference];
             
             ptcount++;
             
@@ -452,8 +505,6 @@
     searchBar.text = @"";
     //Remove overlay
 	[overlayViewController.view removeFromSuperview];
-	[overlayViewController release];
-	overlayViewController = nil;
 }
 
 - (void) searchLocations {

@@ -22,7 +22,7 @@
     NSMutableSet *categories; //Set for storing all categories from XML
     NSMutableArray *searchArray; //Array used for searching
     
-    BOOL XMLLoaded;
+    BOOL XMLLoaded; //XML status. YES for loaded, NO when not loaded
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

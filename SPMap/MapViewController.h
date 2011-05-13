@@ -27,8 +27,9 @@
     double xmax;
     double ymax;
     
-    //Integer used to count the number of points to be displayed 
-    int ptcount;
+    int ptcount; //Integer used to count the number of points to be displayed
+    double ptlat; //point latitude
+    double ptlon; //point longitude
     
     //Location Manager used to check the accuracy of the GPS signal and getting the location coordinate
     CLLocationManager *locationManager;
@@ -36,6 +37,7 @@
     double lat;
     double lon;
     
+    // UIBars
     UIToolbar *toolBar;
     UISearchBar *searchBar;
     
@@ -43,6 +45,9 @@
     OverlayViewController *overlayViewController;
     //Array for storing search results
     NSMutableArray *searchResults;
+    
+    BOOL rotateMap; //if YES map will be rotated to user heading
+    UIBarButtonItem *rotateMapButtonItem;
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;
@@ -61,5 +66,7 @@
 - (void) addtoolBar;
 - (void) addsearchBar;
 - (void) searchLocations;
+- (void) setupLocationManager;
+- (void) rotateMap:(id)sender;
 
 @end
