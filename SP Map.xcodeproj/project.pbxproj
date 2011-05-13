@@ -50,6 +50,7 @@
 		877976B01352EFB100D389CC /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 877976AD1352EFB100D389CC /* Default-Portrait~ipad.png */; };
 		877976B11352EFB100D389CC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 877976AE1352EFB100D389CC /* Default.png */; };
 		877976B21352EFB100D389CC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 877976AF1352EFB100D389CC /* Default@2x.png */; };
+		878ACCA6137CD63100D23131 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 878ACCA5137CD63100D23131 /* CoreText.framework */; };
 		878F4BCD135D26A9000B6C59 /* Locations.xml in Resources */ = {isa = PBXBuildFile; fileRef = 878F4BCC135D26A9000B6C59 /* Locations.xml */; };
 		87A5ABFD1352A0E10043C395 /* Panorama.png in Resources */ = {isa = PBXBuildFile; fileRef = 87A5ABFC1352A0E10043C395 /* Panorama.png */; };
 		87A65D26135694B70067B317 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A65D24135694B70067B317 /* ListViewController.m */; };
@@ -149,6 +150,7 @@
 		877976AD1352EFB100D389CC /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "Resources/Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		877976AE1352EFB100D389CC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		877976AF1352EFB100D389CC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
+		878ACCA5137CD63100D23131 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		878F4BCC135D26A9000B6C59 /* Locations.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Locations.xml; path = Resources/Locations.xml; sourceTree = "<group>"; };
 		87A5ABFC1352A0E10043C395 /* Panorama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Panorama.png; path = Resources/Panorama.png; sourceTree = "<group>"; };
 		87A65D23135694B70067B317 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				0F28584913497FED00BC9B70 /* CFNetwork.framework in Frameworks */,
 				876542BC1341C4A200387B45 /* CoreLocation.framework in Frameworks */,
 				876542C01341C4AB00387B45 /* QuartzCore.framework in Frameworks */,
+				878ACCA6137CD63100D23131 /* CoreText.framework in Frameworks */,
 				0F2858521349817A00BC9B70 /* libxml2.2.7.3.dylib in Frameworks */,
 				0F2858501349805900BC9B70 /* libz.1.2.3.dylib in Frameworks */,
 				87F2AC6A1341C67A004A851C /* libz.dylib in Frameworks */,
@@ -319,6 +322,7 @@
 		87AF1DF91341BAF700BFD71D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				878ACCA5137CD63100D23131 /* CoreText.framework */,
 				87AF1DFC1341BAF700BFD71D /* Foundation.framework */,
 				87AF1DFA1341BAF700BFD71D /* UIKit.framework */,
 				0F28584813497FEC00BC9B70 /* CFNetwork.framework */,

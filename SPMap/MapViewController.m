@@ -62,7 +62,7 @@
     locations = appDelegate.locations;
     
     //set map view delegate
-	self.mapView.mapViewDelegate = self;
+    self.mapView.mapViewDelegate = self;
     
     //create and add a base layer to map
 	AGSTiledMapServiceLayer *tiledLayer = [[AGSTiledMapServiceLayer alloc]

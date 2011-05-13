@@ -14,9 +14,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "87AF1DF51341BAF700BFD71D"
-               BuildableName = "SPMap.app"
-               BlueprintName = "SPMap"
-               ReferencedContainer = "container:SPMap.xcodeproj">
+               BuildableName = "SP Map.app"
+               BlueprintName = "SP Map"
+               ReferencedContainer = "container:SP Map.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -41,9 +41,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "87AF1DF51341BAF700BFD71D"
-            BuildableName = "SPMap.app"
-            BlueprintName = "SPMap"
-            ReferencedContainer = "container:SPMap.xcodeproj">
+            BuildableName = "SP Map.app"
+            BlueprintName = "SP Map"
+            ReferencedContainer = "container:SP Map.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -60,9 +60,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "87AF1DF51341BAF700BFD71D"
-            BuildableName = "SPMap.app"
-            BlueprintName = "SPMap"
-            ReferencedContainer = "container:SPMap.xcodeproj">
+            BuildableName = "SP Map.app"
+            BlueprintName = "SP Map"
+            ReferencedContainer = "container:SP Map.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
