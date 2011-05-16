@@ -17,7 +17,7 @@
     AGSGraphicsLayer *_graphicsLayer;
 	AGSCalloutTemplate *_CalloutTemplate;
     NSMutableArray *locations; //Array for storing all locations from XML
-    NSString *selectedLocations; //selectedLocations from ListView
+    NSString *selectedLocations; //selectedLocations from other Views
     
     SPMapAppDelegate * appDelegate;
     
@@ -47,7 +47,10 @@
     NSMutableArray *searchResults;
     
     BOOL rotateMap; //if YES map will be rotated to user heading
-    UIBarButtonItem *rotateMapButtonItem;
+    UIButton *rotateMapButtonItem;
+    //Heading icon for UIBarButtonItem rotateMapBarButtonItem
+    UIImage *HeadingOffImage;
+    UIImage *HeadingOnImage;
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;

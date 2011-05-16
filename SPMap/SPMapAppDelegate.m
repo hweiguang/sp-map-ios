@@ -98,12 +98,11 @@
     MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
     
     [mapViewController loadCallout];
-    
+    // Stop listening for notifications
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)checkNetwork {
-    
     Reachability* wifiReach = [[Reachability reachabilityWithHostName:kReachabilityHostname] retain];
     NetworkStatus netStatus = [wifiReach currentReachabilityStatus];
     
@@ -120,14 +119,11 @@
             [alert release];
         }
             break;
-            
         case kReachableViaWWAN:
             break;
-            
         case kReachableViaWiFi:
             break;
     }
-    
     [wifiReach release];
 }
 

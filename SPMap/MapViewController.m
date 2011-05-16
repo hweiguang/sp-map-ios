@@ -44,7 +44,7 @@
     //Make sure the map no longer rotates
     rotateMap = NO;
     [_mapView setTransform:CGAffineTransformMakeRotation(0)];
-    rotateMapButtonItem.image = [UIImage imageNamed:@"HeadingOff.png"];
+    [rotateMapButtonItem setImage:HeadingOffImage forState:UIControlStateNormal];
 }
 
 - (void)viewDidLoad
@@ -124,17 +124,25 @@
                                                                            target:self
                                                                            action:@selector(showAbout:)];
     
-    rotateMapButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"HeadingOff.png"]
-                                                           style:UIBarButtonItemStylePlain
-                                                          target:self
-                                                          action:@selector(rotateMap:)];
+    //load the Heading icon for UIBarButtonItem rotateMapBarButtonItem
+    HeadingOffImage = [UIImage imageNamed:@"HeadingOff.png"];
+    HeadingOnImage = [UIImage imageNamed:@"HeadingOn.png"];
+    
+    rotateMapButtonItem = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rotateMapButtonItem setImage:HeadingOffImage forState:UIControlStateNormal];
+    rotateMapButtonItem.frame = CGRectMake(0, 0, HeadingOffImage.size.width, HeadingOffImage.size.height);
+    [rotateMapButtonItem addTarget:self action:@selector(rotateMap:) forControlEvents:UIControlEventTouchUpInside];
+	
+    //creating a UIBarButtonItem with the rotateMapButtonItem as a custom view
+    UIBarButtonItem *rotateMapBarButtonItem = [[UIBarButtonItem alloc]init];
+    rotateMapBarButtonItem.customView = rotateMapButtonItem;
     
     NSArray *items = [NSArray arrayWithObjects:
                       showCategoriesButtonItem,
                       fixedItem,
                       centerUserLocationButtonItem,
                       fixedItem,
-                      rotateMapButtonItem,
+                      rotateMapBarButtonItem,
                       flexItem,
                       showAboutButtonItem,
                       nil];
@@ -145,7 +153,7 @@
     [showCategoriesButtonItem release];
     [flexItem release];
     [showAboutButtonItem release];
-    [rotateMapButtonItem release];
+    [rotateMapBarButtonItem release];
 }
 
 - (void) addsearchBar {
@@ -263,12 +271,12 @@
     if (rotateMap == YES) {
         rotateMap = NO;
         [_mapView setTransform:CGAffineTransformMakeRotation(0)];
-        rotateMapButtonItem.image = [UIImage imageNamed:@"HeadingOff.png"];
+        [rotateMapButtonItem setImage:HeadingOffImage forState:UIControlStateNormal];
     }
     else {
         [self centerUserLocation:(id)sender];
         rotateMap = YES;
-        rotateMapButtonItem.image = [UIImage imageNamed:@"HeadingOn.png"];
+        [rotateMapButtonItem setImage:HeadingOnImage forState:UIControlStateNormal];
     }
 }
 
