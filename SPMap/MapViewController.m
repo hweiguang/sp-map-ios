@@ -150,11 +150,11 @@
 - (void) addsearchBar {
     searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
     searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0,0,320,44)];
+    [searchBar sizeToFit];
     searchBar.barStyle = UIBarStyleBlack;
     searchBar.showsCancelButton = YES;
     searchBar.placeholder = @"Search SP Map";
     searchBar.delegate = self;
-    [searchBar sizeToFit];
     [self.view addSubview:searchBar];
 }
 
@@ -229,7 +229,7 @@
     //Accuracy is more then 100m or no location available
     if (accuracy > 100 || lat == 0 || lon == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
-                                                        message:@"Your location cannot be determined at this moment. Please try again later." 
+                                                        message:@"Your location cannot be determined at this moment. Please make sure you are outdoor with good GPS signal." 
                                                        delegate:self 
                                               cancelButtonTitle:nil 
                                               otherButtonTitles:@"OK", nil];

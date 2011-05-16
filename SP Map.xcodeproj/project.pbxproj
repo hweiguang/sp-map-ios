@@ -67,6 +67,7 @@
 		87B1AD31134B059A0049DB59 /* Category.png in Resources */ = {isa = PBXBuildFile; fileRef = 87B1AD2F134B059A0049DB59 /* Category.png */; };
 		87B1AD3D134B06DF0049DB59 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B1AD3B134B06DF0049DB59 /* AboutViewController.m */; };
 		87B1AD3E134B06DF0049DB59 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B1AD3C134B06DF0049DB59 /* AboutViewController.xib */; };
+		87C517801380C4A00008ADD1 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87C5177F1380C4A00008ADD1 /* MapViewController.xib */; };
 		87CE3D00134EFAA100621C57 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CE3CF8134EFAA100621C57 /* Icon-72.png */; };
 		87CE3D01134EFAA100621C57 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CE3CF9134EFAA100621C57 /* Icon-Small-50.png */; };
 		87CE3D02134EFAA100621C57 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CE3CFA134EFAA100621C57 /* Icon-Small.png */; };
@@ -78,7 +79,6 @@
 		87D858FE1352EC4400AA7ACB /* esriLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D858FC1352EC4400AA7ACB /* esriLogo@2x.png */; };
 		87D96E051370DC91001C9AF0 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D96E031370DC91001C9AF0 /* MainWindow-iPad.xib */; };
 		87EB6B7D1341BD3E0083A16C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EB6B7B1341BD3E0083A16C /* MapViewController.m */; };
-		87EB6B7E1341BD3E0083A16C /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87EB6B7C1341BD3E0083A16C /* MapViewController.xib */; };
 		87F2AC6A1341C67A004A851C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F2AC691341C67A004A851C /* libz.dylib */; };
 		87F990A31369608B001ACC86 /* libArcGIS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F990A21369608B001ACC86 /* libArcGIS.a */; };
 /* End PBXBuildFile section */
@@ -173,6 +173,7 @@
 		87B1AD3A134B06DF0049DB59 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		87B1AD3B134B06DF0049DB59 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		87B1AD3C134B06DF0049DB59 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutViewController.xib; path = SPMap/AboutViewController.xib; sourceTree = "<group>"; };
+		87C5177F1380C4A00008ADD1 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = SPMap/MapViewController.xib; sourceTree = "<group>"; };
 		87CE3CF8134EFAA100621C57 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/Icon-72.png"; sourceTree = "<group>"; };
 		87CE3CF9134EFAA100621C57 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Resources/Icon-Small-50.png"; sourceTree = "<group>"; };
 		87CE3CFA134EFAA100621C57 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Resources/Icon-Small.png"; sourceTree = "<group>"; };
@@ -186,7 +187,6 @@
 		87D96E041370DC91001C9AF0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "SPMap/iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		87EB6B7A1341BD3E0083A16C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		87EB6B7B1341BD3E0083A16C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		87EB6B7C1341BD3E0083A16C /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = SPMap/MapViewController.xib; sourceTree = "<group>"; };
 		87F2AC691341C67A004A851C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		87F990A21369608B001ACC86 /* libArcGIS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libArcGIS.a; path = ../../../Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib/libArcGIS.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -404,7 +404,7 @@
 		87EB6B7F1341BD4F0083A16C /* XIB Files */ = {
 			isa = PBXGroup;
 			children = (
-				87EB6B7C1341BD3E0083A16C /* MapViewController.xib */,
+				87C5177F1380C4A00008ADD1 /* MapViewController.xib */,
 				8703B9E91377CA45006D0808 /* OverlayViewController.xib */,
 				874C86301341CAC4001D4E4B /* CategoriesViewController.xib */,
 				87A65D25135694B70067B317 /* ListViewController.xib */,
@@ -468,7 +468,6 @@
 			files = (
 				87AF1E051341BAF700BFD71D /* InfoPlist.strings in Resources */,
 				87AF1E0E1341BAF700BFD71D /* MainWindow.xib in Resources */,
-				87EB6B7E1341BD3E0083A16C /* MapViewController.xib in Resources */,
 				874C86321341CAC4001D4E4B /* CategoriesViewController.xib in Resources */,
 				876C5CDF1341CB9A0091A192 /* BluePushpin.png in Resources */,
 				876C5CE01341CB9A0091A192 /* GpsDisplay.png in Resources */,
@@ -504,6 +503,7 @@
 				8703B9EB1377CA45006D0808 /* OverlayViewController.xib in Resources */,
 				87075F9E137B7A0300D9046A /* HeadingOff.png in Resources */,
 				8726FCF3137BC2C500B98E5B /* HeadingOn.png in Resources */,
+				87C517801380C4A00008ADD1 /* MapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
