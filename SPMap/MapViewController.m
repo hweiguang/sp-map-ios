@@ -36,6 +36,7 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
+    selectedLocations = nil;
     //Stop location services
     [locationManager stopUpdatingLocation];
     [locationManager stopUpdatingHeading];
@@ -465,6 +466,9 @@
 
 - (void) searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar {
     
+    if (selectedLocations != nil) {
+        selectedLocations = nil;
+    }
     overlayViewController = [[OverlayViewController alloc] initWithNibName:@"OverlayViewController"
                                                                     bundle:nil];
 	
