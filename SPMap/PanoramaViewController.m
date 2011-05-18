@@ -35,24 +35,37 @@
 }
 
 - (void) loading {
-	
 	if (!webView.loading)
 		[activity stopAnimating];
 	else
 		[activity startAnimating];
-	
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self release];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [self release];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    if ([webView isLoading])
+        [webView stopLoading];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
     [webView release];
     [activity release];
     [selectedPanorama release];
     [super dealloc];
 }
-
 
 @end
