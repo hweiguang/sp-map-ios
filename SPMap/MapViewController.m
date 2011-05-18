@@ -49,8 +49,6 @@
     
     appDelegate = [UIApplication sharedApplication].delegate;
     
-	searchResults = [[NSMutableArray alloc] init];
-    
     [self addtoolBar];
     [self addsearchBar];
     [self setupLocationManager];
@@ -65,7 +63,6 @@
 	AGSTiledMapServiceLayer *tiledLayer = [[AGSTiledMapServiceLayer alloc]
 										   initWithURL:[NSURL URLWithString:kMapServiceURL]];
 	[self.mapView addMapLayer:tiledLayer withName:@"SP Map"];
-    
     [tiledLayer release];
     
     //create and add graphics layer to map
@@ -195,17 +192,17 @@
 {    
     if (newHeading.headingAccuracy > 0 && rotateMap == YES)
     {
-        CLLocationDirection trueHeading = newHeading.trueHeading;
-        [_mapView setTransform:CGAffineTransformMakeRotation(trueHeading * M_PI / -180.0)];
+        CLLocationDirection trueHeading = newHeading.trueHeading;        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:1.0];
+        CGAffineTransform transform = CGAffineTransformMakeRotation(trueHeading * M_PI / -180.0);
+        _mapView.transform = transform;
+        [UIView commitAnimations];	
     }
 }
 
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager {
-    if (rotateMap == NO) {
-        return NO;
-    }
-    else
-        return YES;
+    return YES;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -229,7 +226,6 @@
                                                           xmax:103.781424
                                                           ymax:1.314663
                                               spatialReference:self.mapView.spatialReference];
-    
     [self.mapView zoomToEnvelope:defaultextent animated:NO];
 }
 
@@ -266,15 +262,20 @@
         [alert release];
         return;
     }
-    
+    //if map is rotating, stop rotating
     if (rotateMap == YES) {
-        [_mapView setTransform:CGAffineTransformMakeRotation(0)];
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:1.0];
+        CGAffineTransform transform = CGAffineTransformMakeRotation(0);
+        _mapView.transform = transform;
+        [UIView commitAnimations];	
         rotateMap = NO;
     }
     else {
         [self centerUserLocation:(id)sender];
         rotateMap = YES;
     }
+    //toggle rotateMapButtonItem state
     rotateMapButtonItem.selected = !rotateMapButtonItem.selected;
 }
 
@@ -371,7 +372,7 @@
                                                                  ymax:ymax
                                                      spatialReference:self.mapView.spatialReference];
     if (ptcount > 1) {
-        [extent expandByFactor:4.0];
+        [extent expandByFactor:3.5];
     }
     
     [self.mapView zoomToEnvelope:extent animated:NO];
@@ -520,6 +521,9 @@
 - (void) searchLocations {
     
     appDelegate = [UIApplication sharedApplication].delegate;
+    
+    if (searchResults == nil)
+    searchResults = [[NSMutableArray alloc] init];
     
     //Get text from searchBar
     NSString *searchText = searchBar.text;
