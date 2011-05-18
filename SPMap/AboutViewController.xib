@@ -46,14 +46,14 @@
 					<object class="IBUIImageView" id="325050749">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">293</int>
-						<string key="NSFrame">{{90, 16}, {140, 110}}</string>
+						<string key="NSFrame">{{70, 0}, {180, 85}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">SP_logo.jpg</string>
+							<string key="NSResourceName">SP_logo.png</string>
 						</object>
 					</object>
 					<object class="IBUIWebView" id="408345544">
@@ -226,8 +226,8 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">SP_logo.jpg</string>
-			<string key="NS.object.0">{140, 110}</string>
+			<string key="NS.key.0">SP_logo.png</string>
+			<string key="NS.object.0">{190, 85}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">301</string>
 	</data>

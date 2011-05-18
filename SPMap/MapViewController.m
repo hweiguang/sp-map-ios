@@ -41,10 +41,6 @@
     [locationManager stopUpdatingLocation];
     [locationManager stopUpdatingHeading];
     [self.mapView.gps stop];
-    //Make sure the map no longer rotates
-    rotateMap = NO;
-    [_mapView setTransform:CGAffineTransformMakeRotation(0)];
-    [rotateMapButtonItem setImage:HeadingOffImage forState:UIControlStateNormal];
 }
 
 - (void)viewDidLoad
@@ -123,13 +119,13 @@
                                                                             style:UIBarButtonItemStylePlain
                                                                            target:self
                                                                            action:@selector(showAbout:)];
-    
     //load the Heading icon for UIBarButtonItem rotateMapBarButtonItem
-    HeadingOffImage = [UIImage imageNamed:@"HeadingOff.png"];
-    HeadingOnImage = [UIImage imageNamed:@"HeadingOn.png"];
+    UIImage *HeadingOffImage = [UIImage imageNamed:@"HeadingOff.png"];
+    UIImage *HeadingOnImage = [UIImage imageNamed:@"HeadingOn.png"];
     
     rotateMapButtonItem = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rotateMapButtonItem setImage:HeadingOffImage forState:UIControlStateNormal];
+    [rotateMapButtonItem setImage:HeadingOffImage forState:!UIControlStateSelected];
+    [rotateMapButtonItem setImage:HeadingOnImage forState:UIControlStateSelected];
     rotateMapButtonItem.frame = CGRectMake(0, 0, HeadingOffImage.size.width, HeadingOffImage.size.height);
     [rotateMapButtonItem addTarget:self action:@selector(rotateMap:) forControlEvents:UIControlEventTouchUpInside];
 	
@@ -173,7 +169,7 @@
     locationManager =[[CLLocationManager alloc]init];
     locationManager.delegate = self;
     locationManager.distanceFilter =  kCLDistanceFilterNone;
-    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 }
 
 - (void)locationManager:(CLLocationManager *)manager 
@@ -184,13 +180,12 @@
     accuracy = newLocation.horizontalAccuracy;
     
     if (accuracy <= 100) {
-        //Start locating
+        //Display user location
         [self.mapView.gps start];
     } else {
-        //Stop locating
+        //Hide user location
         [self.mapView.gps stop];
     }
-    
     // Getting the location coordinate
     lat = newLocation.coordinate.latitude;
     lon = newLocation.coordinate.longitude;
@@ -206,7 +201,11 @@
 }
 
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager {
-    return YES;
+    if (rotateMap == NO) {
+        return NO;
+    }
+    else
+        return YES;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -269,15 +268,14 @@
     }
     
     if (rotateMap == YES) {
-        rotateMap = NO;
         [_mapView setTransform:CGAffineTransformMakeRotation(0)];
-        [rotateMapButtonItem setImage:HeadingOffImage forState:UIControlStateNormal];
+        rotateMap = NO;
     }
     else {
         [self centerUserLocation:(id)sender];
         rotateMap = YES;
-        [rotateMapButtonItem setImage:HeadingOnImage forState:UIControlStateNormal];
     }
+    rotateMapButtonItem.selected = !rotateMapButtonItem.selected;
 }
 
 - (void)mapView:(AGSMapView *) mapView didClickCalloutAccessoryButtonForGraphic:(AGSGraphic *) graphic
@@ -386,7 +384,7 @@
 }
 
 - (void) loadCallout
-{
+{    
     // Remove all graphics if some are created earlier
     [self.graphicsLayer removeAllGraphics];
     // Hide callout

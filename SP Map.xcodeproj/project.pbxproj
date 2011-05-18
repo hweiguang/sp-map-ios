@@ -33,6 +33,7 @@
 		870BDDC51349C98F0040D32D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870BDDC31349C98E0040D32D /* DetailViewController.m */; };
 		870BDDC61349C98F0040D32D /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 870BDDC41349C98F0040D32D /* DetailViewController.xib */; };
 		871EE1761367BEC100E111FC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 871EE1751367BEC100E111FC /* Icon@2x.png */; };
+		872215CD13812AC600C0704C /* SP_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 872215CC13812AC600C0704C /* SP_logo.png */; };
 		8726FCF3137BC2C500B98E5B /* HeadingOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 8726FCF2137BC2C500B98E5B /* HeadingOn.png */; };
 		874C86311341CAC4001D4E4B /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874C862F1341CAC4001D4E4B /* CategoriesViewController.m */; };
 		874C86321341CAC4001D4E4B /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 874C86301341CAC4001D4E4B /* CategoriesViewController.xib */; };
@@ -55,7 +56,6 @@
 		87A5ABFD1352A0E10043C395 /* Panorama.png in Resources */ = {isa = PBXBuildFile; fileRef = 87A5ABFC1352A0E10043C395 /* Panorama.png */; };
 		87A65D26135694B70067B317 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A65D24135694B70067B317 /* ListViewController.m */; };
 		87A65D27135694B70067B317 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A65D25135694B70067B317 /* ListViewController.xib */; };
-		87AD5014134B091800E65239 /* SP_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87AD5013134B091800E65239 /* SP_logo.jpg */; };
 		87AF1DFB1341BAF700BFD71D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87AF1DFA1341BAF700BFD71D /* UIKit.framework */; };
 		87AF1DFD1341BAF700BFD71D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87AF1DFC1341BAF700BFD71D /* Foundation.framework */; };
 		87AF1DFF1341BAF700BFD71D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87AF1DFE1341BAF700BFD71D /* CoreGraphics.framework */; };
@@ -129,6 +129,7 @@
 		870BDDC31349C98E0040D32D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		870BDDC41349C98F0040D32D /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailViewController.xib; path = SPMap/DetailViewController.xib; sourceTree = "<group>"; };
 		871EE1751367BEC100E111FC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = "<group>"; };
+		872215CC13812AC600C0704C /* SP_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SP_logo.png; path = Resources/SP_logo.png; sourceTree = "<group>"; };
 		8726FCF2137BC2C500B98E5B /* HeadingOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeadingOn.png; path = Resources/HeadingOn.png; sourceTree = "<group>"; };
 		874C862E1341CAC4001D4E4B /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
 		874C862F1341CAC4001D4E4B /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
@@ -156,7 +157,6 @@
 		87A65D23135694B70067B317 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		87A65D24135694B70067B317 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		87A65D25135694B70067B317 /* ListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListViewController.xib; path = SPMap/ListViewController.xib; sourceTree = "<group>"; };
-		87AD5013134B091800E65239 /* SP_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = SP_logo.jpg; path = Resources/SP_logo.jpg; sourceTree = "<group>"; };
 		87AF1DF61341BAF700BFD71D /* SP Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SP Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87AF1DFA1341BAF700BFD71D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		87AF1DFC1341BAF700BFD71D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -271,7 +271,7 @@
 				8726FCF2137BC2C500B98E5B /* HeadingOn.png */,
 				87075F9D137B7A0300D9046A /* HeadingOff.png */,
 				87A5ABFC1352A0E10043C395 /* Panorama.png */,
-				87AD5013134B091800E65239 /* SP_logo.jpg */,
+				872215CC13812AC600C0704C /* SP_logo.png */,
 				876C5CD91341CB9A0091A192 /* BluePushpin.png */,
 				876C5CDA1341CB9A0091A192 /* GpsDisplay.png */,
 				876C5CDB1341CB9A0091A192 /* GpsDisplay@2x.png */,
@@ -478,7 +478,6 @@
 				87B1AD30134B059A0049DB59 /* About.png in Resources */,
 				87B1AD31134B059A0049DB59 /* Category.png in Resources */,
 				87B1AD3E134B06DF0049DB59 /* AboutViewController.xib in Resources */,
-				87AD5014134B091800E65239 /* SP_logo.jpg in Resources */,
 				875867C7134B0967006BAB6B /* aboutData.html in Resources */,
 				87CE3D00134EFAA100621C57 /* Icon-72.png in Resources */,
 				87CE3D01134EFAA100621C57 /* Icon-Small-50.png in Resources */,
@@ -504,6 +503,7 @@
 				87075F9E137B7A0300D9046A /* HeadingOff.png in Resources */,
 				8726FCF3137BC2C500B98E5B /* HeadingOn.png in Resources */,
 				87C517801380C4A00008ADD1 /* MapViewController.xib in Resources */,
+				872215CD13812AC600C0704C /* SP_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
