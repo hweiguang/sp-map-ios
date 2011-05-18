@@ -47,6 +47,11 @@
     // Makes sure the user is presented with the MapView
     [self.navigationController popToRootViewControllerAnimated:YES];
     
+    MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
+    
+    if (mapViewController.selectedLocations != nil) {
+        mapViewController.selectedLocations = nil;
+    }    
     if (!url) {
         // The URL is nil.Invalid Location.
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
@@ -74,8 +79,6 @@
     }
     
     NSString *locationString = [URLString stringByReplacingOccurrencesOfString:@"spmap://" withString:@""];
-    
-    MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
     
     // Setting selectedLocations in MapView to the string that was passed in
     mapViewController.selectedLocations = locationString;

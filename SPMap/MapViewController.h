@@ -48,9 +48,6 @@
     
     BOOL rotateMap; //if YES map will be rotated to user heading
     UIButton *rotateMapButtonItem;
-    //Heading icon for UIBarButtonItem rotateMapBarButtonItem
-    UIImage *HeadingOffImage;
-    UIImage *HeadingOnImage;
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;
