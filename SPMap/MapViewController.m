@@ -41,6 +41,11 @@
     [locationManager stopUpdatingLocation];
     [locationManager stopUpdatingHeading];
     [self.mapView.gps stop];
+    //Stop rotating map and rotate map back to normal position
+    rotateMap = NO;
+    CGAffineTransform transform = CGAffineTransformMakeRotation(0);
+    _mapView.transform = transform;
+    rotateMapButtonItem.selected = NO;
 }
 
 - (void)viewDidLoad
