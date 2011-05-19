@@ -226,10 +226,10 @@
 
 - (void)mapViewDidLoad:(AGSMapView *)mapView {
     //Default extent when the map first load
-    AGSEnvelope *defaultextent = [AGSEnvelope envelopeWithXmin:103.775713
-                                                          ymin:1.306768
-                                                          xmax:103.781424
-                                                          ymax:1.314663
+    AGSEnvelope *defaultextent = [AGSEnvelope envelopeWithXmin:103.773815
+                                                          ymin:1.304122
+                                                          xmax:103.782655
+                                                          ymax:1.316343
                                               spatialReference:self.mapView.spatialReference];
     [self.mapView zoomToEnvelope:defaultextent animated:NO];
 }
@@ -354,10 +354,15 @@
 - (void) setMapExtent {
     // Setting the extend to be used depending on the number of pins to be displayed
     if (ptcount <= 1) {
-        xmin = 103.775713;
-        ymin = 1.306768;
-        xmax = 103.781424;
-        ymax = 1.314663;
+//        xmin = 103.775713;
+//        ymin = 1.306768;
+//        xmax = 103.781424;
+//        ymax = 1.314663;
+        
+        xmin = 103.773984;
+        ymin = 1.304356;
+        xmax = 103.782486;
+        ymax = 1.316109;
     }
     
     if (ptcount == 0) {
