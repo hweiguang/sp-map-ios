@@ -19,9 +19,9 @@
 @synthesize graphicsLayer = _graphicsLayer;
 @synthesize CalloutTemplate = _CalloutTemplate;
 @synthesize selectedLocations;
-@synthesize toolBar;
 @synthesize searchResults;
 @synthesize searchBar;
+@synthesize toolBar;
 
 #pragma mark - View lifecycle
 
@@ -262,7 +262,7 @@
                                                         message:@"Your heading cannot be determined."
                                                        delegate:self 
                                               cancelButtonTitle:nil 
-                                              otherButtonTitles:@"OK", nil];
+                                              otherButtonTitles:@"OK", nil];        
         [alert show];
         [alert release];
         return;
@@ -354,20 +354,14 @@
 - (void) setMapExtent {
     // Setting the extend to be used depending on the number of pins to be displayed
     if (ptcount <= 1) {
-//        xmin = 103.775713;
-//        ymin = 1.306768;
-//        xmax = 103.781424;
-//        ymax = 1.314663;
-        
         xmin = 103.773984;
         ymin = 1.304356;
         xmax = 103.782486;
         ymax = 1.316109;
     }
-    
     if (ptcount == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
-                                                        message:@"Invalid Location." 
+                                                        message:@"Location not found." 
                                                        delegate:self 
                                               cancelButtonTitle:nil 
                                               otherButtonTitles:@"OK", nil];
@@ -417,8 +411,9 @@
     for (int i=0; i<[locations count]; i++)
     {
         Location *location = [locations objectAtIndex:i];
-        if ([selectedLocations isEqualToString:location.category] || 
-            [selectedLocations isEqualToString:location.title])
+        if ([selectedLocations isEqualToString:location.category] ||
+            [selectedLocations isEqualToString:location.title] ||
+            [selectedLocations isEqualToString:location.identity])
         {
             //Setting the lat and lon from Location class
             ptlat = [[location lat] doubleValue];
@@ -530,28 +525,21 @@
 
 - (void) searchLocations {
     
-    appDelegate = [UIApplication sharedApplication].delegate;
-    
     if (searchResults == nil)
-    searchResults = [[NSMutableArray alloc] init];
+        searchResults = [[NSMutableArray alloc] init];
     
     //Get text from searchBar
     NSString *searchText = searchBar.text;
-    //Get array to be searched
-    NSMutableArray *searchArray = [[NSMutableArray alloc] initWithArray:appDelegate.searchArray];
-	
-    //Search and add to searchResults array
-	for (NSString *sTemp in searchArray)
-	{
-		NSRange titleResultsRange = [sTemp rangeOfString:searchText options:NSCaseInsensitiveSearch];
-		
-		if (titleResultsRange.length > 0)
-			[searchResults addObject:sTemp];
-	}
-	
-	[searchArray release];
-	searchArray = nil;
     
+    //Searching
+    for (Location *aLocations in locations)
+    {    
+        NSRange categoryResultsRange = [aLocations.category rangeOfString:searchText options:NSCaseInsensitiveSearch];
+        NSRange titleResultsRange = [aLocations.title rangeOfString:searchText options:NSCaseInsensitiveSearch];
+        
+        if (categoryResultsRange.length > 0 || titleResultsRange.length > 0)
+            [searchResults addObject:aLocations.title];
+    }
     //Inform overlay that results is updated.
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadsearchResults" object:nil];
 }

@@ -21,7 +21,6 @@
 @synthesize navigationController=_navigationController;
 @synthesize locations;
 @synthesize categories;
-@synthesize searchArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {        
@@ -29,7 +28,7 @@
     
 	locations = [[NSMutableArray alloc] init];
     categories = [[NSMutableSet alloc] init];
-    searchArray = [[NSMutableArray alloc] init];
+    identity = [[NSMutableArray alloc] init];
     
     //Reachability
     [self checkNetwork];
@@ -44,14 +43,16 @@
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url 
 {    
+    [DebugSupport waitForDebugger];
+    
     // Makes sure the user is presented with the MapView
     [self.navigationController popToRootViewControllerAnimated:YES];
     
     MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
     
-    if (mapViewController.selectedLocations != nil) {
+    if (mapViewController.selectedLocations != nil)
         mapViewController.selectedLocations = nil;
-    }    
+    
     if (!url) {
         // The URL is nil.Invalid Location.
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
@@ -78,29 +79,63 @@
         return NO;
     }
     
-    NSString *locationString = [URLString stringByReplacingOccurrencesOfString:@"spmap://" withString:@""];
-    
-    // Setting selectedLocations in MapView to the string that was passed in
-    mapViewController.selectedLocations = locationString;
+    NSString *passedLocation = [URLString stringByReplacingOccurrencesOfString:@"spmap://" withString:@""];
     
     if (XMLLoaded == YES) {
-        // if XML already loaded, load the callouts in mapview
-        [mapViewController loadCallout];
+        [self loadCallout:passedLocation];
     }
     else {
-        // listen for notification. when XML is loaded loadCallout method will be called.
         [[NSNotificationCenter defaultCenter] addObserver:self 
-                                                 selector:@selector(loadCallout) 
-                                                     name:@"XMLLoaded" object:nil];  
+                                                 selector:@selector(loadCallout:) 
+                                                     name:@"XMLLoaded" 
+                                                   object:passedLocation];
     }
     return YES;
 }
 
-- (void) loadCallout {
+- (void)loadCallout:(NSString*)passedLocation {
     
     MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
     
+    NSMutableArray *array = [NSMutableArray array];
+    
+    for(NSString *myStr in identity) {
+        NSRange range = [passedLocation rangeOfString : myStr];
+        
+        if (range.location != NSNotFound) {
+            [array addObject:myStr];
+            mapViewController.selectedLocations = myStr;
+        }
+    }
+    if ([array count] > 1) {
+        
+        mapViewController.selectedLocations = nil;
+        
+        if ([passedLocation length] > 4) {
+            NSString *lastChar = [passedLocation substringFromIndex:(passedLocation.length)-1];
+            
+            NSCharacterSet *alphaSet = [NSCharacterSet letterCharacterSet];
+            
+            NSRange range = [lastChar rangeOfCharacterFromSet:alphaSet options:NSCaseInsensitiveSearch];
+            if(range.location != NSNotFound )
+                passedLocation = [passedLocation substringToIndex:[passedLocation length] - 3];
+            
+            if (range.location == NSNotFound)
+                passedLocation = [passedLocation substringToIndex:[passedLocation length] - 2];
+            
+            mapViewController.selectedLocations = passedLocation;
+        }
+        else
+            mapViewController.selectedLocations = passedLocation;
+        
+        if ([mapViewController.selectedLocations length] >= 4) {
+            mapViewController.selectedLocations = [mapViewController.selectedLocations substringToIndex:[mapViewController.selectedLocations length] - 1];
+        }
+    } 
+    
+    DebugLog(@"%@",mapViewController.selectedLocations);
     [mapViewController loadCallout];
+    
     // Stop listening for notifications
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -180,7 +215,8 @@
     //  file is found
     else
     {
-        BOOL hasServerCopy = YES;
+        //BOOL hasServerCopy = YES;
+        BOOL hasServerCopy = NO;
         [self loadXML:hasServerCopy];
     }
 }
@@ -227,6 +263,7 @@
             aLocation.description = [TBXML valueOfAttributeNamed:@"description" forElement:location];
             aLocation.photos = [TBXML valueOfAttributeNamed:@"photos" forElement:location];
             aLocation.panorama = [TBXML valueOfAttributeNamed:@"panorama" forElement:location];
+            aLocation.identity = [TBXML valueOfAttributeNamed:@"id" forElement:location];
             
             NSString * lat = [TBXML valueOfAttributeNamed:@"lat" forElement:location];
             aLocation.lat = [NSNumber numberWithFloat:[lat floatValue]];
@@ -254,7 +291,7 @@
             
             // add our location object to the locations array and release the resource
 			[locations addObject:aLocation];
-            [searchArray addObject:aLocation.title];
+            [identity addObject:aLocation.identity];
             [aLocation release];
             
 			// find the next sibling element named "location"
@@ -265,7 +302,7 @@
     }
     // Notification to alert Database is ready
     [[NSNotificationCenter defaultCenter] postNotificationName:@"XMLLoaded" object:nil];
-    XMLLoaded = YES; 
+    XMLLoaded = YES;
 }
 
 - (void)dealloc
@@ -279,7 +316,7 @@
     [downloadCache release];
     [locations release];
     [categories release];
-    [searchArray release];
+    [identity release];
     [super dealloc];
 }
 

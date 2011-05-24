@@ -20,7 +20,7 @@
     TBXML *tbxml;
     NSMutableArray *locations; //Array for storing all locations from XML
     NSMutableSet *categories; //Set for storing all categories from XML
-    NSMutableArray *searchArray; //Array used for searching
+    NSMutableArray *identity;
     
     BOOL XMLLoaded; //XML status. YES for loaded, NO when not loaded
 }
@@ -29,12 +29,11 @@
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 @property (nonatomic, retain) NSMutableArray *locations;
 @property (nonatomic, retain) NSMutableSet *categories;
-@property (nonatomic, retain) NSMutableArray *searchArray;
 @property (nonatomic, retain) id <ASICacheDelegate> downloadCache;
 
 - (void)checkNetwork;
 - (void)loadData;
 - (void)loadXML:(BOOL)hasServerCopy;
-- (void)loadCallout;
+- (void)loadCallout:(NSString*)passedLocation;
 
 @end

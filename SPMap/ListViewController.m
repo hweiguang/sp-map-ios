@@ -101,7 +101,7 @@
     
     Location * aLocation = [locationsincategory objectAtIndex:indexPath.row];
     
-    selectedCategory = aLocation.title;
+    selectedCategory = aLocation.identity;
     
     //Passing the title of the selected Location to the map
     mapViewController.selectedLocations = selectedCategory;
