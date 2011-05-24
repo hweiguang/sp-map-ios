@@ -17,6 +17,7 @@
     NSString *description; //Description to be display in detail view
     NSString *photos; // Photo to be display in detail view
     NSString *panorama; // Link to panorama
+    NSString *identity;
 }
 
 @property (nonatomic, retain) NSString *title;
@@ -27,5 +28,6 @@
 @property (nonatomic, retain) NSString *description;
 @property (nonatomic, retain) NSString *photos;
 @property (nonatomic, retain) NSString *panorama;
+@property (nonatomic, retain) NSString *identity;
 
 @end

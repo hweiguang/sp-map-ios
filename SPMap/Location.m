@@ -18,6 +18,7 @@
 @synthesize description;
 @synthesize photos;
 @synthesize panorama;
+@synthesize identity;
 
 - (id)init
 {
@@ -31,6 +32,7 @@
         description = [[NSString alloc] init];
         photos = [[NSString alloc] init];
         panorama = [[NSString alloc] init];
+        identity = [[NSString alloc] init];
     }
     return self;
 }
@@ -45,6 +47,7 @@
     [description release];
     [photos release];
     [panorama release];
+    [identity release];
     [super dealloc];
 }
 
