@@ -23,7 +23,7 @@
 @synthesize categories;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{        
+{     
     XMLLoaded = NO;
     
 	locations = [[NSMutableArray alloc] init];
@@ -34,17 +34,16 @@
     [self checkNetwork];
     
     //Download XML file from server and parse if unavailable parse local copy
-    [NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
+    //[NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
+    
+    [self performSelectorOnMainThread:@selector(loadData) withObject:nil waitUntilDone:YES];
     
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;
 }
-
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {    
-    [DebugSupport waitForDebugger];
-    
     // Makes sure the user is presented with the MapView
     [self.navigationController popToRootViewControllerAnimated:YES];
     
@@ -79,17 +78,28 @@
         return NO;
     }
     
-    NSString *passedLocation = [URLString stringByReplacingOccurrencesOfString:@"spmap://" withString:@""];
+    NSString *passedLocation = [URLString substringFromIndex:8]; 
     
-    if (XMLLoaded == YES) {
-        [self loadCallout:passedLocation];
-    }
-    else {
-        [[NSNotificationCenter defaultCenter] addObserver:self 
-                                                 selector:@selector(loadCallout:) 
-                                                     name:@"XMLLoaded" 
-                                                   object:passedLocation];
-    }
+     if (XMLLoaded == YES)
+    [self loadCallout:passedLocation];
+     /*
+     else 
+     [self performSelector:@selector(loadCallout:) withObject:passedLocation afterDelay:3.5];
+     */
+    
+     else {
+        
+         NSCondition *condition = [[NSCondition alloc]init];;
+        
+         [condition lock];
+        while (XMLLoaded == NO) {
+            [condition wait];
+        }
+         [self loadCallout:passedLocation];
+         [condition unlock];
+         [condition release];
+     }
+    
     return YES;
 }
 
@@ -132,12 +142,7 @@
             mapViewController.selectedLocations = [mapViewController.selectedLocations substringToIndex:[mapViewController.selectedLocations length] - 1];
         }
     } 
-    
-    DebugLog(@"%@",mapViewController.selectedLocations);
     [mapViewController loadCallout];
-    
-    // Stop listening for notifications
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)checkNetwork {
@@ -167,7 +172,7 @@
 
 -(void)loadData
 {    
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+   // NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
     if (!operationQueue) {
         operationQueue = [[NSOperationQueue alloc] init];
@@ -189,9 +194,7 @@
     [request setDidFinishSelector:@selector(requestDone:)];
     [request setDidFailSelector:@selector(requestWentWrong:)];
     [operationQueue addOperation:request];  // request is an NSOperationQueue
-    
-    [pool release];
-    
+   // [pool release];
 }
 
 //  connected
@@ -216,6 +219,7 @@
     else
     {
         //BOOL hasServerCopy = YES;
+        //Set hasServerCopy to NO here to test Local XML file
         BOOL hasServerCopy = NO;
         [self loadXML:hasServerCopy];
     }
@@ -301,7 +305,12 @@
         [tbxml release];
     }
     // Notification to alert Database is ready
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"XMLLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"XMLLoaded" object:nil]; 
+/*
+    if (openFromURL == YES && XMLLoaded == NO) {
+        [self loadCallout];
+    }
+ */
     XMLLoaded = YES;
 }
 
