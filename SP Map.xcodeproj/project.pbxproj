@@ -67,7 +67,6 @@
 		87B1AD31134B059A0049DB59 /* Category.png in Resources */ = {isa = PBXBuildFile; fileRef = 87B1AD2F134B059A0049DB59 /* Category.png */; };
 		87B1AD3D134B06DF0049DB59 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B1AD3B134B06DF0049DB59 /* AboutViewController.m */; };
 		87B1AD3E134B06DF0049DB59 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B1AD3C134B06DF0049DB59 /* AboutViewController.xib */; };
-		87BCBC2E138B552100587E39 /* DebugSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BCBC2D138B552100587E39 /* DebugSupport.m */; };
 		87C517801380C4A00008ADD1 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87C5177F1380C4A00008ADD1 /* MapViewController.xib */; };
 		87CE3D00134EFAA100621C57 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CE3CF8134EFAA100621C57 /* Icon-72.png */; };
 		87CE3D01134EFAA100621C57 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CE3CF9134EFAA100621C57 /* Icon-Small-50.png */; };
@@ -175,8 +174,6 @@
 		87B1AD3A134B06DF0049DB59 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		87B1AD3B134B06DF0049DB59 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		87B1AD3C134B06DF0049DB59 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutViewController.xib; path = SPMap/AboutViewController.xib; sourceTree = "<group>"; };
-		87BCBC2C138B552100587E39 /* DebugSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugSupport.h; path = DebugSupport/DebugSupport.h; sourceTree = "<group>"; };
-		87BCBC2D138B552100587E39 /* DebugSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugSupport.m; path = DebugSupport/DebugSupport.m; sourceTree = "<group>"; };
 		87C5177F1380C4A00008ADD1 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = SPMap/MapViewController.xib; sourceTree = "<group>"; };
 		87CE3CF8134EFAA100621C57 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/Icon-72.png"; sourceTree = "<group>"; };
 		87CE3CF9134EFAA100621C57 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Resources/Icon-Small-50.png"; sourceTree = "<group>"; };
@@ -348,7 +345,6 @@
 			isa = PBXGroup;
 			children = (
 				87C6528F134BEE9B00476B2E /* Class */,
-				87BCBC2B138B54B400587E39 /* DebugSupport */,
 				87DAB0F3134558E700D85DB7 /* Debug */,
 				0F28582313497E7A00BC9B70 /* ASIHTTPRequest  */,
 				874C86461341CB27001D4E4B /* TBXML */,
@@ -369,15 +365,6 @@
 			);
 			name = "Supporting Files";
 			path = SPMap;
-			sourceTree = "<group>";
-		};
-		87BCBC2B138B54B400587E39 /* DebugSupport */ = {
-			isa = PBXGroup;
-			children = (
-				87BCBC2C138B552100587E39 /* DebugSupport.h */,
-				87BCBC2D138B552100587E39 /* DebugSupport.m */,
-			);
-			name = DebugSupport;
 			sourceTree = "<group>";
 		};
 		87C6528F134BEE9B00476B2E /* Class */ = {
@@ -552,7 +539,6 @@
 				87D5AF8B134F5D61006C4412 /* PanoramaViewController.m in Sources */,
 				87A65D26135694B70067B317 /* ListViewController.m in Sources */,
 				8703B9EA1377CA45006D0808 /* OverlayViewController.m in Sources */,
-				87BCBC2E138B552100587E39 /* DebugSupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

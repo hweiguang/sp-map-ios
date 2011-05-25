@@ -21,7 +21,6 @@
     NSMutableArray *locations; //Array for storing all locations from XML
     NSMutableSet *categories; //Set for storing all categories from XML
     NSMutableArray *identity;
-    
     BOOL XMLLoaded; //XML status. YES for loaded, NO when not loaded
 }
 
