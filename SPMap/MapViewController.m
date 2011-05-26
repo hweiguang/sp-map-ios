@@ -389,7 +389,7 @@
 }
 
 - (void) loadCallout
-{    
+{
     // Remove all graphics if some are created earlier
     [self.graphicsLayer removeAllGraphics];
     // Hide callout

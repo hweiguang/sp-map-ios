@@ -22,6 +22,7 @@
     NSMutableSet *categories; //Set for storing all categories from XML
     NSMutableArray *identity;
     BOOL XMLLoaded; //XML status. YES for loaded, NO when not loaded
+    NSString *aPassedLocation;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -33,6 +34,7 @@
 - (void)checkNetwork;
 - (void)loadData;
 - (void)loadXML:(BOOL)hasServerCopy;
-- (void)loadCallout:(NSString*)passedLocation;
+- (void)processURL:(NSString*)passedLocation;
+- (void)passedLocation;
 
 @end
