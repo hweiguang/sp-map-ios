@@ -28,20 +28,19 @@
     
 	locations = [[NSMutableArray alloc] init];
     categories = [[NSMutableSet alloc] init];
-    identity = [[NSMutableArray alloc] init];
+    identity = [[NSMutableArray alloc]init];
     
     //Reachability
     [self checkNetwork];
     
     //Download XML file from server and parse if unavailable parse local copy
-    //[NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
-    
-    [self performSelectorOnMainThread:@selector(loadData) withObject:nil waitUntilDone:YES];
+    [NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
     
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;
 }
+
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {    
     // Makes sure the user is presented with the MapView
@@ -52,62 +51,34 @@
     if (mapViewController.selectedLocations != nil)
         mapViewController.selectedLocations = nil;
     
-    if (!url) {
-        // The URL is nil.Invalid Location.
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
-                                                        message:@"Invalid Location." 
-                                                       delegate:self 
-                                              cancelButtonTitle:nil 
-                                              otherButtonTitles:@"OK", nil];
-        [alert show];
-        [alert release];
-        return NO;
-    }
-    
     NSString *URLString = [url absoluteString];
     
-    if (!URLString) {
-        // The URL's absoluteString is nil. Invalid Location.
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
-                                                        message:@"Invalid Location." 
-                                                       delegate:self 
-                                              cancelButtonTitle:nil 
-                                              otherButtonTitles:@"OK", nil];
-        [alert show];
-        [alert release];
-        return NO;
+    NSString *passedLocation = [URLString substringFromIndex:8];
+    
+    aPassedLocation = [passedLocation copy];
+    
+    if (XMLLoaded == YES)
+        [self processURL:passedLocation];
+    
+    else {
+        [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                 selector:@selector(passedLocation) 
+                                                     name:@"XMLLoaded" object:nil];
     }
-    
-    NSString *passedLocation = [URLString substringFromIndex:8]; 
-    
-     if (XMLLoaded == YES)
-    [self loadCallout:passedLocation];
-     /*
-     else 
-     [self performSelector:@selector(loadCallout:) withObject:passedLocation afterDelay:3.5];
-     */
-    
-     else {
-        
-         NSCondition *condition = [[NSCondition alloc]init];;
-        
-         [condition lock];
-        while (XMLLoaded == NO) {
-            [condition wait];
-        }
-         [self loadCallout:passedLocation];
-         [condition unlock];
-         [condition release];
-     }
     
     return YES;
 }
 
-- (void)loadCallout:(NSString*)passedLocation {
+- (void)passedLocation {
+    NSString *passedLocation = aPassedLocation;
+    [self processURL:passedLocation];
+}
+
+- (void)processURL:(NSString*)passedLocation {
+    
+    NSMutableArray *array = [[NSMutableArray alloc]init];
     
     MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
-    
-    NSMutableArray *array = [NSMutableArray array];
     
     for(NSString *myStr in identity) {
         NSRange range = [passedLocation rangeOfString : myStr];
@@ -118,31 +89,36 @@
         }
     }
     if ([array count] > 1) {
-        
         mapViewController.selectedLocations = nil;
         
+        if ([passedLocation length] == 4) {
+            mapViewController.selectedLocations = [passedLocation substringToIndex:[passedLocation length] -2];
+        }
+        
         if ([passedLocation length] > 4) {
-            NSString *lastChar = [passedLocation substringFromIndex:(passedLocation.length)-1];
+            NSString *lastChar = [passedLocation substringFromIndex:[passedLocation length] -1];
             
             NSCharacterSet *alphaSet = [NSCharacterSet letterCharacterSet];
             
             NSRange range = [lastChar rangeOfCharacterFromSet:alphaSet options:NSCaseInsensitiveSearch];
-            if(range.location != NSNotFound )
-                passedLocation = [passedLocation substringToIndex:[passedLocation length] - 3];
-            
-            if (range.location == NSNotFound)
-                passedLocation = [passedLocation substringToIndex:[passedLocation length] - 2];
-            
+            if(range.location != NSNotFound ) {
+                passedLocation = [passedLocation substringToIndex:[passedLocation length] -3];
+            }
+            if (range.location == NSNotFound) {
+                passedLocation = [passedLocation substringToIndex:[passedLocation length] -2];
+            }
             mapViewController.selectedLocations = passedLocation;
         }
-        else
+        if ([passedLocation length] < 4) {
             mapViewController.selectedLocations = passedLocation;
+        }
         
-        if ([mapViewController.selectedLocations length] >= 4) {
+        if ([mapViewController.selectedLocations length] > 4) {
             mapViewController.selectedLocations = [mapViewController.selectedLocations substringToIndex:[mapViewController.selectedLocations length] - 1];
         }
     } 
     [mapViewController loadCallout];
+    [array release];
 }
 
 - (void)checkNetwork {
@@ -172,7 +148,7 @@
 
 -(void)loadData
 {    
-   // NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
     if (!operationQueue) {
         operationQueue = [[NSOperationQueue alloc] init];
@@ -194,7 +170,7 @@
     [request setDidFinishSelector:@selector(requestDone:)];
     [request setDidFailSelector:@selector(requestWentWrong:)];
     [operationQueue addOperation:request];  // request is an NSOperationQueue
-   // [pool release];
+    [pool release];
 }
 
 //  connected
@@ -236,14 +212,14 @@
     
     if (hasServerCopy == NO)
     {
-        // Load and parse the Locations.xml file
+        // Load and parse the local Locations.xml file
         tbxml = [[TBXML tbxmlWithXMLFile:@"Locations.xml"] retain];
     }
     
     if (hasServerCopy == YES) 
     {
         NSString *filePath = [downloadCache pathToStoreCachedResponseDataForRequest:request];
-        // Load and parse the Locations.xml file
+        // Load and parse the server Locations.xml file
         tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:filePath]] retain];
     } 
     
@@ -306,11 +282,6 @@
     }
     // Notification to alert Database is ready
     [[NSNotificationCenter defaultCenter] postNotificationName:@"XMLLoaded" object:nil]; 
-/*
-    if (openFromURL == YES && XMLLoaded == NO) {
-        [self loadCallout];
-    }
- */
     XMLLoaded = YES;
 }
 
