@@ -50,10 +50,9 @@
         [self.mapView.gps stop];
     }
     //Stop rotating map and rotate map back to normal position
-    rotateMap = NO;
     CGAffineTransform transform = CGAffineTransformMakeRotation(0);
     _mapView.transform = transform;
-    rotateMapButtonItem.selected = NO;
+    rotateMap = NO;
 }
 
 - (void)viewDidLoad
@@ -250,6 +249,13 @@
 }
 
 - (void) centerUserLocation:(id)sender {
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        if (popOver != nil)
+            [popOver dismissPopoverAnimated:YES];
+    }
+    
     //Accuracy is more then 100m or no location available
     if (accuracy > 100 || lat == 0 || lon == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
@@ -269,6 +275,12 @@
 }
 
 - (void) rotateMap:(id)sender {
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        if (popOver != nil)
+            [popOver dismissPopoverAnimated:YES];
+    }
     
     BOOL headingAvailable = [CLLocationManager headingAvailable];
     
@@ -341,14 +353,18 @@
     categoriesViewController.title = @"Categories";
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:categoriesViewController];
         
-        popOver = [[UIPopoverController alloc] initWithContentViewController:navController];
-        
+        if (popOver == nil) {
+            
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:categoriesViewController];
+            
+            popOver = [[UIPopoverController alloc] initWithContentViewController:navController];
+            
+            [navController release];
+        }
         [popOver presentPopoverFromBarButtonItem:sender 
                         permittedArrowDirections:UIPopoverArrowDirectionAny 
                                         animated:YES];
-        [navController release];
     }
     else {
         UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
@@ -411,19 +427,12 @@
     if (ptcount > 1) {
         [extent expandByFactor:3.5];
     }
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        [self.mapView zoomToEnvelope:extent animated:YES];
-    else
-        [self.mapView zoomToEnvelope:extent animated:NO];
+    [self.mapView zoomToEnvelope:extent animated:YES];
     
     if (ptcount == 1) {
         // Center the map at point if only one point is to be displayed
         AGSPoint *pt = [AGSPoint pointWithX:ptlon y:ptlat spatialReference:self.mapView.spatialReference];
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            [self.mapView centerAtPoint:pt animated:YES];
-        else
-            [self.mapView centerAtPoint:pt animated:NO];
+        [self.mapView centerAtPoint:pt animated:YES];
     }    
 }
 
@@ -600,6 +609,7 @@
     [selectedLocations release];
     [locationManager release];
     [searchResults release];
+    [popOver release];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }
