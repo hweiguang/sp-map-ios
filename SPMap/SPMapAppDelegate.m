@@ -23,7 +23,7 @@
 @synthesize categories;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{     
+{    
     XMLLoaded = NO;
     
 	locations = [[NSMutableArray alloc] init];
@@ -55,7 +55,9 @@
     
     NSString *passedLocation = [URLString substringFromIndex:8];
     
-    aPassedLocation = [passedLocation copy];
+    passedLocation = [passedLocation lowercaseString];
+    
+    apassedLocation = [passedLocation copy];
     
     if (XMLLoaded == YES)
         [self processURL:passedLocation];
@@ -70,8 +72,9 @@
 }
 
 - (void)passedLocation {
-    NSString *passedLocation = aPassedLocation;
+    NSString *passedLocation = apassedLocation;
     [self processURL:passedLocation];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)processURL:(NSString*)passedLocation {

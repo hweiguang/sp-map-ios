@@ -22,7 +22,7 @@
     NSMutableSet *categories; //Set for storing all categories from XML
     NSMutableArray *identity;
     BOOL XMLLoaded; //XML status. YES for loaded, NO when not loaded
-    NSString *aPassedLocation;
+    NSString *apassedLocation;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
