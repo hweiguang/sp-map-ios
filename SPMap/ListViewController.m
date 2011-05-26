@@ -29,6 +29,8 @@
 {
     [super viewDidLoad];
     
+    self.contentSizeForViewInPopover = CGSizeMake(320, 480);
+    
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     //Add a Show All button to display all the pins in this category on the Map
@@ -96,8 +98,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //Getting the mapVC from the navigationController stack
-    MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
+    SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    
+    MapViewController *mapViewController = (MapViewController*)[appDelegate.navigationController.viewControllers objectAtIndex:0];
     
     Location * aLocation = [locationsincategory objectAtIndex:indexPath.row];
     
@@ -106,22 +109,33 @@
     //Passing the title of the selected Location to the map
     mapViewController.selectedLocations = selectedCategory;
     
-    [mapViewController loadCallout];
-    
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"hidePopover" 
+                                                            object:nil];
+    }
+    else {
+        [mapViewController loadCallout];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 - (void)showAll {
     
-    //Getting the mapVC from the navigationController stack
-    MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
+    SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
-    //Passing the selectedCategory to the map to display all the locations that are in the selected category
+    MapViewController *mapViewController = (MapViewController*)[appDelegate.navigationController.viewControllers objectAtIndex:0];
+    
+    //Passing the title of the selected Location to the map
     mapViewController.selectedLocations = selectedCategory;
     
-    [mapViewController loadCallout];
-    
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"hidePopover" 
+                                                            object:nil];
+    }
+    else {
+        [mapViewController loadCallout];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 @end

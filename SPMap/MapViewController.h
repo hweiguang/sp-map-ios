@@ -41,6 +41,8 @@
     UIToolbar *toolBar;
     UISearchBar *searchBar;
     
+    UIPopoverController *popOver;
+    
     //Overlay for Search Results
     OverlayViewController *overlayViewController;
     //Array for storing search results

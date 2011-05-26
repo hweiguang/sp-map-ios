@@ -12,6 +12,7 @@
 #import "AboutViewController.h"
 #import "Constants.h"
 #import "OverlayViewController.h"
+#import "ListViewController.h"
 
 @implementation MapViewController
 
@@ -25,6 +26,11 @@
 
 #pragma mark - View lifecycle
 
+-(void)hidePopover {
+    [self loadCallout];
+    [popOver dismissPopoverAnimated:YES];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -37,10 +43,12 @@
 
 - (void) viewWillDisappear:(BOOL)animated {
     selectedLocations = nil;
-    //Stop location services
-    [locationManager stopUpdatingLocation];
-    [locationManager stopUpdatingHeading];
-    [self.mapView.gps stop];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
+        //Stop location services
+        [locationManager stopUpdatingLocation];
+        [locationManager stopUpdatingHeading];
+        [self.mapView.gps stop];
+    }
     //Stop rotating map and rotate map back to normal position
     rotateMap = NO;
     CGAffineTransform transform = CGAffineTransformMakeRotation(0);
@@ -50,6 +58,13 @@
 
 - (void)viewDidLoad
 {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                 selector:@selector(hidePopover)
+                                                     name:@"hidePopover" 
+                                                   object:nil];
+    }
+    
     [super viewDidLoad];
     
     appDelegate = [UIApplication sharedApplication].delegate;
@@ -325,16 +340,34 @@
                                                                                                    bundle:nil];
     categoriesViewController.title = @"Categories";
     
-    UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
-    backbutton.title = @"Back";
-    self.navigationItem.backBarButtonItem = backbutton;
-    [backbutton release];
-    
-    [self.navigationController pushViewController:categoriesViewController animated:YES];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:categoriesViewController];
+        
+        popOver = [[UIPopoverController alloc] initWithContentViewController:navController];
+        
+        [popOver presentPopoverFromBarButtonItem:sender 
+                        permittedArrowDirections:UIPopoverArrowDirectionAny 
+                                        animated:YES];
+        [navController release];
+    }
+    else {
+        UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
+        backbutton.title = @"Back";
+        self.navigationItem.backBarButtonItem = backbutton;
+        [backbutton release];
+        
+        [self.navigationController pushViewController:categoriesViewController animated:YES];
+    }
     [categoriesViewController release];
 }
 
 - (void) showAbout:(id)sender {
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        if (popOver != nil)
+            [popOver dismissPopoverAnimated:NO];
+    }
     
     AboutViewController *aboutViewController = [[AboutViewController alloc]initWithNibName:@"AboutViewController"
                                                                                     bundle:nil];
@@ -379,12 +412,18 @@
         [extent expandByFactor:3.5];
     }
     
-    [self.mapView zoomToEnvelope:extent animated:NO];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        [self.mapView zoomToEnvelope:extent animated:YES];
+    else
+        [self.mapView zoomToEnvelope:extent animated:NO];
     
     if (ptcount == 1) {
         // Center the map at point if only one point is to be displayed
         AGSPoint *pt = [AGSPoint pointWithX:ptlon y:ptlat spatialReference:self.mapView.spatialReference];
-        [self.mapView centerAtPoint:pt animated:NO];
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            [self.mapView centerAtPoint:pt animated:YES];
+        else
+            [self.mapView centerAtPoint:pt animated:NO];
     }    
 }
 
@@ -561,6 +600,7 @@
     [selectedLocations release];
     [locationManager release];
     [searchResults release];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }
 

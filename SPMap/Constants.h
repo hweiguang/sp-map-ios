@@ -16,15 +16,3 @@
 #define imageHostname           @"http://mobileapp.sp.edu.sg/spmap/photos/"
 #define panoramaHostname        @"http://mobileapp.sp.edu.sg/spmap/panoramas/"
 #define kReachabilityHostname   @"mobileapp.sp.edu.sg"
-
-//Codes for implementing navigation controller in a pop over
-/*
-UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:categoriesViewController];
-
-
-popOver = [[UIPopoverController alloc] initWithContentViewController:navController];
-
-[popOver presentPopoverFromBarButtonItem:sender 
-                permittedArrowDirections:UIPopoverArrowDirectionAny 
-                                animated:YES];
-*/

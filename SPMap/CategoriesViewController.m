@@ -15,6 +15,8 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
+    self.contentSizeForViewInPopover = CGSizeMake(320, 480);
+    
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     // Getting category set from appDelegate
     category = [[NSMutableArray alloc] initWithSet:appDelegate.categories];
