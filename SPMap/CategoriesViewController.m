@@ -18,8 +18,10 @@
     self.contentSizeForViewInPopover = CGSizeMake(320, 480);
     
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    
     // Getting category set from appDelegate
-    category = [[NSMutableArray alloc] initWithSet:appDelegate.categories];
+    if (category == nil)
+        category = [[NSMutableArray alloc] initWithSet:appDelegate.categories];
     // Sort the array by alphabet
     [category sortUsingSelector:@selector(compare:)];
     

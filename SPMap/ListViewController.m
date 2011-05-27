@@ -45,8 +45,10 @@
     self.title = selectedCategory;
     
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    
     // Getting locations array from appDelegate
-    locations = [[NSMutableArray alloc] initWithArray:appDelegate.locations];
+    if (locations == nil)
+        locations = [[NSMutableArray alloc] initWithArray:appDelegate.locations];
     
     //Sorting the location array by alphabet
     NSSortDescriptor *alphaDesc = [[NSSortDescriptor alloc] initWithKey:@"title" 
@@ -56,7 +58,10 @@
     [alphaDesc release]; 
     
     // Setting up selectedLocations array for display
-    locationsincategory = [[NSMutableArray alloc]init];
+    if (locationsincategory == nil)
+        locationsincategory = [[NSMutableArray alloc]init];
+    [locationsincategory removeAllObjects];
+    
     //loop through all locations and add locations that are in the category
     for (int i=0; i<[locations count]; i++)
     {
@@ -104,10 +109,8 @@
     
     Location * aLocation = [locationsincategory objectAtIndex:indexPath.row];
     
-    selectedCategory = aLocation.identity;
-    
-    //Passing the title of the selected Location to the map
-    mapViewController.selectedLocations = selectedCategory;
+    //Passing the identity of the selected Location to the map
+    mapViewController.selectedLocations = aLocation.identity;
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"hidePopover" 
