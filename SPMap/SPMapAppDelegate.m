@@ -116,8 +116,17 @@
             mapViewController.selectedLocations = passedLocation;
         }
         
-        if ([mapViewController.selectedLocations length] > 4) {
-            mapViewController.selectedLocations = [mapViewController.selectedLocations substringToIndex:[mapViewController.selectedLocations length] - 1];
+        if ([mapViewController.selectedLocations length] == 4) {
+            
+            NSString *lastChar = [mapViewController.selectedLocations substringFromIndex:[mapViewController.selectedLocations length] -1];
+            
+            NSCharacterSet *alphaSet = [NSCharacterSet letterCharacterSet];
+            
+            NSRange range = [lastChar rangeOfCharacterFromSet:alphaSet options:NSCaseInsensitiveSearch];
+            if(range.location == NSNotFound ) {
+                passedLocation = [passedLocation substringToIndex:[passedLocation length] -1];
+            }
+            mapViewController.selectedLocations = passedLocation;
         }
     } 
     [mapViewController loadCallout];
