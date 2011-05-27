@@ -206,9 +206,9 @@
     //  file is found
     else
     {
-        //BOOL hasServerCopy = YES;
+        BOOL hasServerCopy = YES;
         //Set hasServerCopy to NO here to test Local XML file
-        BOOL hasServerCopy = NO;
+        //BOOL hasServerCopy = NO;
         [self loadXML:hasServerCopy];
     }
 }

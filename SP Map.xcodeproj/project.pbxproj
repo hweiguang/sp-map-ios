@@ -40,7 +40,7 @@
 		875867C7134B0967006BAB6B /* aboutData.html in Resources */ = {isa = PBXBuildFile; fileRef = 875867C6134B0967006BAB6B /* aboutData.html */; };
 		876542BC1341C4A200387B45 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 876542BB1341C4A200387B45 /* CoreLocation.framework */; };
 		876542C01341C4AB00387B45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 876542BF1341C4AB00387B45 /* QuartzCore.framework */; };
-		876C5CDF1341CB9A0091A192 /* BluePushpin.png in Resources */ = {isa = PBXBuildFile; fileRef = 876C5CD91341CB9A0091A192 /* BluePushpin.png */; };
+		876C5CDF1341CB9A0091A192 /* MapMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = 876C5CD91341CB9A0091A192 /* MapMarker.png */; };
 		876C5CE01341CB9A0091A192 /* GpsDisplay.png in Resources */ = {isa = PBXBuildFile; fileRef = 876C5CDA1341CB9A0091A192 /* GpsDisplay.png */; };
 		876C5CE11341CB9A0091A192 /* GpsDisplay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 876C5CDB1341CB9A0091A192 /* GpsDisplay@2x.png */; };
 		876C5CE21341CB9A0091A192 /* GpsDisplayHeading.png in Resources */ = {isa = PBXBuildFile; fileRef = 876C5CDC1341CB9A0091A192 /* GpsDisplayHeading.png */; };
@@ -137,7 +137,7 @@
 		875867C6134B0967006BAB6B /* aboutData.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = aboutData.html; path = Resources/aboutData.html; sourceTree = "<group>"; };
 		876542BB1341C4A200387B45 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		876542BF1341C4AB00387B45 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		876C5CD91341CB9A0091A192 /* BluePushpin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BluePushpin.png; path = Resources/BluePushpin.png; sourceTree = "<group>"; };
+		876C5CD91341CB9A0091A192 /* MapMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MapMarker.png; path = Resources/MapMarker.png; sourceTree = "<group>"; };
 		876C5CDA1341CB9A0091A192 /* GpsDisplay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GpsDisplay.png; path = Resources/GpsDisplay.png; sourceTree = "<group>"; };
 		876C5CDB1341CB9A0091A192 /* GpsDisplay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GpsDisplay@2x.png"; path = "Resources/GpsDisplay@2x.png"; sourceTree = "<group>"; };
 		876C5CDC1341CB9A0091A192 /* GpsDisplayHeading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GpsDisplayHeading.png; path = Resources/GpsDisplayHeading.png; sourceTree = "<group>"; };
@@ -273,7 +273,7 @@
 				87075F9D137B7A0300D9046A /* HeadingOff.png */,
 				87A5ABFC1352A0E10043C395 /* Panorama.png */,
 				872215CC13812AC600C0704C /* SP_logo.png */,
-				876C5CD91341CB9A0091A192 /* BluePushpin.png */,
+				876C5CD91341CB9A0091A192 /* MapMarker.png */,
 				876C5CDA1341CB9A0091A192 /* GpsDisplay.png */,
 				876C5CDB1341CB9A0091A192 /* GpsDisplay@2x.png */,
 				876C5CDC1341CB9A0091A192 /* GpsDisplayHeading.png */,
@@ -471,7 +471,7 @@
 				87AF1E051341BAF700BFD71D /* InfoPlist.strings in Resources */,
 				87AF1E0E1341BAF700BFD71D /* MainWindow.xib in Resources */,
 				874C86321341CAC4001D4E4B /* CategoriesViewController.xib in Resources */,
-				876C5CDF1341CB9A0091A192 /* BluePushpin.png in Resources */,
+				876C5CDF1341CB9A0091A192 /* MapMarker.png in Resources */,
 				876C5CE01341CB9A0091A192 /* GpsDisplay.png in Resources */,
 				876C5CE11341CB9A0091A192 /* GpsDisplay@2x.png in Resources */,
 				876C5CE21341CB9A0091A192 /* GpsDisplayHeading.png in Resources */,

@@ -487,7 +487,7 @@
             
             //create a marker symbol to use in our graphic
             AGSPictureMarkerSymbol *marker = [AGSPictureMarkerSymbol 
-                                              pictureMarkerSymbolWithImageNamed:@"BluePushpin.png"];
+                                              pictureMarkerSymbolWithImageNamed:@"MapMarker.png"];
             marker.xoffset = 9;
             marker.yoffset = -16;
             marker.hotspot = CGPointMake(-9, -11);
