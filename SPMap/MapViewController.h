@@ -40,7 +40,7 @@
     // UIBars
     UIToolbar *toolBar;
     UISearchBar *searchBar;
-    
+    //Popover for iPad
     UIPopoverController *popOver;
     
     //Overlay for Search Results

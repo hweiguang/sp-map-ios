@@ -26,7 +26,7 @@
 
 #pragma mark - View lifecycle
 
--(void)hidePopover {
+- (void)hidePopover {
     [self loadCallout];
     [popOver dismissPopoverAnimated:YES];
 }
@@ -55,17 +55,16 @@
     rotateMap = NO;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        //Start listening from ListViewController
         [[NSNotificationCenter defaultCenter] addObserver:self 
                                                  selector:@selector(hidePopover)
                                                      name:@"hidePopover" 
                                                    object:nil];
     }
-    
-    [super viewDidLoad];
-    
     appDelegate = [UIApplication sharedApplication].delegate;
     
     [self addtoolBar];
@@ -190,8 +189,8 @@
 
 - (void)locationManager:(CLLocationManager *)manager 
     didUpdateToLocation:(CLLocation *)newLocation 
-           fromLocation:(CLLocation *)oldLocation
-{
+           fromLocation:(CLLocation *)oldLocation {
+    
     //Checking the accuracy of GPS. display location if accuracy is less then 100 metres
     accuracy = newLocation.horizontalAccuracy;
     
@@ -209,8 +208,7 @@
 
 - (void)locationManager:(CLLocationManager*)manager didUpdateHeading:(CLHeading*)newHeading
 {    
-    if (newHeading.headingAccuracy > 0 && rotateMap == YES)
-    {
+    if (newHeading.headingAccuracy > 0 && rotateMap == YES) {
         CLLocationDirection trueHeading = newHeading.trueHeading;        
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:1.0];
@@ -311,8 +309,7 @@
     rotateMapButtonItem.selected = !rotateMapButtonItem.selected;
 }
 
-- (void)mapView:(AGSMapView *) mapView didClickCalloutAccessoryButtonForGraphic:(AGSGraphic *) graphic
-{
+- (void)mapView:(AGSMapView *) mapView didClickCalloutAccessoryButtonForGraphic:(AGSGraphic *) graphic {
     //Getting the attributes from NSMutableDictionary *attribs in loadCallout
     NSDictionary *graphicAttributes =[NSDictionary dictionaryWithDictionary:graphic.attributes];
     
@@ -402,12 +399,6 @@
 
 - (void) setMapExtent {
     // Setting the extend to be used depending on the number of pins to be displayed
-    if (ptcount <= 1) {
-        xmin = 103.773984;
-        ymin = 1.304356;
-        xmax = 103.782486;
-        ymax = 1.316109;
-    }
     if (ptcount == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
                                                         message:@"Location not found." 
@@ -427,17 +418,24 @@
     if (ptcount > 1) {
         [extent expandByFactor:3.5];
     }
-    [self.mapView zoomToEnvelope:extent animated:YES];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        [self.mapView zoomToEnvelope:extent animated:YES];
+    else
+        [self.mapView zoomToEnvelope:extent animated:NO];
     
     if (ptcount == 1) {
         // Center the map at point if only one point is to be displayed
         AGSPoint *pt = [AGSPoint pointWithX:ptlon y:ptlat spatialReference:self.mapView.spatialReference];
-        [self.mapView centerAtPoint:pt animated:YES];
-    }    
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            [self.mapView centerAtPoint:pt animated:YES];
+        else
+            [self.mapView zoomToEnvelope:extent animated:NO];
+    }   
 }
 
-- (void) loadCallout
-{
+- (void) loadCallout {
     // Remove all graphics if some are created earlier
     [self.graphicsLayer removeAllGraphics];
     // Hide callout
@@ -516,10 +514,10 @@
             [graphic release];            
         }
     }
-    //since we've added graphics, make sure to redraw
-    [self.graphicsLayer dataChanged];
     //Reload the MapExtent
     [self setMapExtent];
+    //Redraw map
+    [self.graphicsLayer dataChanged];
 }
 
 #pragma mark - Search

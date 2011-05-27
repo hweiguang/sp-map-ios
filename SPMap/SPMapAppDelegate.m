@@ -50,24 +50,22 @@
     
     if (mapViewController.selectedLocations != nil)
         mapViewController.selectedLocations = nil;
-    
+    //Getting the URL that is passed in from another application
     NSString *URLString = [url absoluteString];
-    
+    //Remove spmap:// from the string
     NSString *passedLocation = [URLString substringFromIndex:8];
-    
+    //Makes sure it is lower case
     passedLocation = [passedLocation lowercaseString];
     
     apassedLocation = [passedLocation copy];
-    
+    //If XMLLoaded process URL else wait till XML is loaded
     if (XMLLoaded == YES)
         [self processURL:passedLocation];
-    
     else {
         [[NSNotificationCenter defaultCenter] addObserver:self 
                                                  selector:@selector(passedLocation) 
                                                      name:@"XMLLoaded" object:nil];
     }
-    
     return YES;
 }
 
@@ -85,7 +83,6 @@
     
     for(NSString *myStr in identity) {
         NSRange range = [passedLocation rangeOfString : myStr];
-        
         if (range.location != NSNotFound) {
             [array addObject:myStr];
             mapViewController.selectedLocations = myStr;
@@ -222,14 +219,12 @@
 
 - (void)loadXML:(BOOL)hasServerCopy {
     
-    if (hasServerCopy == NO)
-    {
+    if (hasServerCopy == NO) {
         // Load and parse the local Locations.xml file
         tbxml = [[TBXML tbxmlWithXMLFile:@"Locations.xml"] retain];
     }
     
-    if (hasServerCopy == YES) 
-    {
+    if (hasServerCopy == YES) {
         NSString *filePath = [downloadCache pathToStoreCachedResponseDataForRequest:request];
         // Load and parse the server Locations.xml file
         tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:filePath]] retain];
@@ -244,8 +239,7 @@
 		TBXMLElement * location = [TBXML childElementNamed:@"location" parentElement:root];
 		
 		// if an location element was found
-		while (location != nil) 
-        {
+		while (location != nil) {
             // instantiate an location object
             Location * aLocation = [[Location alloc] init];
             
