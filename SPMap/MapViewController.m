@@ -26,13 +26,13 @@
 
 #pragma mark - View lifecycle
 
+//iPad only. This method will only be called when user makes a selection in ListVC
 - (void)hidePopover {
     [self loadCallout];
     [popOver dismissPopoverAnimated:YES];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     //Start checking the accuracy of GPS
@@ -42,7 +42,6 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
-    selectedLocations = nil;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
         //Stop location services
         [locationManager stopUpdatingLocation];
@@ -53,19 +52,22 @@
     CGAffineTransform transform = CGAffineTransformMakeRotation(0);
     _mapView.transform = transform;
     rotateMap = NO;
+    if (rotateMapButtonItem.selected == YES)
+        rotateMapButtonItem.selected = NO;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        //Start listening from ListViewController
+        //Start listening from ListViewController for user selection
         [[NSNotificationCenter defaultCenter] addObserver:self 
                                                  selector:@selector(hidePopover)
                                                      name:@"hidePopover" 
                                                    object:nil];
     }
-    appDelegate = [UIApplication sharedApplication].delegate;
+    
+    SPMapAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     
     [self addtoolBar];
     [self addsearchBar];
@@ -89,12 +91,11 @@
     
     // Adding esriLogo watermark
     UIImageView *watermarkIV;
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
         watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 935, 43, 25)];
-    }
-    else {
+    else
         watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 391, 43, 25)];
-    }
+    
     watermarkIV.image = [UIImage imageNamed:@"esriLogo.png"];
     [self.view addSubview:watermarkIV];
     [watermarkIV release];
@@ -105,9 +106,8 @@
     toolBar = [UIToolbar new];
     toolBar.barStyle = UIBarStyleBlack;
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
         toolBar.frame = CGRectMake(0, 416, 320, 44);
-    }
     else
         toolBar.frame = CGRectMake(0, 960, 768, 44);
     
@@ -143,7 +143,6 @@
     [rotateMapButtonItem setImage:HeadingOnImage forState:UIControlStateSelected];
     rotateMapButtonItem.frame = CGRectMake(0, 0, HeadingOffImage.size.width, HeadingOffImage.size.height);
     [rotateMapButtonItem addTarget:self action:@selector(rotateMap:) forControlEvents:UIControlEventTouchUpInside];
-	
     //creating a UIBarButtonItem with the rotateMapButtonItem as a custom view
     UIBarButtonItem *rotateMapBarButtonItem = [[UIBarButtonItem alloc]init];
     rotateMapBarButtonItem.customView = rotateMapButtonItem;
@@ -179,7 +178,6 @@
 }
 
 #pragma mark - Locations Services
-
 - (void)setupLocationManager {
     locationManager =[[CLLocationManager alloc]init];
     locationManager.delegate = self;
@@ -194,20 +192,18 @@
     //Checking the accuracy of GPS. display location if accuracy is less then 100 metres
     accuracy = newLocation.horizontalAccuracy;
     
-    if (accuracy <= 100) {
-        //Display user location
-        [self.mapView.gps start];
-    } else {
-        //Hide user location
-        [self.mapView.gps stop];
-    }
+    if (accuracy <= 100)
+        [self.mapView.gps start]; //Display user location
+    else
+        [self.mapView.gps stop]; //Hide user location
+    
     // Getting the location coordinate
     lat = newLocation.coordinate.latitude;
     lon = newLocation.coordinate.longitude;
 }
 
-- (void)locationManager:(CLLocationManager*)manager didUpdateHeading:(CLHeading*)newHeading
-{    
+- (void)locationManager:(CLLocationManager*)manager didUpdateHeading:(CLHeading*)newHeading { 
+    //If heading is available and selected by user, start rotating map according to the heading
     if (newHeading.headingAccuracy > 0 && rotateMap == YES) {
         CLLocationDirection trueHeading = newHeading.trueHeading;        
         [UIView beginAnimations:nil context:NULL];
@@ -247,13 +243,6 @@
 }
 
 - (void) centerUserLocation:(id)sender {
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        if (popOver != nil)
-            [popOver dismissPopoverAnimated:YES];
-    }
-    
     //Accuracy is more then 100m or no location available
     if (accuracy > 100 || lat == 0 || lon == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
@@ -264,8 +253,7 @@
         [alert show];
         [alert release];
     }
-    else
-    {
+    else {
         //Center at user point
         AGSPoint *pt = [AGSPoint pointWithX:lon y:lat spatialReference:self.mapView.spatialReference];
         [self.mapView centerAtPoint:pt animated:YES];
@@ -273,13 +261,6 @@
 }
 
 - (void) rotateMap:(id)sender {
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        if (popOver != nil)
-            [popOver dismissPopoverAnimated:YES];
-    }
-    
     BOOL headingAvailable = [CLLocationManager headingAvailable];
     
     if (headingAvailable == NO) {
@@ -300,13 +281,13 @@
         _mapView.transform = transform;
         [UIView commitAnimations];	
         rotateMap = NO;
+        rotateMapButtonItem.selected = NO;
     }
     else {
         [self centerUserLocation:(id)sender];
         rotateMap = YES;
+        rotateMapButtonItem.selected = YES;
     }
-    //toggle rotateMapButtonItem state
-    rotateMapButtonItem.selected = !rotateMapButtonItem.selected;
 }
 
 - (void)mapView:(AGSMapView *) mapView didClickCalloutAccessoryButtonForGraphic:(AGSGraphic *) graphic {
@@ -344,19 +325,15 @@
 #pragma mark - Navigating to other views
 
 - (void) showCategories:(id)sender {
-    
     CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc]initWithNibName:@"CategoriesViewController" 
                                                                                                    bundle:nil];
     categoriesViewController.title = @"Categories";
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        
         if (popOver == nil) {
-            
             UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:categoriesViewController];
-            
+            //Creating a popover with categoriesVC as RootVC
             popOver = [[UIPopoverController alloc] initWithContentViewController:navController];
-            
             [navController release];
         }
         [popOver presentPopoverFromBarButtonItem:sender 
@@ -368,7 +345,6 @@
         backbutton.title = @"Back";
         self.navigationItem.backBarButtonItem = backbutton;
         [backbutton release];
-        
         [self.navigationController pushViewController:categoriesViewController animated:YES];
     }
     [categoriesViewController release];
@@ -376,8 +352,7 @@
 
 - (void) showAbout:(id)sender {
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         if (popOver != nil)
             [popOver dismissPopoverAnimated:NO];
     }
@@ -431,7 +406,7 @@
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
             [self.mapView centerAtPoint:pt animated:YES];
         else
-            [self.mapView zoomToEnvelope:extent animated:NO];
+            [self.mapView centerAtPoint:pt animated:NO];
     }   
 }
 
@@ -523,10 +498,6 @@
 #pragma mark - Search
 
 - (void) searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar {
-    
-    if (selectedLocations != nil) {
-        selectedLocations = nil;
-    }
     overlayViewController = [[OverlayViewController alloc] initWithNibName:@"OverlayViewController"
                                                                     bundle:nil];
 	
@@ -534,12 +505,11 @@
 	CGFloat width = self.view.frame.size.width;
     CGFloat height;
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
         height = (self.view.frame.size.height) - 260;
-    }
-    else {
+    else
         height = (self.view.frame.size.height) - 308;
-    }
+    
     CGRect frame = CGRectMake(0, yaxis, width, height);
     
 	overlayViewController.view.frame = frame;	
@@ -570,7 +540,6 @@
 }
 
 - (void) searchLocations {
-    
     if (searchResults == nil)
         searchResults = [[NSMutableArray alloc] init];
     

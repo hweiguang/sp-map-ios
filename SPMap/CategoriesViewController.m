@@ -15,7 +15,7 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    self.contentSizeForViewInPopover = CGSizeMake(320, 480);
+    self.contentSizeForViewInPopover = CGSizeMake(320, 480); //For iPad only
     
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
@@ -25,11 +25,12 @@
     // Sort the array by alphabet
     [category sortUsingSelector:@selector(compare:)];
     
-    // Listen for updates from appDelegate
-    [[NSNotificationCenter defaultCenter] addObserver:self 
-                                             selector:@selector(reloadCategories) 
-                                                 name:@"XMLLoaded" object:nil];
-    
+    if ([category count] == 0) {
+        // Listen for updates from appDelegate
+        [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                 selector:@selector(reloadCategories) 
+                                                     name:@"XMLLoaded" object:nil];
+    }
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
@@ -43,13 +44,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [category count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -86,8 +85,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     [category release];
     [super dealloc];
 }

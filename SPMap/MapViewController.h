@@ -19,9 +19,7 @@
     NSMutableArray *locations; //Array for storing all locations from XML
     NSString *selectedLocations; //selectedLocations from other Views
     
-    SPMapAppDelegate * appDelegate;
-    
-    //Doubles for calculating the map extent to be displayed
+    //Variables for calculating the map extent to be displayed
     double xmin;
     double ymin;
     double xmax;
@@ -37,19 +35,18 @@
     double lat;
     double lon;
     
-    // UIBars
+    //UI Components
     UIToolbar *toolBar;
     UISearchBar *searchBar;
-    //Popover for iPad
-    UIPopoverController *popOver;
+    UIPopoverController *popOver; //Popover for iPad only
+    UIButton *rotateMapButtonItem; //Custom UIButton for rotateMapButton
     
     //Overlay for Search Results
     OverlayViewController *overlayViewController;
     //Array for storing search results
     NSMutableArray *searchResults;
     
-    BOOL rotateMap; //if YES map will be rotated to user heading
-    UIButton *rotateMapButtonItem;
+    BOOL rotateMap; //if YES map will be rotated according to user heading
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;

@@ -73,6 +73,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    mapViewController.selectedLocations = nil;
     mapViewController.selectedLocations = [searchResults objectAtIndex:indexPath.row];
     [mapViewController loadCallout];
     [mapViewController.searchBar resignFirstResponder];
