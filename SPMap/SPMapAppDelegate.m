@@ -28,19 +28,19 @@
     
 	locations = [[NSMutableArray alloc] init];
     categories = [[NSMutableSet alloc] init];
-    identity = [[NSMutableArray alloc]init];
+    //identity = [[NSMutableArray alloc] init]; Uncomment when ready to implement URL Scheme
     
     //Reachability
     [self checkNetwork];
     
-    //Download XML file from server and parse if unavailable parse local copy
+    //Download XML file from server and parse. if unavailable parse local copy
     [NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
     
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;
 }
-
+/*
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {    
     // Makes sure the user is presented with the MapView
@@ -48,8 +48,8 @@
     
     MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
     
-    if (mapViewController.selectedLocations != nil)
-        mapViewController.selectedLocations = nil;
+    mapViewController.selectedLocations = nil; //Making sure selectedLocations in MapVC is nil
+    
     //Getting the URL that is passed in from another application
     NSString *URLString = [url absoluteString];
     //Remove spmap:// from the string
@@ -58,6 +58,7 @@
     passedLocation = [passedLocation lowercaseString];
     
     apassedLocation = [passedLocation copy];
+    
     //If XMLLoaded process URL else wait till XML is loaded
     if (XMLLoaded == YES)
         [self processURL:passedLocation];
@@ -125,11 +126,11 @@
             }
             mapViewController.selectedLocations = passedLocation;
         }
-    } 
+    }
     [mapViewController loadCallout];
     [array release];
 }
-
+*/
 - (void)checkNetwork {
     Reachability* wifiReach = [[Reachability reachabilityWithHostName:kReachabilityHostname] retain];
     NetworkStatus netStatus = [wifiReach currentReachabilityStatus];
@@ -277,7 +278,7 @@
             
             // add our location object to the locations array and release the resource
 			[locations addObject:aLocation];
-            [identity addObject:aLocation.identity];
+            //[identity addObject:aLocation.identity]; Uncomment when ready to implement URL Scheme
             [aLocation release];
             
 			// find the next sibling element named "location"
@@ -302,7 +303,7 @@
     [downloadCache release];
     [locations release];
     [categories release];
-    [identity release];
+    //[identity release]; Uncomment when ready to implement URL Scheme
     [super dealloc];
 }
 

@@ -24,9 +24,9 @@
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
-    if (!operationQueue) {
+    if (!operationQueue)
         operationQueue = [[NSOperationQueue alloc] init];
-    }
+    
     //Set the title of the View to the name of the selected pin
     NSString *title = [details valueForKey:@"title"];
     self.title = title;
@@ -97,8 +97,7 @@
     }
     
     //  no photo defined, use default image not found
-    else
-    {
+    else {
         imageView.image = [UIImage imageNamed:@"UnavailableImage.png"];        
         [activity stopAnimating];
     }
@@ -124,8 +123,7 @@
 }
 
 //  unable to connect, image not found; i.e use default image not found
-- (void)requestWentWrong:(ASIHTTPRequest *)theRequest
-{
+- (void)requestWentWrong:(ASIHTTPRequest *)theRequest {
     //  set image not found
     imageView.image = [UIImage imageNamed:@"UnavailableImage.png"];        
     [activity stopAnimating];
@@ -135,8 +133,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     [imageView release];
 	[activity release];
     [textView release];

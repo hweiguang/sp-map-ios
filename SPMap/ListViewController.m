@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
     
-    self.contentSizeForViewInPopover = CGSizeMake(320, 480);
+    self.contentSizeForViewInPopover = CGSizeMake(320, 480); //For iPad only
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
@@ -77,13 +77,11 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	return [locationsincategory count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -101,13 +99,14 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
     MapViewController *mapViewController = (MapViewController*)[appDelegate.navigationController.viewControllers objectAtIndex:0];
     
     Location * aLocation = [locationsincategory objectAtIndex:indexPath.row];
+    
+    mapViewController.selectedLocations = nil;
     
     //Passing the identity of the selected Location to the map
     mapViewController.selectedLocations = aLocation.identity;
@@ -127,6 +126,8 @@
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
     MapViewController *mapViewController = (MapViewController*)[appDelegate.navigationController.viewControllers objectAtIndex:0];
+    
+    mapViewController.selectedLocations = nil;
     
     //Passing the title of the selected Location to the map
     mapViewController.selectedLocations = selectedCategory;
