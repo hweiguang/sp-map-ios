@@ -19,8 +19,6 @@
     [super dealloc];
 }
 
-#pragma mark - View lifecycle
-
 - (void)viewDidLoad {
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];

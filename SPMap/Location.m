@@ -19,6 +19,7 @@
 @synthesize photos;
 @synthesize panorama;
 @synthesize identity;
+@synthesize livecam;
 
 - (id)init
 {
@@ -33,6 +34,7 @@
         photos = [[NSString alloc] init];
         panorama = [[NSString alloc] init];
         identity = [[NSString alloc] init];
+        livecam = [[NSString alloc] init];
     }
     return self;
 }
@@ -48,6 +50,7 @@
     [photos release];
     [panorama release];
     [identity release];
+    [livecam release];
     [super dealloc];
 }
 
