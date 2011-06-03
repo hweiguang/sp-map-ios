@@ -13,4 +13,5 @@
 #define kMapServiceURL          @"http://www.whereto.sg/WMGIS01/rest/services/WhereTo/Island_Base/MapServer"
 #define imageHostname           @"http://mobileapp.sp.edu.sg/spmap/photos/"
 #define panoramaHostname        @"http://mobileapp.sp.edu.sg/spmap/panoramas/"
+#define livecamHostname         @"http://mobileapp.sp.edu.sg/ipcam/fcimages/"
 #define kReachabilityHostname   @"mobileapp.sp.edu.sg"

@@ -204,9 +204,9 @@
     //  file is found
     else
     {
-        BOOL hasServerCopy = YES;
+        //BOOL hasServerCopy = YES;
         //Set hasServerCopy to NO here to test Local XML file
-        //BOOL hasServerCopy = NO;
+        BOOL hasServerCopy = NO;
         [self loadXML:hasServerCopy];
     }
 }
@@ -251,6 +251,7 @@
             aLocation.photos = [TBXML valueOfAttributeNamed:@"photos" forElement:location];
             aLocation.panorama = [TBXML valueOfAttributeNamed:@"panorama" forElement:location];
             aLocation.identity = [TBXML valueOfAttributeNamed:@"id" forElement:location];
+            aLocation.livecam = [TBXML valueOfAttributeNamed:@"livecam" forElement:location];
             
             NSString * lat = [TBXML valueOfAttributeNamed:@"lat" forElement:location];
             aLocation.lat = [NSNumber numberWithFloat:[lat floatValue]];

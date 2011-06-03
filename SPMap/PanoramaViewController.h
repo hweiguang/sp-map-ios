@@ -9,11 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface PanoramaViewController : UIViewController {
-    
 	IBOutlet UIWebView *webView;
 	IBOutlet UIActivityIndicatorView *activity;
 	NSTimer *timer;
-	
 }
 
 @property (nonatomic, retain) UIWebView *webView;
