@@ -17,6 +17,7 @@
     ASIHTTPRequest *request; 
     NSOperationQueue *operationQueue;
     UIToolbar *toolbar;
+    UIPopoverController *popOver;
 }
 
 @property (nonatomic, retain) UIActivityIndicatorView *activity;
@@ -26,5 +27,6 @@
 
 - (void)grabImageInTheBackground;
 - (void)showPanorama:(id)sender;
+- (void)showLiveCam:(id)sender;
 
 @end

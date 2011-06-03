@@ -11,12 +11,11 @@
 #import "DetailViewController.h"
 #import "ASIHTTPRequest.h"
 #import "PanoramaViewController.h"
+#import "LiveCamViewController.h"
 #import "Constants.h"
 
 @implementation DetailViewController
 @synthesize textView,details,activity,toolbar;
-
-#pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
@@ -37,8 +36,9 @@
     [self grabImageInTheBackground];
     
     NSString *panorama = [details valueForKey:@"panorama"];
+    NSString *livecam = [details valueForKey:@"livecam"];
     
-    if (panorama != nil) {
+    if (panorama != nil || livecam != nil) {
         
         toolbar = [UIToolbar new];
         toolbar.barStyle = UIBarStyleBlack;
@@ -50,19 +50,46 @@
         
         [self.view addSubview:toolbar];
         
-        UIBarButtonItem *showPanoramaButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Panorama.png"]
-                                                                                   style:UIBarButtonItemStylePlain
-                                                                                  target:self
-                                                                                  action:@selector(showPanorama:)];
+        NSMutableArray *items = [[NSMutableArray alloc]init];
         
-        NSArray *items = [NSArray arrayWithObjects:showPanoramaButtonItem,nil];
-        [self.toolbar setItems:items animated:NO];
-        [showPanoramaButtonItem release];
+        if (panorama != nil) {
+            UIBarButtonItem *showPanoramaButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Panorama.png"]
+                                                                                       style:UIBarButtonItemStylePlain
+                                                                                      target:self
+                                                                                      action:@selector(showPanorama:)];
+            [items addObject:showPanoramaButtonItem];
+            [showPanoramaButtonItem release];
+        }
+        
+        if (livecam != nil) {
+            UIBarButtonItem *showLiveCamButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"LiveCam.png"]
+                                                                                      style:UIBarButtonItemStylePlain
+                                                                                     target:self
+                                                                                     action:@selector(showLiveCam:)];
+            if ([items count] > 0) {
+                UIBarButtonItem *fixedItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                           target:nil action:nil];
+                fixedItem.width = 35; //Setting the width of the spacer
+                [items addObject:fixedItem];
+                [fixedItem release];
+            }
+            
+            [items addObject:showLiveCamButtonItem];
+            [showLiveCamButtonItem release];
+        }
+        [self.toolbar setItems:items animated:NO];  
+        [items release];
     }
 }
 
-- (void)showPanorama:(id)sender
-{
+-(void)viewWillDisappear:(BOOL)animated {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        if (popOver != nil)
+            [popOver dismissPopoverAnimated:NO];
+    }
+}
+
+- (void)showPanorama:(id)sender {
     PanoramaViewController *panoramaViewController = [[PanoramaViewController alloc]
                                                       initWithNibName:@"PanoramaViewController" bundle:nil];
     
@@ -78,6 +105,34 @@
     [self.navigationController pushViewController:panoramaViewController animated:YES];
 	[panoramaViewController release];
     
+}
+
+- (void)showLiveCam:(id)sender {
+    LiveCamViewController *livecamViewController = [[LiveCamViewController alloc]
+                                                    initWithNibName:@"LiveCamViewController" bundle:nil];
+    
+    livecamViewController.selectedLiveCam = [details valueForKey:@"livecam"];
+    livecamViewController.title = @"Live Cam";
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        if (popOver == nil) {
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:livecamViewController];
+            //Creating a popover with categoriesVC as RootVC
+            popOver = [[UIPopoverController alloc] initWithContentViewController:navController];
+            [navController release];
+        }
+        [popOver presentPopoverFromBarButtonItem:sender 
+                        permittedArrowDirections:UIPopoverArrowDirectionAny 
+                                        animated:YES];
+    }
+    else {
+        UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
+        backbutton.title = @"Back";
+        self.navigationItem.backBarButtonItem = backbutton;
+        [backbutton release];
+        [self.navigationController pushViewController:livecamViewController animated:YES];
+    }
+    [livecamViewController release];
 }
 
 - (void)grabImageInTheBackground
@@ -138,6 +193,7 @@
 	[activity release];
     [textView release];
     [details release];
+    [popOver release];
     [activity stopAnimating];
     [request clearDelegatesAndCancel];
     [request release];

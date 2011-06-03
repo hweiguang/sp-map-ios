@@ -10,24 +10,34 @@
 #import "MapViewController.h"
 #import "Location.h"
 #import "SPMapAppDelegate.h"
+#import "CustomCellforListVC.h"
 
 @implementation ListViewController
 
 @synthesize selectedCategory;
 
-- (void)dealloc
-{
-    [super dealloc];
+- (void)dealloc {
     [selectedCategory release];
     [locations release];
     [locationsincategory release];
+    [super dealloc];
 }
 
-#pragma mark - View lifecycle
+- (void) reloadtableView {
+    [self.tableView reloadData];
+}
 
-- (void)viewDidLoad
-{
+- (void) viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(reloadtableView) 
+                                                 name:@"ReloadDistance" object:nil];
     
     self.contentSizeForViewInPopover = CGSizeMake(320, 480); //For iPad only
     
@@ -75,29 +85,52 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - Table view data source
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	return [locationsincategory count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    CustomCellforListVC *cell = (CustomCellforListVC*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[CustomCellforListVC alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
     }
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     Location * aLocation = [locationsincategory objectAtIndex:indexPath.row];
-    cell.textLabel.text = aLocation.title;
-    cell.detailTextLabel.text = aLocation.subtitle;
+    
+    SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    
+    MapViewController *mapViewController = (MapViewController*)[appDelegate.navigationController.viewControllers objectAtIndex:0];
+    
+    CLLocation *userLocation = [[CLLocation alloc]initWithLatitude:mapViewController.lat
+                                                         longitude:mapViewController.lon];
+    
+    NSString *distanceString;
+    
+    for (int i=0; i<[locationsincategory count]; i++) {
+        double lat = [aLocation.lat doubleValue];
+        double lon = [aLocation.lon doubleValue];;
+        
+        CLLocation *location = [[CLLocation alloc]initWithLatitude:lat longitude:lon];
+        
+        CLLocationDistance distance = [userLocation distanceFromLocation:location];
+        
+        distanceString = [NSString stringWithFormat:@"%.0f", distance];
+        distanceString = [distanceString stringByAppendingString:@"m"];
+        
+        cell.distanceLabel.text = distanceString;
+        
+        [location release];
+    }
+    [userLocation release];
+    
+    cell.primaryLabel.text = aLocation.title;
+    cell.secondaryLabel.text = aLocation.subtitle;
     
     return cell;
 }
-
-#pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;

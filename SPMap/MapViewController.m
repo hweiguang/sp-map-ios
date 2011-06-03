@@ -23,6 +23,8 @@
 @synthesize searchResults;
 @synthesize searchBar;
 @synthesize toolBar;
+@synthesize lat;
+@synthesize lon;
 
 #pragma mark - View lifecycle
 
@@ -39,21 +41,17 @@
     [locationManager startUpdatingLocation];
     //Star updating user heading
     [locationManager startUpdatingHeading];
+    visible = YES;
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone){
-        //Stop location services
-        [locationManager stopUpdatingLocation];
-        [locationManager stopUpdatingHeading];
-        [self.mapView.gps stop];
-    }
     //Stop rotating map and rotate map back to normal position
     CGAffineTransform transform = CGAffineTransformMakeRotation(0);
     _mapView.transform = transform;
     rotateMap = NO;
     if (rotateMapButtonItem.selected == YES)
         rotateMapButtonItem.selected = NO;
+    visible = NO;
 }
 
 - (void)viewDidLoad {
@@ -200,6 +198,10 @@
     // Getting the location coordinate
     lat = newLocation.coordinate.latitude;
     lon = newLocation.coordinate.longitude;
+    
+    if (visible == NO) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadDistance" object:nil];
+    }
 }
 
 - (void)locationManager:(CLLocationManager*)manager didUpdateHeading:(CLHeading*)newHeading { 
@@ -296,11 +298,12 @@
     
     //Extracting the key panorama from dictionary
     NSString *panorama = [graphicAttributes valueForKey:@"panorama"];
+    NSString *livecam = [graphicAttributes valueForKey:@"livecam"];
     
     DetailViewController *detailViewController;
     
-    // Check if panorama is available or not
-    if (panorama == nil) {
+    // Check if panorama or livecam is available or not
+    if (panorama == nil && livecam == nil) {
         detailViewController = [[DetailViewController alloc]
                                 initWithNibName:@"DetailViewController" bundle:nil];
     }
@@ -320,6 +323,11 @@
     // Push the next view
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
+    
+    //Stop location services
+    [locationManager stopUpdatingLocation];
+    [locationManager stopUpdatingHeading];
+    [self.mapView.gps stop];
 }
 
 #pragma mark - Navigating to other views
@@ -368,6 +376,11 @@
     
     [self.navigationController pushViewController:aboutViewController animated:YES];
     [aboutViewController release];
+    
+    //Stop location services
+    [locationManager stopUpdatingLocation];
+    [locationManager stopUpdatingHeading];
+    [self.mapView.gps stop];
 }
 
 #pragma mark - Setting MapView and CallOuts
@@ -471,6 +484,7 @@
             [attribs setValue:location.description forKey:@"description"];
             [attribs setValue:location.photos forKey:@"photos"];
             [attribs setValue:location.panorama forKey:@"panorama"];
+            [attribs setValue:location.livecam forKey:@"livecam"];
             
             //set the title and subtitle of the callout
             self.CalloutTemplate.titleTemplate = @"${title}";
