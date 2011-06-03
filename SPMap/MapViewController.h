@@ -47,6 +47,7 @@
     NSMutableArray *searchResults;
     
     BOOL rotateMap; //if YES map will be rotated according to user heading
+    BOOL visible;
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;
@@ -56,6 +57,8 @@
 @property (nonatomic, retain) UIToolbar *toolBar;
 @property (nonatomic, retain) UISearchBar *searchBar;
 @property (nonatomic, retain) NSMutableArray *searchResults;
+@property double lat;
+@property double lon;
 
 - (void) showCategories:(id)sender;
 - (void) showAbout:(id)sender;

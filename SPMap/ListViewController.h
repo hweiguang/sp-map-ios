@@ -17,5 +17,6 @@
 @property (nonatomic, retain) NSString *selectedCategory;
 
 - (void)showAll;
+- (void) reloadtableView;
 
 @end

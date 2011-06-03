@@ -232,10 +232,10 @@ Enjoy McCafe at discounted rates." photos="t16mac.jpg" icons="http://mobileapp.s
 	<location id="cafemoberly" title="Cafe@Moberly" subtitle="At Moberly, Level 1" lat="1.308016" lon="103.778538" description="A cafe with extensive range of snacks, drinks and pastries." photos="moberlycafe.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/dining.png">
 		<category>Dining</category>
 	</location>
-	<location id="foodcourt1" title="Foodcourt 1" subtitle="Beside MLT1" lat="1.307517" lon="103.781398" description="Foodcourt 1 is always ready for hungry students who emerge from lectures requiring a quick fix for their hungry bellies." photos="foodcourt1.jpg" panorama="28-MLT1/28-MLT1.html" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/dining.png">
+	<location id="foodcourt1" title="Foodcourt 1" subtitle="Beside MLT1" lat="1.307517" lon="103.781398" livecam="fc1.jpg" description="Foodcourt 1 is always ready for hungry students who emerge from lectures requiring a quick fix for their hungry bellies." photos="foodcourt1.jpg" panorama="28-MLT1/28-MLT1.html" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/dining.png">
 		<category>Dining</category>
 	</location>
-	<location id="foodcourt2" title="Foodcourt 2" subtitle="At T1A" lat="1.308972" lon="103.781053" description="McDonald's
+	<location id="foodcourt2" title="Foodcourt 2" subtitle="At T1A" lat="1.308972" lon="103.781053" livecam="fc2.jpg" description="McDonald's
 Opening Hours
 Mon-Fri: 7am-8.30pm
 Tel: 6775-8242
@@ -243,7 +243,7 @@ Tel: 6775-8242
 Foodcourt 2 is also known affectionately to some SP students as McDonalds - even though the fast-food chain is but one of many stalls offering affordable and delectable delights. There is also an ATM (OCBC) behind this foodcourt - for those who need some spare dollars to pay for their food. Lastly, if you are looking for titbits to munch in class, there is also a mama shop also known as convenient stall right at the corner of the stretch of stalls." photos="foodcourt2.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/dining.png">
 		<category>Dining</category>
 	</location>
-	<location id="foodcourt3" title="Foodcourt 3" subtitle="At Polycentre, Level 1" lat="1.308878" lon="103.778399" description="Foodcourt 3 greet the students with elaborately decorated and tastefully designed finishes and a wide food variety at very popular and reasonable prices. This is a place where even the most fussy of eaters are spoilt for choice. This foodcourt has increased its stall numbers with more variety such as Burger King!" photos="foodcourt3.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/dining.png">
+	<location id="foodcourt3" title="Foodcourt 3" subtitle="At Polycentre, Level 1" lat="1.308878" lon="103.778399" livecam="fc3.jpg" description="Foodcourt 3 greet the students with elaborately decorated and tastefully designed finishes and a wide food variety at very popular and reasonable prices. This is a place where even the most fussy of eaters are spoilt for choice. This foodcourt has increased its stall numbers with more variety such as Burger King!" photos="foodcourt3.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/dining.png">
 		<category>Dining</category>
 	</location>
 	<location id="burgerking" title="Burger King" subtitle="At Foodcourt 3" lat="1.308889" lon="103.77832" description="Burger King
@@ -253,7 +253,7 @@ Sat: 8am-6pm
 Tel: 6872-5579" photos="burgerking.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/dining.png">
 		<category>Dining</category>
 	</location>
-	<location id="foodcourt4" title="Foodcourt 4" subtitle="At T17, Basement 1 and 2" lat="1.310683" lon="103.777145" description="Opening Hours
+	<location id="foodcourt4" title="Foodcourt 4" subtitle="At T17, Basement 1 and 2" lat="1.310683" lon="103.777145" livecam="fc4.jpg" description="Opening Hours
 School Term
 Mon-Fri: 7am-9pm
 Sat: 8am-1pm
