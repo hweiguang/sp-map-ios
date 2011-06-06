@@ -13,6 +13,7 @@
 #import "Constants.h"
 #import "OverlayViewController.h"
 #import "ListViewController.h"
+#import "ContactsViewController.h"
 
 @implementation MapViewController
 
@@ -132,6 +133,12 @@
                                                                             style:UIBarButtonItemStylePlain
                                                                            target:self
                                                                            action:@selector(showAbout:)];
+    
+    UIBarButtonItem *showContactsButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Contacts.png"]
+                                                                               style:UIBarButtonItemStylePlain
+                                                                              target:self
+                                                                              action:@selector(showContacts:)];
+    
     //load the Heading icon for UIBarButtonItem rotateMapBarButtonItem
     UIImage *HeadingOffImage = [UIImage imageNamed:@"HeadingOff.png"];
     UIImage *HeadingOnImage = [UIImage imageNamed:@"HeadingOn.png"];
@@ -147,10 +154,12 @@
     
     NSArray *items = [NSArray arrayWithObjects:
                       showCategoriesButtonItem,
-                      fixedItem,
+                      flexItem,
                       centerUserLocationButtonItem,
-                      fixedItem,
+                      flexItem,
                       rotateMapBarButtonItem,
+                      flexItem,
+                      showContactsButtonItem,
                       flexItem,
                       showAboutButtonItem,
                       nil];
@@ -162,6 +171,7 @@
     [flexItem release];
     [showAboutButtonItem release];
     [rotateMapBarButtonItem release];
+    [showContactsButtonItem release];
 }
 
 - (void) addsearchBar {
@@ -383,6 +393,31 @@
     [self.mapView.gps stop];
 }
 
+- (void) showContacts:(id)sender {
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        if (popOver != nil)
+            [popOver dismissPopoverAnimated:NO];
+    }
+    
+    ContactsViewController *contactsViewController = [[ContactsViewController alloc]initWithNibName:@"ContactsViewController"
+                                                                                    bundle:nil];
+    contactsViewController.title = @"Contacts";
+    
+    UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
+    backbutton.title = @"Back";
+    self.navigationItem.backBarButtonItem = backbutton;
+    [backbutton release];
+    
+    [self.navigationController pushViewController:contactsViewController animated:YES];
+    [contactsViewController release];
+    
+    //Stop location services
+    [locationManager stopUpdatingLocation];
+    [locationManager stopUpdatingHeading];
+    [self.mapView.gps stop];
+}
+
 #pragma mark - Setting MapView and CallOuts
 
 - (void) setMapExtent {
@@ -426,8 +461,6 @@
 - (void) loadCallout {
     // Remove all graphics if some are created earlier
     [self.graphicsLayer removeAllGraphics];
-    // Hide callout
-    self.mapView.callout.hidden = YES;
     
     //use these to calculate extent of results
     xmin = DBL_MAX;
@@ -440,6 +473,9 @@
     
     // variable used to count the number of pins to be display
     ptcount = 0;
+    
+    AGSGraphic *graphic;
+    AGSPoint *pt;
     
     //loop through all locations and add to graphics layer
     for (int i=0; i<[locations count]; i++)
@@ -454,7 +490,7 @@
             ptlon = [[location lon] doubleValue];
             
             //Adding coordinates to the point
-            AGSPoint *pt = [AGSPoint pointWithX:ptlon y:ptlat spatialReference:self.mapView.spatialReference];
+            pt = [AGSPoint pointWithX:ptlon y:ptlat spatialReference:self.mapView.spatialReference];
             
             ptcount++;
             
@@ -491,22 +527,30 @@
             self.CalloutTemplate.detailTemplate = @"${subtitle}";
             
             //create the graphic
-            AGSGraphic *graphic = [[AGSGraphic alloc] initWithGeometry:pt
-                                                                symbol:marker
-                                                            attributes:attribs
-                                                  infoTemplateDelegate:self.CalloutTemplate];
+            graphic = [[AGSGraphic alloc] initWithGeometry:pt
+                                                    symbol:marker
+                                                attributes:attribs
+                                      infoTemplateDelegate:self.CalloutTemplate];
             
             //add the graphic to the graphics layer
             [self.graphicsLayer addGraphic:graphic];
             
-            //release the graphic
-            [graphic release];            
+            
         }
     }
-    //Reload the MapExtent
-    [self setMapExtent];
     //Redraw map
     [self.graphicsLayer dataChanged];
+    
+    //Reload the MapExtent
+    [self setMapExtent];
+    
+    if (ptcount == 1)
+        [self.mapView showCalloutAtPoint:pt forGraphic:graphic animated:YES];
+    else
+        self.mapView.callout.hidden = YES;
+    
+    //release the graphic
+    [graphic release];
 }
 
 #pragma mark - Search
