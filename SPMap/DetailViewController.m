@@ -135,8 +135,7 @@
     [livecamViewController release];
 }
 
-- (void)grabImageInTheBackground
-{
+- (void)grabImageInTheBackground {
     NSString *imagename = [details valueForKey:@"photos"];
     
     if (imagename != nil) {

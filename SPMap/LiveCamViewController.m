@@ -27,6 +27,8 @@
 }
 
 - (IBAction)refresh:(id)sender {
+    [request clearDelegatesAndCancel];
+    [request release];
     [self grabImageInTheBackground];
 }
 
