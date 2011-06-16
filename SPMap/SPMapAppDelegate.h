@@ -20,9 +20,9 @@
     TBXML *tbxml;
     NSMutableArray *locations; //Array for storing all locations from XML
     NSMutableSet *categories; //Set for storing all categories from XML
-    //NSMutableArray *identity; //Array for storing all the identity
+    NSMutableArray *identity; //Array for storing all the identity
     BOOL XMLLoaded; //XML status. YES for loaded, NO when not loaded
-    //NSString *apassedLocation;//String that is passed in from URL
+    NSString *apassedLocation;//String that is passed in from URL
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -34,7 +34,7 @@
 - (void)checkNetwork;
 - (void)loadData;
 - (void)loadXML:(BOOL)hasServerCopy;
-//- (void)processURL:(NSString*)passedLocation;
-//- (void)passedLocation;
+- (void)processURL:(NSString*)passedLocation;
+- (void)passedLocation;
 
 @end

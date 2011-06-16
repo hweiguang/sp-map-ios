@@ -18,7 +18,8 @@
     NSString *photos; //Photo to be display in detail view
     NSString *panorama; //Link to panorama
     NSString *identity; //id for the points
-    NSString *livecam;
+    NSString *livecam; //Link to livecam image
+    NSString *video; //Link to video
 }
 
 @property (nonatomic, retain) NSString *title;
@@ -31,5 +32,6 @@
 @property (nonatomic, retain) NSString *panorama;
 @property (nonatomic, retain) NSString *identity;
 @property (nonatomic, retain) NSString *livecam;
+@property (nonatomic, retain) NSString *video;
 
 @end

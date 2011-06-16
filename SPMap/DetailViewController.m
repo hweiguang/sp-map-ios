@@ -12,6 +12,7 @@
 #import "ASIHTTPRequest.h"
 #import "PanoramaViewController.h"
 #import "LiveCamViewController.h"
+#import "VideoViewController.h"
 #import "Constants.h"
 
 @implementation DetailViewController
@@ -37,8 +38,9 @@
     
     NSString *panorama = [details valueForKey:@"panorama"];
     NSString *livecam = [details valueForKey:@"livecam"];
+    NSString *video = [details valueForKey:@"video"];
     
-    if (panorama != nil || livecam != nil) {
+    if (panorama != nil || livecam != nil || video != nil) {
         
         toolbar = [UIToolbar new];
         toolbar.barStyle = UIBarStyleBlack;
@@ -77,6 +79,24 @@
             [items addObject:showLiveCamButtonItem];
             [showLiveCamButtonItem release];
         }
+        
+        if (video != nil) {
+            UIBarButtonItem *showVideoButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Video.png"]
+                                                                                    style:UIBarButtonItemStylePlain
+                                                                                   target:self
+                                                                                   action:@selector(showVideo:)];
+            if ([items count] > 0) {
+                UIBarButtonItem *fixedItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                           target:nil action:nil];
+                fixedItem.width = 35; //Setting the width of the spacer
+                [items addObject:fixedItem];
+                [fixedItem release];
+            }
+            
+            [items addObject:showVideoButtonItem];
+            [showVideoButtonItem release];
+        }
+        
         [self.toolbar setItems:items animated:NO];  
         [items release];
     }
@@ -133,6 +153,23 @@
         [self.navigationController pushViewController:livecamViewController animated:YES];
     }
     [livecamViewController release];
+}
+
+- (void)showVideo:(id)sender {
+    VideoViewController *videoViewController = [[VideoViewController alloc]
+                                                      initWithNibName:@"VideoViewController" bundle:nil];
+    
+    UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] initWithTitle:@"Back" 
+                                                                   style:UIBarButtonItemStylePlain 
+                                                                  target:nil action:nil];
+	self.navigationItem.backBarButtonItem = backbutton;
+    [backbutton release];
+    
+    videoViewController.selectedvideo = [details valueForKey:@"video"];
+    
+    videoViewController.title = @"Video";
+    [self.navigationController pushViewController:videoViewController animated:YES];
+	[videoViewController release];
 }
 
 - (void)grabImageInTheBackground {

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface ContactsViewController : UIViewController <UIWebViewDelegate> {
 	IBOutlet UIWebView *webView;
 }

@@ -8,7 +8,6 @@
 
 #import "ContactsViewController.h"
 
-
 @implementation ContactsViewController
 
 @synthesize webView;

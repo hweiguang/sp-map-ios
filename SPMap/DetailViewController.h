@@ -28,5 +28,6 @@
 - (void)grabImageInTheBackground;
 - (void)showPanorama:(id)sender;
 - (void)showLiveCam:(id)sender;
+- (void)showVideo:(id)sender;
 
 @end
