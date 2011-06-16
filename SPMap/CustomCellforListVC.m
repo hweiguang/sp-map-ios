@@ -16,7 +16,7 @@
     if (self == [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         // Initialization code
         primaryLabel = [[UILabel alloc]initWithFrame:CGRectMake(10,0,265,25)];
-        primaryLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:14.0];
+        primaryLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16.0];
         
         secondaryLabel = [[UILabel alloc]initWithFrame:CGRectMake(10,25,265,15)];
         secondaryLabel.font = [UIFont fontWithName:@"Helvetica" size:14.0];

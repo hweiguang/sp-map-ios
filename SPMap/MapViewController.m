@@ -47,8 +47,7 @@
 
 - (void) viewWillDisappear:(BOOL)animated {
     //Stop rotating map and rotate map back to normal position
-    CGAffineTransform transform = CGAffineTransformMakeRotation(0);
-    _mapView.transform = transform;
+    _mapView.transform = CGAffineTransformMakeRotation(0);
     rotateMap = NO;
     if (rotateMapButtonItem.selected == YES)
         rotateMapButtonItem.selected = NO;
@@ -57,7 +56,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         //Start listening from ListViewController for user selection
         [[NSNotificationCenter defaultCenter] addObserver:self 
@@ -101,7 +99,6 @@
 }
 
 - (void) addtoolBar {
-    
     toolBar = [UIToolbar new];
     toolBar.barStyle = UIBarStyleBlack;
     
@@ -114,10 +111,6 @@
     
     UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                               target:nil action:nil];
-    
-    UIBarButtonItem *fixedItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                                                               target:nil action:nil];
-    fixedItem.width = 35; //Setting the width of the spacer
     
     UIBarButtonItem *centerUserLocationButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Location.png"]
                                                                                      style:UIBarButtonItemStylePlain
@@ -166,12 +159,11 @@
     
     [self.toolBar setItems:items animated:NO];
     [centerUserLocationButtonItem release];
-    [fixedItem release];
     [showCategoriesButtonItem release];
-    [flexItem release];
     [showAboutButtonItem release];
     [rotateMapBarButtonItem release];
     [showContactsButtonItem release];
+    [flexItem release];
 }
 
 - (void) addsearchBar {
@@ -252,6 +244,9 @@
                                                           ymax:1.316343
                                               spatialReference:self.mapView.spatialReference];
     [self.mapView zoomToEnvelope:defaultextent animated:NO];
+    mapLoaded = YES;
+    // Notification to alert map is ready
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"mapLoaded" object:nil]; 
 }
 
 - (void) centerUserLocation:(id)sender {
@@ -272,10 +267,8 @@
     }
 }
 
-- (void) rotateMap:(id)sender {
-    BOOL headingAvailable = [CLLocationManager headingAvailable];
-    
-    if (headingAvailable == NO) {
+- (void) rotateMap:(id)sender {    
+    if ([CLLocationManager headingAvailable] == NO) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Heading Unavailable" 
                                                         message:@"Your heading cannot be determined."
                                                        delegate:self 
@@ -309,11 +302,12 @@
     //Extracting the key panorama from dictionary
     NSString *panorama = [graphicAttributes valueForKey:@"panorama"];
     NSString *livecam = [graphicAttributes valueForKey:@"livecam"];
+    NSString *video = [graphicAttributes valueForKey:@"video"];
     
     DetailViewController *detailViewController;
     
     // Check if panorama or livecam is available or not
-    if (panorama == nil && livecam == nil) {
+    if (panorama == nil && livecam == nil && video == nil) {
         detailViewController = [[DetailViewController alloc]
                                 initWithNibName:@"DetailViewController" bundle:nil];
     }
@@ -401,7 +395,7 @@
     }
     
     ContactsViewController *contactsViewController = [[ContactsViewController alloc]initWithNibName:@"ContactsViewController"
-                                                                                    bundle:nil];
+                                                                                             bundle:nil];
     contactsViewController.title = @"Contacts";
     
     UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
@@ -430,6 +424,7 @@
                                               otherButtonTitles:@"OK", nil];
         [alert show];
         [alert release];
+        return;
     }
     
     //If ptcount is more then 1 the values will be taken from loadCallout
@@ -458,6 +453,17 @@
     }   
 }
 
+- (void) checkMapStatus {
+    //Check map status first before loading callout
+    if(mapLoaded == YES)
+        [self loadCallout];
+    else {
+        [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                 selector:@selector(loadCallout) 
+                                                     name:@"mapLoaded" object:nil];
+    }
+}
+
 - (void) loadCallout {
     // Remove all graphics if some are created earlier
     [self.graphicsLayer removeAllGraphics];
@@ -475,8 +481,7 @@
     ptcount = 0;
     
     AGSGraphic *graphic;
-    AGSPoint *pt;
-    
+    AGSPoint *pt;    
     //loop through all locations and add to graphics layer
     for (int i=0; i<[locations count]; i++)
     {
@@ -521,6 +526,7 @@
             [attribs setValue:location.photos forKey:@"photos"];
             [attribs setValue:location.panorama forKey:@"panorama"];
             [attribs setValue:location.livecam forKey:@"livecam"];
+            [attribs setValue:location.video forKey:@"video"];
             
             //set the title and subtitle of the callout
             self.CalloutTemplate.titleTemplate = @"${title}";
@@ -534,8 +540,6 @@
             
             //add the graphic to the graphics layer
             [self.graphicsLayer addGraphic:graphic];
-            
-            
         }
     }
     //Redraw map
@@ -554,7 +558,6 @@
 }
 
 #pragma mark - Search
-
 - (void) searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar {
     overlayViewController = [[OverlayViewController alloc] initWithNibName:@"OverlayViewController"
                                                                     bundle:nil];

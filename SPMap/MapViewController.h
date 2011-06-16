@@ -47,7 +47,8 @@
     NSMutableArray *searchResults;
     
     BOOL rotateMap; //if YES map will be rotated according to user heading
-    BOOL visible;
+    BOOL visible; //BOOL for whether if view is visible or not
+    BOOL mapLoaded; //YES when the map has finish loading
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;
@@ -70,5 +71,6 @@
 - (void) searchLocations;
 - (void) setupLocationManager;
 - (void) rotateMap:(id)sender;
+- (void) checkMapStatus;
 
 @end

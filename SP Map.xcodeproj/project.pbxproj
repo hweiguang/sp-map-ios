@@ -69,6 +69,7 @@
 		87B1AD3E134B06DF0049DB59 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B1AD3C134B06DF0049DB59 /* AboutViewController.xib */; };
 		87BBCFCB13986B9500788CB6 /* LiveCam.png in Resources */ = {isa = PBXBuildFile; fileRef = 87BBCFCA13986B9500788CB6 /* LiveCam.png */; };
 		87C517801380C4A00008ADD1 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87C5177F1380C4A00008ADD1 /* MapViewController.xib */; };
+		87CCDBC213A8967000FD9AB6 /* Video.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CCDBC113A8967000FD9AB6 /* Video.png */; };
 		87CE3D00134EFAA100621C57 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CE3CF8134EFAA100621C57 /* Icon-72.png */; };
 		87CE3D01134EFAA100621C57 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CE3CF9134EFAA100621C57 /* Icon-Small-50.png */; };
 		87CE3D02134EFAA100621C57 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CE3CFA134EFAA100621C57 /* Icon-Small.png */; };
@@ -89,6 +90,8 @@
 		87EB6B7D1341BD3E0083A16C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EB6B7B1341BD3E0083A16C /* MapViewController.m */; };
 		87F2AC6A1341C67A004A851C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F2AC691341C67A004A851C /* libz.dylib */; };
 		87F990A31369608B001ACC86 /* libArcGIS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F990A21369608B001ACC86 /* libArcGIS.a */; };
+		87FDCF2F139F2DBE0034AD8B /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FDCF2D139F2DBE0034AD8B /* VideoViewController.m */; };
+		87FDCF30139F2DBE0034AD8B /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87FDCF2E139F2DBE0034AD8B /* VideoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -183,6 +186,7 @@
 		87B1AD3C134B06DF0049DB59 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutViewController.xib; path = SPMap/AboutViewController.xib; sourceTree = "<group>"; };
 		87BBCFCA13986B9500788CB6 /* LiveCam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LiveCam.png; path = Resources/LiveCam.png; sourceTree = "<group>"; };
 		87C5177F1380C4A00008ADD1 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapViewController.xib; path = SPMap/MapViewController.xib; sourceTree = "<group>"; };
+		87CCDBC113A8967000FD9AB6 /* Video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Video.png; path = Resources/Video.png; sourceTree = "<group>"; };
 		87CE3CF8134EFAA100621C57 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/Icon-72.png"; sourceTree = "<group>"; };
 		87CE3CF9134EFAA100621C57 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "Resources/Icon-Small-50.png"; sourceTree = "<group>"; };
 		87CE3CFA134EFAA100621C57 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Resources/Icon-Small.png"; sourceTree = "<group>"; };
@@ -209,6 +213,9 @@
 		87EB6B7B1341BD3E0083A16C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		87F2AC691341C67A004A851C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		87F990A21369608B001ACC86 /* libArcGIS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libArcGIS.a; path = ../../../Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib/libArcGIS.a; sourceTree = "<group>"; };
+		87FDCF2C139F2DBD0034AD8B /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		87FDCF2D139F2DBE0034AD8B /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		87FDCF2E139F2DBE0034AD8B /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VideoViewController.xib; path = SPMap/VideoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -392,6 +399,7 @@
 				87A5ABFC1352A0E10043C395 /* Panorama.png */,
 				876C5CD91341CB9A0091A192 /* MapMarker.png */,
 				87BBCFCA13986B9500788CB6 /* LiveCam.png */,
+				87CCDBC113A8967000FD9AB6 /* Video.png */,
 				87CEEB57139CC6810058656B /* Contacts.png */,
 			);
 			name = "Toolbar Icons";
@@ -419,6 +427,8 @@
 				870BDDC31349C98E0040D32D /* DetailViewController.m */,
 				87E70A3F13978DD6005602BC /* LiveCamViewController.h */,
 				87E70A4013978DD6005602BC /* LiveCamViewController.m */,
+				87FDCF2C139F2DBD0034AD8B /* VideoViewController.h */,
+				87FDCF2D139F2DBE0034AD8B /* VideoViewController.m */,
 				87D5AF88134F5D61006C4412 /* PanoramaViewController.h */,
 				87D5AF89134F5D61006C4412 /* PanoramaViewController.m */,
 				87B1AD3A134B06DF0049DB59 /* AboutViewController.h */,
@@ -449,6 +459,7 @@
 				870BDDC41349C98F0040D32D /* DetailViewController.xib */,
 				0FBC612D135447980042F842 /* TBDetailViewController.xib */,
 				87E70A4113978DD6005602BC /* LiveCamViewController.xib */,
+				87FDCF2E139F2DBE0034AD8B /* VideoViewController.xib */,
 				87D5AF8A134F5D61006C4412 /* PanoramaViewController.xib */,
 				87B1AD3C134B06DF0049DB59 /* AboutViewController.xib */,
 				87CEEB54139CC3450058656B /* ContactsViewController.xib */,
@@ -549,6 +560,8 @@
 				87CEEB51139CBF180058656B /* Contacts.html in Resources */,
 				87CEEB56139CC3450058656B /* ContactsViewController.xib in Resources */,
 				87CEEB58139CC6810058656B /* Contacts.png in Resources */,
+				87FDCF30139F2DBE0034AD8B /* VideoViewController.xib in Resources */,
+				87CCDBC213A8967000FD9AB6 /* Video.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +598,7 @@
 				87D129211395E7B900DA9920 /* CustomCellforListVC.m in Sources */,
 				87E70A4213978DD6005602BC /* LiveCamViewController.m in Sources */,
 				87CEEB55139CC3450058656B /* ContactsViewController.m in Sources */,
+				87FDCF2F139F2DBE0034AD8B /* VideoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,8 +637,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = 4.2;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -632,6 +646,8 @@
 				HEADER_SEARCH_PATHS = "$(SDK_ROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
 				SDKROOT = iphoneos;
 			};
 			name = Distribute;
@@ -667,8 +683,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -678,8 +694,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDK_ROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -688,8 +704,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = 4.2;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -697,8 +713,8 @@
 				HEADER_SEARCH_PATHS = "$(SDK_ROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
