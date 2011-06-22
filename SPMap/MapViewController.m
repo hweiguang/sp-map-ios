@@ -13,7 +13,6 @@
 #import "Constants.h"
 #import "OverlayViewController.h"
 #import "ListViewController.h"
-#import "ContactsViewController.h"
 
 @implementation MapViewController
 
@@ -125,13 +124,7 @@
     UIBarButtonItem *showAboutButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"About.png"]
                                                                             style:UIBarButtonItemStylePlain
                                                                            target:self
-                                                                           action:@selector(showAbout:)];
-    
-    UIBarButtonItem *showContactsButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Contacts.png"]
-                                                                               style:UIBarButtonItemStylePlain
-                                                                              target:self
-                                                                              action:@selector(showContacts:)];
-    
+                                                                           action:@selector(showAbout:)];    
     //load the Heading icon for UIBarButtonItem rotateMapBarButtonItem
     UIImage *HeadingOffImage = [UIImage imageNamed:@"HeadingOff.png"];
     UIImage *HeadingOnImage = [UIImage imageNamed:@"HeadingOn.png"];
@@ -152,8 +145,6 @@
                       flexItem,
                       rotateMapBarButtonItem,
                       flexItem,
-                      showContactsButtonItem,
-                      flexItem,
                       showAboutButtonItem,
                       nil];
     
@@ -162,7 +153,6 @@
     [showCategoriesButtonItem release];
     [showAboutButtonItem release];
     [rotateMapBarButtonItem release];
-    [showContactsButtonItem release];
     [flexItem release];
 }
 
@@ -192,6 +182,7 @@
     //Checking the accuracy of GPS. display location if accuracy is less then 100 metres
     accuracy = newLocation.horizontalAccuracy;
     
+    //If user location is displayed when accuracy is poor, the map will become unreponsive and has high chances of crashing. Therefore we makes sure we have a accuracy of 100m first before displaying.
     if (accuracy <= 100)
         [self.mapView.gps start]; //Display user location
     else
@@ -201,7 +192,8 @@
     lat = newLocation.coordinate.latitude;
     lon = newLocation.coordinate.longitude;
     
-    if (visible == NO) {
+    //When mapVC is not visible or when invalid user location coordinates do not reload distance in ListVC
+    if ((visible == NO) && (lat != 0 || lon != 0)) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadDistance" object:nil];
     }
 }
@@ -237,7 +229,7 @@
 }
 
 - (void)mapViewDidLoad:(AGSMapView *)mapView {
-    //Default extent when the map first load
+    //Default extent when the map first load point to MRT area
     AGSEnvelope *defaultextent = [AGSEnvelope envelopeWithXmin:103.773815
                                                           ymin:1.304122
                                                           xmax:103.782655
@@ -387,31 +379,6 @@
     [self.mapView.gps stop];
 }
 
-- (void) showContacts:(id)sender {
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        if (popOver != nil)
-            [popOver dismissPopoverAnimated:NO];
-    }
-    
-    ContactsViewController *contactsViewController = [[ContactsViewController alloc]initWithNibName:@"ContactsViewController"
-                                                                                             bundle:nil];
-    contactsViewController.title = @"Contacts";
-    
-    UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] init];
-    backbutton.title = @"Back";
-    self.navigationItem.backBarButtonItem = backbutton;
-    [backbutton release];
-    
-    [self.navigationController pushViewController:contactsViewController animated:YES];
-    [contactsViewController release];
-    
-    //Stop location services
-    [locationManager stopUpdatingLocation];
-    [locationManager stopUpdatingHeading];
-    [self.mapView.gps stop];
-}
-
 #pragma mark - Setting MapView and CallOuts
 
 - (void) setMapExtent {
@@ -424,6 +391,13 @@
                                               otherButtonTitles:@"OK", nil];
         [alert show];
         [alert release];
+        
+        //Create a log URL with the passLocation string and push it to the server
+        NSString *logString = [logHostname stringByAppendingString:selectedLocations];
+        NSURL *url = [NSURL URLWithString:logString];
+        ASIHTTPRequest *logRequest = [ASIHTTPRequest requestWithURL:url];  
+        [logRequest setDelegate:self];
+        [logRequest startAsynchronous];
         return;
     }
     
@@ -434,6 +408,7 @@
                                                                  ymax:ymax
                                                      spatialReference:self.mapView.spatialReference];
     if (ptcount > 1) {
+        //If the are multiple pins, use the calculated extent and zoom out. If value is 1 all pins will be at the corners.
         [extent expandByFactor:3.5];
     }
     
@@ -540,6 +515,9 @@
             
             //add the graphic to the graphics layer
             [self.graphicsLayer addGraphic:graphic];
+            
+            //release the graphic
+            [graphic release];
         }
     }
     //Redraw map
@@ -552,9 +530,6 @@
         [self.mapView showCalloutAtPoint:pt forGraphic:graphic animated:YES];
     else
         self.mapView.callout.hidden = YES;
-    
-    //release the graphic
-    [graphic release];
 }
 
 #pragma mark - Search

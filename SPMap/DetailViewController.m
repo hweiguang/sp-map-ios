@@ -178,7 +178,6 @@
     if (imagename != nil) {
         [activity startAnimating];
         NSString *imglink = [imageHostname stringByAppendingString:imagename];
-        
         NSURL *url = [NSURL URLWithString:imglink];
         request = [[ASIHTTPRequest alloc] initWithURL:url];
         [request setDelegate:self];

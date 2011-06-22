@@ -14,13 +14,13 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self == [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        // Initialization code
+        //Primary Label for the title
         primaryLabel = [[UILabel alloc]initWithFrame:CGRectMake(10,0,265,25)];
         primaryLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16.0];
-        
+        //Secondary Label for the subtitle
         secondaryLabel = [[UILabel alloc]initWithFrame:CGRectMake(10,25,265,15)];
         secondaryLabel.font = [UIFont fontWithName:@"Helvetica" size:14.0];
-        
+        //Distance Label for displaying distance from user location to POI
         distanceLabel = [[UILabel alloc]initWithFrame:CGRectMake(275,14.5,40,15)];
         distanceLabel.textAlignment = UITextAlignmentCenter;
         distanceLabel.adjustsFontSizeToFitWidth = YES;

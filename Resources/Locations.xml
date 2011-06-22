@@ -435,7 +435,7 @@ Buses Available
 Tel: 6772-1262
 Fax: 6772-1954
 
-The Educational Development Deparment enhances the quality of teaching and learning in Singapore Polytechnic. The department provide expertise for the professional development of academic staff and assist academic schools and departments in developing strategies to enhance the quality of teaching and learning." photos="educationaldevelopment.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/deptoffices.png">
+The Educational Development Department enhances the quality of teaching and learning in Singapore Polytechnic. The department provide expertise for the professional development of academic staff and assist academic schools and departments in developing strategies to enhance the quality of teaching and learning." photos="educationaldevelopment.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/deptoffices.png">
 		<category>Dept Offices</category>
 	</location>
 	<location id="electricalandelectronicengineering" title="Electrical and Electronic Engineering" subtitle="At T12, Level 5, Room 11" lat="1.31035" lon="103.778767" description="School of Electrical and Electronic Engineering
@@ -483,7 +483,7 @@ Tel: 6775-8242
 Foodcourt 2 is also known affectionately to some SP students as McDonalds - even though the fast-food chain is but one of many stalls offering affordable and delectable delights. There is also an ATM (OCBC) behind this foodcourt - for those who need some spare dollars to pay for their food. Lastly, if you are looking for titbits to munch in class, there is also a mama shop also known as convenient stall right at the corner of the stretch of stalls." photos="foodcourt2.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/dining.png" livecam="fc2.jpg">
 		<category>Dining</category>
 	</location>
-	<location id="foodcourt3" title="Foodcourt 3" subtitle="At Polycentre, Level 1" lat="1.308878" lon="103.778399" description="Foodcourt 3 greet the students with elaborately decorated and tastefully designed finishes and a wide food variety at very popular and reasonable prices. This is a place where even the most fussy of eaters are spoilt for choice. This foodcourt has increased its stall numbers with more variety such as Burger King!" photos="foodcourt3.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/dining.png" livecam="fc3.jpg">
+	<location id="foodcourt3" title="Foodcourt 3" subtitle="At Polycentric, Level 1" lat="1.308878" lon="103.778399" description="Foodcourt 3 greet the students with elaborately decorated and tastefully designed finishes and a wide food variety at very popular and reasonable prices. This is a place where even the most fussy of eaters are spoilt for choice. This foodcourt has increased its stall numbers with more variety such as Burger King!" photos="foodcourt3.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/dining.png" livecam="fc3.jpg">
 		<category>Dining</category>
 	</location>
 	<location id="foodcourt4" title="Foodcourt 4" subtitle="At T17, Basement 1 and 2" lat="1.310683" lon="103.777145" description="Opening Hours
@@ -1092,8 +1092,12 @@ Sat-Sun: 9am-10pm
 Staff and students of the Singapore Polytechnic have the luxury of an Olympic-sized swimming complex housed in campus. The Staff Centre located next to the pool, also includes a poolside patio for those who enjoy alfresco-style meals. For the young ones, there are also 2 wading pools." photos="swimmingpool.jpg" panorama="33-SwimmingComplex/33-SwimmingComplex.html" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/sportsfacilities.png">
 		<category>Sports Facilities</category>
 	</location>
-	<location id="t1" title="T1" subtitle="-" lat="1.30840729868172" lon="103.780674934387" description="-" photos="t1.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio//icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t1" title="T1" subtitle="Teaching Block 1" lat="1.30840729868172" lon="103.780674934387" description="Department office of University of Manchester (UK) and Professional and Adult Continuing Education are located here.
+
+Nearest dining area
+Foodcourt 1
+Foodcourt 2" photos="t1.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
 	<location id="t1basement" title="T1 Basement" subtitle="At T1, Basement" lat="1.30844215830734" lon="103.780602514743" description="Types of services:
 Self-Photocopy (mono)
@@ -1104,68 +1108,157 @@ A3 mono Copy
 Colour Copy" photos="photocopyt1basement.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/photocopyservices.png">
 		<category>Photocopy Services</category>
 	</location>
-	<location id="t10" title="T10" subtitle="-" lat="1.30851455906669" lon="103.77864986658" description="-" photos="t10.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t10" title="T10" subtitle="Teaching Block 10" lat="1.30851455906669" lon="103.77864986658" description="Moberly is located infront of T10.
+
+Nearest dining area
+Cafe@Moberly
+Foodcourt 3
+Food Haven @ Staff Centre
+Foodcourt 5" photos="t10.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t11a" title="T11A" subtitle="-" lat="1.31025217666374" lon="103.779148757457" description="-" photos="t11a.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t11a" title="T11A" subtitle="Teaching Block 11A" lat="1.31025217666374" lon="103.779148757457" description="Department office of the School of Chemical Life Sciences is located at T11A, level 6, room 1
+
+Nearest dining area
+Foodcourt 3
+McDonald @ T16" photos="t11a.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t11b" title="T11B" subtitle="-" lat="1.31003497452998" lon="103.77946794033" description="-" photos="t11b.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t11b" title="T11B" subtitle="Teaching Block 11B" lat="1.31003497452998" lon="103.77946794033" description="The Food Innovation and Resource Centre is located at T11B, level 3.
+
+Nearest dining area
+Foodcourt 3
+McDonald @ T16" photos="t11b.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t11c" title="T11C" subtitle="-" lat="1.30986067650781" lon="103.779170215129" description="-" photos="t11c.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t11c" title="T11C" subtitle="Teaching Block 11C" lat="1.30986067650781" lon="103.779170215129" description="Nearest dining area
+Foodcourt 3
+McDonald @ T16" photos="t11c.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t12" title="T12" subtitle="-" lat="1.31065440278761" lon="103.778550624847" description="-" photos="t12.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t12" title="T12" subtitle="Teaching Block 12" lat="1.31065440278761" lon="103.778550624847" description="The department office of the School of Electrical and Electronic Engineering is located at T12, level 5, room 11.
+
+Nearest dining area
+McDonald @ T16
+Foodcourt 3
+Foodcourt 4" photos="t12.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t12a" title="T12A" subtitle="-" lat="1.31057663907537" lon="103.778317272663" description="-" photos="t12a.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t12a" title="T12A" subtitle="Teaching Block 12A" lat="1.31057663907537" lon="103.778317272663" description="Skate Park is located infront of T12A.
+
+Nearest dining area
+McDonald @ T16
+Foodcourt 3
+Foodcourt 4" photos="t12a.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t14" title="T14" subtitle="-" lat="1.30979632031193" lon="103.778612315654" description="-" photos="t14.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t14" title="T14" subtitle="Teaching Block 14" lat="1.30979632031193" lon="103.778612315654" description="Nearest dining area
+Foodcourt 3
+McDonald @ T16
+Foodcourt 4" photos="t14.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t15" title="T15" subtitle="-" lat="1.30991698817783" lon="103.778164386749" description="-" photos="t15.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t15" title="T15" subtitle="Teaching Block 15" lat="1.30991698817783" lon="103.778164386749" description="The Advanced Robotics and Intelligent Control Centre is located at T15, level 3, room 1-9. Spectrum is also located right infront of T15.
+
+Nearest dining area
+McDonald @ T16
+Foodcourt 3
+Foodcourt 4
+Foodcourt 5" photos="t15.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t16" title="T16" subtitle="-" lat="1.31024145063288" lon="103.777743279933" description="-" photos="t16.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t16" title="T16" subtitle="Teaching Block 16" lat="1.31024145063288" lon="103.777743279933" description="The department office of the School of Mechanical and Aeronautical Engineering is located at T16, level 7, room 1 while the Student Service Centre is at level 2, Room 13. McDonald is infront of the block.
+
+Nearest dining area
+McDonald @ T16
+Foodcourt 4
+Foodcourt 5
+Foodcourt 3" photos="t16.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t17" title="T17" subtitle="-" lat="1.31053909797205" lon="103.777394592761" description="-" photos="t17.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t17" title="T17" subtitle="Teaching Block 17" lat="1.31053909797205" lon="103.777394592761" description="The SPICE Service Desk is located at T17, level 1, room 1.
+
+Nearest dining area
+McDonald @ T16
+Foodcourt 4
+Foodcourt 5" photos="t17.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t18" title="T18" subtitle="-" lat="1.31092255350097" lon="103.77759039402" description="-" photos="t18.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t18" title="T18" subtitle="Teaching Block 18" lat="1.31092255350097" lon="103.77759039402" description="The Convention Centre is located next to T18.
+
+Nearest dining area
+McDonald @ T16
+Foodcourt 4
+Foodcourt 5
+Foodcourt 6" photos="t18.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t19" title="T19" subtitle="-" lat="1.31168141986414" lon="103.775728940963" description="-" photos="t19.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t19" title="T19" subtitle="Teaching Block 19" lat="1.31168141986414" lon="103.775728940963" description="The department office of SP Business School, School of Communication, Arts and Social Sciences and School of Digital Media and InfocommTechnology  are located here. They are located at T19, level 4, room 1, level 4, room 9 and level 2, room 10, respectively.
+
+Nearest dining area
+Foodcourt 6
+Foodcourt 4" photos="t19.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t1a" title="T1A" subtitle="-" lat="1.30923052201878" lon="103.78102093935" description="-" photos="t1a.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t1a" title="T1A" subtitle="Teaching Block 1A" lat="1.30923052201878" lon="103.78102093935" description="The department office of the Singapore Marinetime Academy and Massey University are located at this teaching block.
+
+Nearest dining area
+Foodcourt 1
+Foodcourt 2" photos="t1a.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t2" title="T2" subtitle="-" lat="1.30807747296924" lon="103.780516684055" description="-" photos="t2.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t2" title="T2" subtitle="Teaching Block 2" lat="1.30807747296924" lon="103.780516684055" description="The department office of the SP Design School is located at T2, level 5, room 1.
+
+Nearest dining area
+Foodcourt 1
+Foodcourt 2" photos="t2.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t20" title="T20" subtitle="-" lat="1.31184767324159" lon="103.775340020656" description="-" photos="t20.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t20" title="T20" subtitle="Teaching Block 20" lat="1.31184767324159" lon="103.775340020656" description="Nearest dining area
+Foodcourt 6
+Foodcourt 4" photos="t20.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t21" title="T21" subtitle="-" lat="1.31165460480222" lon="103.775039613246" description="-" photos="t21.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t21" title="T21" subtitle="Teaching Block 21" lat="1.31165460480222" lon="103.775039613246" description="The SPICE Service Desk is located at T21, level 1, room 11.
+
+Nearest dining area
+Foodcourt 6
+Foodcourt 4" photos="t21.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t22" title="T22" subtitle="-" lat="1.31132209801061" lon="103.774902820587" description="-" photos="t22.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t22" title="T22" subtitle="Teaching Block 22" lat="1.31132209801061" lon="103.774902820587" description="Nearest dining area
+Foodcourt 6
+Foodcourt 4" photos="t22.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t3" title="T3" subtitle="-" lat="1.30771010606771" lon="103.780363798141" description="-" photos="t3.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t3" title="T3" subtitle="Teaching Block 3" lat="1.30771010606771" lon="103.780363798141" description="The SPICE Service Desk is located at T3, level 3, room 1.
+
+Nearest dining area
+McDonald @ T16
+Foodcourt 4
+Foodcourt 5" photos="t3.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t3a" title="T3A" subtitle="-" lat="1.30753848939457" lon="103.780814409255" description="-" photos="t3a.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t3a" title="T3A" subtitle="Teaching Block 3A" lat="1.30753848939457" lon="103.780814409255" description="The department office of the School of Architecture and the Built Environment is located at T3A, level 4, room 12.
+
+Nearest dining area
+Foodcourt 1
+Foodcourt 2" photos="t3a.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t4" title="T4" subtitle="-" lat="1.30834294244854" lon="103.780125081539" description="-" photos="t4.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t4" title="T4" subtitle="Teaching Block 4" lat="1.30834294244854" lon="103.780125081539" description="The department office of the School of Mathematics and Science is located at T4, level 5, room 1.
+
+Nearest dining area
+Foodcourt 2
+Foodcourt 1" photos="t4.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t4a" title="T4A" subtitle="-" lat="1.3086942202012" lon="103.780251145362" description="-" photos="t4a.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t4a" title="T4A" subtitle="Teaching Block 4A" lat="1.3086942202012" lon="103.780251145362" description="The department of Educational Development is located at T4A, level 3, room 4.
+
+Nearest dining area
+Foodcourt 1
+Foodcourt 2" photos="t4a.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
 	<location id="t4alinkway" title="T4A linkway" subtitle="At T4A, Level 1" lat="1.30862718246595" lon="103.780369162559" description="Types of services:
 Self-Photocopy (mono)
@@ -1176,26 +1269,40 @@ A4 Colour Printing
 A3 mono Copy" photos="photocopyt4a.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/photocopyservices.png">
 		<category>Photocopy Services</category>
 	</location>
-	<location id="t5" title="T5" subtitle="-" lat="1.30789244877008" lon="103.779948055744" description="-" photos="t5.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t5" title="T5" subtitle="Teaching Block 5" lat="1.30789244877008" lon="103.779948055744" description="SP International is located at this teaching block.
+
+Nearest dining area
+Foodcourt 1
+Foodcourt 2" photos="t5.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t6" title="T6" subtitle="-" lat="1.3087451688788" lon="103.779253363609" description="-" photos="t6.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t6" title="T6" subtitle="Teaching Block 6" lat="1.3087451688788" lon="103.779253363609" description="Nearest dining area
+Foodcourt 3
+Cafe@Moberly
+Foodcourt 2" photos="t6.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t7" title="T7" subtitle="-" lat="1.30820082242776" lon="103.779054880142" description="-" photos="t7.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t7" title="T7" subtitle="Teaching Block 7" lat="1.30820082242776" lon="103.779054880142" description="Nearest dining area
+Foodcourt 3
+Cafe@Moberly
+Foodcourt 2" photos="t7.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t8" title="T8" subtitle="-" lat="1.30918761787757" lon="103.778936862945" description="-" photos="t8.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t8" title="T8" subtitle="Teaching Block 8" lat="1.30918761787757" lon="103.778936862945" description="Nearest dining area
+Foodcourt 3
+Cafe@Moberly" photos="t8.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="t9" title="T9" subtitle="-" lat="1.30885242924931" lon="103.778792023658" description="-" photos="t9.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="t9" title="T9" subtitle="Teaching Block 9" lat="1.30885242924931" lon="103.778792023658" description="Nearest dining area
+Foodcourt 3
+Cafe@Moberly" photos="t9.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
 	<location id="taxistandadministrationbuilding" title="Taxi Stand - Administration Building" subtitle="Beside Administration Building" lat="1.30751167428833" lon="103.779886364936" description="FastCall
 Location: Singapore Polytechnic - Admin Building
 Dial: 6454 2222
 Key in 10825 #
-Press 1" photos="taxiadminbuilding.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/taxistand.png">
+Press 1" photos="taxiadminbuilding.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/taxistands.png">
 		<category>Taxi Stands</category>
 	</location>
 	<location id="taxistanddovermrtoppositesp" title="Taxi Stand - Dover MRT (opposite SP)" subtitle="Next to Dover MRT station (opposite SP side)" lat="1.31166264932082" lon="103.778692781925" description="Location No: J06
@@ -1207,7 +1314,7 @@ PRIME TAXI: 6778-0808
 Premier: 6363-6888
 SMART Cab: 6485-7777
 SMRT: 6555-8888
-TRANS: 6555-3333" photos="taxidoveroppsp.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/taxistand.png">
+TRANS: 6555-3333" photos="taxidoveroppsp.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/taxistands.png">
 		<category>Taxi Stands</category>
 	</location>
 	<location id="taxistanddovermrtspside" title="Taxi Stand - Dover MRT (SP side)" subtitle="Next to Dover MRT station (SP side)" lat="1.31159829317126" lon="103.777831792831" description="Location No: J05
@@ -1219,7 +1326,7 @@ PRIME TAXI: 6778-0808
 Premier: 6363-6888
 SMART Cab: 6485-7777
 SMRT: 6555-8888
-TRANS: 6555-3333" photos="taxidoverspside.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/taxistand.png">
+TRANS: 6555-3333" photos="taxidoverspside.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/taxistands.png">
 		<category>Taxi Stands</category>
 	</location>
 	<location id="technologytransferandenterprisecentre" title="Technology Transfer and Enterprise Centre" subtitle="At Innovillage, INV C210" lat="1.309319" lon="103.780164" description="Technology Transfer and Enterprise Centre
@@ -1242,37 +1349,68 @@ SP staff and students enjoy a good game of tennis daily. There are six courts av
 	<location id="thespauditorium" title="The SP Auditorium" subtitle="Next to Dover MRT station and Convention Centre" lat="1.31064" lon="103.777652" description="The venue of many important events in the Polytechnic, the Auditorium can seat over 550 people. It is a nucleus for numerous exciting activities on campus." photos="auditorium.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/plazaandhall.png">
 		<category>Plaza and Hall</category>
 	</location>
-	<location id="w1" title="W1" subtitle="-" lat="1.30853869265266" lon="103.781675398349" description="-" photos="w1.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="w1" title="W1" subtitle="Workshop 1" lat="1.30853869265266" lon="103.781675398349" description="The Optometry Centre is located here.
+
+Nearest dining area
+Foodcourt 1
+Foodcourt 2" photos="w1.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="w10" title="W10" subtitle="-" lat="1.31158220413362" lon="103.777198791503" description="-" photos="w10.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="w10" title="W10" subtitle="Workshop 10" lat="1.31158220413362" lon="103.777198791503" description="Nearest dining area
+Foodcourt 4
+Foodcourt 6" photos="w10.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="w11" title="W11" subtitle="-" lat="1.3113998616997" lon="103.776860833168" description="-" photos="w11.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="w11" title="W11" subtitle="Workshop 11" lat="1.3113998616997" lon="103.776860833168" description="Nearest dining area
+Foodcourt 4
+Foodcourt 6" photos="w11.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="w12" title="W12" subtitle="-" lat="1.31085283431827" lon="103.77625465393" description="-" photos="w12.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="w12" title="W12" subtitle="Workshop 12" lat="1.31085283431827" lon="103.77625465393" description="Nearest dining area
+Foodcourt 4
+Foodcourt 5
+Foodcourt 6" photos="w12.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="w13" title="W13" subtitle="-" lat="1.31056323153853" lon="103.776249289512" description="-" photos="w13.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="w13" title="W13" subtitle="Workshop 13" lat="1.31056323153853" lon="103.776249289512" description="Nearest dining area
+Foodcourt 4
+Foodcourt 5
+Foodcourt 6" photos="w13.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="w14" title="W14" subtitle="-" lat="1.3102950807867" lon="103.777037858963" description="-" photos="w14.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="w14" title="W14" subtitle="Workshop 14" lat="1.3102950807867" lon="103.777037858963" description="Nearest dining area
+Foodcourt 4
+Foodcourt 5
+Foodcourt 6" photos="w14.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="w2" title="W2" subtitle="-" lat="1.30824908960554" lon="103.781562745571" description="-" photos="w2.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="w2" title="W2" subtitle="Workshop 2" lat="1.30824908960554" lon="103.781562745571" description="The Centre for Application in Environmental Technology is located at W2, level 1, room 1D.
+
+Nearest dining area
+Foodcourt 1
+Foodcourt 2" photos="w2.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="w3" title="W3" subtitle="-" lat="1.30807210994917" lon="103.781391084194" description="-" photos="w3.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="w3" title="W3" subtitle="Workshop 3" lat="1.30807210994917" lon="103.781391084194" description="Nearest dining area
+Foodcourt 1
+Foodcourt 2" photos="w3.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="w4" title="W4" subtitle="-" lat="1.30726765680838" lon="103.780685663223" description="-" photos="w4.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="w4" title="W4" subtitle="Workshop 4" lat="1.30726765680838" lon="103.780685663223" description="Nearest dining area
+Foodcourt 1
+Foodcourt 2" photos="w4.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="w5" title="W5" subtitle="-" lat="1.3070450913939" lon="103.780591785907" description="-" photos="w5.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="w5" title="W5" subtitle="Workshop 5" lat="1.3070450913939" lon="103.780591785907" description="Nearest dining area
+Foodcourt 1
+Foodcourt 2" photos="w5.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
-	<location id="w5a" title="W5A" subtitle="-" lat="1.30669113189892" lon="103.780406713485" description="-" photos="w5a.jpg" icons="icons/teachingblock">
-		<category>Teaching Block</category>
+	<location id="w5a" title="W5A" subtitle="Workshop 5A" lat="1.30669113189892" lon="103.780406713485" description="The department of the Estates and Development is located at W5A, level 2. 
+
+Nearest dining area
+Foodcourt 1
+Foodcourt 2" photos="w5a.jpg" icons="http://mobileapp.sp.edu.sg/spjunaio/icons/teachingblocks.png">
+		<category>Teaching Blocks</category>
 	</location>
 </locations>

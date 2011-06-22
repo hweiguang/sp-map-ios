@@ -25,9 +25,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     XMLLoaded = NO;
     
-	locations = [[NSMutableArray alloc] init];
-    categories = [[NSMutableSet alloc] init];
-    identity = [[NSMutableArray alloc] init];
+	locations = [[NSMutableArray alloc] init];//Array for storing all locations from XML
+    categories = [[NSMutableSet alloc] init];//Set for storing all categories from XML used in CategoriesVC
+    identity = [[NSMutableArray alloc] init];//Array for storing all the identity used in ListVC and URL Scheme
     
     //Reachability
     [self checkNetwork];
@@ -48,6 +48,8 @@
     NSString *URLString = [url absoluteString];
     //Remove spmap:// from the string
     NSString *passedLocation = [URLString substringFromIndex:8];
+    
+    //If invalid string, return
     if (passedLocation == nil) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
                                                         message:@"Location not found." 
@@ -61,13 +63,14 @@
     
     //Makes sure it is lower case
     passedLocation = [passedLocation lowercaseString];
-    
+    //Retain the string
     apassedLocation = [passedLocation copy];
     
     //If XMLLoaded process URL else wait till XML is loaded
     if (XMLLoaded == YES)
         [self processURL:passedLocation];
     else {
+        //Listen for notification from loadXML method
         [[NSNotificationCenter defaultCenter] addObserver:self 
                                                  selector:@selector(passedLocation) 
                                                      name:@"XMLLoaded" object:nil];
@@ -93,7 +96,7 @@
     // Check if it contains any punctuation, example T1845/6
     NSRange range = [lasttwochar rangeOfCharacterFromSet:[NSCharacterSet punctuationCharacterSet] 
                                                  options:NSCaseInsensitiveSearch];
-    if(range.location != NSNotFound ) { //if any punctuation is found remove it, example /6
+    if(range.location != NSNotFound ) { //if any punctuation is found remove it, example T1845/6 -> T1845
         passedLocation = [passedLocation substringToIndex:[passedLocation length] -2];
     }
     // Search the identity array for passLocation and store all possible results in array
@@ -107,52 +110,58 @@
     // If there is only one result. Sucessful!
     if ([array count] == 1) {
         [mapViewController checkMapStatus];
+        [array release];
         return;
     }
     // If there is more then one result. More checking required
     if ([array count] > 1) {
         mapViewController.selectedLocations = nil;
-        
+        //If string length is 4, example T1845 remove last 2 digits and we get T18
         if ([passedLocation length] == 4) {
             mapViewController.selectedLocations = [passedLocation substringToIndex:[passedLocation length] -2];
         }
-        
+        //If string length is more then 4,check the last char.
         if ([passedLocation length] > 4) {
             NSString *lastChar = [passedLocation substringFromIndex:[passedLocation length] -1];
             
             NSRange range = [lastChar rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet] 
                                                       options:NSCaseInsensitiveSearch];
+            //If a letter is found remove it, and remove 2 more digits example T1A23A -> T1A
+            //Another example T12A401, in this case it remains the same
             if(range.location != NSNotFound ) {
                 passedLocation = [passedLocation substringToIndex:[passedLocation length] -3];
             }
+            //If letter not found just remove 2,example T1A23 -> T1A
+            //T12A401 is now T12A4
             if (range.location == NSNotFound) {
                 passedLocation = [passedLocation substringToIndex:[passedLocation length] -2];
             }
-            
+            //T12A4 length is still more then 4 remove the last char and we get T12A
             if ([passedLocation length] > 4) {
                 passedLocation = [passedLocation substringToIndex:[passedLocation length] -1];
             }
             
             mapViewController.selectedLocations = passedLocation;
         }
+        //If the string is less than 4, no problem
         if ([passedLocation length] < 4) {
             mapViewController.selectedLocations = passedLocation;
         }
-        
+        //If string length is 4 check the last char first.
         if ([mapViewController.selectedLocations length] == 4) {
             
             NSString *lastChar = [mapViewController.selectedLocations substringFromIndex:[mapViewController.selectedLocations length] -1];
             
-            NSCharacterSet *alphaSet = [NSCharacterSet letterCharacterSet];
-            
-            NSRange range = [lastChar rangeOfCharacterFromSet:alphaSet options:NSCaseInsensitiveSearch];
+            NSRange range = [lastChar rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet] 
+                                                      options:NSCaseInsensitiveSearch];
+            //If the last char is not a letter remove the last char example T223 -> T22
             if(range.location == NSNotFound ) {
                 passedLocation = [passedLocation substringToIndex:[passedLocation length] -1];
             }
             mapViewController.selectedLocations = passedLocation;
         }
+        //Now we have gone through all the checking check the map status,when ready we will load the callouts
         [mapViewController checkMapStatus];
-        [array release];
     }
     // If no results at all, return error.
     else {
@@ -165,7 +174,15 @@
                                               otherButtonTitles:@"OK", nil];
         [alert show];
         [alert release];
+        
+        //Create a log URL with the passLocation string and push it to the server
+        NSString *logString = [logHostname stringByAppendingString:passedLocation];
+        NSURL *url = [NSURL URLWithString:logString];
+        ASIHTTPRequest *logRequest = [ASIHTTPRequest requestWithURL:url];  
+        [logRequest setDelegate:self];
+        [logRequest startAsynchronous];
     }
+    [array release];
 }
 
 - (void)checkNetwork {
@@ -255,6 +272,7 @@
     
     if (hasServerCopy == YES) {
         NSString *filePath = [downloadCache pathToStoreCachedResponseDataForRequest:request];
+        NSLog(@"%@",filePath);
         // Load and parse the server Locations.xml file
         tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:filePath]] retain];
     } 
@@ -289,7 +307,7 @@
             
             // search the location's child elements for a category element
 			TBXMLElement * category = [TBXML childElementNamed:@"category" parentElement:location];
-            
+            //Handles single category only at the moment
             // if we find a category
             while (category != nil) {
                 

@@ -22,12 +22,10 @@
     // Getting Panorama Link
     NSString *panoramalink = [panoramaHostname stringByAppendingString:selectedPanorama];
     
-    NSURL *url = [NSURL URLWithString:panoramalink];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:panoramalink]]];
     
-    [webView loadRequest:request];
-    
-    timer = [NSTimer scheduledTimerWithTimeInterval:(1.0/2.0)
+    //Timer to to check the status of webView
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.5
                                              target:self 
                                            selector:@selector(loading) 
                                            userInfo:nil 
@@ -35,20 +33,12 @@
 }
 
 - (void) loading {
-	if (!webView.loading)
+	if (!webView.loading){
 		[activity stopAnimating];
+        [timer invalidate];
+    }
 	else
 		[activity startAnimating];
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    [self release];
-}
-
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-    [self release];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

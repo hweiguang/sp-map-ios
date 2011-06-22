@@ -19,47 +19,31 @@
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
-    // Getting video Link
-    NSString *videolink = [videoHostname stringByAppendingString:selectedvideo];
+    // Getting Video Link
+    NSString *videoLink = [videoHostname stringByAppendingString:selectedvideo];
     
-    NSURL *url = [NSURL URLWithString:videolink];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:videoLink]]];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    [webView loadRequest:request];
-    
-    timer = [NSTimer scheduledTimerWithTimeInterval:(1.0/2.0)
+    //Timer to to check the status of webView
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.5
                                              target:self 
                                            selector:@selector(loading) 
                                            userInfo:nil 
                                             repeats:YES];
-    
 }
 
 - (void) loading {
-	if (!webView.loading)
+	if (!webView.loading){
 		[activity stopAnimating];
+        [timer invalidate];
+    }
 	else
 		[activity startAnimating];
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    [self release];
-}
-
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-    [self release];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     if ([webView isLoading])
         [webView stopLoading];
-    
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"aboutData" ofType:@"html"];
-	NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-	[webView loadHTMLString:htmlString baseURL:nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -70,6 +54,7 @@
 {
     [webView release];
     [activity release];
+    [selectedvideo release];
     [super dealloc];
 }
 
