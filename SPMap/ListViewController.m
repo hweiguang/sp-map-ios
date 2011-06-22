@@ -100,36 +100,41 @@
     
     Location * aLocation = [locationsincategory objectAtIndex:indexPath.row];
     
-    SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-    
-    MapViewController *mapViewController = (MapViewController*)[appDelegate.navigationController.viewControllers objectAtIndex:0];
-    
-    CLLocation *userLocation = [[CLLocation alloc]initWithLatitude:mapViewController.lat
-                                                         longitude:mapViewController.lon];
-    
-    NSString *distanceString;
-    
-    for (int i=0; i<[locationsincategory count]; i++) {
-        double lat = [aLocation.lat doubleValue];
-        double lon = [aLocation.lon doubleValue];;
-        
-        CLLocation *location = [[CLLocation alloc]initWithLatitude:lat longitude:lon];
-        
-        CLLocationDistance distance = [userLocation distanceFromLocation:location];
-        
-        distanceString = [NSString stringWithFormat:@"%.0f", distance];
-        distanceString = [distanceString stringByAppendingString:@"m"];
-        
-        cell.distanceLabel.text = distanceString;
-        
-        [location release];
-    }
-    [userLocation release];
-    
     cell.primaryLabel.text = aLocation.title;
     cell.secondaryLabel.text = aLocation.subtitle;
     
-    return cell;
+    SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    
+    MapViewController *mapViewController = (MapViewController*)[appDelegate.navigationController.viewControllers objectAtIndex:0];
+    //If we are getting invalid coordidates for user location do not display distance.
+    if (mapViewController.lat == 0 || mapViewController.lon == 0) {
+        cell.distanceLabel.text = @"N.A";
+        return cell;
+    }
+    else {
+        CLLocation *userLocation = [[CLLocation alloc]initWithLatitude:mapViewController.lat
+                                                             longitude:mapViewController.lon];
+        
+        NSString *distanceString;
+        
+        for (int i=0; i<[locationsincategory count]; i++) {
+            double lat = [aLocation.lat doubleValue];
+            double lon = [aLocation.lon doubleValue];;
+            
+            CLLocation *location = [[CLLocation alloc]initWithLatitude:lat longitude:lon];
+            
+            CLLocationDistance distance = [userLocation distanceFromLocation:location];
+            
+            distanceString = [NSString stringWithFormat:@"%.0f", distance];
+            distanceString = [distanceString stringByAppendingString:@"m"];
+            
+            cell.distanceLabel.text = distanceString;
+            
+            [location release];
+        }
+        [userLocation release];
+        return cell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
