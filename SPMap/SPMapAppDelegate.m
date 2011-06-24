@@ -9,16 +9,14 @@
 #import "SPMapAppDelegate.h"
 #import "MapViewController.h"
 #import "ASIHTTPRequest.h"
-#import "ASIDownloadCache.h"
 #import "TBXML.h"
 #import "Location.h"
 #import "Constants.h"
 #import "Reachability.h"
 
 @implementation SPMapAppDelegate
-@synthesize downloadCache;
-@synthesize window=_window;
-@synthesize navigationController=_navigationController;
+@synthesize window = _window;
+@synthesize navigationController = _navigationController;
 @synthesize locations;
 @synthesize categories;
 
@@ -32,8 +30,8 @@
     //Reachability
     [self checkNetwork];
     
-    //Download XML file from server and parse. if unavailable parse local copy
-    [NSThread detachNewThreadSelector:@selector(loadData) toTarget:self withObject:nil];
+    //Download XML file from server and save it to document directory
+    [NSThread detachNewThreadSelector:@selector(downloadXML) toTarget:self withObject:nil];
     
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
@@ -49,24 +47,12 @@
     //Remove spmap:// from the string
     NSString *passedLocation = [URLString substringFromIndex:8];
     
-    //If invalid string, return
-    if (passedLocation == nil) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
-                                                        message:@"Location not found." 
-                                                       delegate:self 
-                                              cancelButtonTitle:nil 
-                                              otherButtonTitles:@"OK", nil];
-        [alert show];
-        [alert release];
-        return NO;
-    }
-    
     //Makes sure it is lower case
     passedLocation = [passedLocation lowercaseString];
     //Retain the string
     apassedLocation = [passedLocation copy];
     
-    //If XMLLoaded process URL else wait till XML is loaded
+    //If XML is loaded proceed to process URL, else wait till XML is loaded
     if (XMLLoaded == YES)
         [self processURL:passedLocation];
     else {
@@ -91,6 +77,7 @@
         mapViewController.selectedLocations = nil; //Making sure selectedLocations in MapVC is nil
     
     NSMutableArray *array = [[NSMutableArray alloc]init];
+    
     // Grab the last two char of the string that is passed in
     NSString *lasttwochar = [passedLocation substringFromIndex:[passedLocation length] -2];
     // Check if it contains any punctuation, example T1845/6
@@ -99,6 +86,7 @@
     if(range.location != NSNotFound ) { //if any punctuation is found remove it, example T1845/6 -> T1845
         passedLocation = [passedLocation substringToIndex:[passedLocation length] -2];
     }
+    
     // Search the identity array for passLocation and store all possible results in array
     for(NSString *myStr in identity) {
         NSRange range = [passedLocation rangeOfString : myStr];
@@ -107,12 +95,14 @@
             mapViewController.selectedLocations = myStr;
         }
     }
+    
     // If there is only one result. Sucessful!
     if ([array count] == 1) {
         [mapViewController checkMapStatus];
         [array release];
         return;
     }
+    
     // If there is more then one result. More checking required
     if ([array count] > 1) {
         mapViewController.selectedLocations = nil;
@@ -208,74 +198,31 @@
     [wifiReach release];
 }
 
-- (void)loadData {    
+- (void)downloadXML {    
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
-    if (!operationQueue) {
-        operationQueue = [[NSOperationQueue alloc] init];
-    }
+    //Create a request to download XML file from kLocationsDatabaseURL
+    request = [[ASIHTTPRequest alloc] initWithURL:[NSURL URLWithString:kLocationsDatabaseURL]];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentDirectory = [paths objectAtIndex:0];
+    NSString *XMLPath = [documentDirectory stringByAppendingPathComponent:@"Locations.xml"];
     
-    ASIDownloadCache *cache = [[[ASIDownloadCache alloc] init] autorelease];
-    [cache setStoragePath:documentsDirectory];
+    [request setDownloadDestinationPath:XMLPath]; //Set to save the file to documents directory
+    [request startSynchronous]; //Start request
     
-    // Don't forget - you are responsible for retaining your cache!
-    [self setDownloadCache:cache];
+    [self parseXML]; //Parse XML when done
     
-    request = [[ASIHTTPRequest alloc] initWithURL:[NSURL URLWithString:kLocationsDatabaseURL]];
-    [request setDelegate:self];
-    [request setDownloadCache:[self downloadCache]];
-    [request setCachePolicy:ASIAskServerIfModifiedCachePolicy|ASIFallbackToCacheIfLoadFailsCachePolicy];
-    [request setDidFinishSelector:@selector(requestDone:)];
-    [request setDidFailSelector:@selector(requestWentWrong:)];
-    [operationQueue addOperation:request];  // request is an NSOperationQueue
     [pool release];
 }
 
-//  connected
-- (void)requestDone:(ASIHTTPRequest *)theRequest {
-    NSData *responseData = [theRequest responseData];
-    int statusCode = [theRequest responseStatusCode];
+- (void)parseXML {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory = [paths objectAtIndex:0];
+    NSString *XMLPath = [documentDirectory stringByAppendingPathComponent:@"Locations.xml"];
     
-    //  file not found
-    if (statusCode == 404) {
-        BOOL hasServerCopy = NO;
-        [self loadXML:hasServerCopy];
-    }
-    //  file is nil
-    else if (responseData == nil) {
-        BOOL hasServerCopy = NO;
-        [self loadXML:hasServerCopy];
-    }
-    //  file is found
-    else {
-        BOOL hasServerCopy = YES;
-        //Set hasServerCopy to NO here to test Local XML file
-        //BOOL hasServerCopy = NO;
-        [self loadXML:hasServerCopy];
-    }
-}
-
-//  unable to connect
-- (void)requestWentWrong:(ASIHTTPRequest *)theRequest {
-    BOOL hasServerCopy = NO;
-    [self loadXML:hasServerCopy];
-}
-
-- (void)loadXML:(BOOL)hasServerCopy {
-    if (hasServerCopy == NO) {
-        // Load and parse the local Locations.xml file
-        tbxml = [[TBXML tbxmlWithXMLFile:@"Locations.xml"] retain];
-    }
-    
-    if (hasServerCopy == YES) {
-        NSString *filePath = [downloadCache pathToStoreCachedResponseDataForRequest:request];
-        NSLog(@"%@",filePath);
-        // Load and parse the server Locations.xml file
-        tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:filePath]] retain];
-    } 
+    // Load and parse the server Locations.xml file
+    tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:XMLPath]] retain];
     
 	// Obtain root element
 	TBXMLElement * root = tbxml.rootXMLElement;
@@ -307,6 +254,7 @@
             
             // search the location's child elements for a category element
 			TBXMLElement * category = [TBXML childElementNamed:@"category" parentElement:location];
+            
             //Handles single category only at the moment
             // if we find a category
             while (category != nil) {
@@ -345,9 +293,6 @@
     [_navigationController release];
     [request clearDelegatesAndCancel];
     [request release];
-    [operationQueue cancelAllOperations];
-    [operationQueue release];
-    [downloadCache release];
     [locations release];
     [categories release];
     [identity release];

@@ -154,7 +154,7 @@
                                                             object:nil];
     }
     else {
-        [mapViewController loadCallout];
+        [mapViewController checkMapStatus];
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
@@ -175,7 +175,7 @@
                                                             object:nil];
     }
     else {
-        [mapViewController loadCallout];
+        [mapViewController checkMapStatus];
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
