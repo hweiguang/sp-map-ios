@@ -30,7 +30,7 @@
 
 //iPad only. This method will only be called when user makes a selection in ListVC
 - (void)hidePopover {
-    [self loadCallout];
+    [self checkMapStatus];
     [popOver dismissPopoverAnimated:YES];
 }
 
@@ -242,6 +242,9 @@
 }
 
 - (void) centerUserLocation:(id)sender {
+    //If map is not loaded due to Internet connectivity return and do not do anything.
+    if (mapLoaded == NO)
+        return;
     //Accuracy is more then 100m or no location available
     if (accuracy > 100 || lat == 0 || lon == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
@@ -259,7 +262,11 @@
     }
 }
 
-- (void) rotateMap:(id)sender {    
+- (void) rotateMap:(id)sender {  
+    //If map is not loaded due to Internet connectivity return and do not do anything.
+    if (mapLoaded == NO)
+        return;
+    
     if ([CLLocationManager headingAvailable] == NO) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Heading Unavailable" 
                                                         message:@"Your heading cannot be determined."
