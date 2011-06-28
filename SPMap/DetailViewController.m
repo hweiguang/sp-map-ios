@@ -110,8 +110,9 @@
 }
 
 - (void)showPanorama:(id)sender {
-    PanoramaViewController *panoramaViewController = [[PanoramaViewController alloc]
-                                                      initWithNibName:@"PanoramaViewController" bundle:nil];
+    PanoramaViewController *panoramaViewController = [[PanoramaViewController alloc] 
+                                                      initWithNibName:@"PanoramaViewController"
+                                                      bundle:nil];
     
     panoramaViewController.selectedPanorama = [details valueForKey:@"panorama"];
     
@@ -128,8 +129,9 @@
 }
 
 - (void)showLiveCam:(id)sender {
-    LiveCamViewController *livecamViewController = [[LiveCamViewController alloc]
-                                                    initWithNibName:@"LiveCamViewController" bundle:nil];
+    LiveCamViewController *livecamViewController = [[LiveCamViewController alloc] 
+                                                    initWithNibName:@"LiveCamViewController"
+                                                    bundle:nil];
     
     livecamViewController.selectedLiveCam = [details valueForKey:@"livecam"];
     livecamViewController.title = @"Live Cam";
@@ -156,8 +158,9 @@
 }
 
 - (void)showVideo:(id)sender {
-    VideoViewController *videoViewController = [[VideoViewController alloc]
-                                                      initWithNibName:@"VideoViewController" bundle:nil];
+    VideoViewController *videoViewController = [[VideoViewController alloc] 
+                                                initWithNibName:@"VideoViewController"
+                                                bundle:nil];
     
     UIBarButtonItem *backbutton = [[UIBarButtonItem alloc] initWithTitle:@"Back" 
                                                                    style:UIBarButtonItemStylePlain 

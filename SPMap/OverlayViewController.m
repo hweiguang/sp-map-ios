@@ -13,14 +13,12 @@
 
 @synthesize mapViewController;
 
-- (void)dealloc
-{
+- (void)dealloc {
     [mapViewController release];
     [super dealloc];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(reloadsearchResults) 
@@ -69,8 +67,10 @@
 {
     mapViewController.selectedLocations = nil;
     mapViewController.selectedLocations = [searchResults objectAtIndex:indexPath.row];
-    [mapViewController loadCallout];
+    [mapViewController checkMapStatus];
     [mapViewController.searchBar resignFirstResponder];
+    [searchResults removeAllObjects];
+    [tableView reloadData];
 }
 
 @end

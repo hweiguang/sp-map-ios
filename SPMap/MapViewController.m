@@ -30,8 +30,9 @@
 
 //iPad only. This method will only be called when user makes a selection in ListVC
 - (void)hidePopover {
-    [self checkMapStatus];
-    [popOver dismissPopoverAnimated:YES];
+    //Always check the mapstatus before calling loadCallout, if map is not yet loaded and loadCallout is called the app will crash
+    [self checkMapStatus];                                                                                              
+    [popOver dismissPopoverAnimated:YES];       
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -91,7 +92,6 @@
         watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 935, 43, 25)];
     else
         watermarkIV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 391, 43, 25)];
-    
     watermarkIV.image = [UIImage imageNamed:@"esriLogo.png"];
     [self.view addSubview:watermarkIV];
     [watermarkIV release];
@@ -336,8 +336,10 @@
 #pragma mark - Navigating to other views
 
 - (void) showCategories:(id)sender {
-    CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc]initWithNibName:@"CategoriesViewController" 
-                                                                                                   bundle:nil];
+    
+    CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc]
+                                                          initWithNibName:@"CategoriesViewController" 
+                                                          bundle:nil];
     categoriesViewController.title = @"Categories";
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -541,8 +543,9 @@
 
 #pragma mark - Search
 - (void) searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar {
-    overlayViewController = [[OverlayViewController alloc] initWithNibName:@"OverlayViewController"
-                                                                    bundle:nil];
+    if (!overlayViewController)
+        overlayViewController = [[OverlayViewController alloc] initWithNibName:@"OverlayViewController"
+                                                                        bundle:nil];
 	
 	CGFloat yaxis = self.navigationController.navigationBar.frame.size.height;
 	CGFloat width = self.view.frame.size.width;
