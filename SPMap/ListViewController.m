@@ -59,7 +59,7 @@
     // Getting locations array from appDelegate
     if (locations == nil)
         locations = [[NSMutableArray alloc] initWithArray:appDelegate.locations];
-    
+     
     //Sorting the location array by alphabet
     NSSortDescriptor *alphaDesc = [[NSSortDescriptor alloc] initWithKey:@"title" 
                                                               ascending:YES

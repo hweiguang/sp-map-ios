@@ -198,7 +198,7 @@
     [wifiReach release];
 }
 
-- (void)downloadXML {    
+- (void)downloadXML {  
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
     //Create a request to download XML file from kLocationsDatabaseURL
@@ -221,7 +221,7 @@
     NSString *documentDirectory = [paths objectAtIndex:0];
     NSString *XMLPath = [documentDirectory stringByAppendingPathComponent:@"Locations.xml"];
     
-    // Load and parse the server Locations.xml file
+    // Load and parse the Locations.xml file in document directory
     tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:XMLPath]] retain];
     
 	// Obtain root element

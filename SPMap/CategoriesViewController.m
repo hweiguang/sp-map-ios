@@ -65,7 +65,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     ListViewController *listViewController = [[ListViewController alloc] initWithNibName:@"ListViewController" 
                                                                                   bundle:nil];
     
