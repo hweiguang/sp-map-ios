@@ -31,9 +31,11 @@
 		87075F9E137B7A0300D9046A /* HeadingOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 87075F9D137B7A0300D9046A /* HeadingOff.png */; };
 		870BDDC51349C98F0040D32D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870BDDC31349C98E0040D32D /* DetailViewController.m */; };
 		870BDDC61349C98F0040D32D /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 870BDDC41349C98F0040D32D /* DetailViewController.xib */; };
+		871CB15613DD12B800AD5CB4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 871CB15513DD12B800AD5CB4 /* MediaPlayer.framework */; };
 		871EE1761367BEC100E111FC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 871EE1751367BEC100E111FC /* Icon@2x.png */; };
 		872215CD13812AC600C0704C /* SP_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 872215CC13812AC600C0704C /* SP_logo.png */; };
 		8726FCF3137BC2C500B98E5B /* HeadingOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 8726FCF2137BC2C500B98E5B /* HeadingOn.png */; };
+		87351F1413DD10F900A2676C /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87351F1313DD10F900A2676C /* libstdc++.dylib */; };
 		874C86311341CAC4001D4E4B /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874C862F1341CAC4001D4E4B /* CategoriesViewController.m */; };
 		874C86321341CAC4001D4E4B /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 874C86301341CAC4001D4E4B /* CategoriesViewController.xib */; };
 		875867C7134B0967006BAB6B /* aboutData.html in Resources */ = {isa = PBXBuildFile; fileRef = 875867C6134B0967006BAB6B /* aboutData.html */; };
@@ -74,7 +76,6 @@
 		87CE3D02134EFAA100621C57 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CE3CFA134EFAA100621C57 /* Icon-Small.png */; };
 		87CE3D03134EFAA100621C57 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CE3CFB134EFAA100621C57 /* Icon-Small@2x.png */; };
 		87CE3D04134EFAA100621C57 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CE3CFC134EFAA100621C57 /* Icon.png */; };
-		87CEEB58139CC6810058656B /* Contacts.png in Resources */ = {isa = PBXBuildFile; fileRef = 87CEEB57139CC6810058656B /* Contacts.png */; };
 		87D129211395E7B900DA9920 /* CustomCellforListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D129201395E7B900DA9920 /* CustomCellforListVC.m */; };
 		87D5AF8B134F5D61006C4412 /* PanoramaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D5AF89134F5D61006C4412 /* PanoramaViewController.m */; };
 		87D5AF8C134F5D61006C4412 /* PanoramaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D5AF8A134F5D61006C4412 /* PanoramaViewController.xib */; };
@@ -133,9 +134,12 @@
 		870BDDC21349C98E0040D32D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		870BDDC31349C98E0040D32D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		870BDDC41349C98F0040D32D /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailViewController.xib; path = SPMap/DetailViewController.xib; sourceTree = "<group>"; };
+		871CB15513DD12B800AD5CB4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		871CB15713DD12CA00AD5CB4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		871EE1751367BEC100E111FC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = "<group>"; };
 		872215CC13812AC600C0704C /* SP_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SP_logo.png; path = Resources/SP_logo.png; sourceTree = "<group>"; };
 		8726FCF2137BC2C500B98E5B /* HeadingOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeadingOn.png; path = Resources/HeadingOn.png; sourceTree = "<group>"; };
+		87351F1313DD10F900A2676C /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		874C862E1341CAC4001D4E4B /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
 		874C862F1341CAC4001D4E4B /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
 		874C86301341CAC4001D4E4B /* CategoriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoriesViewController.xib; path = SPMap/CategoriesViewController.xib; sourceTree = "<group>"; };
@@ -186,7 +190,6 @@
 		87CE3CFA134EFAA100621C57 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Resources/Icon-Small.png"; sourceTree = "<group>"; };
 		87CE3CFB134EFAA100621C57 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Resources/Icon-Small@2x.png"; sourceTree = "<group>"; };
 		87CE3CFC134EFAA100621C57 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
-		87CEEB57139CC6810058656B /* Contacts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Contacts.png; path = Resources/Contacts.png; sourceTree = "<group>"; };
 		87D1291F1395E7B900DA9920 /* CustomCellforListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellforListVC.h; sourceTree = "<group>"; };
 		87D129201395E7B900DA9920 /* CustomCellforListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellforListVC.m; sourceTree = "<group>"; };
 		87D5AF88134F5D61006C4412 /* PanoramaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoramaViewController.h; sourceTree = "<group>"; };
@@ -221,7 +224,9 @@
 				0F28584B13497FFF00BC9B70 /* SystemConfiguration.framework in Frameworks */,
 				0F28584913497FED00BC9B70 /* CFNetwork.framework in Frameworks */,
 				876542BC1341C4A200387B45 /* CoreLocation.framework in Frameworks */,
+				871CB15613DD12B800AD5CB4 /* MediaPlayer.framework in Frameworks */,
 				878ACCA6137CD63100D23131 /* CoreText.framework in Frameworks */,
+				87351F1413DD10F900A2676C /* libstdc++.dylib in Frameworks */,
 				0F2858521349817A00BC9B70 /* libxml2.2.7.3.dylib in Frameworks */,
 				0F2858501349805900BC9B70 /* libz.1.2.3.dylib in Frameworks */,
 				87F2AC6A1341C67A004A851C /* libz.dylib in Frameworks */,
@@ -332,6 +337,9 @@
 		87AF1DF91341BAF700BFD71D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				871CB15713DD12CA00AD5CB4 /* MobileCoreServices.framework */,
+				871CB15513DD12B800AD5CB4 /* MediaPlayer.framework */,
+				87351F1313DD10F900A2676C /* libstdc++.dylib */,
 				8777696413B87B0C0082CCE0 /* QuartzCore.framework */,
 				8777696213B87AFF0082CCE0 /* CoreGraphics.framework */,
 				878ACCA5137CD63100D23131 /* CoreText.framework */,
@@ -388,7 +396,6 @@
 				876C5CD91341CB9A0091A192 /* MapMarker.png */,
 				87BBCFCA13986B9500788CB6 /* LiveCam.png */,
 				87CCDBC113A8967000FD9AB6 /* Video.png */,
-				87CEEB57139CC6810058656B /* Contacts.png */,
 			);
 			name = "Toolbar Icons";
 			sourceTree = "<group>";
@@ -468,6 +475,7 @@
 		87AF1DED1341BAF700BFD71D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0410;
 				ORGANIZATIONNAME = "Singapore Polytechnic";
 			};
 			buildConfigurationList = 87AF1DF01341BAF700BFD71D /* Build configuration list for PBXProject "SP Map" */;
@@ -531,7 +539,6 @@
 				872215CD13812AC600C0704C /* SP_logo.png in Resources */,
 				87E70A4313978DD6005602BC /* LiveCamViewController.xib in Resources */,
 				87BBCFCB13986B9500788CB6 /* LiveCam.png in Resources */,
-				87CEEB58139CC6810058656B /* Contacts.png in Resources */,
 				87FDCF30139F2DBE0034AD8B /* VideoViewController.xib in Resources */,
 				87CCDBC213A8967000FD9AB6 /* Video.png in Resources */,
 			);
@@ -614,7 +621,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDK_ROOT)/usr/include/libxml2";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
@@ -631,6 +638,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPMap/SP Map-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "SPMap/SP Map-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
 				LIBRARY_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib";
@@ -663,7 +671,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDK_ROOT)/usr/include/libxml2";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PROVISIONING_PROFILE = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
 				SDKROOT = iphoneos;
@@ -681,7 +689,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDK_ROOT)/usr/include/libxml2";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
@@ -699,6 +707,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPMap/SP Map-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "SPMap/SP Map-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
 				LIBRARY_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib";
@@ -725,6 +734,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPMap/SP Map-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "SPMap/SP Map-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
 				LIBRARY_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib";

@@ -12,7 +12,7 @@
 
 @class OverlayViewController;
 
-@interface MapViewController : UIViewController <AGSMapViewDelegate,CLLocationManagerDelegate,UISearchBarDelegate> {
+@interface MapViewController : UIViewController <AGSMapViewCalloutDelegate,AGSMapViewLayerDelegate,CLLocationManagerDelegate,UISearchBarDelegate> {
     AGSMapView *_mapView;
     AGSGraphicsLayer *_graphicsLayer;
 	AGSCalloutTemplate *_CalloutTemplate;
