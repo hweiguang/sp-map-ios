@@ -74,7 +74,8 @@
     locations = appDelegate.locations;
     
     //set map view delegate
-    self.mapView.mapViewDelegate = self;
+    self.mapView.layerDelegate = self;
+    self.mapView.calloutDelegate = self;
     
     //create and add a base layer to map
 	AGSTiledMapServiceLayer *tiledLayer = [[AGSTiledMapServiceLayer alloc]
@@ -108,6 +109,8 @@
     
     [self.view addSubview:toolBar];
     
+    NSMutableArray *items = [[NSMutableArray alloc]init];
+    
     UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                               target:nil action:nil];
     
@@ -124,36 +127,43 @@
     UIBarButtonItem *showAboutButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"About.png"]
                                                                             style:UIBarButtonItemStylePlain
                                                                            target:self
-                                                                           action:@selector(showAbout:)];    
-    //load the Heading icon for UIBarButtonItem rotateMapBarButtonItem
-    UIImage *HeadingOffImage = [UIImage imageNamed:@"HeadingOff.png"];
-    UIImage *HeadingOnImage = [UIImage imageNamed:@"HeadingOn.png"];
+                                                                           action:@selector(showAbout:)];
+    [items addObject:showCategoriesButtonItem];
+    [showCategoriesButtonItem release];
     
-    rotateMapButtonItem = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rotateMapButtonItem setImage:HeadingOffImage forState:!UIControlStateSelected];
-    [rotateMapButtonItem setImage:HeadingOnImage forState:UIControlStateSelected];
-    rotateMapButtonItem.frame = CGRectMake(0, 0, HeadingOffImage.size.width, HeadingOffImage.size.height);
-    [rotateMapButtonItem addTarget:self action:@selector(rotateMap:) forControlEvents:UIControlEventTouchUpInside];
-    //creating a UIBarButtonItem with the rotateMapButtonItem as a custom view
-    UIBarButtonItem *rotateMapBarButtonItem = [[UIBarButtonItem alloc]init];
-    rotateMapBarButtonItem.customView = rotateMapButtonItem;
+    [items addObject:flexItem];
     
-    NSArray *items = [NSArray arrayWithObjects:
-                      showCategoriesButtonItem,
-                      flexItem,
-                      centerUserLocationButtonItem,
-                      flexItem,
-                      rotateMapBarButtonItem,
-                      flexItem,
-                      showAboutButtonItem,
-                      nil];
+    [items addObject:centerUserLocationButtonItem];
+    [centerUserLocationButtonItem release];
+    
+    [items addObject:flexItem];
+    
+    //Allocate Heading button only when Compass is available
+    if ([CLLocationManager headingAvailable] == YES) {
+        //load the Heading icon for UIBarButtonItem rotateMapBarButtonItem
+        UIImage *HeadingOffImage = [UIImage imageNamed:@"HeadingOff.png"];
+        UIImage *HeadingOnImage = [UIImage imageNamed:@"HeadingOn.png"];
+        
+        rotateMapButtonItem = [UIButton buttonWithType:UIButtonTypeCustom];
+        [rotateMapButtonItem setImage:HeadingOffImage forState:!UIControlStateSelected];
+        [rotateMapButtonItem setImage:HeadingOnImage forState:UIControlStateSelected];
+        rotateMapButtonItem.frame = CGRectMake(0, 0, HeadingOffImage.size.width, HeadingOffImage.size.height);
+        [rotateMapButtonItem addTarget:self action:@selector(rotateMap:) forControlEvents:UIControlEventTouchUpInside];
+        //creating a UIBarButtonItem with the rotateMapButtonItem as a custom view
+        UIBarButtonItem *rotateMapBarButtonItem = [[UIBarButtonItem alloc]init];
+        rotateMapBarButtonItem.customView = rotateMapButtonItem;
+        
+        [items addObject:rotateMapBarButtonItem];
+        [items addObject:flexItem];
+        
+        [rotateMapBarButtonItem release];
+    } 
+    [items addObject:showAboutButtonItem];
+    [showAboutButtonItem release];
+    
+    [flexItem release];
     
     [self.toolBar setItems:items animated:NO];
-    [centerUserLocationButtonItem release];
-    [showCategoriesButtonItem release];
-    [showAboutButtonItem release];
-    [rotateMapBarButtonItem release];
-    [flexItem release];
 }
 
 - (void) addsearchBar {
@@ -214,20 +224,6 @@
     return YES;
 }
 
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    //User denied location service
-    if (status == kCLAuthorizationStatusDenied) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
-                                                        message:@"Please ensure your location service is turned ON in settings." 
-                                                       delegate:self 
-                                              cancelButtonTitle:nil 
-                                              otherButtonTitles:@"OK", nil];
-        [alert show];
-        [alert release];
-        return;
-    }
-}
-
 - (void)mapViewDidLoad:(AGSMapView *)mapView {
     //Default extent when the map first load point to MRT area
     AGSEnvelope *defaultextent = [AGSEnvelope envelopeWithXmin:103.773815
@@ -248,7 +244,7 @@
     //Accuracy is more then 100m or no location available
     if (accuracy > 100 || lat == 0 || lon == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
-                                                        message:@"Your location cannot be determined at this moment. Please make sure you are outdoor with good GPS signal." 
+                                                        message:@"Your location cannot be determined at this moment. Please also ensure your location service is turned ON in settings." 
                                                        delegate:self 
                                               cancelButtonTitle:nil 
                                               otherButtonTitles:@"OK", nil];
@@ -267,16 +263,6 @@
     if (mapLoaded == NO)
         return;
     
-    if ([CLLocationManager headingAvailable] == NO) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Heading Unavailable" 
-                                                        message:@"Your heading cannot be determined."
-                                                       delegate:self 
-                                              cancelButtonTitle:nil 
-                                              otherButtonTitles:@"OK", nil];        
-        [alert show];
-        [alert release];
-        return;
-    }
     //if map is rotating, stop rotating
     if (rotateMap == YES) {
         [UIView beginAnimations:nil context:NULL];
@@ -295,6 +281,9 @@
 }
 
 - (void)mapView:(AGSMapView *) mapView didClickCalloutAccessoryButtonForGraphic:(AGSGraphic *) graphic {
+    
+    NSLog(@"Called");
+    
     //Getting the attributes from NSMutableDictionary *attribs in loadCallout
     NSDictionary *graphicAttributes =[NSDictionary dictionaryWithDictionary:graphic.attributes];
     
@@ -334,7 +323,6 @@
 }
 
 #pragma mark - Navigating to other views
-
 - (void) showCategories:(id)sender {
     
     CategoriesViewController *categoriesViewController = [[CategoriesViewController alloc]
@@ -364,7 +352,6 @@
 }
 
 - (void) showAbout:(id)sender {
-    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         if (popOver != nil)
             [popOver dismissPopoverAnimated:NO];
@@ -389,7 +376,6 @@
 }
 
 #pragma mark - Setting MapView and CallOuts
-
 - (void) setMapExtent {
     // Setting the extend to be used depending on the number of pins to be displayed
     if (ptcount == 0) {
@@ -499,9 +485,7 @@
             //create a marker symbol to use in our graphic
             AGSPictureMarkerSymbol *marker = [AGSPictureMarkerSymbol 
                                               pictureMarkerSymbolWithImageNamed:@"MapMarker.png"];
-            marker.xoffset = 9;
-            marker.yoffset = -16;
-            marker.hotspot = CGPointMake(-9, -11);
+            marker.hotspot = CGPointMake(-9,18);
             
             //creating an attribute for the callOuts
             NSMutableDictionary *attribs = [NSMutableDictionary dictionaryWithObject:location.title forKey:@"title"];

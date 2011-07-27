@@ -108,7 +108,7 @@
     MapViewController *mapViewController = (MapViewController*)[appDelegate.navigationController.viewControllers objectAtIndex:0];
     //If we are getting invalid coordidates for user location do not display distance.
     if (mapViewController.lat == 0 || mapViewController.lon == 0) {
-        cell.distanceLabel.text = @"N.A";
+        cell.distanceLabel.text = @"N/A";
         return cell;
     }
     else {
