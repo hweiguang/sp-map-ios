@@ -500,6 +500,12 @@
             self.CalloutTemplate.titleTemplate = @"${title}";
             self.CalloutTemplate.detailTemplate = @"${subtitle}";
             
+            //Setting the icon image for the callout
+            NSString *callouticonImage = [location.category stringByAppendingString:@".jpg"];
+            callouticonImage = [callouticonImage lowercaseString];
+            callouticonImage = [callouticonImage stringByReplacingOccurrencesOfString:@" " withString:@""];
+            self.mapView.callout.image = [UIImage imageNamed:callouticonImage];
+            
             //create the graphic
             graphic = [[AGSGraphic alloc] initWithGeometry:pt
                                                     symbol:marker
@@ -519,6 +525,7 @@
     //Reload the MapExtent
     [self setMapExtent];
     
+    //Show the callout if only one point is to be displayed
     if (ptcount == 1)
         [self.mapView showCalloutAtPoint:pt forGraphic:graphic animated:YES];
     else

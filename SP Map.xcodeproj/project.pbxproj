@@ -87,6 +87,28 @@
 		87EB6B7D1341BD3E0083A16C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EB6B7B1341BD3E0083A16C /* MapViewController.m */; };
 		87F2AC6A1341C67A004A851C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F2AC691341C67A004A851C /* libz.dylib */; };
 		87F990A31369608B001ACC86 /* libArcGIS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F990A21369608B001ACC86 /* libArcGIS.a */; };
+		87F9BB0113EC502400ED9462 /* acadschools.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAEB13EC502400ED9462 /* acadschools.jpg */; };
+		87F9BB0213EC502400ED9462 /* alumni.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAEC13EC502400ED9462 /* alumni.jpg */; };
+		87F9BB0313EC502400ED9462 /* atm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAED13EC502400ED9462 /* atm.jpg */; };
+		87F9BB0413EC502400ED9462 /* busandmrt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAEE13EC502400ED9462 /* busandmrt.jpg */; };
+		87F9BB0513EC502400ED9462 /* carparks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAEF13EC502400ED9462 /* carparks.jpg */; };
+		87F9BB0613EC502400ED9462 /* deptoffices.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAF013EC502400ED9462 /* deptoffices.jpg */; };
+		87F9BB0713EC502400ED9462 /* dining.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAF113EC502400ED9462 /* dining.jpg */; };
+		87F9BB0813EC502400ED9462 /* gates.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAF213EC502400ED9462 /* gates.jpg */; };
+		87F9BB0913EC502400ED9462 /* industryservices.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAF313EC502400ED9462 /* industryservices.jpg */; };
+		87F9BB0A13EC502400ED9462 /* itservices.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAF413EC502400ED9462 /* itservices.jpg */; };
+		87F9BB0B13EC502400ED9462 /* lecturetheatres.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAF513EC502400ED9462 /* lecturetheatres.jpg */; };
+		87F9BB0C13EC502400ED9462 /* libraries.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAF613EC502400ED9462 /* libraries.jpg */; };
+		87F9BB0D13EC502400ED9462 /* photocopyservices.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAF713EC502400ED9462 /* photocopyservices.jpg */; };
+		87F9BB0E13EC502400ED9462 /* plazaandhall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAF813EC502400ED9462 /* plazaandhall.jpg */; };
+		87F9BB0F13EC502400ED9462 /* socialspaces.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAF913EC502400ED9462 /* socialspaces.jpg */; };
+		87F9BB1013EC502400ED9462 /* sportsfacilities.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAFA13EC502400ED9462 /* sportsfacilities.jpg */; };
+		87F9BB1113EC502400ED9462 /* studentservices.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAFB13EC502400ED9462 /* studentservices.jpg */; };
+		87F9BB1213EC502400ED9462 /* taxistand.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAFC13EC502400ED9462 /* taxistand.jpg */; };
+		87F9BB1313EC502400ED9462 /* taxistands.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAFD13EC502400ED9462 /* taxistands.jpg */; };
+		87F9BB1413EC502400ED9462 /* teachingblocks.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAFE13EC502400ED9462 /* teachingblocks.jpg */; };
+		87F9BB1513EC502400ED9462 /* teachingfacilities.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAFF13EC502400ED9462 /* teachingfacilities.jpg */; };
+		87F9BB1613EC502400ED9462 /* technologycentres.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BB0013EC502400ED9462 /* technologycentres.jpg */; };
 		87FDCF2F139F2DBE0034AD8B /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FDCF2D139F2DBE0034AD8B /* VideoViewController.m */; };
 		87FDCF30139F2DBE0034AD8B /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87FDCF2E139F2DBE0034AD8B /* VideoViewController.xib */; };
 /* End PBXBuildFile section */
@@ -205,6 +227,28 @@
 		87EB6B7B1341BD3E0083A16C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		87F2AC691341C67A004A851C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		87F990A21369608B001ACC86 /* libArcGIS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libArcGIS.a; path = ../../../Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib/libArcGIS.a; sourceTree = "<group>"; };
+		87F9BAEB13EC502400ED9462 /* acadschools.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = acadschools.jpg; sourceTree = "<group>"; };
+		87F9BAEC13EC502400ED9462 /* alumni.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = alumni.jpg; sourceTree = "<group>"; };
+		87F9BAED13EC502400ED9462 /* atm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = atm.jpg; sourceTree = "<group>"; };
+		87F9BAEE13EC502400ED9462 /* busandmrt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = busandmrt.jpg; sourceTree = "<group>"; };
+		87F9BAEF13EC502400ED9462 /* carparks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carparks.jpg; sourceTree = "<group>"; };
+		87F9BAF013EC502400ED9462 /* deptoffices.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = deptoffices.jpg; sourceTree = "<group>"; };
+		87F9BAF113EC502400ED9462 /* dining.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dining.jpg; sourceTree = "<group>"; };
+		87F9BAF213EC502400ED9462 /* gates.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gates.jpg; sourceTree = "<group>"; };
+		87F9BAF313EC502400ED9462 /* industryservices.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = industryservices.jpg; sourceTree = "<group>"; };
+		87F9BAF413EC502400ED9462 /* itservices.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = itservices.jpg; sourceTree = "<group>"; };
+		87F9BAF513EC502400ED9462 /* lecturetheatres.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lecturetheatres.jpg; sourceTree = "<group>"; };
+		87F9BAF613EC502400ED9462 /* libraries.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = libraries.jpg; sourceTree = "<group>"; };
+		87F9BAF713EC502400ED9462 /* photocopyservices.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photocopyservices.jpg; sourceTree = "<group>"; };
+		87F9BAF813EC502400ED9462 /* plazaandhall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plazaandhall.jpg; sourceTree = "<group>"; };
+		87F9BAF913EC502400ED9462 /* socialspaces.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = socialspaces.jpg; sourceTree = "<group>"; };
+		87F9BAFA13EC502400ED9462 /* sportsfacilities.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sportsfacilities.jpg; sourceTree = "<group>"; };
+		87F9BAFB13EC502400ED9462 /* studentservices.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = studentservices.jpg; sourceTree = "<group>"; };
+		87F9BAFC13EC502400ED9462 /* taxistand.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = taxistand.jpg; sourceTree = "<group>"; };
+		87F9BAFD13EC502400ED9462 /* taxistands.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = taxistands.jpg; sourceTree = "<group>"; };
+		87F9BAFE13EC502400ED9462 /* teachingblocks.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = teachingblocks.jpg; sourceTree = "<group>"; };
+		87F9BAFF13EC502400ED9462 /* teachingfacilities.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = teachingfacilities.jpg; sourceTree = "<group>"; };
+		87F9BB0013EC502400ED9462 /* technologycentres.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = technologycentres.jpg; sourceTree = "<group>"; };
 		87FDCF2C139F2DBD0034AD8B /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		87FDCF2D139F2DBE0034AD8B /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		87FDCF2E139F2DBE0034AD8B /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VideoViewController.xib; path = SPMap/VideoViewController.xib; sourceTree = "<group>"; };
@@ -278,6 +322,7 @@
 		874C86391341CAF1001D4E4B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				87F9BAEA13EC502400ED9462 /* Callout Icons */,
 				87BBCFCC13986B9B00788CB6 /* Toolbar Icons */,
 				0FBC6137135460C70042F842 /* iTunesArtwork */,
 				0FBC613513545B830042F842 /* UnavailableImage.png */,
@@ -449,6 +494,36 @@
 			name = "XIB Files";
 			sourceTree = "<group>";
 		};
+		87F9BAEA13EC502400ED9462 /* Callout Icons */ = {
+			isa = PBXGroup;
+			children = (
+				87F9BAEB13EC502400ED9462 /* acadschools.jpg */,
+				87F9BAEC13EC502400ED9462 /* alumni.jpg */,
+				87F9BAED13EC502400ED9462 /* atm.jpg */,
+				87F9BAEE13EC502400ED9462 /* busandmrt.jpg */,
+				87F9BAEF13EC502400ED9462 /* carparks.jpg */,
+				87F9BAF013EC502400ED9462 /* deptoffices.jpg */,
+				87F9BAF113EC502400ED9462 /* dining.jpg */,
+				87F9BAF213EC502400ED9462 /* gates.jpg */,
+				87F9BAF313EC502400ED9462 /* industryservices.jpg */,
+				87F9BAF413EC502400ED9462 /* itservices.jpg */,
+				87F9BAF513EC502400ED9462 /* lecturetheatres.jpg */,
+				87F9BAF613EC502400ED9462 /* libraries.jpg */,
+				87F9BAF713EC502400ED9462 /* photocopyservices.jpg */,
+				87F9BAF813EC502400ED9462 /* plazaandhall.jpg */,
+				87F9BAF913EC502400ED9462 /* socialspaces.jpg */,
+				87F9BAFA13EC502400ED9462 /* sportsfacilities.jpg */,
+				87F9BAFB13EC502400ED9462 /* studentservices.jpg */,
+				87F9BAFC13EC502400ED9462 /* taxistand.jpg */,
+				87F9BAFD13EC502400ED9462 /* taxistands.jpg */,
+				87F9BAFE13EC502400ED9462 /* teachingblocks.jpg */,
+				87F9BAFF13EC502400ED9462 /* teachingfacilities.jpg */,
+				87F9BB0013EC502400ED9462 /* technologycentres.jpg */,
+			);
+			name = "Callout Icons";
+			path = "Resources/Callout Icons";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -541,6 +616,28 @@
 				87BBCFCB13986B9500788CB6 /* LiveCam.png in Resources */,
 				87FDCF30139F2DBE0034AD8B /* VideoViewController.xib in Resources */,
 				87CCDBC213A8967000FD9AB6 /* Video.png in Resources */,
+				87F9BB0113EC502400ED9462 /* acadschools.jpg in Resources */,
+				87F9BB0213EC502400ED9462 /* alumni.jpg in Resources */,
+				87F9BB0313EC502400ED9462 /* atm.jpg in Resources */,
+				87F9BB0413EC502400ED9462 /* busandmrt.jpg in Resources */,
+				87F9BB0513EC502400ED9462 /* carparks.jpg in Resources */,
+				87F9BB0613EC502400ED9462 /* deptoffices.jpg in Resources */,
+				87F9BB0713EC502400ED9462 /* dining.jpg in Resources */,
+				87F9BB0813EC502400ED9462 /* gates.jpg in Resources */,
+				87F9BB0913EC502400ED9462 /* industryservices.jpg in Resources */,
+				87F9BB0A13EC502400ED9462 /* itservices.jpg in Resources */,
+				87F9BB0B13EC502400ED9462 /* lecturetheatres.jpg in Resources */,
+				87F9BB0C13EC502400ED9462 /* libraries.jpg in Resources */,
+				87F9BB0D13EC502400ED9462 /* photocopyservices.jpg in Resources */,
+				87F9BB0E13EC502400ED9462 /* plazaandhall.jpg in Resources */,
+				87F9BB0F13EC502400ED9462 /* socialspaces.jpg in Resources */,
+				87F9BB1013EC502400ED9462 /* sportsfacilities.jpg in Resources */,
+				87F9BB1113EC502400ED9462 /* studentservices.jpg in Resources */,
+				87F9BB1213EC502400ED9462 /* taxistand.jpg in Resources */,
+				87F9BB1313EC502400ED9462 /* taxistands.jpg in Resources */,
+				87F9BB1413EC502400ED9462 /* teachingblocks.jpg in Resources */,
+				87F9BB1513EC502400ED9462 /* teachingfacilities.jpg in Resources */,
+				87F9BB1613EC502400ED9462 /* technologycentres.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
