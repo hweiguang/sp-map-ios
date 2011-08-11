@@ -169,8 +169,7 @@
         NSString *logString = [logHostname stringByAppendingString:passedLocation];
         NSURL *url = [NSURL URLWithString:logString];
         ASIHTTPRequest *logRequest = [ASIHTTPRequest requestWithURL:url];  
-        [logRequest setDelegate:self];
-        [logRequest startAsynchronous];
+        [logRequest startSynchronous];
     }
     [array release];
 }
@@ -201,8 +200,10 @@
 - (void)downloadXML {  
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
+    NSURL *url = [NSURL URLWithString:kLocationsDatabaseURL];
+    
     //Create a request to download XML file from kLocationsDatabaseURL
-    request = [[ASIHTTPRequest alloc] initWithURL:[NSURL URLWithString:kLocationsDatabaseURL]];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [paths objectAtIndex:0];
@@ -226,7 +227,6 @@
     
 	// Obtain root element
 	TBXMLElement * root = tbxml.rootXMLElement;
-	
 	// if root element is valid
 	if (root) {
 		// search for the first category element within the root element's children
@@ -291,8 +291,6 @@
 - (void)dealloc {
     [_window release];
     [_navigationController release];
-    [request clearDelegatesAndCancel];
-    [request release];
     [locations release];
     [categories release];
     [identity release];

@@ -100,7 +100,7 @@
 		87F9BB0B13EC502400ED9462 /* lecturetheatres.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAF513EC502400ED9462 /* lecturetheatres.jpg */; };
 		87F9BB0C13EC502400ED9462 /* libraries.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAF613EC502400ED9462 /* libraries.jpg */; };
 		87F9BB0D13EC502400ED9462 /* photocopyservices.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAF713EC502400ED9462 /* photocopyservices.jpg */; };
-		87F9BB0E13EC502400ED9462 /* plazaandhall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAF813EC502400ED9462 /* plazaandhall.jpg */; };
+		87F9BB0E13EC502400ED9462 /* plaza,hallandexhibition.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAF813EC502400ED9462 /* plaza,hallandexhibition.jpg */; };
 		87F9BB0F13EC502400ED9462 /* socialspaces.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAF913EC502400ED9462 /* socialspaces.jpg */; };
 		87F9BB1013EC502400ED9462 /* sportsfacilities.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAFA13EC502400ED9462 /* sportsfacilities.jpg */; };
 		87F9BB1113EC502400ED9462 /* studentservices.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87F9BAFB13EC502400ED9462 /* studentservices.jpg */; };
@@ -240,7 +240,7 @@
 		87F9BAF513EC502400ED9462 /* lecturetheatres.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lecturetheatres.jpg; sourceTree = "<group>"; };
 		87F9BAF613EC502400ED9462 /* libraries.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = libraries.jpg; sourceTree = "<group>"; };
 		87F9BAF713EC502400ED9462 /* photocopyservices.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photocopyservices.jpg; sourceTree = "<group>"; };
-		87F9BAF813EC502400ED9462 /* plazaandhall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plazaandhall.jpg; sourceTree = "<group>"; };
+		87F9BAF813EC502400ED9462 /* plaza,hallandexhibition.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "plaza,hallandexhibition.jpg"; sourceTree = "<group>"; };
 		87F9BAF913EC502400ED9462 /* socialspaces.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = socialspaces.jpg; sourceTree = "<group>"; };
 		87F9BAFA13EC502400ED9462 /* sportsfacilities.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sportsfacilities.jpg; sourceTree = "<group>"; };
 		87F9BAFB13EC502400ED9462 /* studentservices.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = studentservices.jpg; sourceTree = "<group>"; };
@@ -510,7 +510,7 @@
 				87F9BAF513EC502400ED9462 /* lecturetheatres.jpg */,
 				87F9BAF613EC502400ED9462 /* libraries.jpg */,
 				87F9BAF713EC502400ED9462 /* photocopyservices.jpg */,
-				87F9BAF813EC502400ED9462 /* plazaandhall.jpg */,
+				87F9BAF813EC502400ED9462 /* plaza,hallandexhibition.jpg */,
 				87F9BAF913EC502400ED9462 /* socialspaces.jpg */,
 				87F9BAFA13EC502400ED9462 /* sportsfacilities.jpg */,
 				87F9BAFB13EC502400ED9462 /* studentservices.jpg */,
@@ -629,7 +629,7 @@
 				87F9BB0B13EC502400ED9462 /* lecturetheatres.jpg in Resources */,
 				87F9BB0C13EC502400ED9462 /* libraries.jpg in Resources */,
 				87F9BB0D13EC502400ED9462 /* photocopyservices.jpg in Resources */,
-				87F9BB0E13EC502400ED9462 /* plazaandhall.jpg in Resources */,
+				87F9BB0E13EC502400ED9462 /* plaza,hallandexhibition.jpg in Resources */,
 				87F9BB0F13EC502400ED9462 /* socialspaces.jpg in Resources */,
 				87F9BB1013EC502400ED9462 /* sportsfacilities.jpg in Resources */,
 				87F9BB1113EC502400ED9462 /* studentservices.jpg in Resources */,
@@ -730,8 +730,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Singapore Polytechnic";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Singapore Polytechnic";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPMap/SP Map-Prefix.pch";
@@ -745,8 +745,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "SP Map";
-				PROVISIONING_PROFILE = "032A3212-D31B-4389-83BA-C58291F2BD96";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "032A3212-D31B-4389-83BA-C58291F2BD96";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				VALIDATE_PRODUCT = YES;
@@ -798,8 +798,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -814,8 +814,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "SP Map";
-				PROVISIONING_PROFILE = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				WRAPPER_EXTENSION = app;
@@ -826,8 +826,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPMap/SP Map-Prefix.pch";
@@ -841,8 +841,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "SP Map";
-				PROVISIONING_PROFILE = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				VALIDATE_PRODUCT = YES;

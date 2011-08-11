@@ -281,9 +281,6 @@
 }
 
 - (void)mapView:(AGSMapView *) mapView didClickCalloutAccessoryButtonForGraphic:(AGSGraphic *) graphic {
-    
-    NSLog(@"Called");
-    
     //Getting the attributes from NSMutableDictionary *attribs in loadCallout
     NSDictionary *graphicAttributes =[NSDictionary dictionaryWithDictionary:graphic.attributes];
     
@@ -391,8 +388,7 @@
         NSString *logString = [logHostname stringByAppendingString:selectedLocations];
         NSURL *url = [NSURL URLWithString:logString];
         ASIHTTPRequest *logRequest = [ASIHTTPRequest requestWithURL:url];  
-        [logRequest setDelegate:self];
-        [logRequest startAsynchronous];
+        [logRequest startSynchronous];
         return;
     }
     

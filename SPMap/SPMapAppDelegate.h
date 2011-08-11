@@ -9,11 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Location.h"
 
-@class ASIHTTPRequest;
 @class TBXML;
 
 @interface SPMapAppDelegate : NSObject <UIApplicationDelegate> {
-    ASIHTTPRequest *request;
     TBXML *tbxml;
     NSMutableArray *locations; //Array for storing all locations from XML
     NSMutableSet *categories; //Set for storing all categories from XML
