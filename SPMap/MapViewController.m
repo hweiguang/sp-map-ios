@@ -56,6 +56,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         //Start listening from ListViewController for user selection
         [[NSNotificationCenter defaultCenter] addObserver:self 
@@ -164,6 +165,7 @@
     [flexItem release];
     
     [self.toolBar setItems:items animated:NO];
+    [items release];
 }
 
 - (void) addsearchBar {
@@ -373,16 +375,20 @@
 }
 
 #pragma mark - Setting MapView and CallOuts
-- (void) setMapExtent {
+- (void) setMapExtent {    
+    self.mapView.callout.hidden = YES;
     // Setting the extend to be used depending on the number of pins to be displayed
     if (ptcount == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
-                                                        message:@"Location not found." 
-                                                       delegate:self 
-                                              cancelButtonTitle:nil 
-                                              otherButtonTitles:@"OK", nil];
-        [alert show];
-        [alert release];
+        
+        // Remove all callouts if some are created earlier
+        [self.graphicsLayer removeAllGraphics];
+        
+        alertView = [[UIAlertView alloc] initWithTitle:@"Error" 
+                                               message:@"Location not found." 
+                                              delegate:self 
+                                     cancelButtonTitle:@"OK" 
+                                     otherButtonTitles:nil];
+        [alertView show];
         
         //Create a log URL with the passLocation string and push it to the server
         NSString *logString = [logHostname stringByAppendingString:selectedLocations];
@@ -391,35 +397,24 @@
         [logRequest startSynchronous];
         return;
     }
-    
     //If ptcount is more then 1 the values will be taken from loadCallout
     AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin
                                                                  ymin:ymin
                                                                  xmax:xmax
                                                                  ymax:ymax
                                                      spatialReference:self.mapView.spatialReference];
-    if (ptcount > 1) {
-        //If the are multiple pins, use the calculated extent and zoom out. If value is 1 all pins will be at the corners.
-        [extent expandByFactor:3.5];
-    }
+    //If the are multiple pins, use the calculated extent and zoom out. If value is 1 all pins will be at the corners.
+    [extent expandByFactor:3.5];
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
         [self.mapView zoomToEnvelope:extent animated:YES];
     else
         [self.mapView zoomToEnvelope:extent animated:NO];
-    
-    if (ptcount == 1) {
-        // Center the map at point if only one point is to be displayed
-        AGSPoint *pt = [AGSPoint pointWithX:ptlon y:ptlat spatialReference:self.mapView.spatialReference];
-        
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            [self.mapView centerAtPoint:pt animated:YES];
-        else
-            [self.mapView centerAtPoint:pt animated:NO];
-    }   
 }
 
 - (void) checkMapStatus {
+    //Remove the alertView if still presented
+    [alertView dismissWithClickedButtonIndex:0 animated:YES];
     //Check map status first before loading callout
     if(mapLoaded == YES)
         [self loadCallout];
@@ -446,8 +441,6 @@
     // variable used to count the number of pins to be display
     ptcount = 0;
     
-    AGSGraphic *graphic;
-    AGSPoint *pt;    
     //loop through all locations and add to graphics layer
     for (int i=0; i<[locations count]; i++)
     {
@@ -457,11 +450,11 @@
             [selectedLocations isEqualToString:location.identity])
         {
             //Setting the lat and lon from Location class
-            ptlat = [[location lat] doubleValue];
-            ptlon = [[location lon] doubleValue];
+            double ptlat = [[location lat] doubleValue];
+            double ptlon = [[location lon] doubleValue];
             
             //Adding coordinates to the point
-            pt = [AGSPoint pointWithX:ptlon y:ptlat spatialReference:self.mapView.spatialReference];
+            AGSPoint *pt = [AGSPoint pointWithX:ptlon y:ptlat spatialReference:self.mapView.spatialReference];
             
             ptcount++;
             
@@ -503,29 +496,25 @@
             self.mapView.callout.image = [UIImage imageNamed:callouticonImage];
             
             //create the graphic
-            graphic = [[AGSGraphic alloc] initWithGeometry:pt
-                                                    symbol:marker
-                                                attributes:attribs
-                                      infoTemplateDelegate:self.CalloutTemplate];
+            AGSGraphic *graphic = [[AGSGraphic alloc] initWithGeometry:pt
+                                                                symbol:marker
+                                                            attributes:attribs
+                                                  infoTemplateDelegate:self.CalloutTemplate];
             
             //add the graphic to the graphics layer
             [self.graphicsLayer addGraphic:graphic];
             
+            //Show the callout if only one point is to be displayed
+            if (ptcount == 1) {
+                [self.mapView showCalloutAtPoint:pt forGraphic:graphic animated:YES];
+                [self.mapView centerAtPoint:pt animated:NO];
+            }
             //release the graphic
             [graphic release];
         }
-    }
-    //Redraw map
-    [self.graphicsLayer dataChanged];
-    
-    //Reload the MapExtent
-    [self setMapExtent];
-    
-    //Show the callout if only one point is to be displayed
-    if (ptcount == 1)
-        [self.mapView showCalloutAtPoint:pt forGraphic:graphic animated:YES];
-    else
-        self.mapView.callout.hidden = YES;
+    }    
+    if (ptcount != 1)
+        [self setMapExtent];
 }
 
 #pragma mark - Search
@@ -603,6 +592,7 @@
     self.mapView = nil;
     self.graphicsLayer = nil;
     self.CalloutTemplate = nil;
+    [alertView release];
     [overlayViewController release];
     [toolBar release];
     [searchBar release];
@@ -610,6 +600,7 @@
     [locationManager release];
     [searchResults release];
     [popOver release];
+    [rotateMapButtonItem release];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }

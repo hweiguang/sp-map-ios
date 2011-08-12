@@ -26,8 +26,6 @@
     double ymax;
     
     int ptcount; //Integer used to count the number of points to be displayed
-    double ptlat; //point latitude
-    double ptlon; //point longitude
     
     //Location Manager used to check the accuracy of the GPS signal and getting the location coordinate
     CLLocationManager *locationManager;
@@ -49,6 +47,8 @@
     BOOL rotateMap; //if YES map will be rotated according to user heading
     BOOL visible; //BOOL for whether if view is visible or not
     BOOL mapLoaded; //YES when the map has finish loading
+    
+    UIAlertView *alertView;//AlertView for location not found error
 }
 
 @property (nonatomic, retain) IBOutlet AGSMapView *mapView;

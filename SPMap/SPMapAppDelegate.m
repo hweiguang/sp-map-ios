@@ -78,34 +78,34 @@
     
     NSMutableArray *array = [[NSMutableArray alloc]init];
     
-    // Grab the last two char of the string that is passed in
-    NSString *lasttwochar = [passedLocation substringFromIndex:[passedLocation length] -2];
-    // Check if it contains any punctuation, example T1845/6
-    NSRange range = [lasttwochar rangeOfCharacterFromSet:[NSCharacterSet punctuationCharacterSet] 
-                                                 options:NSCaseInsensitiveSearch];
-    if(range.location != NSNotFound ) { //if any punctuation is found remove it, example T1845/6 -> T1845
-        passedLocation = [passedLocation substringToIndex:[passedLocation length] -2];
-    }
-    
-    // Search the identity array for passLocation and store all possible results in array
+    // Search the identity array for passLocation
     for(NSString *myStr in identity) {
-        NSRange range = [passedLocation rangeOfString : myStr];
-        if (range.location != NSNotFound) {
+        NSRange range = [passedLocation rangeOfString : myStr];        
+        if (range.location != NSNotFound && [passedLocation isEqualToString:myStr]) {
             [array addObject:myStr];
             mapViewController.selectedLocations = myStr;
         }
+        
     }
-    
     // If there is only one result. Sucessful!
     if ([array count] == 1) {
         [mapViewController checkMapStatus];
         [array release];
         return;
     }
-    
-    // If there is more then one result. More checking required
-    if ([array count] > 1) {
+    // If there is no result. More checking required
+    if ([array count] == 0) {
         mapViewController.selectedLocations = nil;
+        
+        // Grab the last two char of the string that is passed in
+        NSString *lasttwochar = [passedLocation substringFromIndex:[passedLocation length] -2];
+        // Check if it contains any punctuation, example T1845/6
+        NSRange range = [lasttwochar rangeOfCharacterFromSet:[NSCharacterSet punctuationCharacterSet] 
+                                                     options:NSCaseInsensitiveSearch];
+        if(range.location != NSNotFound ) { //if any punctuation is found remove it, example T1845/6 -> T1845
+            passedLocation = [passedLocation substringToIndex:[passedLocation length] -2];
+        }
+        
         //If string length is 4, example T1845 remove last 2 digits and we get T18
         if ([passedLocation length] == 4) {
             mapViewController.selectedLocations = [passedLocation substringToIndex:[passedLocation length] -2];
@@ -152,24 +152,6 @@
         }
         //Now we have gone through all the checking check the map status,when ready we will load the callouts
         [mapViewController checkMapStatus];
-    }
-    // If no results at all, return error.
-    else {
-        [mapViewController.graphicsLayer removeAllGraphics];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
-                                                        message:@"Location not found." 
-                                                       delegate:self 
-                                              cancelButtonTitle:nil 
-                                              otherButtonTitles:@"OK", nil];
-        [alert show];
-        [alert release];
-        
-        //Create a log URL with the passLocation string and push it to the server
-        NSString *logString = [logHostname stringByAppendingString:passedLocation];
-        NSURL *url = [NSURL URLWithString:logString];
-        ASIHTTPRequest *logRequest = [ASIHTTPRequest requestWithURL:url];  
-        [logRequest startSynchronous];
     }
     [array release];
 }
