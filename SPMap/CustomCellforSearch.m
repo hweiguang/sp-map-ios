@@ -16,11 +16,11 @@
     if (self == [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         //UILabel for display the search results
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-            text = [[UILabel alloc]initWithFrame:CGRectMake(5,5,310,25)]; //frame for iPhone
+            text = [[UILabel alloc]initWithFrame:CGRectMake(10,10,300,25)]; //frame for iPhone
         else
-            text = [[UILabel alloc]initWithFrame:CGRectMake(5,5,758,25)]; //frame for iPad
+            text = [[UILabel alloc]initWithFrame:CGRectMake(10,10,748,25)]; //frame for iPad
         text.numberOfLines = 0;
-        text.font = [UIFont boldSystemFontOfSize:17.0];
+        text.font = [UIFont boldSystemFontOfSize:20];
         [self.contentView addSubview:text];
     }
     return self;
