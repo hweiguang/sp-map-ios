@@ -25,6 +25,7 @@
 		871EE1761367BEC100E111FC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 871EE1751367BEC100E111FC /* Icon@2x.png */; };
 		872215CD13812AC600C0704C /* SP_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 872215CC13812AC600C0704C /* SP_logo.png */; };
 		8726FCF3137BC2C500B98E5B /* HeadingOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 8726FCF2137BC2C500B98E5B /* HeadingOn.png */; };
+		872780F813F9231200D717D0 /* CustomCellforSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 872780F713F9231200D717D0 /* CustomCellforSearch.m */; };
 		87351F1413DD10F900A2676C /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87351F1313DD10F900A2676C /* libstdc++.dylib */; };
 		874C86311341CAC4001D4E4B /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874C862F1341CAC4001D4E4B /* CategoriesViewController.m */; };
 		874C86321341CAC4001D4E4B /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 874C86301341CAC4001D4E4B /* CategoriesViewController.xib */; };
@@ -136,6 +137,8 @@
 		871EE1751367BEC100E111FC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = "<group>"; };
 		872215CC13812AC600C0704C /* SP_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SP_logo.png; path = Resources/SP_logo.png; sourceTree = "<group>"; };
 		8726FCF2137BC2C500B98E5B /* HeadingOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeadingOn.png; path = Resources/HeadingOn.png; sourceTree = "<group>"; };
+		872780F613F9231200D717D0 /* CustomCellforSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellforSearch.h; sourceTree = "<group>"; };
+		872780F713F9231200D717D0 /* CustomCellforSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellforSearch.m; sourceTree = "<group>"; };
 		87351F1313DD10F900A2676C /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		874C862E1341CAC4001D4E4B /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
 		874C862F1341CAC4001D4E4B /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
@@ -452,6 +455,8 @@
 				87EB6B7B1341BD3E0083A16C /* MapViewController.m */,
 				8703B9E71377CA44006D0808 /* OverlayViewController.h */,
 				8703B9E81377CA44006D0808 /* OverlayViewController.m */,
+				872780F613F9231200D717D0 /* CustomCellforSearch.h */,
+				872780F713F9231200D717D0 /* CustomCellforSearch.m */,
 				874C862E1341CAC4001D4E4B /* CategoriesViewController.h */,
 				874C862F1341CAC4001D4E4B /* CategoriesViewController.m */,
 				87A65D23135694B70067B317 /* ListViewController.h */,
@@ -667,6 +672,7 @@
 				87A2AE1513F5177A008049F9 /* ASIInputStream.m in Sources */,
 				87A2AE1613F5177A008049F9 /* ASINetworkQueue.m in Sources */,
 				87A2AE3713F517D2008049F9 /* Reachability.m in Sources */,
+				872780F813F9231200D717D0 /* CustomCellforSearch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,10 +12,10 @@
 @class TBXML;
 
 @interface SPMapAppDelegate : NSObject <UIApplicationDelegate> {
-    TBXML *tbxml;
+    TBXML *tbxml; //Class used for parsing XML
     NSMutableArray *locations; //Array for storing all locations from XML
     NSMutableSet *categories; //Set for storing all categories from XML
-    NSMutableArray *identity; //Array for storing all the identity
+    NSMutableArray *identity; //Array for storing all the identity from XML
     BOOL XMLLoaded; //XML status. YES for loaded, NO when not loaded
     NSString *apassedLocation;//String that is passed in from URL
 }
