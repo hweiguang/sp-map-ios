@@ -56,7 +56,7 @@
     if (XMLLoaded == YES)
         [self processURL:passedLocation];
     else {
-        //Listen for notification from loadXML method
+        //Listen for notification from parseXML method
         [[NSNotificationCenter defaultCenter] addObserver:self 
                                                  selector:@selector(passedLocation) 
                                                      name:@"XMLLoaded" object:nil];
@@ -87,7 +87,7 @@
         }
         
     }
-    // If there is only one result. Sucessful!
+    // If there is only one result. Successful!
     if ([array count] == 1) {
         [mapViewController checkMapStatus];
         [array release];
@@ -187,6 +187,7 @@
     //Create a request to download XML file from kLocationsDatabaseURL
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     
+    //Getting the documentdirectory string
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [paths objectAtIndex:0];
     NSString *XMLPath = [documentDirectory stringByAppendingPathComponent:@"Locations.xml"];

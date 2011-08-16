@@ -13,9 +13,12 @@
 @class OverlayViewController;
 
 @interface MapViewController : UIViewController <AGSMapViewCalloutDelegate,AGSMapViewLayerDelegate,CLLocationManagerDelegate,UISearchBarDelegate> {
+    
+    //ArcGIS map layers
     AGSMapView *_mapView;
     AGSGraphicsLayer *_graphicsLayer;
 	AGSCalloutTemplate *_CalloutTemplate;
+    
     NSMutableArray *locations; //Array for storing all locations from XML
     NSString *selectedLocations; //selectedLocations from other Views
     

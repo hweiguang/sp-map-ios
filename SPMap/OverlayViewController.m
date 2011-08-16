@@ -8,6 +8,7 @@
 
 #import "OverlayViewController.h"
 #import "MapViewController.h"
+#import "CustomCellforSearch.h"
 
 @implementation OverlayViewController
 
@@ -45,17 +46,47 @@
     return [searchResults count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGSize max;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        max = CGSizeMake(310, 10000);
+    }
+    else {
+        max = CGSizeMake(758, 10000);   
+    }
+    //Return the height
+    return ([[searchResults objectAtIndex:indexPath.row] sizeWithFont:[UIFont boldSystemFontOfSize:17.0] 
+                                                    constrainedToSize:max 
+                                                        lineBreakMode:UILineBreakModeWordWrap].height) + 10;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    CustomCellforSearch *cell = (CustomCellforSearch*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }    
-    cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
-    // Setting accessoryType
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell = [[[CustomCellforSearch alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+    }
+    cell.text.text = [searchResults objectAtIndex:indexPath.row];
+    
+    CGRect currentFrame = cell.text.frame;  
+    CGSize max;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        max = CGSizeMake(310, 10000);
+    }
+    else {
+        max = CGSizeMake(758, 10000);   
+    }
+    //Calculating the height needed to display the text in multi line
+    CGSize expected = [[searchResults objectAtIndex:indexPath.row] sizeWithFont:cell.text.font
+                                                              constrainedToSize:max 
+                                                                  lineBreakMode:UILineBreakModeWordWrap]; 
+    currentFrame.size.height = expected.height;
+    cell.text.frame = currentFrame;
+    
     return cell;
 }
 

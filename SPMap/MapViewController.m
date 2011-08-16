@@ -103,13 +103,14 @@
     toolBar = [UIToolbar new];
     toolBar.barStyle = UIBarStyleBlack;
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) // if user device is an iPhone set the following frame
         toolBar.frame = CGRectMake(0, 416, 320, 44);
     else
-        toolBar.frame = CGRectMake(0, 960, 768, 44);
+        toolBar.frame = CGRectMake(0, 960, 768, 44); //else set the following frame for iPad
     
     [self.view addSubview:toolBar];
     
+    //Array for storing all the buttons
     NSMutableArray *items = [[NSMutableArray alloc]init];
     
     UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
@@ -216,6 +217,7 @@
         CLLocationDirection trueHeading = newHeading.trueHeading;        
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:1.0];
+        //Formula used to calculate the degree for rotating
         CGAffineTransform transform = CGAffineTransformMakeRotation(trueHeading * M_PI / -180.0);
         _mapView.transform = transform;
         [UIView commitAnimations];	
@@ -329,7 +331,7 @@
                                                           bundle:nil];
     categoriesViewController.title = @"Categories";
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {//if user device is an iPad, display a pop over instead of moving to a new view
         if (popOver == nil) {
             UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:categoriesViewController];
             //Creating a popover with categoriesVC as RootVC
@@ -351,7 +353,7 @@
 }
 
 - (void) showAbout:(id)sender {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) { //If the category popover is presented dismiss it first before moving to the about page
         if (popOver != nil)
             [popOver dismissPopoverAnimated:NO];
     }
@@ -458,7 +460,7 @@
             
             ptcount++;
             
-            //accumulate the min/max
+            //accumulate the min/max, calculating the new map extent
             if (pt.x  < xmin)
                 xmin = pt.x;
             
@@ -571,6 +573,7 @@
     //Searching
     for (Location *aLocations in locations)
     {    
+        //Search condition base on location category and title
         NSRange categoryResultsRange = [aLocations.category rangeOfString:searchText options:NSCaseInsensitiveSearch];
         NSRange titleResultsRange = [aLocations.title rangeOfString:searchText options:NSCaseInsensitiveSearch];
         
