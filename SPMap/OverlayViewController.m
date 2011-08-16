@@ -56,9 +56,9 @@
         max = CGSizeMake(758, 10000);   
     }
     //Return the height
-    return ([[searchResults objectAtIndex:indexPath.row] sizeWithFont:[UIFont boldSystemFontOfSize:17.0] 
+    return ([[searchResults objectAtIndex:indexPath.row] sizeWithFont:[UIFont boldSystemFontOfSize:20] 
                                                     constrainedToSize:max 
-                                                        lineBreakMode:UILineBreakModeWordWrap].height) + 10;
+                                                        lineBreakMode:UILineBreakModeWordWrap].height) + 20;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
