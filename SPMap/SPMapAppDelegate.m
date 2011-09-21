@@ -25,7 +25,7 @@
     
 	locations = [[NSMutableArray alloc] init];//Array for storing all locations from XML
     categories = [[NSMutableSet alloc] init];//Set for storing all categories from XML used in CategoriesVC
-    identity = [[NSMutableArray alloc] init];//Array for storing all the identity used in ListVC and URL Scheme
+    identities = [[NSMutableArray alloc] init];//Array for storing all the identity used in ListVC and URL Scheme
     
     //Reachability
     [self checkNetwork];
@@ -79,7 +79,7 @@
     NSMutableArray *array = [[NSMutableArray alloc]init];
     
     // Search the identity array for passLocation
-    for(NSString *myStr in identity) {
+    for(NSString *myStr in identities) {
         NSRange range = [passedLocation rangeOfString : myStr];        
         if (range.location != NSNotFound && [passedLocation isEqualToString:myStr]) {
             [array addObject:myStr];
@@ -188,9 +188,9 @@
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     
     //Getting the documentdirectory string
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentDirectory = [paths objectAtIndex:0];
-    NSString *XMLPath = [documentDirectory stringByAppendingPathComponent:@"Locations.xml"];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachesDirectory = [paths objectAtIndex:0];
+    NSString *XMLPath = [cachesDirectory stringByAppendingPathComponent:@"Location.xml"];
     
     [request setDownloadDestinationPath:XMLPath]; //Set to save the file to documents directory
     [request startSynchronous]; //Start request
@@ -201,63 +201,92 @@
 }
 
 - (void)parseXML {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentDirectory = [paths objectAtIndex:0];
-    NSString *XMLPath = [documentDirectory stringByAppendingPathComponent:@"Locations.xml"];
-    
-    // Load and parse the Locations.xml file in document directory
-    tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:XMLPath]] retain];
+     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+     NSString *cachesDirectory = [paths objectAtIndex:0];
+     NSString *XMLPath = [cachesDirectory stringByAppendingPathComponent:@"Location.xml"];
+     
+     // Load and parse the Locations.xml file in document directory
+     tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:XMLPath]] retain];
     
 	// Obtain root element
 	TBXMLElement * root = tbxml.rootXMLElement;
+    
 	// if root element is valid
 	if (root) {
 		// search for the first category element within the root element's children
 		TBXMLElement * location = [TBXML childElementNamed:@"location" parentElement:root];
-		
 		// if an location element was found
-		while (location != nil) {
+		while (location) {
             // instantiate an location object
             Location * aLocation = [[Location alloc] init];
             
-			//Extracting all the attribute in element location
-			aLocation.title = [TBXML valueOfAttributeNamed:@"title" forElement:location];
-			aLocation.subtitle = [TBXML valueOfAttributeNamed:@"subtitle" forElement:location];
-            aLocation.description = [TBXML valueOfAttributeNamed:@"description" forElement:location];
-            aLocation.photos = [TBXML valueOfAttributeNamed:@"photos" forElement:location];
-            aLocation.panorama = [TBXML valueOfAttributeNamed:@"panorama" forElement:location];
-            aLocation.identity = [TBXML valueOfAttributeNamed:@"id" forElement:location];
-            aLocation.livecam = [TBXML valueOfAttributeNamed:@"livecam" forElement:location];
-            aLocation.video = [TBXML valueOfAttributeNamed:@"videos" forElement:location];
+            //Extracting all the attribute in element location
+            TBXMLElement *title = [TBXML childElementNamed:@"title" parentElement:location];
+            if (title)
+                aLocation.title = [TBXML textForElement:title];
+            else
+                aLocation.title = nil;
             
-            NSString * lat = [TBXML valueOfAttributeNamed:@"lat" forElement:location];
-            aLocation.lat = [NSNumber numberWithFloat:[lat floatValue]];
-            NSString * lon = [TBXML valueOfAttributeNamed:@"lon" forElement:location];
-            aLocation.lon = [NSNumber numberWithFloat:[lon floatValue]];
+            TBXMLElement *subtitle = [TBXML childElementNamed:@"subtitle" parentElement:location];
+            if (subtitle)
+                aLocation.subtitle = [TBXML textForElement:subtitle];
+            else
+                aLocation.subtitle = nil;
             
-            // search the location's child elements for a category element
-			TBXMLElement * category = [TBXML childElementNamed:@"category" parentElement:location];
+            TBXMLElement *photos = [TBXML childElementNamed:@"photos" parentElement:location];
+            if (photos)
+                aLocation.photos = [TBXML textForElement:photos];
+            else
+                aLocation.photos = nil;
             
-            //Handles single category only at the moment
-            // if we find a category
-            while (category != nil) {
-                
-                // obtain the text from the category element
-				NSString * aCategory = [TBXML textForElement:category];
-                
-                // add category object to categories set
-                [categories addObject:aCategory];
-                
-                // find the next sibling element named "category"
-                category = [TBXML nextSiblingNamed:@"category" searchFromElement:category];
-                
-                // Adding the text category to aLocation
-                aLocation.category = aCategory;
-            }
+            TBXMLElement *identity = [TBXML childElementNamed:@"identity" parentElement:location];
+            if (identity)
+                aLocation.identity = [TBXML textForElement:identity];
+            else
+                aLocation.identity = nil;
+            
+            TBXMLElement * category = [TBXML childElementNamed:@"category" parentElement:location];
+            if (category)
+                aLocation.category = [TBXML textForElement:category];
+            else
+                aLocation.category = nil;
+            
+            TBXMLElement *livecam = [TBXML childElementNamed:@"livecam" parentElement:location];
+            if (livecam)
+                aLocation.livecam = [TBXML textForElement:livecam];
+            else
+                aLocation.livecam = nil;
+            
+            TBXMLElement *video = [TBXML childElementNamed:@"video" parentElement:location];
+            if (video)
+                aLocation.video = [TBXML textForElement:video];
+            else
+                aLocation.video = nil;
+            
+            TBXMLElement *panorama = [TBXML childElementNamed:@"panorama" parentElement:location];
+            if (panorama)
+                aLocation.panorama = [TBXML textForElement:panorama];
+            else
+                aLocation.panorama = nil;
+            
+            TBXMLElement *description = [TBXML childElementNamed:@"description" parentElement:location];
+            if (description)
+                aLocation.description = [TBXML textForElement:description];
+            else
+                aLocation.description = nil;
+            
+            TBXMLElement *lat = [TBXML childElementNamed:@"lat" parentElement:location];
+            NSString * latstring = [TBXML textForElement:lat];
+            aLocation.lat = [NSNumber numberWithFloat:[latstring floatValue]];
+            
+            TBXMLElement *lon = [TBXML childElementNamed:@"lon" parentElement:location];
+            NSString * lonstring = [TBXML textForElement:lon];
+            aLocation.lon = [NSNumber numberWithFloat:[lonstring floatValue]];
             
             // add our location object to the locations array and release the resource
 			[locations addObject:aLocation];
-            [identity addObject:aLocation.identity];
+            [identities addObject:aLocation.identity];
+            [categories addObject:aLocation.category];
             [aLocation release];
             
 			// find the next sibling element named "location"
@@ -276,7 +305,7 @@
     [_navigationController release];
     [locations release];
     [categories release];
-    [identity release];
+    [identities release];
     [super dealloc];
 }
 

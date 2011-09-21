@@ -1,0 +1,2954 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<locations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<location>
+		<identity>11square</identity>
+		<title>11 Square</title>
+		<subtitle>Between T11A and T11B</subtitle>
+		<lat>1.31020122801676</lat>
+		<lon>103.779280185699</lon>
+		<description>11 Square is our new open space. It is used for exhibitions and social activities. It is located between T11A and T11B.</description>
+		<photos>11square.jpg</photos>
+		<panorama>40-T11/40-T11.html</panorama>
+		<category>Plaza, Hall and Exhibition</category>
+	</location>
+	<location>
+		<identity>academicprogrammes</identity>
+		<title>Academic Programmes</title>
+		<subtitle>At Poly Centre, Level 2</subtitle>
+		<lat>1.309018</lat>
+		<lon>103.778564</lon>
+		<description>Department of Academic Programmes
+
+Tel: 6870-8068
+Fax: 6870-8069
+
+The department plans, coordinates, administers and supports poly-wide academic programmes (General Elective Modules (GEM), General Education Modules and Diploma-Plus programmes) and poly-school academic programmes (Advanced Elective Modules (AEM) and Applied Subjects). It also manages the Student Administration System (SAS), an IT system that provides administrative functions and support for all aspects related to a student’s career in SP.</description>
+		<photos>ap.jpg</photos>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>advancedroboticsandintelligentcontrolcentre</identity>
+		<title>Advanced Robotics and Intelligent Control Centre</title>
+		<subtitle>At T15, Level 3, Room T1531-T1539</subtitle>
+		<lat>1.309874</lat>
+		<lon>103.778355</lon>
+		<description>Advanced Robotics and Intelligent Control Centre
+
+Email: aricc@sp.edu.sg
+
+The Advanced Robotics and  Intelligent Control Centre, or ARICC, aspires to be a centre of excellence for  Research and Development work in the areas of Advanced Robotics and Intelligent Control. ARICC aims to carry out research and  development work in these areas through collaborative work with prestigious  overseas universities and institutions by embarking on consultancy projects in  Singapore and initiating innovative projects within the Singapore Polytechnic</description>
+		<photos>t15.jpg</photos>
+		<category>Technology Centres</category>
+	</location>
+	<location>
+		<identity>alumnirelationsoffice</identity>
+		<title>Alumni Relations Office</title>
+		<subtitle>At Innovillage, INV C27</subtitle>
+		<lat>1.309582</lat>
+		<lon>103.780019</lon>
+		<description>Alumni Relations Office
+
+Tel: 6772-1342
+Fax: 6870-4616
+Email: alumni@sp.edu.sg</description>
+		<photos>innovillage.jpg</photos>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>applicationsinenvironmentaltechnology</identity>
+		<title>Applications in Environmental Technology</title>
+		<subtitle>At Workshop 2, Level 1, Room W211D</subtitle>
+		<lat>1.308377</lat>
+		<lon>103.781438</lon>
+		<description>Centre for Applications in Environmental Technology
+
+Opening Hours
+Mon-Fri: 8.30am-6pm
+Tel: 6870-4857
+Fax: 6870-7048
+
+A nimble centre that partners the industry on Research and Development projects in environmental and water technology. We seek to help advance companies' global competitiveness through applied Research and Development.</description>
+		<photos>caet.jpg</photos>
+		<category>Technology Centres</category>
+	</location>
+	<location>
+		<identity>architectureandthebuiltenvironment</identity>
+		<title>Architecture and the Built Environment</title>
+		<subtitle>At T3A, Level 4, Room T3A412</subtitle>
+		<lat>1.307474</lat>
+		<lon>103.781019</lon>
+		<description>School of Architecture and the Built Environment
+
+Tel: 6772-1322
+Tel: 6772-1112
+Fax: 6772-1973
+Email:abe@sp.edu.sg
+
+The School of Architecture and the Built Environment is about both man-made and the natural environments. These include HDB and condominium apartments, shopping complexes and office buildings, MRT lines and stations, the world renowned Changi Airport as well as our beaches, rivers, reservoirs, fauna and flora in the physical terrain of Singapore.</description>
+		<photos>abe.jpg</photos>
+		<panorama>28-MLT1/28-MLT1.html</panorama>
+		<category>Acad Schools</category>
+		<video>sdabe.mp4</video>
+	</location>
+	<location>
+		<identity>basketballcourts</identity>
+		<title>Basketball Courts</title>
+		<subtitle>Beside Tennis Court</subtitle>
+		<lat>1.307925</lat>
+		<lon>103.77766</lon>
+		<description>Inspired to put the ball through the hoop? Head down to the basketball courts just beside the Department of Student Development, where you can work up a sweat after sitting long hours through lectures and lessons.</description>
+		<photos>basketball.jpg</photos>
+		<category>Sports Facilities</category>
+	</location>
+	<location>
+		<identity>burgerking</identity>
+		<title>Burger King</title>
+		<subtitle>At Foodcourt 3</subtitle>
+		<lat>1.308889</lat>
+		<lon>103.77832</lon>
+		<description>Burger King
+Opening Hours
+Mon-Fri: 8am-9pm
+Sat: 8am-6pm
+Tel: 6872-5579</description>
+		<photos>burgerking.jpg</photos>
+		<category>Dining</category>
+	</location>
+	<location>
+		<identity>cafemoberly</identity>
+		<title>Cafe@Moberly</title>
+		<subtitle>At Moberly, Level 1</subtitle>
+		<lat>1.308016</lat>
+		<lon>103.778538</lon>
+		<description>A cafe with extensive range of snacks, drinks and pastries.</description>
+		<photos>moberlycafe.jpg</photos>
+		<category>Dining</category>
+	</location>
+	<location>
+		<identity>carparka1</identity>
+		<title>Car Park A-1</title>
+		<subtitle>Next to Administration Building</subtitle>
+		<lat>1.30800775370739</lat>
+		<lon>103.779068291187</lon>
+		<description>Buildings nearby
+Administration
+Library
+Moberly
+T3
+T4/T4A
+T5-10
+W4
+W5/W5A
+
+No. of lots: 8</description>
+		<photos>carparka1.jpg</photos>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparka2</identity>
+		<title>Car Park A-2</title>
+		<subtitle>Next to Tennis Court</subtitle>
+		<lat>1.30755725996877</lat>
+		<lon>103.779148757457</lon>
+		<description>Buildings nearby
+Administration
+Library
+Moberly
+T3/T3A
+T4/T4A
+T5-10
+W4
+W5/W5A
+
+No. of lots: 20</description>
+		<photos>carparka2.jpg</photos>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparka3</identity>
+		<title>Car Park A-3</title>
+		<subtitle>Infront of Administration Building</subtitle>
+		<lat>1.30735346515568</lat>
+		<lon>103.779661059379</lon>
+		<description>Buildings nearby
+Administration
+Library
+Moberly
+T3/T3A
+T4/T4A
+T5-10
+W5/W5A
+
+No. of lots: 67</description>
+		<photos>carparka3.jpg</photos>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparkb1</identity>
+		<title>Car Park B-1</title>
+		<subtitle>Next to W5A</subtitle>
+		<lat>1.30688420072055</lat>
+		<lon>103.779918551445</lon>
+		<description>Buildings nearby
+Administration
+Library
+MLT1
+Moberly
+T1-2
+T3/T3A
+T4/T4A
+T5
+T10
+W4
+W5/W5A
+
+No. of lots: 8</description>
+		<photos>carparkb1.jpg</photos>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparkb2</identity>
+		<title>Car Park B-2</title>
+		<subtitle>Infront of W5A</subtitle>
+		<lat>1.3064658849216</lat>
+		<lon>103.78017604351</lon>
+		<description>Buildings nearby
+Administration
+Library
+MLT1
+T1-2
+T3/T3A
+T4/T4A
+T5
+W4
+W5/W5A
+
+No. of lots: 48</description>
+		<photos>carparkb2.jpg</photos>
+		<panorama>14-CarparkB-2/14-CarparkB-2.html</panorama>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparkb3</identity>
+		<title>Car Park B-3</title>
+		<subtitle>Between W5 and W5A</subtitle>
+		<lat>1.30665090922588</lat>
+		<lon>103.78083050251</lon>
+		<description>Buildings nearby
+Administration
+Library
+MLT1
+T1-2
+T3/T3A
+T4/T4A
+T5
+W4
+W5/W5A
+
+No of lots: 11</description>
+		<photos>carparkb3.jpg</photos>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparkc1</identity>
+		<title>Car Park C-1</title>
+		<subtitle>Next to T1A</subtitle>
+		<lat>1.3088819258504</lat>
+		<lon>103.78199994564</lon>
+		<description>Buildings nearby
+Foodcourt 2
+Integrated Simulation Centre
+Library
+MLT1
+T1/T1A
+T2
+T4/T4A
+W1-2
+
+No. of lots: 116</description>
+		<photos>carparkc1.jpg</photos>
+		<panorama>9-CarparkC-1/9-CarparkC-1.html</panorama>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparkc2</identity>
+		<title>Car Park C-2</title>
+		<subtitle>Beside W2 and W3</subtitle>
+		<lat>1.30795948652498</lat>
+		<lon>103.7821367383</lon>
+		<description>Buildings nearby
+Foodcourt 1
+Integrated Simulation Centre
+ISC
+MLT1
+T1/T1A
+T2
+T3/T3A
+T4/T4A
+W1
+W3
+
+No. of lots: 12</description>
+		<photos>carparkc2.jpg</photos>
+		<panorama>10-CarparkC-2/10-CarparkC-2.html</panorama>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparkd1</identity>
+		<title>Car Park D-1</title>
+		<subtitle>Infront of T11B</subtitle>
+		<lat>1.3104184301361</lat>
+		<lon>103.779532313346</lon>
+		<description>Buildings nearby
+Auditorium
+Convention Centre
+Foodcourt 2
+InnoVillage
+T1/T1A
+T2
+T4/T4A
+T11A/B/C
+T12/T12A
+T14-T16
+
+No. of lots: 78</description>
+		<photos>carparkd1.jpg</photos>
+		<panorama>6-CarparkD-1/6-CarparkD-1.html</panorama>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparkd2</identity>
+		<title>Car Park D-2</title>
+		<subtitle>Between T12 and T11A</subtitle>
+		<lat>1.31049351234581</lat>
+		<lon>103.778947591781</lon>
+		<description>Buildings nearby
+Auditorium
+Convention Centre
+Foodcourt 4
+InnoVillage (:- 5 lots)
+T11A/B/C
+T12/T12A
+T14-T18
+
+No. of lots: 48</description>
+		<photos>carparkd2.jpg</photos>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparkd3</identity>
+		<title>Car Park D-3</title>
+		<subtitle>At innovillage</subtitle>
+		<lat>1.30908303903037</lat>
+		<lon>103.779956102371</lon>
+		<description>Buildings nearby
+Administration
+Foodcourt 2
+InnoVillage
+Library
+T1/T1A
+T4/T4A
+T6-9
+T11A/B/C
+
+No of lots : 5</description>
+		<photos>carparkd3.jpg</photos>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparke1</identity>
+		<title>Car Park E-1</title>
+		<subtitle>Infront of W10</subtitle>
+		<lat>1.31183694721756</lat>
+		<lon>103.777365088462</lon>
+		<description>Buildings nearby
+Auditorium
+Convention Centre
+Foodcourt 4
+T11A/B/C
+T12/T12A
+T14-T18
+W10-11
+
+No. of lots: 23</description>
+		<photos>carparke1.jpg</photos>
+		<panorama>4-CarparkE-1/4-CarparkE-1.html</panorama>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparke2</identity>
+		<title>Car Park E-2</title>
+		<subtitle>Beside W10</subtitle>
+		<lat>1.31164119727115</lat>
+		<lon>103.776715993881</lon>
+		<description>Buildings nearby
+Auditorium
+Convention Centre
+Foodcourt 4
+Foodcourt 6
+T19 - T22
+W10-11
+W18
+
+No. of lots: 20</description>
+		<photos>carparke2.jpg</photos>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparke3</identity>
+		<title>Car Park E-3</title>
+		<subtitle>Behind foodcourt 4</subtitle>
+		<lat>1.31122824527917</lat>
+		<lon>103.776466548442</lon>
+		<description>Buildings nearby
+Auditorium
+Convention Centre
+Foodcourt 4
+Foodcourt 6
+T11A
+T12/T12A
+T14-T18
+W10-11
+
+No. of lots: 101</description>
+		<photos>carparke3.jpg</photos>
+		<panorama>24-CarparkE-3/24-CarparkE-3.html</panorama>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparke4</identity>
+		<title>Car Park E-4</title>
+		<subtitle>Behind T16</subtitle>
+		<lat>1.30996257381455</lat>
+		<lon>103.777759373188</lon>
+		<description>Buildings nearby
+Auditorium
+Convention Centre
+Foodcourt 3-5
+T11A/B/C
+T12/T12A
+T14-17
+W11-14
+
+No. of lots: 45</description>
+		<photos>carparke4.jpg</photos>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparkf1</identity>
+		<title>Car Park F-1</title>
+		<subtitle>Infront of T19</subtitle>
+		<lat>1.31171091643191</lat>
+		<lon>103.776265382766</lon>
+		<description>Buildings nearby
+Foodcourt 6
+MLT 8-12
+T19-22
+W10-11
+
+No of lots : 8</description>
+		<photos>carparkf1.jpg</photos>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparkf2</identity>
+		<title>Car Park F-2</title>
+		<subtitle>Beside foodcourt 6</subtitle>
+		<lat>1.3112684678788</lat>
+		<lon>103.775664567947</lon>
+		<description>Buildings nearby
+Foodcourt 4
+Foodcourt 6
+Hilltop Library
+MLT 8-12
+T19-22
+W11-13
+
+No. of lots: 26</description>
+		<photos>carparkf2.jpg</photos>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparkf3</identity>
+		<title>Car Park F-3</title>
+		<subtitle>Behind T22</subtitle>
+		<lat>1.31092255350097</lat>
+		<lon>103.775173723697</lon>
+		<description>Buildings nearby
+Foodcourt 6
+Hilltop Library
+MLT 8-12
+T19-22
+W11-13
+
+No. of lots: 90</description>
+		<photos>carparkf3.jpg</photos>
+		<panorama>21-T19/21-T19.html</panorama>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparkg1</identity>
+		<title>Car Park G-1</title>
+		<subtitle>Beside Sports Complex</subtitle>
+		<lat>1.30943967969652</lat>
+		<lon>103.776297569274</lon>
+		<description>Buildings nearby
+Foodcourt 5
+Meeting Room at Staff Centre
+Staff Centre Restaurant
+The Hall at Staff Centre
+Tulip Room
+
+No. of lots: 38</description>
+		<photos>carparkg1.jpg</photos>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparkg2</identity>
+		<title>Car Park G-2</title>
+		<subtitle>Infront of Staff Centre</subtitle>
+		<lat>1.3090079567784</lat>
+		<lon>103.776654303073</lon>
+		<description>Buildings nearby
+Foodcourt 5
+Meeting Room at Staff Centre
+Staff Centre Restaurant
+Sports Hall
+The Hall at Staff Centre
+Tulip Room
+
+No. of lots: 58</description>
+		<photos>carparkg2.jpg</photos>
+		<panorama>34-CarparkG-2/34-CarparkG-2.html</panorama>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>carparkg3</identity>
+		<title>Car Park G-3</title>
+		<subtitle>Infront of Student Development Centre</subtitle>
+		<lat>1.30844483981699</lat>
+		<lon>103.778022229671</lon>
+		<description>Buildings nearby
+Foodcourt 3
+Moberly
+Poly Centre
+Sports Hall
+Student Development Centre
+T7-10
+
+No. of lots: 63</description>
+		<photos>carparkg3.jpg</photos>
+		<category>Carparks</category>
+	</location>
+	<location>
+		<identity>chemicalandlifesciences</identity>
+		<title>Chemical and Life Sciences</title>
+		<subtitle>At T11A, Level 6, Room T11A601</subtitle>
+		<lat>1.310173</lat>
+		<lon>103.779173</lon>
+		<description>School of Chemical and Life Sciences
+
+Tel: 6772-1135
+Fax: 6772-1976
+Email: cls@sp.edu.sg
+
+The School of Chemical Life Science’s courses are quality programmes well recognised by industry and universities both locally and worldwide. We provide an environment conducive for learning as well as personal development. All courses feature a blend of theory with hands-on training. Our active approach to learning complemented with problem-based learning (PBL), projects and industrial attachment equips students with the skills required to meet industry needs. CLS is well known for its products – Pokka Lemonsi Delight drink, Romancing Singapore perfume, SP twin-ply noodles, inulin-infused chocolates, Healthy XO kaya – just to name a few. Whether you are a prospective student or you are a company seeking new ways to improve a particular product or service, contact us so that we can be your partner on that journey.</description>
+		<photos>cls.jpg</photos>
+		<category>Acad Schools</category>
+		<video>cls.mp4</video>
+	</location>
+	<location>
+		<identity>colours</identity>
+		<title>Colours</title>
+		<subtitle>At Main Library, Level 1</subtitle>
+		<lat>1.308275</lat>
+		<lon>103.779736</lon>
+		<description>Opening Hours
+School Term
+Mon-Fri: 7am-10pm
+Sat: 7am-2pm
+
+School Vacation
+Mon-Fri: 7am-7pm
+
+The Colours Extension is a single-storey pavilion at the quadrangle space located in front of the Main Library. It is integrated with Level 1 and houses the Colours lounge, an exhibition area to showcase student projects, as well as a cafe and social space.</description>
+		<photos>colours.jpg</photos>
+		<category>Social Spaces</category>
+	</location>
+	<location>
+		<identity>communicationartsandsocialsciences</identity>
+		<title>Communication, Arts and Social Sciences</title>
+		<subtitle>At T19, Level 2, Room T19210</subtitle>
+		<lat>1.311723</lat>
+		<lon>103.776165</lon>
+		<description>School of Communication, Arts and Social Sciences
+
+Tel: 6772-1170
+Fax: 6772-1955
+Email: cass@sp.edu.sg
+
+Real-life, practical experiences for our students are an integral part of what we offer at CASS. Along with field trips, workshops and seminars by industry practitioners, students can look forward to a semester-long internship programme and projects with industry partners. CASS students enjoy a wide range of co-curricular activities which develop them into well-rounded individuals with a heart for the community. Beginning 2011, CASS will also spearhead a new polytechnic-wide General Education programme in line with SP’s vision to offer an all-rounded education. Focusing on critical thinking and social awareness, and employing engaging learning methods, GenEd is the first of its kind among polytechnics in Singapore.</description>
+		<photos>bizblk.jpg</photos>
+		<panorama>21-T19/21-T19.html</panorama>
+		<category>Acad Schools</category>
+		<video>cass.mp4</video>
+	</location>
+	<location>
+		<identity>computerandinformationsystems</identity>
+		<title>Computer and Information Systems</title>
+		<subtitle>At Administration Building, Level 3</subtitle>
+		<lat>1.307895</lat>
+		<lon>103.779587</lon>
+		<description>Department of Computer and Information Systems
+
+Opening Hours
+Mon-Fri: 8am-1pm; 2pm to 5.30pm
+Tel: 6772-1160
+Fax: 6772-1980
+
+The Computer and Information Systems Department provides campus-wide IT services to the entire Singapore Polytechnic population. The department strives to provide an integrated digital environment for our stakeholders to facilitate their accessibility to and use of information and e-services for effective decision-making and relationship building at work and in life.</description>
+		<photos>adminbuilding.jpg</photos>
+		<panorama>30-Admin/30-Admin.html</panorama>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>conventionandexhibitioncentre</identity>
+		<title>Convention and Exhibition Centre</title>
+		<subtitle>Next to Dover MRT station, at the front door</subtitle>
+		<lat>1.311215</lat>
+		<lon>103.777842</lon>
+		<description>The 1,200-seater Convention Centre sits in the Plaza, and is a popular hosting venue for many important events.</description>
+		<photos>conventioncentre.jpg</photos>
+		<panorama>25-SPPlaza/25-SPPlaza.html</panorama>
+		<category>Plaza, Hall and Exhibition</category>
+	</location>
+	<location>
+		<identity>corporatecommunications</identity>
+		<title>Corporate Communications</title>
+		<subtitle>At Administration Building, Level 1</subtitle>
+		<lat>1.308016</lat>
+		<lon>103.779489</lon>
+		<description>Department of Corporate Communications
+
+Opening Hours
+Mon-Fri: 8am-1pm; 2pm to 5.30pm
+Tel: 6870-6102
+Fax: 6772-1978</description>
+		<photos>adminbuilding.jpg</photos>
+		<panorama>30-Admin/30-Admin.html</panorama>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>crclabt1453</identity>
+		<title>CRC Lab T1453</title>
+		<subtitle>At T14, Level 5, Room T1453</subtitle>
+		<lat>1.30978291277092</lat>
+		<lon>103.778614997863</lon>
+		<description>Types of services:
+A4 mono printing
+A4 Colour Printing</description>
+		<photos>photocopycrclabt14lvl5.jpg</photos>
+		<category>Photocopy Services</category>
+	</location>
+	<location>
+		<identity>crclabt1464</identity>
+		<title>CRC Lab T1464</title>
+		<subtitle>At T14, Level 6, Room T1464</subtitle>
+		<lat>1.30974269014744</lat>
+		<lon>103.778738379478</lon>
+		<description>Types of services:
+A4 mono printing
+A4 Colour Printing</description>
+		<photos>photocopycrclabt14lvl6.jpg</photos>
+		<category>Photocopy Services</category>
+	</location>
+	<location>
+		<identity>crclabt322</identity>
+		<title>CRC Lab T322</title>
+		<subtitle>At T3, Level 2, Room T322</subtitle>
+		<lat>1.30769669851555</lat>
+		<lon>103.780398666858</lon>
+		<description>Types of services:
+A4 mono printing
+A4 Colour Printing</description>
+		<photos>photocopycrclabt3lvl2.jpg</photos>
+		<category>Photocopy Services</category>
+	</location>
+	<location>
+		<identity>dbsuobatms</identity>
+		<title>DBS/UOB ATMs</title>
+		<subtitle>Outside Foodcourt 5</subtitle>
+		<lat>1.30912</lat>
+		<lon>103.777174</lon>
+		<description>Short of cash at any time of the day? No problems, just head down to the DBS/UOB ATM located at Food court 5. For OCBC card holders, you would need to head down to T1A, where the ATM machine is located.</description>
+		<photos>foodcourt5atm.jpg</photos>
+		<category>ATM</category>
+	</location>
+	<location>
+		<identity>departmentofindustryservices</identity>
+		<title>Department of Industry Services</title>
+		<subtitle>At Innovillage, INV A 215</subtitle>
+		<lat>1.309481</lat>
+		<lon>103.780042</lon>
+		<description>Department of Industry Services
+
+Opening Hours
+Mon-Fri: 8am-1pm; 2pm to 5.30pm
+Tel: 6772-1948
+Fax: 6870-4616
+Email: is@sp.edu.sg
+
+Department of Industry Services plays a pivotal role in fulfilling the Polytechnic's corporate goals especially in achieving excellence in education and training. The Department comprises the Industry Services Centre.
+
+The Industry Services Centre provides administrative support for the Industrial Training Programme (ITP) for full-time students. The ITP provides opportunities for students to gain practical experience in the working environment so as to prepare them to be “Work Ready”.</description>
+		<photos>innovillage.jpg</photos>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>departmentofstudentdevelopment</identity>
+		<title>Department of Student Development</title>
+		<subtitle>Beside Foodcourt 3</subtitle>
+		<lat>1.308622</lat>
+		<lon>103.777982</lon>
+		<description>Opening Hours
+Mon-Fri: 8am-5.30pm
+Tel: 6870-8254
+Fax: 6772-1960
+
+The Department of Student Development (DSD) is located at the Student Development Centre. It is fully committed to helping students have a fulfilling campus life and to develop themselves holistically through Co-curricula programmes and activities.</description>
+		<photos>dsd.jpg</photos>
+		<category>Student Services</category>
+	</location>
+	<location>
+		<identity>designworkssingapore</identity>
+		<title>DesignWorks Singapore</title>
+		<subtitle>At T19, Level 3</subtitle>
+		<lat>1.311673</lat>
+		<lon>103.775846</lon>
+		<description>DesignWorks Singapore
+
+Email: enquiries@designworkssingapore.com
+
+DesignWorks Singapore is a Business Design centre set up by Singapore Polytechnic and the University of Toronto’s Rotman School of Management with the support of SPRING Singapore. The University of Toronto as whole and the School of Management specifically are highly regarded globally.</description>
+		<photos>designworks.jpg</photos>
+		<category>Industry Services</category>
+	</location>
+	<location>
+		<identity>digitalmediaandinfocommtechnology</identity>
+		<title>Digital Media and Infocomm Technology</title>
+		<subtitle>At T19, Level 4, Room T1949</subtitle>
+		<lat>1.311759</lat>
+		<lon>103.776049</lon>
+		<description>School of Digital Media and Infocomm Technology
+
+Tel: 6772-1928
+Fax: 6772-7912
+Email: dmit@sp.edu.sg
+
+School of Digital Media and Infocomm Technology (DMIT) trains you to become masters of technology. The convergence of IT with business, finance and media, along with telecommunication and consumer electronics, has placed technology as the key driver for the knowledge-based economy of 21st century Singapore. Media and design are also cited as key growth sectors of Singapore's next leap. We pride ourselves in keeping up with industry trends, to keep our students well-prepared for the workforce or further studies in these fields. From the technical to the creative aspects of media and infocomm, we'll take you beyond theory essentials, arming you with the practical skills needed to thrive in the respective job markets. Be a part of the information and design revolutions sweeping through our landscape.</description>
+		<photos>bizblk.jpg</photos>
+		<panorama>21-T19/21-T19.html</panorama>
+		<category>Acad Schools</category>
+		<video>dmit.mp4</video>
+	</location>
+	<location>
+		<identity>dmitt2041</identity>
+		<title>DMIT T2041</title>
+		<subtitle>At T20, Level 4, Room T2041</subtitle>
+		<lat>1.31186912528949</lat>
+		<lon>103.775294423103</lon>
+		<description>Types of services:
+Self-Photocopy (mono)
+A4 mono Copy</description>
+		<photos>photocopydmitt20.jpg</photos>
+		<category>Photocopy Services</category>
+	</location>
+	<location>
+		<identity>dovermrt</identity>
+		<title>Dover MRT</title>
+		<subtitle>MRT</subtitle>
+		<lat>1.311463</lat>
+		<lon>103.778514</lon>
+		<description>Since 18 October 2001, the Dover MRT Station situated just in front of the campus has been in operation, offering unparalleled convenience to students when they travel to school. The Polytechnic's Plaza and Convention Centre is located just beside the station.</description>
+		<photos>dovermrt.jpg</photos>
+		<category>Bus and MRT</category>
+	</location>
+	<location>
+		<identity>dovermrtpedestriangate</identity>
+		<title>Dover MRT Pedestrian Gate</title>
+		<subtitle>Outside Dover MRT, at SP front door</subtitle>
+		<lat>1.31126042335892</lat>
+		<lon>103.778201937675</lon>
+		<description>Opening Hours
+Mon-Sat: 7am-11pm
+Sun and Public Holiday: 7am-7pm</description>
+		<photos>pedgatedover.jpg</photos>
+		<category>Gates</category>
+	</location>
+	<location>
+		<identity>doverstnoppsp</identity>
+		<title>Dover Stn - Opp SP</title>
+		<subtitle>Bus stop No: 19039</subtitle>
+		<lat>1.31168141986414</lat>
+		<lon>103.778674006462</lon>
+		<description>Along Commonwealth Ave West, next to Dover MRT Station (opposite SP)
+Buses Available
+14
+74
+105
+147
+166
+185</description>
+		<photos>busdoverstnoppsp.jpg</photos>
+		<category>Bus and MRT</category>
+	</location>
+	<location>
+		<identity>doverstnspside</identity>
+		<title>Dover Stn - SP side</title>
+		<subtitle>Bus stop No: 19031</subtitle>
+		<lat>1.31122288226584</lat>
+		<lon>103.778395056724</lon>
+		<description>Along Commonwealth Ave West, next to Dover MRT Station (SP side)
+Buses Available
+14
+74
+105
+147
+166
+185</description>
+		<photos>busdoverstnsp.jpg</photos>
+		<category>Bus and MRT</category>
+	</location>
+	<location>
+		<identity>educationaldevelopment</identity>
+		<title>Educational Development</title>
+		<subtitle>At T4A, Level 3, Room T4A34</subtitle>
+		<lat>1.308604</lat>
+		<lon>103.780497</lon>
+		<description>Department of Educational Development
+
+Tel: 6772-1262
+Fax: 6772-1954
+
+The Educational Development Department enhances the quality of teaching and learning in Singapore Polytechnic. The department provide expertise for the professional development of academic staff and assist academic schools and departments in developing strategies to enhance the quality of teaching and learning.</description>
+		<photos>educationaldevelopment.jpg</photos>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>electricalandelectronicengineering</identity>
+		<title>Electrical and Electronic Engineering</title>
+		<subtitle>At T12, Level 5, Room T12511</subtitle>
+		<lat>1.31035</lat>
+		<lon>103.778767</lon>
+		<description>School of Electrical and Electronic Engineering
+
+Tel: 6772-1815
+Fax: 6772-1974
+Email: eee@sp.edu.sg
+
+We are the largest school in Singapore Polytechnic with a student population of about 3,500. SEEE offer 7 full-time diploma programmes plus a number of Specialist and Advanced diplomas, providing prospective students with plenty of choices. Some programmes allow students to select modules as they progress from one year to the next. Our School is conveniently situated in the campus, with Dover MRT station is practically at our doorstep.</description>
+		<photos>eee.jpg</photos>
+		<category>Acad Schools</category>
+		<video>smaeseee.mp4</video>
+	</location>
+	<location>
+		<identity>estatesanddevelopment</identity>
+		<title>Estates and Development</title>
+		<subtitle>At Workshop 5A, Level 2</subtitle>
+		<lat>1.306623</lat>
+		<lon>103.780481</lon>
+		<description>Department of Estates and Development
+
+Tel: 6772-1628
+Fax: 6772-1951</description>
+		<photos>estatesanddevelopment.jpg</photos>
+		<panorama>13-W5A/13-W5A.html</panorama>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>finance</identity>
+		<title>Finance</title>
+		<subtitle>At Administration Building, Level 2</subtitle>
+		<lat>1.307941</lat>
+		<lon>103.779509</lon>
+		<description>Department of Finance
+
+Opening Hours
+Mon-Fri: 8am-1pm; 2pm to 5.30pm
+Tel: 6772-1281
+Fax: 6772-1982</description>
+		<photos>adminbuilding.jpg</photos>
+		<panorama>30-Admin/30-Admin.html</panorama>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>foodhavenstaffcentre</identity>
+		<title>Food Haven @ Staff Centre</title>
+		<subtitle>Beside Swimming Complex</subtitle>
+		<lat>1.309153</lat>
+		<lon>103.776865</lon>
+		<description>Food haven restaurant that serves up some delicious continental food. The Staff Centre has main Function Rooms (The Hall, Tulip Room, The Meeting Room) where some major events and press conferences are held.</description>
+		<photos>foodhaven.jpg</photos>
+		<category>Dining</category>
+	</location>
+	<location>
+		<identity>foodinnovationandresourcecentre</identity>
+		<title>Food Innovation and Resource Centre</title>
+		<subtitle>At T11B, Level 3</subtitle>
+		<lat>1.309972</lat>
+		<lon>103.779516</lon>
+		<description>Food Innovation and Resource Centre
+
+Tel: 6879-0634
+Fax: 6870-8024
+Email: firc@sp.edu.sg
+
+The centre was established to help small and medium enterprises to create and test new products, from concept right up to market testing, using the latest technologies.</description>
+		<photos>foodinnovation.jpg</photos>
+		<category>Technology Centres</category>
+	</location>
+	<location>
+		<identity>foodcourt1</identity>
+		<title>Foodcourt 1</title>
+		<subtitle>Beside MLT1</subtitle>
+		<lat>1.307517</lat>
+		<lon>103.781398</lon>
+		<description>Foodcourt 1 is always ready for hungry students who emerge from lectures requiring a quick fix for their hungry bellies.</description>
+		<photos>foodcourt1.jpg</photos>
+		<panorama>28-MLT1/28-MLT1.html</panorama>
+		<category>Dining</category>
+		<livecam>fc1.jpg</livecam>
+	</location>
+	<location>
+		<identity>foodcourt2</identity>
+		<title>Foodcourt 2</title>
+		<subtitle>At T1A</subtitle>
+		<lat>1.308972</lat>
+		<lon>103.781053</lon>
+		<description>McDonald's
+Opening Hours
+Mon-Fri: 7am-8.30pm
+Tel: 6775-8242
+
+Foodcourt 2 is also known affectionately to some SP students as McDonalds - even though the fast-food chain is but one of many stalls offering affordable and delectable delights. There is also an ATM (OCBC) behind this foodcourt - for those who need some spare dollars to pay for their food. Lastly, if you are looking for titbits to munch in class, there is also a mama shop also known as convenient stall right at the corner of the stretch of stalls.</description>
+		<photos>foodcourt2.jpg</photos>
+		<category>Dining</category>
+		<livecam>fc2.jpg</livecam>
+	</location>
+	<location>
+		<identity>foodcourt3</identity>
+		<title>Foodcourt 3</title>
+		<subtitle>At Polycentric, Level 1</subtitle>
+		<lat>1.308878</lat>
+		<lon>103.778399</lon>
+		<description>Foodcourt 3 greet the students with elaborately decorated and tastefully designed finishes and a wide food variety at very popular and reasonable prices. This is a place where even the most fussy of eaters are spoilt for choice. This foodcourt has increased its stall numbers with more variety such as Burger King!</description>
+		<photos>foodcourt3.jpg</photos>
+		<category>Dining</category>
+		<livecam>fc3.jpg</livecam>
+	</location>
+	<location>
+		<identity>foodcourt4</identity>
+		<title>Foodcourt 4</title>
+		<subtitle>At T17, Basement 1 and 2</subtitle>
+		<lat>1.310683</lat>
+		<lon>103.777145</lon>
+		<description>Opening Hours
+School Term
+Mon-Fri: 7am-9pm
+Sat: 8am-1pm
+
+School Vacation
+Mon-Fri: 7am-5pm
+
+Foodcourt 4 is an air-conditioned outlet featuring a wide variety of culinary cuisines ranging from local, Indian, Muslim, Thai and western food to speciality items like roasted meat, chicken rice, to noodles.</description>
+		<photos>foodcourt4.jpg</photos>
+		<panorama>24-CarparkE-3/24-CarparkE-3.html</panorama>
+		<category>Dining</category>
+		<livecam>fc4.jpg</livecam>
+	</location>
+	<location>
+		<identity>foodcourt5</identity>
+		<title>Foodcourt 5</title>
+		<subtitle>Beside Swimming Complex</subtitle>
+		<lat>1.309517</lat>
+		<lon>103.777143</lon>
+		<description>This air-conditioned foodcourt caters to those who favour fast-food like KFC and Subway. Flanking the food outlets are mini-shops to cater to the needs of the campus population including a bookstore, travel agency and Cheers and Bang Deli. If you're looking for a place to chill with your friends, Starbucks is located at the corner of Foodcourt 5.</description>
+		<photos>foodcourt5.jpg</photos>
+		<category>Dining</category>
+		<livecam>fc5.jpg</livecam>
+	</location>
+	<location>
+		<identity>foodcourt6</identity>
+		<title>Foodcourt 6</title>
+		<subtitle>At T22, Level 2</subtitle>
+		<lat>1.311076</lat>
+		<lon>103.775556</lon>
+		<description>Foodcourt 6 is the hunting ground of students from the SP Business School, and School of Digital Media and Infocomm Technology - for food of course! A truly spacious and well-ventilated setting, overlooking the SP Sports Complex.</description>
+		<photos>foodcourt6.jpg</photos>
+		<category>Dining</category>
+		<livecam>fc6.jpg</livecam>
+	</location>
+	<location>
+		<identity>gamesresourcecentre</identity>
+		<title>Games Resource Centre</title>
+		<subtitle>At Innovillage, INV C 29</subtitle>
+		<lat>1.309596</lat>
+		<lon>103.780025</lon>
+		<description>Games Resource Centre
+
+Email: grc@sp.edu.sg
+
+The Games Resource Centre @ Singapore Polytechnic (GRC@SP) is joint project by Singapore Polytechnic and the Infocomm Development Authority of Singapore (IDA). The GRC@SP is setup to empower Singapore enterprises to use the latest game technologies (such as the Unreal Engine) in their projects. The GRC@SP provides an array of core technologies, content creation tools, and support infrastructure required by game studios, advanced visualisation and simulation developers as well as creators of 3D animated content alike for linear productions.</description>
+		<photos>innovillage.jpg</photos>
+		<category>Technology Centres</category>
+	</location>
+	<location>
+		<identity>gate1</identity>
+		<title>Gate 1</title>
+		<subtitle>Along Dover Rd, infront of Administration building</subtitle>
+		<lat>1.30678498480018</lat>
+		<lon>103.779626190662</lon>
+		<description>Vehicular and Pedestrian Gate
+Opening Hours
+Mon-Sun: 24/7</description>
+		<photos>gate1.jpg</photos>
+		<panorama>15-Gate1/15-Gate1.html</panorama>
+		<category>Gates</category>
+	</location>
+	<location>
+		<identity>gate2</identity>
+		<title>Gate 2</title>
+		<subtitle>Along Dover Rd, between the Tennis courts</subtitle>
+		<lat>1.30738564328515</lat>
+		<lon>103.778252899646</lon>
+		<description>Vehicular Gate
+Closed: 24/7 (For Emergency Use)</description>
+		<photos>gate2.jpg</photos>
+		<panorama>16-Gate2/16-Gate2.html</panorama>
+		<category>Gates</category>
+	</location>
+	<location>
+		<identity>gate3</identity>
+		<title>Gate 3</title>
+		<subtitle>Along Dover Rd, near Staff Centre</subtitle>
+		<lat>1.30831076433133</lat>
+		<lon>103.776061534881</lon>
+		<description>Vehicular and Pedestrian Gate
+Opening Hours
+Mon-Sun: 7am-11pm</description>
+		<photos>gate3.jpg</photos>
+		<panorama>18-Gate3/18-Gate3.html</panorama>
+		<category>Gates</category>
+	</location>
+	<location>
+		<identity>gate4</identity>
+		<title>Gate 4</title>
+		<subtitle>Along Dover Rd, infront of SP Graduates' Guild</subtitle>
+		<lat>1.3089784601788</lat>
+		<lon>103.774334192276</lon>
+		<description>Vehicular and Pedestrian Gate
+Opening Hours
+Mon-Sun: 24/7</description>
+		<photos>gate4.jpg</photos>
+		<panorama>19-Gate4/19-Gate4.html</panorama>
+		<category>Gates</category>
+	</location>
+	<location>
+		<identity>gate5</identity>
+		<title>Gate 5</title>
+		<subtitle>Along Clementi Rd, entrance to staff apartment</subtitle>
+		<lat>1.31072948499025</lat>
+		<lon>103.772242069244</lon>
+		<description>Vehicular and Pedestrian Gate
+Opening Hours
+Mon-Sun: 24/7</description>
+		<photos>gate5.jpg</photos>
+		<category>Gates</category>
+	</location>
+	<location>
+		<identity>gate6</identity>
+		<title>Gate 6</title>
+		<subtitle>Along Commonwealth Ave West, entrance to staff apartment</subtitle>
+		<lat>1.31224185459237</lat>
+		<lon>103.77478480339</lon>
+		<description>Vehicular Gate
+Closed: 24/7 (For Emergency Use)</description>
+		<photos>gate6.jpg</photos>
+		<panorama>1-Gate6/1-Gate6.html</panorama>
+		<category>Gates</category>
+	</location>
+	<location>
+		<identity>gate7</identity>
+		<title>Gate 7</title>
+		<subtitle>Along Commonwealth Ave West, at W10</subtitle>
+		<lat>1.31213459436703</lat>
+		<lon>103.776887655258</lon>
+		<description>Pedestrian Gate
+Opening Hours
+Mon-Fri: 7am-11pm
+
+Vehicular Gate
+Closed: 24/7 (For Emergency Use)</description>
+		<photos>gate7.jpg</photos>
+		<panorama>3-Gate7/3-Gate7.html</panorama>
+		<category>Gates</category>
+	</location>
+	<location>
+		<identity>gate8</identity>
+		<title>Gate 8</title>
+		<subtitle>Along Commonwealth Ave West, at T1A</subtitle>
+		<lat>1.30936191594658</lat>
+		<lon>103.781533241271</lon>
+		<description>Vehicular Gate
+Opening Hours
+Mon-Sat: 7am-11pm</description>
+		<photos>gate8.jpg</photos>
+		<panorama>8-Gate8/8-Gate8.html</panorama>
+		<category>Gates</category>
+	</location>
+	<location>
+		<identity>gym</identity>
+		<title>Gym</title>
+		<subtitle>At Staff Centre Extension, Level 1</subtitle>
+		<lat>1.309609</lat>
+		<lon>103.776539</lon>
+		<description>Opening Hours
+Mon-Sun: 9am-10pm
+
+The gym offers a cool place to workout, literally. Facing the SP swimming pool, the glass panels give the gym-goers an unobstructed view of the calm blue waters while working out.</description>
+		<photos>gym.jpg</photos>
+		<category>Sports Facilities</category>
+	</location>
+	<location>
+		<identity>hilltophaven</identity>
+		<title>Hilltop Haven</title>
+		<subtitle>Above Hilltop Library</subtitle>
+		<lat>1.31135159458261</lat>
+		<lon>103.77429395914</lon>
+		<description>Types of services:
+Self-Photocopy (mono)
+Self-Printing
+A4 mono Copy
+A4 Colour Printing
+Cashcard top-up</description>
+		<photos>photocopyhilltophaven.jpg</photos>
+		<panorama>20-HilltopLibrary/20-HilltopLibrary.html</panorama>
+		<category>Photocopy Services</category>
+	</location>
+	<location>
+		<identity>hilltoplibrary</identity>
+		<title>Hilltop Library</title>
+		<subtitle>Beside T22</subtitle>
+		<lat>1.311332</lat>
+		<lon>103.77452</lon>
+		<description>Hilltop Library
+Tel: 6772-1823
+Tel: 6772-1824
+Email: library@sp.edu.sg
+Website: http://m.lib.sp.edu.sg
+
+The Hilltop Library is a branch library located next to Teaching Block 22. It serves the SP Business School, the School of Communication, Arts and Social Sciences, and the School of Digital Media and Infocomm Technology. Surrounded by pleasant greenery of trees and plants, Hilltop Library has modern furnishings with well-equipped facilities and rooms for PCs, media viewing and quiet study. For those who prefer a livelier environment, there is easy access to Hilltop Haven with a café and social space on the 2nd floor of the building.</description>
+		<photos>hilltoplib.jpg</photos>
+		<panorama>20-HilltopLibrary/20-HilltopLibrary.html</panorama>
+		<category>Libraries</category>
+	</location>
+	<location>
+		<identity>hotshotcafe</identity>
+		<title>Hotshot Cafe</title>
+		<subtitle>At Main Library, Level 1</subtitle>
+		<lat>1.308486</lat>
+		<lon>103.779977</lon>
+		<description>Opening Hours
+School Term
+Mon-Fri: 8.30am-9pm
+Sat: 8.30am-12.30pm
+
+School Vacation
+Mon-Fri: 8.30am-6pm
+
+Hotshot Café provides snack for students to munch on while they are studying in Colours.</description>
+		<photos>hotshot.jpg</photos>
+		<category>Dining</category>
+	</location>
+	<location>
+		<identity>humanresource</identity>
+		<title>Human Resource</title>
+		<subtitle>At Administration Building, Level 4</subtitle>
+		<lat>1.307873</lat>
+		<lon>103.779619</lon>
+		<description>Department of Human Resource
+
+Opening Hours
+Mon-Fri: 8am-1pm; 2pm to 5.30pm
+Tel: 6772-1270
+Fax: 6772-1979</description>
+		<photos>adminbuilding.jpg</photos>
+		<panorama>30-Admin/30-Admin.html</panorama>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>internalaudit</identity>
+		<title>Internal Audit</title>
+		<subtitle>At Administration Building, Level 4</subtitle>
+		<lat>1.307824</lat>
+		<lon>103.779785</lon>
+		<description>Department of Internal Audit
+
+Opening Hours
+Mon-Fri: 8am-1pm; 2pm to 5.30pm
+Tel: 6870-6196
+Fax: 6772-1995</description>
+		<photos>adminbuilding.jpg</photos>
+		<panorama>30-Admin/30-Admin.html</panorama>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>kfc</identity>
+		<title>KFC</title>
+		<subtitle>At Foodcourt 5</subtitle>
+		<lat>1.309672</lat>
+		<lon>103.777097</lon>
+		<description>Opening Hours
+School Term
+Mon-Fri: 8am-8pm
+Sat: 10am-2pm
+
+School Vacation
+Mon-Fri: 10am-5pm
+Sat: 10am-2pm
+Tel: 6775-1310</description>
+		<photos>kfc.jpg</photos>
+		<category>Dining</category>
+	</location>
+	<location>
+		<identity>libraryadministrationoffice</identity>
+		<title>Library Administration Office</title>
+		<subtitle>At Main Library</subtitle>
+		<lat>1.308492</lat>
+		<lon>103.779988</lon>
+		<description>Library Administration Office
+
+Tel: 6772-1157
+Fax: 6772-1956</description>
+		<photos>mainlib.jpg</photos>
+		<panorama>29-MainLibrary/29-MainLibrary.html</panorama>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>librarylevel2</identity>
+		<title>Library, Level 2</title>
+		<subtitle>At Main Library, Level 2 and 2A</subtitle>
+		<lat>1.308782710009</lat>
+		<lon>103.779671788215</lon>
+		<description>Types of services:
+Self-Photocopy (mono)
+A4 mono Copy</description>
+		<photos>photocopyliblvl2.jpg</photos>
+		<category>Photocopy Services</category>
+	</location>
+	<location>
+		<identity>librarylevel4a</identity>
+		<title>Library, Level 4A</title>
+		<subtitle>At Main Library, Level 4A</subtitle>
+		<lat>1.30872371680416</lat>
+		<lon>103.779773712158</lon>
+		<description>Types of services:
+Self-Photocopy (mono)
+Self-Printing (mono/colour)
+A4 mono Copy
+A4 Colour Printing
+A3 mono Copy
+Colour Copy
+Fax machine
+Cashcard top-up</description>
+		<photos>photocopyliblvl4a.jpg</photos>
+		<category>Photocopy Services</category>
+	</location>
+	<location>
+		<identity>lt12a</identity>
+		<title>LT12A</title>
+		<subtitle>At T12, Level 1</subtitle>
+		<lat>1.310579</lat>
+		<lon>103.778649</lon>
+		<description>Located at T12, level 1.</description>
+		<photos>lt12a.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt12b</identity>
+		<title>LT12B</title>
+		<subtitle>At T12, Level 1</subtitle>
+		<lat>1.310523</lat>
+		<lon>103.778721</lon>
+		<description>Located at T12, level 1.</description>
+		<photos>lt12b.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt12c</identity>
+		<title>LT12C</title>
+		<subtitle>At T12A, Level 1</subtitle>
+		<lat>1.310717</lat>
+		<lon>103.778471</lon>
+		<description>Located at T12A, level 1.</description>
+		<photos>lt12c.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt12d</identity>
+		<title>LT12D</title>
+		<subtitle>At T12A, Level 1</subtitle>
+		<lat>1.310569</lat>
+		<lon>103.778483</lon>
+		<description>Located at T12A, level 1.</description>
+		<photos>lt12d.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt14a</identity>
+		<title>LT14A</title>
+		<subtitle>At T14, Level 2</subtitle>
+		<lat>1.309638</lat>
+		<lon>103.778939</lon>
+		<description>Located at T14, level 2.</description>
+		<photos>lt14a.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt14b</identity>
+		<title>LT14B</title>
+		<subtitle>At T14, Level 2</subtitle>
+		<lat>1.309805</lat>
+		<lon>103.778639</lon>
+		<description>Located at T14, level 2.</description>
+		<photos>lt14b.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt17a</identity>
+		<title>LT17A</title>
+		<subtitle>At T17, Level 1</subtitle>
+		<lat>1.310436</lat>
+		<lon>103.777621</lon>
+		<description>Located at T17, level 1.</description>
+		<photos>lt17a.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt17b</identity>
+		<title>LT17B</title>
+		<subtitle>At T17, Basement 1</subtitle>
+		<lat>1.310502</lat>
+		<lon>103.777498</lon>
+		<description>Located at T17, basement 1.</description>
+		<photos>lt17b.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt18a</identity>
+		<title>LT18A</title>
+		<subtitle>At T18, Level 1</subtitle>
+		<lat>1.310824</lat>
+		<lon>103.777833</lon>
+		<description>Located at T18, level 2.</description>
+		<photos>lt18.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt18b</identity>
+		<title>LT18B</title>
+		<subtitle>At T18,  Basement 2</subtitle>
+		<lat>1.31091</lat>
+		<lon>103.777672</lon>
+		<description>Located at T18, basement 2.</description>
+		<photos>lt18.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt1aa</identity>
+		<title>LT1AA</title>
+		<subtitle>At T1A, Level 2</subtitle>
+		<lat>1.309023</lat>
+		<lon>103.781053</lon>
+		<description>Located at T1A, level 2.</description>
+		<photos>lt1aa.jpg</photos>
+		<panorama>39-T1a/39-T1a.html</panorama>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt1ab</identity>
+		<title>LT1AB</title>
+		<subtitle>At T1A, Level 3</subtitle>
+		<lat>1.308964</lat>
+		<lon>103.781112</lon>
+		<description>Located at T1A, level 2.</description>
+		<photos>lt1ab.jpg</photos>
+		<panorama>39-T1a/39-T1a.html</panorama>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt4</identity>
+		<title>LT4</title>
+		<subtitle>At T4, Level 1</subtitle>
+		<lat>1.308352</lat>
+		<lon>103.780143</lon>
+		<description>Located at T4, level 1.</description>
+		<photos>lt4.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt4aa</identity>
+		<title>LT4AA</title>
+		<subtitle>At T4A, Level 1</subtitle>
+		<lat>1.308661</lat>
+		<lon>103.780396</lon>
+		<description>Located at T4A, level 1.</description>
+		<photos>lt4aa.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt4ab</identity>
+		<title>LT4AB</title>
+		<subtitle>At T4A, Level 1</subtitle>
+		<lat>1.308626</lat>
+		<lon>103.780479</lon>
+		<description>Located at T4A, level 1.</description>
+		<photos>lt4ab.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt5a</identity>
+		<title>LT5A</title>
+		<subtitle>At T5, Basement 1</subtitle>
+		<lat>1.30783</lat>
+		<lon>103.780113</lon>
+		<description>Located at T5, basement 1.</description>
+		<photos>lt5a.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt5b</identity>
+		<title>LT5B</title>
+		<subtitle>At T5, Basement 1</subtitle>
+		<lat>1.307902</lat>
+		<lon>103.779977</lon>
+		<description>Located at T5, basement 1.</description>
+		<photos>lt5b.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt6</identity>
+		<title>LT6</title>
+		<subtitle>At T6, Level 1</subtitle>
+		<lat>1.308634</lat>
+		<lon>103.779539</lon>
+		<description>Located at T6, level 1.</description>
+		<photos>lt6.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>lt7</identity>
+		<title>LT7</title>
+		<subtitle>At T7, Level 1</subtitle>
+		<lat>1.308128</lat>
+		<lon>103.779256</lon>
+		<description>Located at T7, level 1.</description>
+		<photos>lt7.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>mainlibrary</identity>
+		<title>Main Library</title>
+		<subtitle>Between T6 and T4</subtitle>
+		<lat>1.308497</lat>
+		<lon>103.779878</lon>
+		<description>Reference and Information Services: 6772-1516
+Loans Services: 6772-1575
+Fax: 6772-1956
+Fax: 6772 1969
+Email: library@sp.edu.sg
+Website: http://m.lib.sp.edu.sg
+
+The Main Library is located opposite to the Administration block, consists of a 5-storey main building with the Colours Extension on Level 1. It houses the core collection of materials for subjects on engineering, management, science, technology, mathematics and design which support all the courses taught. The Colours extension provides a hip and happening place for students. It offers exciting facilities like a large cafe social space, magazine lounge, games room, DVD viewing stations and Media Theatre. In addition, students can use the outdoor seats to enjoy the ambience of the surrounding lush greenery.</description>
+		<photos>mainlib.jpg</photos>
+		<panorama>29-MainLibrary/29-MainLibrary.html</panorama>
+		<category>Libraries</category>
+	</location>
+	<location>
+		<identity>marinesimulatorcentre</identity>
+		<title>Marine Simulator Centre</title>
+		<subtitle>Beside T1A</subtitle>
+		<lat>1.308928</lat>
+		<lon>103.781635</lon>
+		<description>Tel: 6874-7669
+Fax: 6874-7666
+Email:  isc@mpa.gov.sg
+
+The S$12 million marine simulation centre employs some of the latest maritime simulation technologies available. Its cutting-edge simulation systems, covering all aspects of a ship's operations from ship-handling to crisis management, can be operated either independently or interlinked with one another, making the MSC possibly one of the most sophisticated maritime simulation centres in the world.</description>
+		<photos>marinesimulator.jpg</photos>
+		<category>Teaching Facilities</category>
+	</location>
+	<location>
+		<identity>mathematicsandscience</identity>
+		<title>Mathematics and Science</title>
+		<subtitle>At T4, Level 5, Room T4A51</subtitle>
+		<lat>1.308271</lat>
+		<lon>103.780322</lon>
+		<description>School of Mathematics and Science
+
+Tel: 6772-1141
+Fax: 6772-1959
+Email: ms@sp.edu.sg
+
+School of Mathematics and Science (MS) offers over 80 modules in mathematics, sciences and computing for students in engineering, technology and business courses in SP. MS strives to integrate theory with practical applications to develop students' analytical and problem-solving skills for life-long learning. In addition to the diploma modules, we offer five Diploma-plus courses for our full-time students to prepare them for further studies in University or their careers. MS also offers a diverse slate of high quality Specialist diplomas and short courses to meet the specialized educational and training needs of working adults.</description>
+		<photos>ms.jpg</photos>
+		<category>Acad Schools</category>
+	</location>
+	<location>
+		<identity>mccafe</identity>
+		<title>McCafe</title>
+		<subtitle>At T16, Level 1</subtitle>
+		<lat>1.310146</lat>
+		<lon>103.778164</lon>
+		<description>Opening Hours
+Mon-Fri: 7am-9pm
+Sat: 8am-6pm
+Tel: 6872-3135
+
+Enjoy McCafe at discounted rates.</description>
+		<photos>t16mac.jpg</photos>
+		<category>Dining</category>
+	</location>
+	<location>
+		<identity>mcdonaldt16</identity>
+		<title>McDonald @ T16</title>
+		<subtitle>At T16, Level 1</subtitle>
+		<lat>1.310178</lat>
+		<lon>103.778085</lon>
+		<description>McDonald's Opening Hours
+Mon-Fri: 7am-9pm
+Sat: 8am-6pm
+Tel: 6872-3135
+
+One is great but two is awesome! The second McDonald’s outlet that is at T16, in front of Dover MRT station. No need to drag yourself all the way to Foodcourt 2 to get your fries and burger fix anymore. Located next to it is McCafe expanding the range of offerings available to the campus population at discounted prices.</description>
+		<photos>t16mac.jpg</photos>
+		<category>Dining</category>
+	</location>
+	<location>
+		<identity>mechanicalandaeronauticalengineering</identity>
+		<title>Mechanical and Aeronautical Engineering</title>
+		<subtitle>At T16, Level 7, Room T1671</subtitle>
+		<lat>1.310145</lat>
+		<lon>103.778005</lon>
+		<description>School of Mechanical and Aeronautical Engineering
+
+Tel: 6772-1206
+Fax: 6772-1975
+Email: mae@sp.edu.sg
+
+The School of Mechanical and Aeronautical Engineering embraces multi-disciplinary trends in technology. We initiated a one-semester Common Engineering Programme (CEP) where students sample subjects typical to eight diplomas before deciding on a course of study. Our Diploma in Engineering with Business (DEB) dabbles in business skills pertinent to engineering enterprises. Overseas industrial attachments promote a global view to engineering practice and expose students to a wider spectrum of career. The innovative CDIO education model was adopted to stress engineering fundamentals in the context of Conceive, Design, Implement and Operate real systems. Design Thinking was initiated in coursework to encourage a methodology for desirable, viable and feasible solutions.</description>
+		<photos>smae.jpg</photos>
+		<category>Acad Schools</category>
+		<video>smaeseee.mp4</video>
+	</location>
+	<location>
+		<identity>mlt1</identity>
+		<title>MLT1</title>
+		<subtitle>Beside Foodcourt 1</subtitle>
+		<lat>1.307847</lat>
+		<lon>103.78109</lon>
+		<description>Beside foodcourt 1.</description>
+		<photos>mlt1.jpg</photos>
+		<panorama>28-MLT1/28-MLT1.html</panorama>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>mlt10</identity>
+		<title>MLT10</title>
+		<subtitle>Beside T19</subtitle>
+		<lat>1.311574</lat>
+		<lon>103.775978</lon>
+		<description>Located beside T19.</description>
+		<photos>mlt8-12.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>mlt11</identity>
+		<title>MLT11</title>
+		<subtitle>Beside T19</subtitle>
+		<lat>1.311435</lat>
+		<lon>103.775919</lon>
+		<description>Located beside T19.</description>
+		<photos>mlt8-12.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>mlt12</identity>
+		<title>MLT12</title>
+		<subtitle>Between T20 and T21</subtitle>
+		<lat>1.311574</lat>
+		<lon>103.775622</lon>
+		<description>Located at Business Block, between T20 and T21.</description>
+		<photos>mlt8-12.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>mlt8</identity>
+		<title>MLT8</title>
+		<subtitle>Beside T19</subtitle>
+		<lat>1.3114</lat>
+		<lon>103.776049</lon>
+		<description>Located beside T19</description>
+		<photos>mlt8-12.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>mlt9</identity>
+		<title>MLT9</title>
+		<subtitle>Beside T19</subtitle>
+		<lat>1.311531</lat>
+		<lon>103.776078</lon>
+		<description>Located beside T19.</description>
+		<photos>mlt8-12.jpg</photos>
+		<category>Lecture Theatres</category>
+	</location>
+	<location>
+		<identity>multipurposefield</identity>
+		<title>Multi-Purpose Field</title>
+		<subtitle>Beside Sports Hall</subtitle>
+		<lat>1.309253</lat>
+		<lon>103.777753</lon>
+		<description>As the name suggests, one can often witness a myriad of activities happening on the Multi-Purpose Field including archery, football and softball. Definitely a favourite venue for students to work up a sweat.</description>
+		<photos>multipurposefield.jpg</photos>
+		<panorama>32-MultiPurposeField/32-MultiPurposeField.html</panorama>
+		<category>Sports Facilities</category>
+	</location>
+	<location>
+		<identity>ocbcatm</identity>
+		<title>OCBC ATM</title>
+		<subtitle>At T1A, Level 1</subtitle>
+		<lat>1.309246</lat>
+		<lon>103.781114</lon>
+		<description>Short of cash at any time of the day? No problems, just head down to the OCBC ATM machine located beside the Professional and Adult Continuing Education (PACE) Academy at T1A. There is also an AXS machine. For DBS/POSB/UOB card holders, you would need to head down to Food court 5, where POSB/UOB ATM machines are located.</description>
+		<photos>t1aatm.jpg</photos>
+		<panorama>39-T1a/39-T1a.html</panorama>
+		<category>ATM</category>
+	</location>
+	<location>
+		<identity>oppsingaporepoly</identity>
+		<title>Opp. Singapore Poly</title>
+		<subtitle>Bus stop No: 19099</subtitle>
+		<lat>1.30719793752404</lat>
+		<lon>103.781922161579</lon>
+		<description>Along Dover Ave, outside Foodcourt 1 (opposite SP)
+Buses Available
+14
+74
+166</description>
+		<photos>busoppsp.jpg</photos>
+		<category>Bus and MRT</category>
+	</location>
+	<location>
+		<identity>oppsingteltelecoms</identity>
+		<title>Opp. Singtel Telecoms</title>
+		<subtitle>Bus stop No: 19069</subtitle>
+		<lat>1.30783613705459</lat>
+		<lon>103.776646256446</lon>
+		<description>Along Dover Road, outside Tennis park (opposite SP)
+Buses Available
+33
+196</description>
+		<photos>busoppsingteltelecoms.jpg</photos>
+		<category>Bus and MRT</category>
+	</location>
+	<location>
+		<identity>oppspdmit</identity>
+		<title>Opp. SP DMIT</title>
+		<subtitle>Bus stop No: 19049</subtitle>
+		<lat>1.31268698447844</lat>
+		<lon>103.774932324886</lon>
+		<description>Along Commonwealth Ave West, next to School of Digital Media and Infocomm Technology (opposite SP)
+Buses Available
+14
+74
+105
+147
+166
+185</description>
+		<photos>busoppspdmit.jpg</photos>
+		<category>Bus and MRT</category>
+	</location>
+	<location>
+		<identity>oppspsma</identity>
+		<title>Opp. SP SMA</title>
+		<subtitle>Bus stop No: 19029</subtitle>
+		<lat>1.30952280646105</lat>
+		<lon>103.782058954238</lon>
+		<description>Along Commonwealth Ave West, outside Block T1A (opposite SP)
+Buses Available
+14
+74
+105
+147
+166
+185</description>
+		<photos>busoppspsma.jpg</photos>
+		<category>Bus and MRT</category>
+	</location>
+	<location>
+		<identity>optometrycentre</identity>
+		<title>Optometry Centre</title>
+		<subtitle>At Workshop 1, Level 1, Room W115</subtitle>
+		<lat>1.30849</lat>
+		<lon>103.781848</lon>
+		<description>Opening Hours
+Mon, Tue, Thu, Fri: 10am-5pm
+Wed: 10am-1pm
+Sat: 9am-5pm
+Tel: 6772-1693
+Fax: 6870-4617
+Email: spoc@sp.edu.sg
+
+Located at W1, the Optometry Centre was established in 1990 as a clinical teaching centre for final year Diploma in Optometry students. At this centre, students learn to examine patients, diagnose and manage common eye problems. It also serves to provide comprehensive and efficient eye care services to the public.</description>
+		<photos>optometrycentre.jpg</photos>
+		<category>Teaching Facilities</category>
+	</location>
+	<location>
+		<identity>organisationdevelopment</identity>
+		<title>Organisation Development</title>
+		<subtitle>At Administration Building, Level 4</subtitle>
+		<lat>1.307903</lat>
+		<lon>103.779669</lon>
+		<description>Department of Organisation Development
+
+Opening Hours
+Mon-Fri: 8am-1pm; 2pm to 5.30pm
+Tel: 6772-1484
+Fax: 6772-1071</description>
+		<photos>adminbuilding.jpg</photos>
+		<panorama>30-Admin/30-Admin.html</panorama>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>ourhangout</identity>
+		<title>Our Hangout</title>
+		<subtitle>At T21, Level 1</subtitle>
+		<lat>1.311534</lat>
+		<lon>103.775421</lon>
+		<description>Opening Hours
+Mon-Fri: 8am-10pm
+
+This space is available for student use.</description>
+		<photos>hangoutt21.jpg</photos>
+		<category>Social Spaces</category>
+	</location>
+	<location>
+		<identity>pedestriangate1</identity>
+		<title>Pedestrian Gate 1</title>
+		<subtitle>Infront of staff apartment</subtitle>
+		<lat>1.31197638552623</lat>
+		<lon>103.77326130867</lon>
+		<description>Opening Hours
+Mon-Sat: 7am-11pm</description>
+		<photos>pedgate1.jpg</photos>
+		<category>Gates</category>
+	</location>
+	<location>
+		<identity>pedestriangate2</identity>
+		<title>Pedestrian Gate 2</title>
+		<subtitle>Next to bus stop of SP Business School</subtitle>
+		<lat>1.31230084771436</lat>
+		<lon>103.775297105312</lon>
+		<description>Opening Hours
+Mon-Sat: 7am-11pm
+
+There is a bus stop located here. Alight at this stop if you need to get to SP Business School or School of DMIT. Take any of these buses: 14, 74, 74e, 105, 106, 147, 166, 185, NR5, NR8.</description>
+		<photos>pedgate2.jpg</photos>
+		<panorama>2-PedestrianGate2/2-PedestrianGate2.html</panorama>
+		<category>Gates</category>
+	</location>
+	<location>
+		<identity>pedestriangate3</identity>
+		<title>Pedestrian Gate 3</title>
+		<subtitle>Infront of T1A</subtitle>
+		<lat>1.30951744344405</lat>
+		<lon>103.781179189682</lon>
+		<description>Opening Hours
+Mon-Sat: 7am-11pm
+
+Exactly a busstop away from Dover MRT. Buses that stops here are: 14, 74, 74e, 105, 106, 147, 166, 185, NR5, NR8.</description>
+		<photos>pedgate3.jpg</photos>
+		<panorama>39-T1a/39-T1a.html</panorama>
+		<category>Gates</category>
+	</location>
+	<location>
+		<identity>pedestriangate4</identity>
+		<title>Pedestrian Gate 4</title>
+		<subtitle>Next to FC 1</subtitle>
+		<lat>1.30718721148012</lat>
+		<lon>103.781656622886</lon>
+		<description>Opening Hours
+Mon-Sat: 7am-11pm
+
+Infront is a bus stop visited by buses 14, 74 and 166. Alight here if you are heading towards Foodcourt 1, or Workshops 1 to 5.</description>
+		<photos>pedgate4.jpg</photos>
+		<category>Gates</category>
+	</location>
+	<location>
+		<identity>plaza</identity>
+		<title>Plaza</title>
+		<subtitle>Next to Dover MRT station and Convention Centre</subtitle>
+		<lat>1.310716</lat>
+		<lon>103.778092</lon>
+		<description>Seated in front of the MRT station is a plaza area which consists of a skate park and a McDonald's. This adds vibrancy to the polytechnic.</description>
+		<photos>plaza.jpg</photos>
+		<panorama>25-SPPlaza/25-SPPlaza.html</panorama>
+		<category>Plaza, Hall and Exhibition</category>
+	</location>
+	<location>
+		<identity>polarhighstreetcafe</identity>
+		<title>Polar High Street Cafe</title>
+		<subtitle>At Hilltop Library, Level 2</subtitle>
+		<lat>1.311424</lat>
+		<lon>103.774412</lon>
+		<description>Choose from a wide range of delectable cakes, puffs, pies, sandwiches and more.</description>
+		<photos>polarcafe.jpg</photos>
+		<category>Dining</category>
+	</location>
+	<location>
+		<identity>polycentrebadmintoncourt</identity>
+		<title>Polycentre Badminton Court</title>
+		<subtitle>At Poly Centre, Level 2</subtitle>
+		<lat>1.308896</lat>
+		<lon>103.778237</lon>
+		<description>Opening Hours
+Mon-Fri: 8am-9pm
+Sat-Sun: 8am-7pm
+
+It is located on the 2nd level of Polycentre, directly above foodcourt 3. SP students and alumni can have a game of badminton in this indoor badminton court.</description>
+		<photos>polycentre.jpg</photos>
+		<category>Sports Facilities</category>
+	</location>
+	<location>
+		<identity>polycentrefoyer</identity>
+		<title>Polycentre Foyer</title>
+		<subtitle>Beside foodcourt 3</subtitle>
+		<lat>1.30893823754241</lat>
+		<lon>103.778279721736</lon>
+		<description>Types of services:
+Self-Photocopy (mono)
+Self-Printing (mono/colour)
+A4 mono Copy
+A4 Colour Printing
+A3 mono Copy
+Colour Copy
+Cashcard top-up</description>
+		<photos>photocopysalcfoyer.jpg</photos>
+		<category>Photocopy Services</category>
+	</location>
+	<location>
+		<identity>posbcitibankuobatms</identity>
+		<title>POSB/Citibank/UOB ATMs</title>
+		<subtitle>At Dover MRT station</subtitle>
+		<lat>1.311643</lat>
+		<lon>103.77838</lon>
+		<description>Short of cash at any time of the day? No problems, just head down to the POSB/Citibank/UOB ATM machine located at Dover MRT station. There is also an AXS machine. For OCBC card holders, head down to T1A, where OCBC ATM machines are located.</description>
+		<photos>mrtatm.jpg</photos>
+		<category>ATM</category>
+	</location>
+	<location>
+		<identity>principaloffice</identity>
+		<title>Principal Office</title>
+		<subtitle>At Administration Building, Level 5</subtitle>
+		<lat>1.307902</lat>
+		<lon>103.779587</lon>
+		<description>Principal Office
+
+Tel: 6772-1220
+Fax: 6772-1985</description>
+		<photos>adminbuilding.jpg</photos>
+		<panorama>30-Admin/30-Admin.html</panorama>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>professionalandadultcontinuingeducationacademy</identity>
+		<title>Professional and Adult Continuing Education Academy</title>
+		<subtitle>At T1A, Level 1, Room T1A12</subtitle>
+		<lat>1.309164</lat>
+		<lon>103.781236</lon>
+		<description>Professional and Adult Continuing Education Academy
+
+Tel: 6772-1288
+Fax: 6772-1957
+
+The Professional and Adult Continuing Education (PACE) Academy offers a range of short courses for graduates to improve and upgrade their professional, managerial and technical skills as well as provide specialised know-how in the latest methods and state-of-the-art equipment.</description>
+		<photos>pace.jpg</photos>
+		<panorama>39-T1a/39-T1a.html</panorama>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>rockwalls</identity>
+		<title>Rock Walls</title>
+		<subtitle>Beside Department of Student Development</subtitle>
+		<lat>1.30852</lat>
+		<lon>103.77781</lon>
+		<description>The indoor rock walls are popular with climbing enthusiasts. Be sure to be properly attired and hooked up with the right gear before starting your ascend.</description>
+		<photos>rockwall.jpg</photos>
+		<category>Sports Facilities</category>
+	</location>
+	<location>
+		<identity>schoolofcoffee</identity>
+		<title>School of Coffee</title>
+		<subtitle>At Innovillage, INV A 17</subtitle>
+		<lat>1.309313</lat>
+		<lon>103.780066</lon>
+		<description>Located in Singapore Polytechnic InnoVillage, the School of Coffee brew with Innovation.</description>
+		<photos>innovillage.jpg</photos>
+		<category>Dining</category>
+	</location>
+	<location>
+		<identity>singaporemaritimeacademy</identity>
+		<title>Singapore Maritime Academy</title>
+		<subtitle>At T1A, Level 7, Room T1A711</subtitle>
+		<lat>1.309089</lat>
+		<lon>103.781188</lon>
+		<description>Singapore Maritime Academy
+
+Tel: 6772-1316
+Fax: 6772-1958
+Email: sma@sp.edu.sg
+
+Singapore Maritime Academy (SMA) has three distinct areas of operation: Marine Engineering, Maritime Business and Nautical Studies. As the country's main maritime training institution, SMA offers a full range of maritime diplomas and specialist diplomas, Certificate of Competency (CoC) courses as well as Standards of Training, Certification and Watchkeeping (STCW) courses. Our courses are infused with technological perspectives that increase their relevance in today's world.</description>
+		<photos>sma.jpg</photos>
+		<panorama>39-T1a/39-T1a.html</panorama>
+		<category>Acad Schools</category>
+		<video>sma.mp4</video>
+	</location>
+	<location>
+		<identity>singaporepoly</identity>
+		<title>Singapore Poly</title>
+		<subtitle>Bus stop No: 19091</subtitle>
+		<lat>1.30745804407498</lat>
+		<lon>103.781951665878</lon>
+		<description>Along Dover Ave, outside Foodcourt 1 (SP side)
+Buses Available
+14
+74
+166</description>
+		<photos>bussp.jpg</photos>
+		<category>Bus and MRT</category>
+	</location>
+	<location>
+		<identity>singaporepolytechnicgraduatesguild</identity>
+		<title>Singapore Polytechnic Graduates' Guild</title>
+		<subtitle>Beside Sports Complex</subtitle>
+		<lat>1.31003229302204</lat>
+		<lon>103.774548768997</lon>
+		<description>Singapore Polytechnic Graduates' Guild (SPGG) 
+
+Tel: 6796-9996
+
+The SPGG was set up in 1971 as the Guild for SP graduates but has since evolved into a modern networking hub for professionals from all walks of life. SPGG offers tremendous networking and guidance opportunities for budding young talents. Its well-equipped clubhouse offers a relaxed and friendly environment for business leaders, industry experts and young graduates alike to meet. SPGG members can enjoy its luxurious facilities, such as its seminar rooms, conference rooms and board rooms for meetings, and its study room for quieter moments. It also hosts numerous recreational events and impressive club facilities such as a bowling alley and jackpot machines, should members wish to unwind.</description>
+		<photos>spgg.jpg</photos>
+		<category>Alumni</category>
+	</location>
+	<location>
+		<identity>singteltelecoms</identity>
+		<title>Singtel Telecoms</title>
+		<subtitle>Bus stop No: 19061</subtitle>
+		<lat>1.3075679860111</lat>
+		<lon>103.777729868888</lon>
+		<description>Along Dover Road, outside Tennis park (SP side)
+Buses Available
+33
+196</description>
+		<photos>bussingteltelecoms.jpg</photos>
+		<category>Bus and MRT</category>
+	</location>
+	<location>
+		<identity>skatepark</identity>
+		<title>Skate Park</title>
+		<subtitle>At Plaza</subtitle>
+		<lat>1.310464</lat>
+		<lon>103.778047</lon>
+		<description>The Skate Park is a vibrant hub for social, cultural and recreational activities, and serves as an interface between the Polytechnic and the neighbourhood, promoting community bonding and lifelong learning.</description>
+		<photos>skatepark.jpg</photos>
+		<panorama>25-SPPlaza/25-SPPlaza.html</panorama>
+		<category>Social Spaces</category>
+	</location>
+	<location>
+		<identity>smeinfocommresourcecentre</identity>
+		<title>SME Infocomm Resource Centre</title>
+		<subtitle>At Innovillage, INV B 24</subtitle>
+		<lat>1.309235</lat>
+		<lon>103.780019</lon>
+		<description>SME Infocomm Resource Centre
+
+Tel: 6879-0368
+Email: sirc@sp.edu.sg
+
+The SME Infocomm Resource Centre (SIRC) is an initiative by the Infocomm Development Authority of Singapore to help SMEs to learn more about infocomm technologies. The centres provide SMEs with advice on how they can use infocomm to achieve business benefits, as well as technical resources to help them on their infocomm journey.</description>
+		<photos>innovillage.jpg</photos>
+		<category>Technology Centres</category>
+	</location>
+	<location>
+		<identity>spbusinessschool</identity>
+		<title>SP Business School</title>
+		<subtitle>At T19, Level 4, Room T1941</subtitle>
+		<lat>1.31176</lat>
+		<lon>103.775903</lon>
+		<description>SP Business School
+
+Tel: 6772-1888
+Fax: 6772-1952
+Email: sb@sp.edu.sg
+
+Through extensive renovation and upgrading SP Business School now have more social spaces for students to meet, recreate or study. Getting students hooked on thinking and creating business solutions that are fresh, innovative and of real value to people is something that we keen on doing. This is why we are introducing Business Design. If you develop the mindsets and learn the tools and methodologies in this new way of thinking, you may potentially transform your future workplaces, businesses and maybe even the world at large for the better. Our curriculum already provides a good balance of theory and practical training.</description>
+		<photos>bizblk.jpg</photos>
+		<panorama>21-T19/21-T19.html</panorama>
+		<category>Acad Schools</category>
+		<video>sb.mp4</video>
+	</location>
+	<location>
+		<identity>spbusinessschoolt22</identity>
+		<title>SP Business School, T22</title>
+		<subtitle>At T22, Level 3</subtitle>
+		<lat>1.31125506034566</lat>
+		<lon>103.775023519992</lon>
+		<description>Types of services:
+Self-Photocopy (mono)
+Self-Printing (mono/colour)
+A4 mono Copy
+A4 Colour Printing
+A3 mono Copy
+Colour Copy
+Fax machine</description>
+		<photos>photocopyspbizscht22.jpg</photos>
+		<category>Photocopy Services</category>
+	</location>
+	<location>
+		<identity>spdesignschool</identity>
+		<title>SP Design School</title>
+		<subtitle>At T2, Level 5, Room T251</subtitle>
+		<lat>1.30803</lat>
+		<lon>103.780634</lon>
+		<description>SP Design School
+
+Tel: 6870-7970
+Fax: 6775-1581
+Email: sd@sp.edu.sg
+
+Design is related to the Greek notion which means an event in the making. To hold the profession and vocation of being a designer, one needs to be grounded in the awareness of the phenomenology of the drawing of lines, working between conceptual thoughts, experience-as-it-is and the creative imagination, and the chora-graphy of designed experiences. Design is more than just making things beautiful. It encompasses and orientates life. Design graduates from SP Design School should be able to initiate and develop them to seek an ethical function from being an unoriginal designer of hope, to try and reach a human commonality that begins from one's self. Our lives depend on the sharing of a bounded human condition where we are more interdependent than we realize. Our graduates could work towards a more compassionate aliveness starting with one's self-affecting others. The philosophy of Design School is - power of Design to transform lives by creating experiences.</description>
+		<photos>sd.jpg</photos>
+		<category>Acad Schools</category>
+		<video>sdabe.mp4</video>
+	</location>
+	<location>
+		<identity>spdmit</identity>
+		<title>SP DMIT</title>
+		<subtitle>Bus stop No: 19041</subtitle>
+		<lat>1.31237324836217</lat>
+		<lon>103.775508999824</lon>
+		<description>Along Commonwealth Ave West, next to School of Digital Media and Infocomm Technology (SP side)
+Buses Available
+14
+74
+105
+147
+166
+185</description>
+		<photos>busspdmit.jpg</photos>
+		<category>Bus and MRT</category>
+	</location>
+	<location>
+		<identity>spinternational</identity>
+		<title>SP International</title>
+		<subtitle>At T5, Basement</subtitle>
+		<lat>1.30785</lat>
+		<lon>103.780118</lon>
+		<description>SP International
+
+Tel: 6870-8077
+Fax: 6775-1263
+Website: www.spi.edu.sg
+Email: enquiry@spi.edu.sg
+
+Singapore Polytechnic International Pte Ltd (SPI) was set up in 2004 as a wholly owned subsidiary by Singapore Polytechnic (SP) to offer SP’s brand of technology-based education to countries in the Asia-Pacific region.</description>
+		<photos>spinternational.jpg</photos>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>spsma</identity>
+		<title>SP SMA</title>
+		<subtitle>Bus stop No: 19021</subtitle>
+		<lat>1.30952012495254</lat>
+		<lon>103.781299889087</lon>
+		<description>Along Commonwealth Ave West, outside Block T1A (SP side)
+Buses Available
+14
+74
+105
+147
+166
+185</description>
+		<photos>busspsma.jpg</photos>
+		<category>Bus and MRT</category>
+	</location>
+	<location>
+		<identity>spswimmingpool</identity>
+		<title>SP Swimming Pool</title>
+		<subtitle>Beside Foodcourt 5</subtitle>
+		<lat>1.309633</lat>
+		<lon>103.776818</lon>
+		<description>Opening Hours
+Mon-Fri: 9am-10pm
+Sat-Sun: 9am-10pm
+
+Staff and students of the Singapore Polytechnic have the luxury of an Olympic-sized swimming complex housed in campus. The Staff Centre located next to the pool, also includes a poolside patio for those who enjoy alfresco-style meals. For the young ones, there are also 2 wading pools.</description>
+		<photos>swimmingpool.jpg</photos>
+		<panorama>33-SwimmingComplex/33-SwimmingComplex.html</panorama>
+		<category>Sports Facilities</category>
+	</location>
+	<location>
+		<identity>spectrum</identity>
+		<title>SPectrum</title>
+		<subtitle>At T15</subtitle>
+		<lat>1.309962</lat>
+		<lon>103.77838</lon>
+		<description>SPectrum is an area for students to chit-chat and gather. There is a photocopying service at level 1.</description>
+		<photos>spectrum.jpg</photos>
+		<category>Social Spaces</category>
+	</location>
+	<location>
+		<identity>spectrumlevel1</identity>
+		<title>Spectrum, Level 1</title>
+		<subtitle>At T15, Level 1</subtitle>
+		<lat>1.30993039571812</lat>
+		<lon>103.77807855606</lon>
+		<description>Types of services:
+Self-Photocopy (mono)
+Self-Printing (mono/colour)
+A4 mono Copy
+A4 Colour Printing
+A3 mono Copy
+Colour Copy</description>
+		<photos>photocopyspectrum.jpg</photos>
+		<category>Photocopy Services</category>
+	</location>
+	<location>
+		<identity>spiceservicedeskcountersupport</identity>
+		<title>SPICE Service Desk Counter Support</title>
+		<subtitle>At T21, Level 1, Room T21111</subtitle>
+		<lat>1.31161170070257</lat>
+		<lon>103.775162994862</lon>
+		<description>Types of services:
+A4 mono printing
+A4 Colour Printing</description>
+		<photos>photocopyt21.jpg</photos>
+		<category>Photocopy Services</category>
+	</location>
+	<location>
+		<identity>spiceservicedeskt17</identity>
+		<title>SPICE Service Desk, T17</title>
+		<subtitle>At T17, Level 1, Room T1711</subtitle>
+		<lat>1.310552</lat>
+		<lon>103.777337</lon>
+		<description>Opening Hours
+School Term
+Mon, Tue, Thu, Fri: 8am-6pm
+Wed: 8am-9pm
+
+School Vacation
+Mon-Fri: 8am-6pm
+Tel: 6772-1260
+Email: ServiceDeskMail@sp.edu.sg</description>
+		<photos>spicet17.jpg</photos>
+		<category>IT Services</category>
+	</location>
+	<location>
+		<identity>spiceservicedeskt21</identity>
+		<title>SPICE Service Desk, T21</title>
+		<subtitle>At T21, Level 1, Room T21111</subtitle>
+		<lat>1.311472</lat>
+		<lon>103.775537</lon>
+		<description>Opening Hours
+School Term
+Mon-Fri: 8am-6pm
+Tel: 6772-1260
+Email: ServiceDeskMail@sp.edu.sg</description>
+		<photos>spicet21.jpg</photos>
+		<category>IT Services</category>
+	</location>
+	<location>
+		<identity>spiceservicedeskt3</identity>
+		<title>SPICE Service Desk, T3</title>
+		<subtitle>At T3, Level 3, Room T331</subtitle>
+		<lat>1.307626</lat>
+		<lon>103.78063</lon>
+		<description>Opening Hours
+Mon-Fri: 8am-6pm
+Tel: 6772-1260
+Email: ServiceDeskMail@sp.edu.sg</description>
+		<photos>spicet3.jpg</photos>
+		<category>IT Services</category>
+	</location>
+	<location>
+		<identity>sportscomplex</identity>
+		<title>Sports Complex</title>
+		<subtitle>Beside Staff Centre</subtitle>
+		<lat>1.309481</lat>
+		<lon>103.775674</lon>
+		<description>Opening Hours
+Mon-Sun: 8am-7pm
+
+Fitted with a running track and street-soccer courts, the Sports Complex also hosts major events like the National Day Observance Ceremony as well as various sporting events.</description>
+		<photos>sportscomplex.jpg</photos>
+		<panorama>36-SportComplex/36-SportComplex.html</panorama>
+		<category>Sports Facilities</category>
+	</location>
+	<location>
+		<identity>sportshall</identity>
+		<title>Sports Hall</title>
+		<subtitle>Beside Foodcourt 5</subtitle>
+		<lat>1.308783</lat>
+		<lon>103.77737</lon>
+		<description>Opening Hours
+Mon-Fri: 8am-9pm
+Sat-Sun: 8am-7pm
+
+The Sports Hall is the place to go when you're longing for a game of badminton, table tennis or any indoor game. There are three badminton courts in the hall. For some, the hall is also a favourite ground to host indoor sports competitions, as well as games for international visitors.</description>
+		<photos>sportshall.jpg</photos>
+		<category>Sports Facilities</category>
+	</location>
+	<location>
+		<identity>squashcourt</identity>
+		<title>Squash Court</title>
+		<subtitle>Beside Department of Student Development</subtitle>
+		<lat>1.308385</lat>
+		<lon>103.77776</lon>
+		<description>Opening Hours
+Mon-Fri: 8am-9pm
+Sat-Sun: 8am-7pm
+
+Away from the scorching heat that we have come to associate with the Singapore weather, the Squash Courts beside the Department of Student Development offer an alternative for racquet game lovers. There are six courts available. Just make sure you book the facility before making your way down, or you might find the doors locked when you arrive!</description>
+		<photos>squash.jpg</photos>
+		<category>Sports Facilities</category>
+	</location>
+	<location>
+		<identity>starbucks</identity>
+		<title>Starbucks</title>
+		<subtitle>At Foodcourt 5</subtitle>
+		<lat>1.30968</lat>
+		<lon>103.777139</lon>
+		<description>Opening Hours
+School Term
+Mon-Fri: 7am-9pm
+Sat: 8am-3pm
+
+School Vacation
+Mon-Sat: 8am-3pm
+Tel: 6774-4950</description>
+		<photos>starbucks.jpg</photos>
+		<category>Dining</category>
+	</location>
+	<location>
+		<identity>streetsoccercourt</identity>
+		<title>Street Soccer Court</title>
+		<subtitle>Beside Multi-Purpose Field</subtitle>
+		<lat>1.309362</lat>
+		<lon>103.778512</lon>
+		<description>Fans of futsal should give the street soccer courts at SP a go. With a few courts to choose from, you'll definitely get a chance to kick to your heart's content at the courts.</description>
+		<photos>streetsoccer.jpg</photos>
+		<category>Sports Facilities</category>
+	</location>
+	<location>
+		<identity>studenthubmoberly</identity>
+		<title>Student Hub@Moberly</title>
+		<subtitle>At T11</subtitle>
+		<lat>1.308051</lat>
+		<lon>103.778474</lon>
+		<description>The Student Hub@Moberly is the favourite chill-out spot in SP. Boasting facilities like dance studio, jamming studio, karaoke room, games room, café and many more.</description>
+		<photos>moberly.jpg</photos>
+		<panorama>31-Moberly/31-Moberly.html</panorama>
+		<category>Social Spaces</category>
+	</location>
+	<location>
+		<identity>studentservicecentre</identity>
+		<title>Student Service Centre</title>
+		<subtitle>At T16, Level 2, Room 13</subtitle>
+		<lat>1.310263</lat>
+		<lon>103.777829</lon>
+		<description>Opening Hours
+Mon-Fri: 8am-5.30pm
+Eve of Major Public Holidays: 8:00am to 12:30pm
+Tel: 6772-1707
+Email: ssc@sp.edu.sg
+
+Located at T16 Level 2 Room 13, the Student Service Centre (SSC) is a convenient first point of contact for students to obtain information and services to course and student matters. You can get information on Admission, Exams and Student Services.</description>
+		<photos>studentservicecentre.jpg</photos>
+		<panorama>38-StudentServiceCentre/38-StudentServiceCentre.html</panorama>
+		<category>Student Services</category>
+	</location>
+	<location>
+		<identity>subway</identity>
+		<title>Subway</title>
+		<subtitle>At Foodcourt 5</subtitle>
+		<lat>1.309452</lat>
+		<lon>103.777072</lon>
+		<description>Opening Hours 
+Mon-Fri: 8am-8pm 
+Sat: 8am-5pm 
+Tel: 6872-4530
+Fax: 6873-5592</description>
+		<photos>foodcourt5.jpg</photos>
+		<category>Dining</category>
+	</location>
+	<location>
+		<identity>t1</identity>
+		<title>T1</title>
+		<subtitle>Teaching Block 1</subtitle>
+		<lat>1.30840729868172</lat>
+		<lon>103.780674934387</lon>
+		<description>Department office of University of Manchester (UK) and Professional and Adult Continuing Education are located here.</description>
+		<photos>t1.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t1basement</identity>
+		<title>T1 Basement</title>
+		<subtitle>At T1, Basement</subtitle>
+		<lat>1.30844215830734</lat>
+		<lon>103.780602514743</lon>
+		<description>Types of services:
+Self-Photocopy (mono)
+Self-Printing (mono/colour)
+A4 mono Copy
+A4 Colour Printing
+A3 mono Copy
+Colour Copy</description>
+		<photos>photocopyt1basement.jpg</photos>
+		<category>Photocopy Services</category>
+	</location>
+	<location>
+		<identity>t10</identity>
+		<title>T10</title>
+		<subtitle>Teaching Block 10</subtitle>
+		<lat>1.30851455906669</lat>
+		<lon>103.77864986658</lon>
+		<description>Moberly is located infront of T10.</description>
+		<photos>t10.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t11a</identity>
+		<title>T11A</title>
+		<subtitle>Teaching Block 11A</subtitle>
+		<lat>1.31025217666374</lat>
+		<lon>103.779148757457</lon>
+		<description>General office of the School of Chemical Life Sciences is located at T11A, level 6, room 1.</description>
+		<photos>t11a.jpg</photos>
+		<panorama>40-T11/40-T11.html</panorama>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t11b</identity>
+		<title>T11B</title>
+		<subtitle>Teaching Block 11B</subtitle>
+		<lat>1.31003497452998</lat>
+		<lon>103.77946794033</lon>
+		<description>The Food Innovation and Resource Centre is located at T11B, level 3.</description>
+		<photos>t11b.jpg</photos>
+		<panorama>40-T11/40-T11.html</panorama>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t11c</identity>
+		<title>T11C</title>
+		<subtitle>Teaching Block 11C</subtitle>
+		<lat>1.30986067650781</lat>
+		<lon>103.779170215129</lon>
+		<description>A study area is located at T11C, level 2.</description>
+		<photos>t11c.jpg</photos>
+		<panorama>40-T11/40-T11.html</panorama>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t12</identity>
+		<title>T12</title>
+		<subtitle>Teaching Block 12</subtitle>
+		<lat>1.31065440278761</lat>
+		<lon>103.778550624847</lon>
+		<description>The general office of the School of Electrical and Electronic Engineering is located at T12, level 5, room 11. Most EEE laboratory lessons are held here.</description>
+		<photos>t12.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t12a</identity>
+		<title>T12A</title>
+		<subtitle>Teaching Block 12A</subtitle>
+		<lat>1.31057663907537</lat>
+		<lon>103.778317272663</lon>
+		<description>Skate Park is located infront of T12A. Some EEE classes are held at this teaching block.</description>
+		<photos>t12a.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t14</identity>
+		<title>T14</title>
+		<subtitle>Teaching Block 14</subtitle>
+		<lat>1.30979632031193</lat>
+		<lon>103.778612315654</lon>
+		<description>Dream home is located at T14, level 3, room 1 -3.</description>
+		<photos>t14.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t15</identity>
+		<title>T15</title>
+		<subtitle>Teaching Block 15</subtitle>
+		<lat>1.30991698817783</lat>
+		<lon>103.778164386749</lon>
+		<description>The Advanced Robotics and Intelligent Control Centre is located at T15, level 3, room 1-9. Spectrum is also located right infront of T15.</description>
+		<photos>t15.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t16</identity>
+		<title>T16</title>
+		<subtitle>Teaching Block 16</subtitle>
+		<lat>1.31024145063288</lat>
+		<lon>103.777743279933</lon>
+		<description>The general office of the School of Mechanical and Aeronautical Engineering is located at T16, level 7, room 1 while the Student Service Centre is at level 2, Room 13. McDonald is infront of the block.</description>
+		<photos>t16.jpg</photos>
+		<panorama>25-SPPlaza/25-SPPlaza.html</panorama>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t17</identity>
+		<title>T17</title>
+		<subtitle>Teaching Block 17</subtitle>
+		<lat>1.31053909797205</lat>
+		<lon>103.777394592761</lon>
+		<description>The SPICE Service Desk is located at T17, level 1, room 1. The Inspiration corridor is located at level 3 of the block. Most tutorial lessons from SMAE are held at this block.</description>
+		<photos>t17.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t18</identity>
+		<title>T18</title>
+		<subtitle>Teaching Block 18</subtitle>
+		<lat>1.31092255350097</lat>
+		<lon>103.77759039402</lon>
+		<description>The Convention Centre is located next to T18. Tutorial lessons from SMAE are held here.</description>
+		<photos>t18.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t19</identity>
+		<title>T19</title>
+		<subtitle>Teaching Block 19</subtitle>
+		<lat>1.31168141986414</lat>
+		<lon>103.775728940963</lon>
+		<description>The general office of SP Business School, School of Communication, Arts and Social Sciences and School of Digital Media and InfocommTechnology  are located here. They are located at T19, level 4, room 1, level 4, room 9 and level 2, room 10, respectively.</description>
+		<photos>t19.jpg</photos>
+		<panorama>21-T19/21-T19.html</panorama>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t1a</identity>
+		<title>T1A</title>
+		<subtitle>Teaching Block 1A</subtitle>
+		<lat>1.30923052201878</lat>
+		<lon>103.78102093935</lon>
+		<description>The general office of the Singapore Marinetime Academy and Massey University are located at this teaching block.</description>
+		<photos>t1a.jpg</photos>
+		<panorama>39-T1a/39-T1a.html</panorama>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t2</identity>
+		<title>T2</title>
+		<subtitle>Teaching Block 2</subtitle>
+		<lat>1.30807747296924</lat>
+		<lon>103.780516684055</lon>
+		<description>The general office of the SP Design School is located at T2, level 5, room 1.</description>
+		<photos>t2.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t20</identity>
+		<title>T20</title>
+		<subtitle>Teaching Block 20</subtitle>
+		<lat>1.31184767324159</lat>
+		<lon>103.775340020656</lon>
+		<description>T20 are mainly used by DMIT students for their tutorial lessons.</description>
+		<photos>t20.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t21</identity>
+		<title>T21</title>
+		<subtitle>Teaching Block 21</subtitle>
+		<lat>1.31165460480222</lat>
+		<lon>103.775039613246</lon>
+		<description>The SPICE Service Desk is located at T21, level 1, room 11. Our Hangout is also located on level 1.</description>
+		<photos>t21.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t22</identity>
+		<title>T22</title>
+		<subtitle>Teaching Block 22</subtitle>
+		<lat>1.31132209801061</lat>
+		<lon>103.774902820587</lon>
+		<description>There is a room providing photocopy services located at T22, level 3.</description>
+		<photos>t22.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t3</identity>
+		<title>T3</title>
+		<subtitle>Teaching Block 3</subtitle>
+		<lat>1.30771010606771</lat>
+		<lon>103.780363798141</lon>
+		<description>The SPICE Service Desk is located at T3, level 3, room 1.</description>
+		<photos>t3.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t3a</identity>
+		<title>T3A</title>
+		<subtitle>Teaching Block 3A</subtitle>
+		<lat>1.30753848939457</lat>
+		<lon>103.780814409255</lon>
+		<description>The general office of the School of Architecture and the Built Environment is located at T3A, level 4, room 12.</description>
+		<photos>t3a.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t4</identity>
+		<title>T4</title>
+		<subtitle>Teaching Block 4</subtitle>
+		<lat>1.30834294244854</lat>
+		<lon>103.780125081539</lon>
+		<description>The general office of the School of Mathematics and Science is located at T4, level 5, room 1.</description>
+		<photos>t4.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t4a</identity>
+		<title>T4A</title>
+		<subtitle>Teaching Block 4A</subtitle>
+		<lat>1.3086942202012</lat>
+		<lon>103.780251145362</lon>
+		<description>The Department of Educational Development is located at T4A, level 3, room 4.</description>
+		<photos>t4a.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t4alinkway</identity>
+		<title>T4A linkway</title>
+		<subtitle>At T4A, Level 1</subtitle>
+		<lat>1.30862718246595</lat>
+		<lon>103.780369162559</lon>
+		<description>Types of services:
+Self-Photocopy (mono)
+Self-Printing (mono/colour)
+Counter Service
+A4 mono Copy
+A4 Colour Printing
+A3 mono Copy</description>
+		<photos>photocopyt4a.jpg</photos>
+		<category>Photocopy Services</category>
+	</location>
+	<location>
+		<identity>t5</identity>
+		<title>T5</title>
+		<subtitle>Teaching Block 5</subtitle>
+		<lat>1.30789244877008</lat>
+		<lon>103.779948055744</lon>
+		<description>SP International is located at this teaching block.</description>
+		<photos>t5.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t6</identity>
+		<title>T6</title>
+		<subtitle>Teaching Block 6</subtitle>
+		<lat>1.3087451688788</lat>
+		<lon>103.779253363609</lon>
+		<description>This teaching block consists of mainly tutorial rooms.</description>
+		<photos>t6.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t7</identity>
+		<title>T7</title>
+		<subtitle>Teaching Block 7</subtitle>
+		<lat>1.30820082242776</lat>
+		<lon>103.779054880142</lon>
+		<description>Moberly is located beside T7.</description>
+		<photos>t7.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t8</identity>
+		<title>T8</title>
+		<subtitle>Teaching Block 8</subtitle>
+		<lat>1.30918761787757</lat>
+		<lon>103.778936862945</lon>
+		<description>The aircraft training facility can be accessed through T8, level 1.</description>
+		<photos>t8.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>t9</identity>
+		<title>T9</title>
+		<subtitle>Teaching Block 9</subtitle>
+		<lat>1.30885242924931</lat>
+		<lon>103.778792023658</lon>
+		<description>T9 mainly consists of laboratory for networking.</description>
+		<photos>t9.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>taxistandadministrationbuilding</identity>
+		<title>Taxi Stand - Administration Building</title>
+		<subtitle>Beside Administration Building</subtitle>
+		<lat>1.30751167428833</lat>
+		<lon>103.779886364936</lon>
+		<description>FastCall
+Location: Singapore Polytechnic - Admin Building
+Dial: 6454-2222
+Key in 10825 #
+Press 1</description>
+		<photos>taxiadminbuilding.jpg</photos>
+		<category>Taxi Stands</category>
+	</location>
+	<location>
+		<identity>taxistanddovermrtoppositesp</identity>
+		<title>Taxi Stand - Dover MRT (opposite SP)</title>
+		<subtitle>Next to Dover MRT station (opposite SP side)</subtitle>
+		<lat>1.31166264932082</lat>
+		<lon>103.778692781925</lon>
+		<description>Location No: J06
+Location:  Commonwealth Ave West Taxi Stand outside Dover MRT Station (Ent B - towards Queenstown)
+
+Common Taxi Booking Number: 6342-5222
+Comfort/CityCab: 6552-1111
+PRIME TAXI: 6778-0808
+Premier: 6363-6888
+SMART Cab: 6485-7777
+SMRT: 6555-8888
+TRANS: 6555-3333</description>
+		<photos>taxidoveroppsp.jpg</photos>
+		<category>Taxi Stands</category>
+	</location>
+	<location>
+		<identity>taxistanddovermrtspside</identity>
+		<title>Taxi Stand - Dover MRT (SP side)</title>
+		<subtitle>Next to Dover MRT station (SP side)</subtitle>
+		<lat>1.31159829317126</lat>
+		<lon>103.777831792831</lon>
+		<description>Location No: J05
+Location: Commonwealth Ave West Taxi Stand outside Dover MRT Station (Ent A - towards Clementi)
+
+Common Taxi Booking Number: 6342-5222
+Comfort/CityCab: 6552-1111
+PRIME TAXI: 6778-0808
+Premier: 6363-6888
+SMART Cab: 6485-7777
+SMRT: 6555-8888
+TRANS: 6555-3333</description>
+		<photos>taxidoverspside.jpg</photos>
+		<category>Taxi Stands</category>
+	</location>
+	<location>
+		<identity>technologytransferandenterprisecentre</identity>
+		<title>Technology Transfer and Enterprise Centre</title>
+		<subtitle>At Innovillage, INV C 210</subtitle>
+		<lat>1.309319</lat>
+		<lon>103.780164</lon>
+		<description>Technology Transfer and Enterprise Centre
+
+Tel: 6870-8206
+
+The Technology Transfer and Enterprise Centre (TTEC) under the Technology Development Office is established to enhance the Technology, Innovation and Enterprise capabilities of Singapore Polytechnic (SP) through successful commercialisation of Research and Development. It includes intellectual property (IP) management of SP technologies which translates to commercialisable IP, eventually resulting in technology licensing and creation of spin-offs.</description>
+		<photos>innovillage.jpg</photos>
+		<category>Industry Services</category>
+	</location>
+	<location>
+		<identity>tenniscourt</identity>
+		<title>Tennis Court</title>
+		<subtitle>Beside Student Hub@Moberly</subtitle>
+		<lat>1.307349</lat>
+		<lon>103.77872</lon>
+		<description>Opening Hours
+Mon-Fri: 8am-9pm
+Sat-Sun: 8am-7pm
+
+SP staff and students enjoy a good game of tennis daily. There are six courts available and be sure to book early as it is a highly popular sport with staff and students alike.</description>
+		<photos>tenniscourt.jpg</photos>
+		<panorama>31-Moberly/31-Moberly.html</panorama>
+		<category>Sports Facilities</category>
+	</location>
+	<location>
+		<identity>thehall</identity>
+		<title>The Hall</title>
+		<subtitle>At Staff Centre, Level 2</subtitle>
+		<lat>1.309497</lat>
+		<lon>103.776573</lon>
+		<description>The Hall is where some major events and press conferences are held.</description>
+		<photos>thehall.jpg</photos>
+		<category>Plaza, Hall and Exhibition</category>
+	</location>
+	<location>
+		<identity>thespauditorium</identity>
+		<title>The SP Auditorium</title>
+		<subtitle>Next to Dover MRT station and Convention Centre</subtitle>
+		<lat>1.31064</lat>
+		<lon>103.777652</lon>
+		<description>The venue of many important events in the Polytechnic, the Auditorium can seat over 550 people. It is a nucleus for numerous exciting activities on campus.</description>
+		<photos>auditorium.jpg</photos>
+		<panorama>25-SPPlaza/25-SPPlaza.html</panorama>
+		<category>Plaza, Hall and Exhibition</category>
+	</location>
+	<location>
+		<identity>w1</identity>
+		<title>W1</title>
+		<subtitle>Workshop 1</subtitle>
+		<lat>1.30853869265266</lat>
+		<lon>103.781675398349</lon>
+		<description>The Optometry Centre is located here.</description>
+		<photos>w1.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>w10</identity>
+		<title>W10</title>
+		<subtitle>Workshop 10</subtitle>
+		<lat>1.31158220413362</lat>
+		<lon>103.777198791503</lon>
+		<description>The Technology Centre and SP CARE is located at level 1 and basement of this workshop, respectively.</description>
+		<photos>w10.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>w11</identity>
+		<title>W11</title>
+		<subtitle>Workshop 11</subtitle>
+		<lat>1.3113998616997</lat>
+		<lon>103.776860833168</lon>
+		<description>SMAE students uses this workshop for their laboratory lessons.</description>
+		<photos>w11.jpg</photos>
+		<panorama>24-CarparkE-3/24-CarparkE-3.html</panorama>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>w12</identity>
+		<title>W12</title>
+		<subtitle>Workshop 12</subtitle>
+		<lat>1.31085283431827</lat>
+		<lon>103.77625465393</lon>
+		<description>The Project Centre is located here. SMAE students can use this workshop for their project work</description>
+		<photos>w12.jpg</photos>
+		<panorama>23-W12/23-W12.html</panorama>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>w13</identity>
+		<title>W13</title>
+		<subtitle>Workshop 13</subtitle>
+		<lat>1.31056323153853</lat>
+		<lon>103.776249289512</lon>
+		<description>This workshop is mainly for students studying Aeronautical Engineering.</description>
+		<photos>w13.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>w14</identity>
+		<title>W14</title>
+		<subtitle>Workshop 14</subtitle>
+		<lat>1.3102950807867</lat>
+		<lon>103.777037858963</lon>
+		<description>SMAE students uses this workshop for their laboratory lessons.</description>
+		<photos>w14.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>w2</identity>
+		<title>W2</title>
+		<subtitle>Workshop 2</subtitle>
+		<lat>1.30824908960554</lat>
+		<lon>103.781562745571</lon>
+		<description>The Centre for Application in Environmental Technology is located at W2, level 1, room 1D.</description>
+		<photos>w2.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>w3</identity>
+		<title>W3</title>
+		<subtitle>Workshop 3</subtitle>
+		<lat>1.30807210994917</lat>
+		<lon>103.781391084194</lon>
+		<description>Chemical Life Sciences laboratories are located at this workshop.</description>
+		<photos>w3.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>w4</identity>
+		<title>W4</title>
+		<subtitle>Workshop 4</subtitle>
+		<lat>1.30726765680838</lat>
+		<lon>103.780685663223</lon>
+		<description>The Architecture and Built Environment laboratories are located here.</description>
+		<photos>w4.jpg</photos>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>w5</identity>
+		<title>W5</title>
+		<subtitle>Workshop 5</subtitle>
+		<lat>1.3070450913939</lat>
+		<lon>103.780591785907</lon>
+		<description>The Architecture and Built Environment laboratories are located here.</description>
+		<photos>w5.jpg</photos>
+		<panorama>12-W5/12-W5.html</panorama>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>w5a</identity>
+		<title>W5A</title>
+		<subtitle>Workshop 5A</subtitle>
+		<lat>1.30669113189892</lat>
+		<lon>103.780406713485</lon>
+		<description>The department of the Estates and Development is located at W5A, level 2.</description>
+		<photos>w5a.jpg</photos>
+		<panorama>13-W5A/13-W5A.html</panorama>
+		<category>Teaching Blocks</category>
+	</location>
+	<location>
+		<identity>kinderlandeducareservices</identity>
+		<title>Kinderland Educare Services</title>
+		<subtitle>At Staff Apartment</subtitle>
+		<lat>1.31105394734005</lat>
+		<lon>103.772944808006</lon>
+		<description>The Kinderland Child Care Centre provides much-needed childcare services for SP staff with children, as well as the general public.</description>
+		<category>Others</category>
+	</location>
+	<location>
+		<identity>appliedandhealthsciencescluster</identity>
+		<title>Applied and Health Sciences Cluster</title>
+		<subtitle>At T11A, Level 6, Room T11A616</subtitle>
+		<lat>1.31025217666374</lat>
+		<lon>103.779148757457</lon>
+		<description>Applied and Health Sciences Cluster
+
+Opening Hours
+Mon-Fri: 8am-1pm; 2pm to 5.30pm
+Tel: 6772-1135
+Fax: 6772-1976</description>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>architecturedesignandenvironmentcluster</identity>
+		<title>Architecture, Design and Environment Cluster</title>
+		<subtitle>At T2, Level 5, Room T251B</subtitle>
+		<lat>1.30807747296924</lat>
+		<lon>103.780516684055</lon>
+		<description>Architecture, Design and Environment Cluster 
+
+Opening Hours
+Mon-Fri: 8am-1pm; 2pm to 5.30pm
+Tel: 6870-8255
+Fax: 6870-8015</description>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>businessitandhumanitiescluster</identity>
+		<title>Business, IT and Humanities Cluster</title>
+		<subtitle>At Administration Building, Level 5</subtitle>
+		<lat>1.30797289407574</lat>
+		<lon>103.779403567314</lon>
+		<description>Business, IT and Humanities Cluster
+
+Opening Hours
+Mon-Fri: 8am-1pm; 2pm to 5.30pm
+Tel: 6772-1348
+Fax: 6772-1970</description>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>engineeringcluster</identity>
+		<title>Engineering Cluster</title>
+		<subtitle>At T16, Level 7, Room T1679</subtitle>
+		<lat>1.31024145063288</lat>
+		<lon>103.777743279933</lon>
+		<description>Engineering Cluster
+
+Opening Hours
+Mon-Fri: 8am-1pm; 2pm to 5.30pm
+Tel: 6870-8227
+Fax: 6870-8216</description>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>studentandacademicservicescluster</identity>
+		<title>Student and Academic Services Cluster</title>
+		<subtitle>At T16, Level 2, Room T16223</subtitle>
+		<lat>1.310263</lat>
+		<lon>103.777829</lon>
+		<description>Student and Academic Services Cluster
+
+Opening Hours
+Mon-Fri: 8am-1pm; 2pm to 5.30pm
+Tel: 6772-1612
+Fax: 6772-1967</description>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>academicservices</identity>
+		<title>Academic Services</title>
+		<subtitle>At T16, Level 2, Room T1621</subtitle>
+		<lat>1.310198546509</lat>
+		<lon>103.777772784233</lon>
+		<description>Department of Academic Services
+
+Tel: 6772-1612
+Fax: 6772-1967</description>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>deputyprincipalacademicplanning</identity>
+		<title>Deputy Principal (Academic Planning)</title>
+		<subtitle>At Administration Building, Level 5</subtitle>
+		<lat>1.30799970917706</lat>
+		<lon>103.779304325581</lon>
+		<description>Deputy Principal (Academic Planning)
+
+Tel: 6772-1220
+Fax: 6772-1985</description>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>deputyprincipaltechnologyandindustrychieftechnologyofficer</identity>
+		<title>Deputy Principal (Technology and Industry ) / Chief Technology Officer</title>
+		<subtitle>At Administration Building, Level 5</subtitle>
+		<lat>1.30795144199449</lat>
+		<lon>103.779392838478</lon>
+		<description>Deputy Principal (Technology and Industry ) / Chief Technology Officer
+
+Tel: 6772-1348
+Fax: 6772-1970
+Fax: 6870-8055</description>
+		<category>Dept Offices</category>
+	</location>
+	<location>
+		<identity>qualityservicemanager</identity>
+		<title>Quality Service Manager</title>
+		<subtitle>At Administration Building, Level 4, Room A141F</subtitle>
+		<lat>1.30790853783143</lat>
+		<lon>103.779585957527</lon>
+		<category>Others</category>
+	</location>
+</locations>

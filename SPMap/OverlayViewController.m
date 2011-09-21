@@ -8,7 +8,6 @@
 
 #import "OverlayViewController.h"
 #import "MapViewController.h"
-#import "CustomCellforSearch.h"
 
 @implementation OverlayViewController
 
@@ -50,10 +49,10 @@
 {
     CGSize max;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        max = CGSizeMake(310, 10000);
+        max = CGSizeMake(300, 10000);
     }
     else {
-        max = CGSizeMake(758, 10000);   
+        max = CGSizeMake(748, 10000);   
     }
     //Return the height
     return ([[searchResults objectAtIndex:indexPath.row] sizeWithFont:[UIFont boldSystemFontOfSize:20] 
@@ -65,27 +64,48 @@
 {
     static NSString *CellIdentifier = @"Cell";
     
-    CustomCellforSearch *cell = (CustomCellforSearch*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[CustomCellforSearch alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
-    }
-    cell.text.text = [searchResults objectAtIndex:indexPath.row];
+    UILabel *text;
     
-    CGRect currentFrame = cell.text.frame;  
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        
+        //UILabel for display the search results
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            text = [[[UILabel alloc]initWithFrame:CGRectMake(10,10,300,25)]autorelease]; //frame for iPhone
+            text.numberOfLines = 0;
+            text.tag = 1;
+            text.font = [UIFont boldSystemFontOfSize:20];
+            [cell.contentView addSubview:text];
+        }
+        else {
+            text = [[[UILabel alloc]initWithFrame:CGRectMake(10,10,748,25)]autorelease]; //frame for iPad
+            text.numberOfLines = 0;
+            text.tag = 1;
+            text.font = [UIFont boldSystemFontOfSize:20];
+            [cell.contentView addSubview:text];
+        }
+    }
+    else {
+        text = (UILabel *)[cell.contentView viewWithTag:1];
+    }
+    text.text = [searchResults objectAtIndex:indexPath.row];
+    
+    CGRect currentFrame = text.frame;  
     CGSize max;
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        max = CGSizeMake(310, 10000);
+        max = CGSizeMake(300, 10000);
     }
     else {
-        max = CGSizeMake(758, 10000);   
+        max = CGSizeMake(748, 10000);   
     }
     //Calculating the height needed to display the text in multi line
-    CGSize expected = [[searchResults objectAtIndex:indexPath.row] sizeWithFont:cell.text.font
+    CGSize expected = [[searchResults objectAtIndex:indexPath.row] sizeWithFont:text.font
                                                               constrainedToSize:max 
                                                                   lineBreakMode:UILineBreakModeWordWrap]; 
     currentFrame.size.height = expected.height;
-    cell.text.frame = currentFrame;
+    text.frame = currentFrame;
     
     return cell;
 }
