@@ -225,7 +225,10 @@
 }
 
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager {
-    return YES;
+    if (rotateMap)
+        return YES;
+    else
+        return NO;
 }
 
 - (void)mapViewDidLoad:(AGSMapView *)mapView {
