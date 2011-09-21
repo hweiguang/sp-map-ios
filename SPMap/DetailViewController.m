@@ -54,7 +54,7 @@
         
         NSMutableArray *items = [[NSMutableArray alloc]init];
         
-        if (panorama != nil) {
+        if (panorama) {
             UIBarButtonItem *showPanoramaButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Panorama.png"]
                                                                                        style:UIBarButtonItemStylePlain
                                                                                       target:self
@@ -63,7 +63,7 @@
             [showPanoramaButtonItem release];
         }
         
-        if (livecam != nil) {
+        if (livecam) {
             UIBarButtonItem *showLiveCamButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"LiveCam.png"]
                                                                                       style:UIBarButtonItemStylePlain
                                                                                      target:self
@@ -80,7 +80,7 @@
             [showLiveCamButtonItem release];
         }
         
-        if (video != nil) {
+        if (video) {
             UIBarButtonItem *showVideoButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Video.png"]
                                                                                     style:UIBarButtonItemStylePlain
                                                                                    target:self

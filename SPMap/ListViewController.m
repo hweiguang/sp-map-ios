@@ -10,7 +10,6 @@
 #import "MapViewController.h"
 #import "Location.h"
 #import "SPMapAppDelegate.h"
-#import "CustomCellforListVC.h"
 
 @implementation ListViewController
 
@@ -59,7 +58,7 @@
     // Getting locations array from appDelegate
     if (locations == nil)
         locations = [[NSMutableArray alloc] initWithArray:appDelegate.locations];
-     
+    
     //Sorting the location array by alphabet
     NSSortDescriptor *alphaDesc = [[NSSortDescriptor alloc] initWithKey:@"title" 
                                                               ascending:YES
@@ -93,48 +92,72 @@
     
     static NSString *CellIdentifier = @"Cell";
     
-    CustomCellforListVC *cell = (CustomCellforListVC*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UILabel *primaryLabel;
+    UILabel *secondaryLabel;
+    UILabel *distanceLabel;
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[CustomCellforListVC alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        
+        //Primary Label for the title
+        primaryLabel = [[[UILabel alloc]initWithFrame:CGRectMake(10,0,265,25)]autorelease];
+        primaryLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16.0];
+        primaryLabel.tag = 1;
+        
+        //Secondary Label for the subtitle
+        secondaryLabel = [[[UILabel alloc]initWithFrame:CGRectMake(10,25,265,15)]autorelease];
+        secondaryLabel.font = [UIFont fontWithName:@"Helvetica" size:14.0];
+        secondaryLabel.tag = 2;
+        
+        //Distance Label for displaying distance from user location to POI
+        distanceLabel = [[[UILabel alloc]initWithFrame:CGRectMake(275,14.5,40,15)]autorelease];
+        distanceLabel.textAlignment = UITextAlignmentCenter;
+        distanceLabel.adjustsFontSizeToFitWidth = YES;
+        distanceLabel.tag = 3;
+        
+        [cell.contentView addSubview:primaryLabel];
+        [cell.contentView addSubview:secondaryLabel];
+        [cell.contentView addSubview:distanceLabel]; 
+    }
+    else {
+        primaryLabel = (UILabel *)[cell.contentView viewWithTag:1];
+        secondaryLabel = (UILabel *)[cell.contentView viewWithTag:2];
+        distanceLabel = (UILabel *)[cell.contentView viewWithTag:3];
     }
     
     Location * aLocation = [locationsincategory objectAtIndex:indexPath.row];
     
-    cell.primaryLabel.text = aLocation.title;
-    cell.secondaryLabel.text = aLocation.subtitle;
+    primaryLabel.text = aLocation.title;
+    secondaryLabel.text = aLocation.subtitle;
     
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
     MapViewController *mapViewController = (MapViewController*)[appDelegate.navigationController.viewControllers objectAtIndex:0];
     //If we are getting invalid coordidates for user location do not display distance.
     if (mapViewController.lat == 0 || mapViewController.lon == 0) {
-        cell.distanceLabel.text = @"N/A";
-        return cell;
+        distanceLabel.text = @"N/A";
     }
     else {
         CLLocation *userLocation = [[CLLocation alloc]initWithLatitude:mapViewController.lat
                                                              longitude:mapViewController.lon];
+        double lat = [aLocation.lat doubleValue];
+        double lon = [aLocation.lon doubleValue];;
         
-        NSString *distanceString;
+        CLLocation *location = [[CLLocation alloc]initWithLatitude:lat longitude:lon];
         
-        for (int i=0; i<[locationsincategory count]; i++) {
-            double lat = [aLocation.lat doubleValue];
-            double lon = [aLocation.lon doubleValue];;
-            
-            CLLocation *location = [[CLLocation alloc]initWithLatitude:lat longitude:lon];
-            
-            CLLocationDistance distance = [userLocation distanceFromLocation:location];
-            
-            distanceString = [NSString stringWithFormat:@"%.0f", distance];
-            distanceString = [distanceString stringByAppendingString:@"m"];
-            
-            cell.distanceLabel.text = distanceString;
-            
-            [location release];
-        }
+        CLLocationDistance distance = [userLocation distanceFromLocation:location];
+        
+        NSString *distanceString = [NSString stringWithFormat:@"%.0f", distance];
+        distanceString = [distanceString stringByAppendingString:@"m"];
+        
+        distanceLabel.text = distanceString;
+        
+        [location release];
         [userLocation release];
-        return cell;
+        
     }
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
