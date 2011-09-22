@@ -22,7 +22,6 @@
 		870BDDC61349C98F0040D32D /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 870BDDC41349C98F0040D32D /* DetailViewController.xib */; };
 		871CB15613DD12B800AD5CB4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 871CB15513DD12B800AD5CB4 /* MediaPlayer.framework */; };
 		871EE1761367BEC100E111FC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 871EE1751367BEC100E111FC /* Icon@2x.png */; };
-		872067601429713600E0E1E5 /* Location.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8720675F1429713600E0E1E5 /* Location.xml */; };
 		872215CD13812AC600C0704C /* SP_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 872215CC13812AC600C0704C /* SP_logo.png */; };
 		8726FCF3137BC2C500B98E5B /* HeadingOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 8726FCF2137BC2C500B98E5B /* HeadingOn.png */; };
 		87351F1413DD10F900A2676C /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87351F1313DD10F900A2676C /* libstdc++.dylib */; };
@@ -134,7 +133,6 @@
 		871CB15513DD12B800AD5CB4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		871CB15713DD12CA00AD5CB4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		871EE1751367BEC100E111FC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = "<group>"; };
-		8720675F1429713600E0E1E5 /* Location.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location.xml; sourceTree = "<group>"; };
 		872215CC13812AC600C0704C /* SP_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SP_logo.png; path = Resources/SP_logo.png; sourceTree = "<group>"; };
 		8726FCF2137BC2C500B98E5B /* HeadingOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeadingOn.png; path = Resources/HeadingOn.png; sourceTree = "<group>"; };
 		87351F1313DD10F900A2676C /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
@@ -281,7 +279,6 @@
 		874C86391341CAF1001D4E4B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8720675F1429713600E0E1E5 /* Location.xml */,
 				87F9BAEA13EC502400ED9462 /* Callout Icons */,
 				87BBCFCC13986B9B00788CB6 /* Toolbar Icons */,
 				0FBC6137135460C70042F842 /* iTunesArtwork */,
@@ -633,7 +630,6 @@
 				87F9BB1413EC502400ED9462 /* teachingblocks.jpg in Resources */,
 				87F9BB1513EC502400ED9462 /* teachingfacilities.jpg in Resources */,
 				87F9BB1613EC502400ED9462 /* technologycentres.jpg in Resources */,
-				872067601429713600E0E1E5 /* Location.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
