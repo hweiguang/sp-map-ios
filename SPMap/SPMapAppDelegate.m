@@ -31,8 +31,8 @@
     [self checkNetwork];
     
     //Download XML file from server and save it to document directory
-    [NSThread detachNewThreadSelector:@selector(downloadXML) toTarget:self withObject:nil];
-    
+    //[NSThread detachNewThreadSelector:@selector(downloadXML) toTarget:self withObject:nil];
+    [self parseXML];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;
@@ -201,12 +201,12 @@
 }
 
 - (void)parseXML {
-     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-     NSString *cachesDirectory = [paths objectAtIndex:0];
-     NSString *XMLPath = [cachesDirectory stringByAppendingPathComponent:@"Location.xml"];
-     
-     // Load and parse the Locations.xml file in document directory
-     tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:XMLPath]] retain];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachesDirectory = [paths objectAtIndex:0];
+    NSString *XMLPath = [cachesDirectory stringByAppendingPathComponent:@"Location.xml"];
+    
+    // Load and parse the Locations.xml file in document directory
+    tbxml = [[TBXML tbxmlWithXMLData:[NSData dataWithContentsOfFile:XMLPath]] retain];
     
 	// Obtain root element
 	TBXMLElement * root = tbxml.rootXMLElement;
