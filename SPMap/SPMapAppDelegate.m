@@ -31,8 +31,8 @@
     [self checkNetwork];
     
     //Download XML file from server and save it to document directory
-    //[NSThread detachNewThreadSelector:@selector(downloadXML) toTarget:self withObject:nil];
-    [self parseXML];
+    [NSThread detachNewThreadSelector:@selector(downloadXML) toTarget:self withObject:nil];
+    
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;
