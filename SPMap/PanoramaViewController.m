@@ -11,7 +11,7 @@
 
 @implementation PanoramaViewController
 
-@synthesize webView,activity,selectedPanorama;
+@synthesize webView,selectedPanorama;
 
 - (void)viewDidLoad {
     
@@ -19,26 +19,29 @@
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
+    loading = [[MBProgressHUD alloc]initWithView:self.view];
+    [self.view addSubview:loading];
+    loading.mode = MBProgressHUDModeIndeterminate;
+    loading.labelText = @"Loading...";
+    
     // Getting Panorama Link
     NSString *panoramalink = [panoramaHostname stringByAppendingString:selectedPanorama];
     
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:panoramalink]]];
+    webView.delegate = self;
     
-    //Timer to to check the status of webView
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.5
-                                             target:self 
-                                           selector:@selector(loading) 
-                                           userInfo:nil 
-                                            repeats:YES];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:panoramalink]]];
 }
 
-- (void) loading {
-	if (!webView.loading){
-		[activity stopAnimating];
-        [timer invalidate];
-    }
-	else
-		[activity startAnimating];
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [loading show:YES];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [loading hide:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -46,14 +49,9 @@
         [webView stopLoading];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 - (void)dealloc
 {
     [webView release];
-    [activity release];
     [selectedPanorama release];
     [super dealloc];
 }

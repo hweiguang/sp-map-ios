@@ -82,6 +82,7 @@
 		87D96E051370DC91001C9AF0 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D96E031370DC91001C9AF0 /* MainWindow-iPad.xib */; };
 		87E70A4213978DD6005602BC /* LiveCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E70A4013978DD6005602BC /* LiveCamViewController.m */; };
 		87E70A4313978DD6005602BC /* LiveCamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87E70A4113978DD6005602BC /* LiveCamViewController.xib */; };
+		87E79E9E142F76200015AECF /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E79E9D142F76200015AECF /* MBProgressHUD.m */; };
 		87EB6B7D1341BD3E0083A16C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EB6B7B1341BD3E0083A16C /* MapViewController.m */; };
 		87F2AC6A1341C67A004A851C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F2AC691341C67A004A851C /* libz.dylib */; };
 		87F990A31369608B001ACC86 /* libArcGIS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F990A21369608B001ACC86 /* libArcGIS.a */; };
@@ -218,6 +219,8 @@
 		87E70A3F13978DD6005602BC /* LiveCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveCamViewController.h; sourceTree = "<group>"; };
 		87E70A4013978DD6005602BC /* LiveCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveCamViewController.m; sourceTree = "<group>"; };
 		87E70A4113978DD6005602BC /* LiveCamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LiveCamViewController.xib; path = SPMap/LiveCamViewController.xib; sourceTree = "<group>"; };
+		87E79E9C142F76200015AECF /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		87E79E9D142F76200015AECF /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		87EB6B7A1341BD3E0083A16C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		87EB6B7B1341BD3E0083A16C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		87F2AC691341C67A004A851C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -404,6 +407,7 @@
 				87C6528F134BEE9B00476B2E /* Class */,
 				874C86461341CB27001D4E4B /* TBXML */,
 				87A2AE3413F517D2008049F9 /* Reachability */,
+				87E79E9B142F76200015AECF /* MBProgressHUD */,
 				87A2ADBC13F5177A008049F9 /* ASIHTTPRequest */,
 			);
 			path = SPMap;
@@ -467,6 +471,15 @@
 				87B1AD3B134B06DF0049DB59 /* AboutViewController.m */,
 			);
 			name = Class;
+			sourceTree = "<group>";
+		};
+		87E79E9B142F76200015AECF /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				87E79E9C142F76200015AECF /* MBProgressHUD.h */,
+				87E79E9D142F76200015AECF /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		87EB6B7F1341BD4F0083A16C /* XIB Files */ = {
@@ -663,6 +676,7 @@
 				87A2AE1513F5177A008049F9 /* ASIInputStream.m in Sources */,
 				87A2AE1613F5177A008049F9 /* ASINetworkQueue.m in Sources */,
 				87A2AE3713F517D2008049F9 /* Reachability.m in Sources */,
+				87E79E9E142F76200015AECF /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

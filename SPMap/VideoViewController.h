@@ -8,14 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideoViewController : UIViewController {
+@interface VideoViewController : UIViewController <UIWebViewDelegate> {
 	IBOutlet UIWebView *webView;
-	IBOutlet UIActivityIndicatorView *activity;
-	NSTimer *timer;
 }
 
 @property (nonatomic, retain) UIWebView *webView;
-@property (nonatomic, retain) UIActivityIndicatorView *activity;
 @property (nonatomic, retain) NSString *selectedvideo;
 
 @end
