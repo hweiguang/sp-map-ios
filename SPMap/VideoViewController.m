@@ -11,7 +11,7 @@
 
 @implementation VideoViewController
 
-@synthesize webView,activity,selectedvideo;
+@synthesize webView,selectedvideo;
 
 - (void)viewDidLoad {
     
@@ -22,23 +22,19 @@
     // Getting Video Link
     NSString *videoLink = [videoHostname stringByAppendingString:selectedvideo];
     
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:videoLink]]];
+    webView.delegate = self;
     
-    //Timer to to check the status of webView
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.5
-                                             target:self 
-                                           selector:@selector(loading) 
-                                           userInfo:nil 
-                                            repeats:YES];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:videoLink]]];
 }
 
-- (void) loading {
-	if (!webView.loading){
-		[activity stopAnimating];
-        [timer invalidate];
-    }
-	else
-		[activity startAnimating];
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -46,14 +42,9 @@
         [webView stopLoading];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 - (void)dealloc
 {
     [webView release];
-    [activity release];
     [selectedvideo release];
     [super dealloc];
 }

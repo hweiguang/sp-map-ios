@@ -23,7 +23,9 @@
 }
 
 - (void) reloadtableView {
-    [self.tableView reloadData];
+    NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
+    [self.tableView reloadRowsAtIndexPaths: visiblePaths
+                          withRowAnimation: UITableViewRowAnimationNone];
 }
 
 - (void) viewDidDisappear:(BOOL)animated {

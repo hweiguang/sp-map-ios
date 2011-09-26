@@ -7,15 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
-@interface PanoramaViewController : UIViewController {
+@interface PanoramaViewController : UIViewController <UIWebViewDelegate> {
 	IBOutlet UIWebView *webView;
-	IBOutlet UIActivityIndicatorView *activity;
-	NSTimer *timer;
+    MBProgressHUD *loading;
 }
 
 @property (nonatomic, retain) UIWebView *webView;
-@property (nonatomic, retain) UIActivityIndicatorView *activity;
 @property (nonatomic, retain) NSString *selectedPanorama;
 
 @end
