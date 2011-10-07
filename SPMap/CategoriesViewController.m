@@ -20,10 +20,12 @@
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
     // Getting category set from appDelegate
-    if (category == nil)
-        category = [[NSMutableArray alloc] initWithSet:appDelegate.categories];
-    // Sort the array by alphabet
-    [category sortUsingSelector:@selector(compare:)];
+    if (category == nil){
+        NSArray *_category = [appDelegate.categories allObjects];
+        category = [[NSMutableArray alloc]initWithArray:_category];
+        // Sort the array by alphabet
+        [category sortUsingSelector:@selector(compare:)];
+    }
     
     if ([category count] == 0) {
         // Listen for updates from appDelegate
@@ -37,7 +39,8 @@
 - (void) reloadCategories {
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     // Getting category set from appDelegate
-    category = [[NSMutableArray alloc] initWithSet:appDelegate.categories];
+    NSArray *_category = [appDelegate.categories allObjects];
+    category = [[NSMutableArray alloc]initWithArray:_category];
     // Sort the array by alphabet
     [category sortUsingSelector:@selector(compare:)];
     [self.tableView reloadData];

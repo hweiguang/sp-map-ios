@@ -14,6 +14,8 @@
 		0FBC612E135447980042F842 /* TBDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FBC612D135447980042F842 /* TBDetailViewController.xib */; };
 		0FBC613613545B830042F842 /* UnavailableImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FBC613513545B830042F842 /* UnavailableImage.png */; };
 		0FBC6138135460C70042F842 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 0FBC6137135460C70042F842 /* iTunesArtwork */; };
+		831AC3C3143D48CD00BFE75A /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 831AC3C2143D48CD00BFE75A /* libz.1.2.5.dylib */; };
+		83F9EFFE143EFD3D000B98DF /* Error.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F9EFFD143EFD3D000B98DF /* Error.png */; };
 		8703B9EA1377CA45006D0808 /* OverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8703B9E81377CA44006D0808 /* OverlayViewController.m */; };
 		8703B9EB1377CA45006D0808 /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8703B9E91377CA45006D0808 /* OverlayViewController.xib */; };
 		8705701B13681C980024D62D /* Location.png in Resources */ = {isa = PBXBuildFile; fileRef = 8705701A13681C980024D62D /* Location.png */; };
@@ -43,7 +45,6 @@
 		877976B11352EFB100D389CC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 877976AE1352EFB100D389CC /* Default.png */; };
 		877976B21352EFB100D389CC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 877976AF1352EFB100D389CC /* Default@2x.png */; };
 		878ACCA6137CD63100D23131 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 878ACCA5137CD63100D23131 /* CoreText.framework */; };
-		87A1E0181407813B00FBCF80 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A1E0171407813B00FBCF80 /* libz.1.2.5.dylib */; };
 		87A2AE0F13F5177A008049F9 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A2ADBE13F5177A008049F9 /* ASIAuthenticationDialog.m */; };
 		87A2AE1013F5177A008049F9 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A2ADC113F5177A008049F9 /* ASIDataCompressor.m */; };
 		87A2AE1113F5177A008049F9 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A2ADC313F5177A008049F9 /* ASIDataDecompressor.m */; };
@@ -117,12 +118,13 @@
 		0F28584A13497FFF00BC9B70 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0F28584C1349800F00BC9B70 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		0F28584E1349802D00BC9B70 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		0F28584F1349805800BC9B70 /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
 		0F2858511349817A00BC9B70 /* libxml2.2.7.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.7.3.dylib; path = usr/lib/libxml2.2.7.3.dylib; sourceTree = SDKROOT; };
 		0FBC612D135447980042F842 /* TBDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TBDetailViewController.xib; path = SPMap/TBDetailViewController.xib; sourceTree = "<group>"; };
 		0FBC613513545B830042F842 /* UnavailableImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UnavailableImage.png; path = Resources/UnavailableImage.png; sourceTree = "<group>"; };
 		0FBC6137135460C70042F842 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/iTunesArtwork; sourceTree = "<group>"; };
 		0FC747AA1352D1D6008684CB /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		831AC3C2143D48CD00BFE75A /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		83F9EFFD143EFD3D000B98DF /* Error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Error.png; sourceTree = "<group>"; };
 		8703B9E71377CA44006D0808 /* OverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayViewController.h; sourceTree = "<group>"; };
 		8703B9E81377CA44006D0808 /* OverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayViewController.m; sourceTree = "<group>"; };
 		8703B9E91377CA45006D0808 /* OverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OverlayViewController.xib; path = SPMap/OverlayViewController.xib; sourceTree = "<group>"; };
@@ -159,7 +161,6 @@
 		877976AE1352EFB100D389CC /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		877976AF1352EFB100D389CC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
 		878ACCA5137CD63100D23131 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		87A1E0171407813B00FBCF80 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		87A2ADBD13F5177A008049F9 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		87A2ADBE13F5177A008049F9 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		87A2ADBF13F5177A008049F9 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -257,7 +258,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87A1E0181407813B00FBCF80 /* libz.1.2.5.dylib in Frameworks */,
 				8777696513B87B0C0082CCE0 /* QuartzCore.framework in Frameworks */,
 				8777696313B87AFF0082CCE0 /* CoreGraphics.framework in Frameworks */,
 				87A924DC13B196A200A167C2 /* MapKit.framework in Frameworks */,
@@ -271,6 +271,7 @@
 				878ACCA6137CD63100D23131 /* CoreText.framework in Frameworks */,
 				87351F1413DD10F900A2676C /* libstdc++.dylib in Frameworks */,
 				0F2858521349817A00BC9B70 /* libxml2.2.7.3.dylib in Frameworks */,
+				831AC3C3143D48CD00BFE75A /* libz.1.2.5.dylib in Frameworks */,
 				87F2AC6A1341C67A004A851C /* libz.dylib in Frameworks */,
 				87F990A31369608B001ACC86 /* libArcGIS.a in Frameworks */,
 			);
@@ -282,6 +283,7 @@
 		874C86391341CAF1001D4E4B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				83F9EFFD143EFD3D000B98DF /* Error.png */,
 				87F9BAEA13EC502400ED9462 /* Callout Icons */,
 				87BBCFCC13986B9B00788CB6 /* Toolbar Icons */,
 				0FBC6137135460C70042F842 /* iTunesArtwork */,
@@ -378,10 +380,8 @@
 		87AF1DF91341BAF700BFD71D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				87A1E0171407813B00FBCF80 /* libz.1.2.5.dylib */,
 				871CB15713DD12CA00AD5CB4 /* MobileCoreServices.framework */,
 				871CB15513DD12B800AD5CB4 /* MediaPlayer.framework */,
-				87351F1313DD10F900A2676C /* libstdc++.dylib */,
 				8777696413B87B0C0082CCE0 /* QuartzCore.framework */,
 				8777696213B87AFF0082CCE0 /* CoreGraphics.framework */,
 				878ACCA5137CD63100D23131 /* CoreText.framework */,
@@ -394,8 +394,9 @@
 				876542BB1341C4A200387B45 /* CoreLocation.framework */,
 				87A924DB13B196A200A167C2 /* MapKit.framework */,
 				0F2858511349817A00BC9B70 /* libxml2.2.7.3.dylib */,
+				87351F1313DD10F900A2676C /* libstdc++.dylib */,
+				831AC3C2143D48CD00BFE75A /* libz.1.2.5.dylib */,
 				87F2AC691341C67A004A851C /* libz.dylib */,
-				0F28584F1349805800BC9B70 /* libz.1.2.3.dylib */,
 				87F990A21369608B001ACC86 /* libArcGIS.a */,
 			);
 			name = Frameworks;
@@ -643,6 +644,7 @@
 				87F9BB1413EC502400ED9462 /* teachingblocks.jpg in Resources */,
 				87F9BB1513EC502400ED9462 /* teachingfacilities.jpg in Resources */,
 				87F9BB1613EC502400ED9462 /* technologycentres.jpg in Resources */,
+				83F9EFFE143EFD3D000B98DF /* Error.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,18 +716,21 @@
 		0FBC611A135423E00042F842 /* Distribute */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Singapore Polytechnic";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Singapore Polytechnic";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = 4.2;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDK_ROOT)/usr/include/libxml2";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
+				PROVISIONING_PROFILE = "032A3212-D31B-4389-83BA-C58291F2BD96";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "032A3212-D31B-4389-83BA-C58291F2BD96";
 				SDKROOT = iphoneos;
 			};
 			name = Distribute;
@@ -734,12 +739,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Singapore Polytechnic";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Singapore Polytechnic";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPMap/SP Map-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "SPMap/SP Map-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
 				LIBRARY_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib";
@@ -749,8 +754,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "SP Map";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "032A3212-D31B-4389-83BA-C58291F2BD96";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "032A3212-D31B-4389-83BA-C58291F2BD96";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				VALIDATE_PRODUCT = YES;
@@ -761,20 +766,23 @@
 		87AF1E0F1341BAF700BFD71D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = 4.2;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDK_ROOT)/usr/include/libxml2";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PROVISIONING_PROFILE = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
+				PROVISIONING_PROFILE = "F8A8EE5A-C430-47CF-8F96-38ED2CEB9FAA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F8A8EE5A-C430-47CF-8F96-38ED2CEB9FAA";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -782,18 +790,21 @@
 		87AF1E101341BAF700BFD71D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = 4.2;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDK_ROOT)/usr/include/libxml2";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F6AB01EE-BE11-4A37-909E-D6AE94370845";
+				PROVISIONING_PROFILE = "F8A8EE5A-C430-47CF-8F96-38ED2CEB9FAA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F8A8EE5A-C430-47CF-8F96-38ED2CEB9FAA";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -802,13 +813,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPMap/SP Map-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "SPMap/SP Map-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
 				LIBRARY_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib";
@@ -818,8 +829,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "SP Map";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "F8A8EE5A-C430-47CF-8F96-38ED2CEB9FAA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F8A8EE5A-C430-47CF-8F96-38ED2CEB9FAA";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				WRAPPER_EXTENSION = app;
@@ -830,12 +841,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPMap/SP Map-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "SPMap/SP Map-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
 				LIBRARY_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib";
@@ -845,8 +856,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "SP Map";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "F8A8EE5A-C430-47CF-8F96-38ED2CEB9FAA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F8A8EE5A-C430-47CF-8F96-38ED2CEB9FAA";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				VALIDATE_PRODUCT = YES;
