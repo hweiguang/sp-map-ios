@@ -20,7 +20,7 @@
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
     // Getting category set from appDelegate
-    if (category == nil){
+    if (!category){
         NSArray *_category = [appDelegate.categories allObjects];
         category = [[NSMutableArray alloc]initWithArray:_category];
         // Sort the array by alphabet
@@ -28,15 +28,24 @@
     }
     
     if ([category count] == 0) {
+        loading = [[MBProgressHUD alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width * 0.85, 115)];
+        loading.center = self.view.center;
+        [self.view addSubview:loading];
+        loading.mode = MBProgressHUDModeIndeterminate;
+        loading.labelText = @"Loading...";
+        loading.opacity = 0.5;
+        [loading show:YES];
         // Listen for updates from appDelegate
-        [[NSNotificationCenter defaultCenter] addObserver:self 
-                                                 selector:@selector(reloadCategories) 
-                                                     name:@"XMLLoaded" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(reloadCategories)
+                                                     name:@"XMLLoaded"
+                                                   object:nil];
     }
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void) reloadCategories {
+    [loading hide:YES];
     SPMapAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     // Getting category set from appDelegate
     NSArray *_category = [appDelegate.categories allObjects];

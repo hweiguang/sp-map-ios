@@ -19,24 +19,177 @@
 @synthesize mapView = _mapView;
 @synthesize graphicsLayer = _graphicsLayer;
 @synthesize CalloutTemplate = _CalloutTemplate;
-@synthesize selectedLocations;
+@synthesize selectedPoint;
 @synthesize searchResults;
 @synthesize searchBar;
 @synthesize toolBar;
 @synthesize lat;
 @synthesize lon;
 
-#pragma mark - View lifecycle
+- (void) checkMapStatus {
+    //Check map status first before loading point
+    if(mapLoaded)
+        [self loadSinglePoint];
+    else {
+        [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                 selector:@selector(loadSinglePoint) 
+                                                     name:@"mapLoaded" object:nil];
+    }
+}
+
+- (void)loadSinglePoint {
+    //Hide all callout and remove existing points
+    self.mapView.callout.hidden = YES;
+    [self.graphicsLayer removeAllGraphics];
+    
+    //create the callout template, used when the user displays the callout
+    self.CalloutTemplate = [[[AGSCalloutTemplate alloc]init] autorelease];
+    
+    double ptlat = [selectedPoint.lat doubleValue];
+    double ptlon = [selectedPoint.lon doubleValue];
+    
+    NSString *callouticonImage = [selectedPoint.category stringByAppendingString:@".jpg"];
+    callouticonImage = [callouticonImage lowercaseString];
+    callouticonImage = [callouticonImage stringByReplacingOccurrencesOfString:@" " withString:@""];
+    self.mapView.callout.image = [UIImage imageNamed:callouticonImage];
+    
+    //Creating the point to add to map
+    AGSPoint *pt = [AGSPoint pointWithX:ptlon y:ptlat spatialReference:self.mapView.spatialReference];
+    
+    //create a marker symbol to use in our graphic
+    AGSPictureMarkerSymbol *marker = [AGSPictureMarkerSymbol 
+                                      pictureMarkerSymbolWithImageNamed:@"MapMarker.png"];
+    marker.hotspot = CGPointMake(-9,18);
+    
+    //set the title and subtitle of the callout
+    self.CalloutTemplate.titleTemplate = @"${title}";
+    self.CalloutTemplate.detailTemplate = @"${subtitle}";
+    
+    //Attribs for point
+    NSMutableDictionary *attribs = [NSMutableDictionary dictionaryWithObject:selectedPoint.title forKey:@"title"];
+    [attribs setValue:selectedPoint.subtitle forKey:@"subtitle"];
+    [attribs setValue:selectedPoint.detaildescription forKey:@"description"];
+    [attribs setValue:selectedPoint.photos forKey:@"photos"];
+    [attribs setValue:selectedPoint.panorama forKey:@"panorama"];
+    [attribs setValue:selectedPoint.livecam forKey:@"livecam"];
+    [attribs setValue:selectedPoint.video forKey:@"video"];
+    
+    //Creating the graphic
+    AGSGraphic *graphic = [[AGSGraphic alloc] initWithGeometry:pt
+                                                        symbol:marker
+                                                    attributes:attribs
+                                          infoTemplateDelegate:self.CalloutTemplate];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        [self.mapView centerAtPoint:pt animated:YES];
+    else
+        [self.mapView centerAtPoint:pt animated:NO];
+    
+    [self.mapView showCalloutAtPoint:pt forGraphic:graphic animated:YES];
+    
+    //add the graphic to the graphics layer
+    [self.graphicsLayer addGraphic:graphic];
+    [graphic release];
+}
+
+- (void) loadCategoryPoints:(NSArray*)category {
+    //Hide all callout and remove existing points
+    [self.graphicsLayer removeAllGraphics];
+    self.mapView.callout.hidden = YES;
+    
+    //Variables for calculating the map extent to be displayed
+    double xmin = DBL_MAX;
+    double ymin = DBL_MAX;
+    double xmax = -DBL_MAX;
+    double ymax = -DBL_MAX;
+    
+    //create the callout template, used when the user displays the callout
+    self.CalloutTemplate = [[[AGSCalloutTemplate alloc]init] autorelease];
+    
+    //loop through the array that is passed and add point to graphics layer
+    for (int i=0; i<[category count]; i++)
+    {
+        Location *aLocation = [category objectAtIndex:i];
+        
+        //Setting the lat and lon from Location class
+        double ptlat = [aLocation.lat doubleValue];
+        double ptlon = [aLocation.lon doubleValue];
+        
+        //Adding coordinates to the point
+        AGSPoint *pt = [AGSPoint pointWithX:ptlon y:ptlat spatialReference:self.mapView.spatialReference];
+        
+        //accumulate the min/max, calculating the new map extent
+        if (pt.x < xmin)
+            xmin = pt.x;
+        
+        if (pt.x > xmax)
+            xmax = pt.x;
+        
+        if (pt.y < ymin)
+            ymin = pt.y;
+        
+        if (pt.y > ymax)
+            ymax = pt.y;
+        
+        //create a marker symbol to use in our graphic
+        AGSPictureMarkerSymbol *marker = [AGSPictureMarkerSymbol 
+                                          pictureMarkerSymbolWithImageNamed:@"MapMarker.png"];
+        marker.hotspot = CGPointMake(-9,18);
+        
+        //creating an attribute for the callOuts
+        NSMutableDictionary *attribs = [NSMutableDictionary dictionaryWithObject:aLocation.title forKey:@"title"];
+        [attribs setValue:aLocation.subtitle forKey:@"subtitle"];
+        [attribs setValue:aLocation.detaildescription forKey:@"description"];
+        [attribs setValue:aLocation.photos forKey:@"photos"];
+        [attribs setValue:aLocation.panorama forKey:@"panorama"];
+        [attribs setValue:aLocation.livecam forKey:@"livecam"];
+        [attribs setValue:aLocation.video forKey:@"video"];
+        
+        //set the title and subtitle of the callout
+        self.CalloutTemplate.titleTemplate = @"${title}";
+        self.CalloutTemplate.detailTemplate = @"${subtitle}";
+        
+        //Setting the icon image for the callout
+        NSString *callouticonImage = [aLocation.category stringByAppendingString:@".jpg"];
+        callouticonImage = [callouticonImage lowercaseString];
+        callouticonImage = [callouticonImage stringByReplacingOccurrencesOfString:@" " withString:@""];
+        self.mapView.callout.image = [UIImage imageNamed:callouticonImage];
+        
+        //create the graphic
+        AGSGraphic *graphic = [[AGSGraphic alloc] initWithGeometry:pt
+                                                            symbol:marker
+                                                        attributes:attribs
+                                              infoTemplateDelegate:self.CalloutTemplate];
+        
+        //add the graphic to the graphics layer
+        [self.graphicsLayer addGraphic:graphic];
+        [graphic release];
+    }
+    //Reload graphic
+    [self.graphicsLayer dataChanged];
+    
+    AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin
+                                                                 ymin:ymin
+                                                                 xmax:xmax
+                                                                 ymax:ymax
+                                                     spatialReference:self.mapView.spatialReference];
+    //Calculated extent and zoom out. If value is 1 all pins will be at the corners.
+    [extent expandByFactor:3.5];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        [self.mapView zoomToEnvelope:extent animated:YES];
+    else
+        [self.mapView zoomToEnvelope:extent animated:NO];
+}
 
 //iPad only. This method will only be called when user makes a selection in ListVC
-- (void)hidePopover {
-    //Always check the mapstatus before calling loadCallout, if map is not yet loaded and loadCallout is called the app will crash
-    [self checkMapStatus];                                                                                              
+- (void)hidePopover {                                                                                          
     [popOver dismissPopoverAnimated:YES];       
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.mapView.gps start];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     //Start checking the accuracy of GPS
     [locationManager startUpdatingLocation];
@@ -46,6 +199,7 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
+    [self.mapView.gps stop];
     //Stop rotating map and rotate map back to normal position
     _mapView.transform = CGAffineTransformMakeRotation(0);
     rotateMap = NO;
@@ -65,14 +219,9 @@
                                                    object:nil];
     }
     
-    SPMapAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    
     [self addtoolBar];
     [self addsearchBar];
     [self setupLocationManager];
-    
-    // Getting locations array from appDelegate
-    locations = appDelegate.locations;
     
     //set map view delegate
     self.mapView.layerDelegate = self;
@@ -191,16 +340,6 @@
 - (void)locationManager:(CLLocationManager *)manager 
     didUpdateToLocation:(CLLocation *)newLocation 
            fromLocation:(CLLocation *)oldLocation {
-    
-    //Checking the accuracy of GPS. display location if accuracy is less then 100 metres
-    accuracy = newLocation.horizontalAccuracy;
-    
-    //If user location is displayed when accuracy is poor, the map will become unreponsive and has high chances of crashing. Therefore we makes sure we have a accuracy of 100m first before displaying.
-    if (accuracy <= 100)
-        [self.mapView.gps start]; //Display user location
-    else
-        [self.mapView.gps stop]; //Hide user location
-    
     // Getting the location coordinate
     lat = newLocation.coordinate.latitude;
     lon = newLocation.coordinate.longitude;
@@ -240,6 +379,7 @@
                                               spatialReference:self.mapView.spatialReference];
     [self.mapView zoomToEnvelope:defaultextent animated:NO];
     mapLoaded = YES;
+    [self.mapView.gps start];
     // Notification to alert map is ready
     [[NSNotificationCenter defaultCenter] postNotificationName:@"mapLoaded" object:nil]; 
 }
@@ -248,15 +388,19 @@
     //If map is not loaded due to Internet connectivity return and do not do anything.
     if (mapLoaded == NO)
         return;
-    //Accuracy is more then 100m or no location available
-    if (accuracy > 100 || lat == 0 || lon == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Unavailable" 
-                                                        message:@"Your location cannot be determined at this moment. Please also ensure your location service is turned ON in settings." 
-                                                       delegate:self 
-                                              cancelButtonTitle:nil 
-                                              otherButtonTitles:@"OK", nil];
-        [alert show];
-        [alert release];
+    //If location is unavailable
+    if (lat == 0 || lon == 0) {
+        MBProgressHUD *error = [[MBProgressHUD alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width * 0.85, 115)];
+        error.center = self.view.center;
+        [self.view addSubview:error];
+        error.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Error.png"]]autorelease];
+        error.mode = MBProgressHUDModeCustomView;
+        error.opacity = 0.5;
+        error.labelText = @"Location Unavailable";
+        error.detailsLabelText = @"Please ensure your location services is enabled.";
+        [error show:YES];
+        [error hide:YES afterDelay:1.5];
+        [error release];
     }
     else {
         //Center at user point
@@ -267,7 +411,7 @@
 
 - (void) rotateMap:(id)sender {  
     //If map is not loaded due to Internet connectivity return and do not do anything.
-    if (mapLoaded == NO)
+    if (!mapLoaded)
         return;
     
     //if map is rotating, stop rotating
@@ -323,7 +467,6 @@
     //Stop location services
     [locationManager stopUpdatingLocation];
     [locationManager stopUpdatingHeading];
-    [self.mapView.gps stop];
 }
 
 #pragma mark - Navigating to other views
@@ -356,7 +499,8 @@
 }
 
 - (void) showAbout:(id)sender {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) { //If the category popover is presented dismiss it first before moving to the about page
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) { 
+        //If the category popover is presented dismiss it first before moving to the about page
         if (popOver != nil)
             [popOver dismissPopoverAnimated:NO];
     }
@@ -376,150 +520,6 @@
     //Stop location services
     [locationManager stopUpdatingLocation];
     [locationManager stopUpdatingHeading];
-    [self.mapView.gps stop];
-}
-
-#pragma mark - Setting MapView and CallOuts
-- (void) setMapExtent {    
-    self.mapView.callout.hidden = YES;
-    // Setting the extend to be used depending on the number of pins to be displayed
-    if (ptcount == 0) {
-        
-        // Remove all callouts if some are created earlier
-        [self.graphicsLayer removeAllGraphics];
-        
-        alertView = [[UIAlertView alloc] initWithTitle:@"Error" 
-                                               message:@"Location not found." 
-                                              delegate:self 
-                                     cancelButtonTitle:@"OK" 
-                                     otherButtonTitles:nil];
-        [alertView show];
-        
-        //Create a log URL with the passLocation string and push it to the server
-        NSString *logString = [logHostname stringByAppendingString:selectedLocations];
-        NSURL *url = [NSURL URLWithString:logString];
-        ASIHTTPRequest *logRequest = [ASIHTTPRequest requestWithURL:url];  
-        [logRequest startSynchronous];
-        return;
-    }
-    //If ptcount is more then 1 the values will be taken from loadCallout
-    AGSMutableEnvelope *extent = [AGSMutableEnvelope envelopeWithXmin:xmin
-                                                                 ymin:ymin
-                                                                 xmax:xmax
-                                                                 ymax:ymax
-                                                     spatialReference:self.mapView.spatialReference];
-    //If the are multiple pins, use the calculated extent and zoom out. If value is 1 all pins will be at the corners.
-    [extent expandByFactor:3.5];
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        [self.mapView zoomToEnvelope:extent animated:YES];
-    else
-        [self.mapView zoomToEnvelope:extent animated:NO];
-}
-
-- (void) checkMapStatus {
-    //Remove the alertView if still presented
-    [alertView dismissWithClickedButtonIndex:0 animated:YES];
-    //Check map status first before loading callout
-    if(mapLoaded == YES)
-        [self loadCallout];
-    else {
-        [[NSNotificationCenter defaultCenter] addObserver:self 
-                                                 selector:@selector(loadCallout) 
-                                                     name:@"mapLoaded" object:nil];
-    }
-}
-
-- (void) loadCallout {
-    // Remove all graphics if some are created earlier
-    [self.graphicsLayer removeAllGraphics];
-    
-    //use these to calculate extent of results
-    xmin = DBL_MAX;
-    ymin = DBL_MAX;
-    xmax = -DBL_MAX;
-    ymax = -DBL_MAX;
-    
-    //create the callout template, used when the user displays the callout
-    self.CalloutTemplate = [[[AGSCalloutTemplate alloc]init] autorelease];
-    
-    // variable used to count the number of pins to be display
-    ptcount = 0;
-    
-    //loop through all locations and add to graphics layer
-    for (int i=0; i<[locations count]; i++)
-    {
-        Location *location = [locations objectAtIndex:i];
-        if ([selectedLocations isEqualToString:location.category] ||
-            [selectedLocations isEqualToString:location.title] ||
-            [selectedLocations isEqualToString:location.identity])
-        {
-            //Setting the lat and lon from Location class
-            double ptlat = [[location lat] doubleValue];
-            double ptlon = [[location lon] doubleValue];
-            
-            //Adding coordinates to the point
-            AGSPoint *pt = [AGSPoint pointWithX:ptlon y:ptlat spatialReference:self.mapView.spatialReference];
-            
-            ptcount++;
-            
-            //accumulate the min/max, calculating the new map extent
-            if (pt.x  < xmin)
-                xmin = pt.x;
-            
-            if (pt.x > xmax)
-                xmax = pt.x;
-            
-            if (pt.y < ymin)
-                ymin = pt.y;
-            
-            if (pt.y > ymax)
-                ymax = pt.y;
-            
-            //create a marker symbol to use in our graphic
-            AGSPictureMarkerSymbol *marker = [AGSPictureMarkerSymbol 
-                                              pictureMarkerSymbolWithImageNamed:@"MapMarker.png"];
-            marker.hotspot = CGPointMake(-9,18);
-            
-            //creating an attribute for the callOuts
-            NSMutableDictionary *attribs = [NSMutableDictionary dictionaryWithObject:location.title forKey:@"title"];
-            [attribs setValue:location.subtitle forKey:@"subtitle"];
-            [attribs setValue:location.description forKey:@"description"];
-            [attribs setValue:location.photos forKey:@"photos"];
-            [attribs setValue:location.panorama forKey:@"panorama"];
-            [attribs setValue:location.livecam forKey:@"livecam"];
-            [attribs setValue:location.video forKey:@"video"];
-            
-            //set the title and subtitle of the callout
-            self.CalloutTemplate.titleTemplate = @"${title}";
-            self.CalloutTemplate.detailTemplate = @"${subtitle}";
-            
-            //Setting the icon image for the callout
-            NSString *callouticonImage = [location.category stringByAppendingString:@".jpg"];
-            callouticonImage = [callouticonImage lowercaseString];
-            callouticonImage = [callouticonImage stringByReplacingOccurrencesOfString:@" " withString:@""];
-            self.mapView.callout.image = [UIImage imageNamed:callouticonImage];
-            
-            //create the graphic
-            AGSGraphic *graphic = [[AGSGraphic alloc] initWithGeometry:pt
-                                                                symbol:marker
-                                                            attributes:attribs
-                                                  infoTemplateDelegate:self.CalloutTemplate];
-            
-            //add the graphic to the graphics layer
-            [self.graphicsLayer addGraphic:graphic];
-            
-            //Show the callout if only one point is to be displayed
-            if (ptcount == 1) {
-                [self.mapView showCalloutAtPoint:pt forGraphic:graphic animated:YES];
-                [self.mapView centerAtPoint:pt animated:NO];
-            }
-            //release the graphic
-            [graphic release];
-        }
-    }    
-    if (ptcount != 1)
-        [self setMapExtent];
 }
 
 #pragma mark - Search
@@ -567,6 +567,10 @@
 }
 
 - (void) searchLocations {
+    
+    SPMapAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    NSArray *locations = appDelegate.locations;
+    
     if (searchResults == nil)
         searchResults = [[NSMutableArray alloc] init];
     
@@ -581,7 +585,7 @@
         NSRange titleResultsRange = [aLocations.title rangeOfString:searchText options:NSCaseInsensitiveSearch];
         
         if (categoryResultsRange.length > 0 || titleResultsRange.length > 0)
-            [searchResults addObject:aLocations.title];
+            [searchResults addObject:aLocations];
     }
     //Inform overlay that results is updated.
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadsearchResults" object:nil];
@@ -598,11 +602,11 @@
     self.mapView = nil;
     self.graphicsLayer = nil;
     self.CalloutTemplate = nil;
-    [alertView release];
     [overlayViewController release];
     [toolBar release];
     [searchBar release];
-    [selectedLocations release];
+    [selectedPoint release];
+    selectedPoint = nil;
     [locationManager release];
     [searchResults release];
     [popOver release];

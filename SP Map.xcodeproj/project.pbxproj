@@ -15,7 +15,6 @@
 		0FBC613613545B830042F842 /* UnavailableImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FBC613513545B830042F842 /* UnavailableImage.png */; };
 		0FBC6138135460C70042F842 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 0FBC6137135460C70042F842 /* iTunesArtwork */; };
 		831AC3C3143D48CD00BFE75A /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 831AC3C2143D48CD00BFE75A /* libz.1.2.5.dylib */; };
-		83F9EFFE143EFD3D000B98DF /* Error.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F9EFFD143EFD3D000B98DF /* Error.png */; };
 		8703B9EA1377CA45006D0808 /* OverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8703B9E81377CA44006D0808 /* OverlayViewController.m */; };
 		8703B9EB1377CA45006D0808 /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8703B9E91377CA45006D0808 /* OverlayViewController.xib */; };
 		8705701B13681C980024D62D /* Location.png in Resources */ = {isa = PBXBuildFile; fileRef = 8705701A13681C980024D62D /* Location.png */; };
@@ -26,6 +25,7 @@
 		871EE1761367BEC100E111FC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 871EE1751367BEC100E111FC /* Icon@2x.png */; };
 		872215CD13812AC600C0704C /* SP_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 872215CC13812AC600C0704C /* SP_logo.png */; };
 		8726FCF3137BC2C500B98E5B /* HeadingOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 8726FCF2137BC2C500B98E5B /* HeadingOn.png */; };
+		8730EF2E1440BB91007AEF54 /* Error.png in Resources */ = {isa = PBXBuildFile; fileRef = 8730EF2D1440BB91007AEF54 /* Error.png */; };
 		87351F1413DD10F900A2676C /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87351F1313DD10F900A2676C /* libstdc++.dylib */; };
 		874C86311341CAC4001D4E4B /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874C862F1341CAC4001D4E4B /* CategoriesViewController.m */; };
 		874C86321341CAC4001D4E4B /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 874C86301341CAC4001D4E4B /* CategoriesViewController.xib */; };
@@ -124,7 +124,6 @@
 		0FBC6137135460C70042F842 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = Resources/iTunesArtwork; sourceTree = "<group>"; };
 		0FC747AA1352D1D6008684CB /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		831AC3C2143D48CD00BFE75A /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
-		83F9EFFD143EFD3D000B98DF /* Error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Error.png; sourceTree = "<group>"; };
 		8703B9E71377CA44006D0808 /* OverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayViewController.h; sourceTree = "<group>"; };
 		8703B9E81377CA44006D0808 /* OverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayViewController.m; sourceTree = "<group>"; };
 		8703B9E91377CA45006D0808 /* OverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OverlayViewController.xib; path = SPMap/OverlayViewController.xib; sourceTree = "<group>"; };
@@ -138,6 +137,7 @@
 		871EE1751367BEC100E111FC /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icon@2x.png"; sourceTree = "<group>"; };
 		872215CC13812AC600C0704C /* SP_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SP_logo.png; path = Resources/SP_logo.png; sourceTree = "<group>"; };
 		8726FCF2137BC2C500B98E5B /* HeadingOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HeadingOn.png; path = Resources/HeadingOn.png; sourceTree = "<group>"; };
+		8730EF2D1440BB91007AEF54 /* Error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Error.png; path = Resources/Error.png; sourceTree = "<group>"; };
 		87351F1313DD10F900A2676C /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		874C862E1341CAC4001D4E4B /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
 		874C862F1341CAC4001D4E4B /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
@@ -280,31 +280,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		874C86391341CAF1001D4E4B /* Resources */ = {
+		8702AA8C144529F4007C5C72 /* ArcGIS */ = {
 			isa = PBXGroup;
 			children = (
-				83F9EFFD143EFD3D000B98DF /* Error.png */,
-				87F9BAEA13EC502400ED9462 /* Callout Icons */,
-				87BBCFCC13986B9B00788CB6 /* Toolbar Icons */,
-				0FBC6137135460C70042F842 /* iTunesArtwork */,
-				0FBC613513545B830042F842 /* UnavailableImage.png */,
-				877976AD1352EFB100D389CC /* Default-Portrait~ipad.png */,
-				877976AE1352EFB100D389CC /* Default.png */,
-				877976AF1352EFB100D389CC /* Default@2x.png */,
 				87D858FB1352EC4400AA7ACB /* esriLogo.png */,
 				87D858FC1352EC4400AA7ACB /* esriLogo@2x.png */,
-				875867C6134B0967006BAB6B /* aboutData.html */,
-				872215CC13812AC600C0704C /* SP_logo.png */,
 				876C5CDA1341CB9A0091A192 /* GpsDisplay.png */,
 				876C5CDB1341CB9A0091A192 /* GpsDisplay@2x.png */,
 				876C5CDC1341CB9A0091A192 /* GpsDisplayHeading.png */,
 				876C5CDD1341CB9A0091A192 /* GpsDisplayHeading@2x.png */,
+			);
+			name = ArcGIS;
+			sourceTree = "<group>";
+		};
+		8702AA8D14452A3D007C5C72 /* App Icons */ = {
+			isa = PBXGroup;
+			children = (
+				0FBC6137135460C70042F842 /* iTunesArtwork */,
 				87CE3CF8134EFAA100621C57 /* Icon-72.png */,
 				87CE3CF9134EFAA100621C57 /* Icon-Small-50.png */,
 				87CE3CFA134EFAA100621C57 /* Icon-Small.png */,
 				87CE3CFB134EFAA100621C57 /* Icon-Small@2x.png */,
 				87CE3CFC134EFAA100621C57 /* Icon.png */,
 				871EE1751367BEC100E111FC /* Icon@2x.png */,
+			);
+			name = "App Icons";
+			sourceTree = "<group>";
+		};
+		874C86391341CAF1001D4E4B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8702AA8D14452A3D007C5C72 /* App Icons */,
+				8702AA8C144529F4007C5C72 /* ArcGIS */,
+				87F9BAEA13EC502400ED9462 /* Callout Icons */,
+				87BBCFCC13986B9B00788CB6 /* Toolbar Icons */,
+				8730EF2D1440BB91007AEF54 /* Error.png */,
+				0FBC613513545B830042F842 /* UnavailableImage.png */,
+				877976AD1352EFB100D389CC /* Default-Portrait~ipad.png */,
+				877976AE1352EFB100D389CC /* Default.png */,
+				877976AF1352EFB100D389CC /* Default@2x.png */,
+				875867C6134B0967006BAB6B /* aboutData.html */,
+				872215CC13812AC600C0704C /* SP_logo.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -644,7 +660,7 @@
 				87F9BB1413EC502400ED9462 /* teachingblocks.jpg in Resources */,
 				87F9BB1513EC502400ED9462 /* teachingfacilities.jpg in Resources */,
 				87F9BB1613EC502400ED9462 /* technologycentres.jpg in Resources */,
-				83F9EFFE143EFD3D000B98DF /* Error.png in Resources */,
+				8730EF2E1440BB91007AEF54 /* Error.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,8 +755,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Singapore Polytechnic";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Singapore Polytechnic";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPMap/SP Map-Prefix.pch";
@@ -754,8 +770,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "SP Map";
-				PROVISIONING_PROFILE = "032A3212-D31B-4389-83BA-C58291F2BD96";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "032A3212-D31B-4389-83BA-C58291F2BD96";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				VALIDATE_PRODUCT = YES;
@@ -813,8 +829,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -829,8 +845,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "SP Map";
-				PROVISIONING_PROFILE = "F8A8EE5A-C430-47CF-8F96-38ED2CEB9FAA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F8A8EE5A-C430-47CF-8F96-38ED2CEB9FAA";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				WRAPPER_EXTENSION = app;
@@ -841,8 +857,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPMap/SP Map-Prefix.pch";
@@ -856,8 +872,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "SP Map";
-				PROVISIONING_PROFILE = "F8A8EE5A-C430-47CF-8F96-38ED2CEB9FAA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F8A8EE5A-C430-47CF-8F96-38ED2CEB9FAA";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				VALIDATE_PRODUCT = YES;

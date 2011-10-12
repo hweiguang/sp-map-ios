@@ -15,7 +15,7 @@
 @synthesize lat;
 @synthesize lon;
 @synthesize category;
-@synthesize description;
+@synthesize detaildescription;
 @synthesize photos;
 @synthesize panorama;
 @synthesize identity;
@@ -31,7 +31,7 @@
         lat = [[NSNumber alloc] initWithDouble:0];
         lon = [[NSNumber alloc] initWithDouble:0];
         category = [[NSString alloc] init];
-        description = [[NSString alloc] init];
+        detaildescription = [[NSString alloc] init];
         photos = [[NSString alloc] init];
         panorama = [[NSString alloc] init];
         identity = [[NSString alloc] init];
@@ -48,7 +48,7 @@
 	[lat release];
 	[lon release];
     [category release];
-    [description release];
+    [detaildescription release];
     [photos release];
     [panorama release];
     [identity release];

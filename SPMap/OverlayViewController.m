@@ -28,7 +28,13 @@
 - (void) reloadsearchResults {
     searchResults = mapViewController.searchResults;
     // Sort the array by alphabet
-    [searchResults sortUsingSelector:@selector(compare:)];
+    
+    //Sorting the location array by alphabet
+    NSSortDescriptor *alphaDesc = [[NSSortDescriptor alloc] initWithKey:@"title" 
+                                                              ascending:YES
+                                                               selector:@selector(localizedCaseInsensitiveCompare:)];
+    [searchResults sortUsingDescriptors:[NSMutableArray arrayWithObjects:alphaDesc, nil]];	
+    [alphaDesc release]; 
     [self.tableView reloadData];
 }
 
@@ -54,10 +60,13 @@
     else {
         max = CGSizeMake(748, 10000);   
     }
+    
+    Location * aLocation = [searchResults objectAtIndex:indexPath.row];
+    
     //Return the height
-    return ([[searchResults objectAtIndex:indexPath.row] sizeWithFont:[UIFont boldSystemFontOfSize:20] 
-                                                    constrainedToSize:max 
-                                                        lineBreakMode:UILineBreakModeWordWrap].height) + 20;
+    return ([aLocation.title sizeWithFont:[UIFont boldSystemFontOfSize:20] 
+                        constrainedToSize:max 
+                            lineBreakMode:UILineBreakModeWordWrap].height) + 20;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -89,7 +98,10 @@
     else {
         text = (UILabel *)[cell.contentView viewWithTag:1];
     }
-    text.text = [searchResults objectAtIndex:indexPath.row];
+    
+    Location * aLocation = [searchResults objectAtIndex:indexPath.row];
+    
+    text.text = aLocation.title;
     
     CGRect currentFrame = text.frame;  
     CGSize max;
@@ -101,9 +113,9 @@
         max = CGSizeMake(748, 10000);   
     }
     //Calculating the height needed to display the text in multi line
-    CGSize expected = [[searchResults objectAtIndex:indexPath.row] sizeWithFont:text.font
-                                                              constrainedToSize:max 
-                                                                  lineBreakMode:UILineBreakModeWordWrap]; 
+    CGSize expected = [aLocation.title sizeWithFont:text.font
+                                  constrainedToSize:max 
+                                      lineBreakMode:UILineBreakModeWordWrap]; 
     currentFrame.size.height = expected.height;
     text.frame = currentFrame;
     
@@ -116,12 +128,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    mapViewController.selectedLocations = nil;
-    mapViewController.selectedLocations = [searchResults objectAtIndex:indexPath.row];
-    [mapViewController checkMapStatus];
     [mapViewController.searchBar resignFirstResponder];
+    
+    mapViewController.selectedPoint = [searchResults objectAtIndex:indexPath.row];
+    [mapViewController checkMapStatus];
+    
     [searchResults removeAllObjects];
-    [tableView reloadData];
+    [self.tableView reloadData];
 }
 
 @end

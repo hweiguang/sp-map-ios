@@ -19,10 +19,12 @@
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
-    loading = [[MBProgressHUD alloc]initWithView:self.view];
+    loading = [[MBProgressHUD alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width * 0.85, 115)];
+    loading.center = self.view.center;
     [self.view addSubview:loading];
     loading.mode = MBProgressHUDModeIndeterminate;
     loading.labelText = @"Loading...";
+    loading.opacity = 0.5;
     
     // Getting Panorama Link
     NSString *panoramalink = [panoramaHostname stringByAppendingString:selectedPanorama];

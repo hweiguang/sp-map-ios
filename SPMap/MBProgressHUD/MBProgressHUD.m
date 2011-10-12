@@ -305,7 +305,7 @@
 
 - (void)layoutSubviews {
     CGRect frame = self.bounds;
-	
+
     // Compute HUD dimensions based on indicator size (add margin to HUD border)
     CGRect indFrame = indicator.bounds;
     self.width = indFrame.size.width + 2 * margin;
