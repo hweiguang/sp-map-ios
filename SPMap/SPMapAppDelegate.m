@@ -25,7 +25,6 @@
     
 	locations = [[NSMutableArray alloc] init];//Array for storing all locations from XML
     categories = [[NSMutableSet alloc] init];//Set for storing all categories from XML used in CategoriesVC
-    identities = [[NSMutableArray alloc] init];//Array for storing all the identity used in ListVC and URL Scheme
     
     //Reachability
     [self checkNetwork];
@@ -38,65 +37,56 @@
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {    
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {  
     // Makes sure the user is presented with the MapView
     [self.navigationController popToRootViewControllerAnimated:YES];
     
     //Getting the URL that is passed in from another application
     NSString *URLString = [url absoluteString];
+    
     //Remove spmap:// from the string
-    NSString *passedLocation = [URLString substringFromIndex:8];
+    passedLocation = [URLString substringFromIndex:8];
     
     //Makes sure it is lower case
     passedLocation = [passedLocation lowercaseString];
-    //Retain the string
-    apassedLocation = [passedLocation copy];
     
     //If XML is loaded proceed to process URL, else wait till XML is loaded
-    if (XMLLoaded == YES)
-        [self processURL:passedLocation];
+    if (XMLLoaded)
+        [self processURL];
     else {
         //Listen for notification from parseXML method
-        [[NSNotificationCenter defaultCenter] addObserver:self 
-                                                 selector:@selector(passedLocation) 
-                                                     name:@"XMLLoaded" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(processURL)
+                                                     name:@"XMLLoaded"
+                                                   object:nil];
+        [passedLocation retain];
     }
     return YES;
 }
 
-- (void)passedLocation {
-    NSString *passedLocation = apassedLocation;
-    [self processURL:passedLocation];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)processURL:(NSString*)passedLocation {
+- (void)processURL {
     MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
     
-    if (mapViewController.selectedLocations != nil)
-        mapViewController.selectedLocations = nil; //Making sure selectedLocations in MapVC is nil
+    NSMutableArray *firstCheck = [[NSMutableArray alloc]init]; //Array used to store all possible location for first time check
     
-    NSMutableArray *array = [[NSMutableArray alloc]init];
-    
-    // Search the identity array for passLocation
-    for(NSString *myStr in identities) {
-        NSRange range = [passedLocation rangeOfString : myStr];        
-        if (range.location != NSNotFound && [passedLocation isEqualToString:myStr]) {
-            [array addObject:myStr];
-            mapViewController.selectedLocations = myStr;
-        }
-        
+    // Search database for keyword location.identity string
+    for (Location *location in locations) {
+        NSRange range = [passedLocation rangeOfString : location.identity];        
+        if (range.location != NSNotFound && [passedLocation isEqualToString:location.identity])
+            [firstCheck addObject:location];
     }
+    
     // If there is only one result. Successful!
-    if ([array count] == 1) {
+    if ([firstCheck count] == 1) {
+        mapViewController.selectedPoint = [firstCheck objectAtIndex:0]; 
         [mapViewController checkMapStatus];
-        [array release];
+        [firstCheck release];
         return;
     }
+    
     // If there is no result. More checking required
-    if ([array count] == 0) {
-        mapViewController.selectedLocations = nil;
-        
+    if ([firstCheck count] == 0) {
+        NSString *string = [NSString string];
         // Grab the last two char of the string that is passed in
         NSString *lasttwochar = [passedLocation substringFromIndex:[passedLocation length] -2];
         // Check if it contains any punctuation, example T1845/6
@@ -108,7 +98,7 @@
         
         //If string length is 4, example T1845 remove last 2 digits and we get T18
         if ([passedLocation length] == 4) {
-            mapViewController.selectedLocations = [passedLocation substringToIndex:[passedLocation length] -2];
+            string = [passedLocation substringToIndex:[passedLocation length] -2];
         }
         //If string length is more then 4,check the last char.
         if ([passedLocation length] > 4) {
@@ -131,16 +121,16 @@
                 passedLocation = [passedLocation substringToIndex:[passedLocation length] -1];
             }
             
-            mapViewController.selectedLocations = passedLocation;
+            string = passedLocation;
         }
         //If the string is less than 4, no problem
         if ([passedLocation length] < 4) {
-            mapViewController.selectedLocations = passedLocation;
+            string = passedLocation;
         }
         //If string length is 4 check the last char first.
-        if ([mapViewController.selectedLocations length] == 4) {
+        if ([string length] == 4) {
             
-            NSString *lastChar = [mapViewController.selectedLocations substringFromIndex:[mapViewController.selectedLocations length] -1];
+            NSString *lastChar = [string substringFromIndex:[string length] -1];
             
             NSRange range = [lastChar rangeOfCharacterFromSet:[NSCharacterSet letterCharacterSet] 
                                                       options:NSCaseInsensitiveSearch];
@@ -148,12 +138,44 @@
             if(range.location == NSNotFound ) {
                 passedLocation = [passedLocation substringToIndex:[passedLocation length] -1];
             }
-            mapViewController.selectedLocations = passedLocation;
+            string = passedLocation;
         }
-        //Now we have gone through all the checking check the map status,when ready we will load the callouts
-        [mapViewController checkMapStatus];
+        
+        NSMutableArray *secondCheck = [[NSMutableArray alloc]init]; //Array used to store all possible location for second time check
+        
+        for (Location *location in locations) { 
+            if ([string isEqualToString:location.identity])
+                [secondCheck addObject:location];
+        }  
+        
+        // If there is only one result. Successful!
+        if ([secondCheck count] == 1) {
+            mapViewController.selectedPoint = [secondCheck objectAtIndex:0]; 
+            [mapViewController checkMapStatus];
+        }
+        
+        else {
+            MBProgressHUD *error = [[MBProgressHUD alloc] initWithFrame:CGRectMake(0, 0, self.window.frame.size.width * 0.85, 115)];
+            error.center = self.window.center;
+            [self.window addSubview:error];
+            error.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Error.png"]]autorelease];
+            error.mode = MBProgressHUDModeCustomView;
+            error.opacity = 0.5;
+            error.labelText = @"Error";
+            error.detailsLabelText = @"Location not found.";
+            [error show:YES];
+            [error hide:YES afterDelay:3.5];
+            [error release];
+            
+            //Create a log URL with the passLocation string and push it to the server
+            NSString *logString = [logHostname stringByAppendingString:string];
+            NSURL *url = [NSURL URLWithString:logString];
+            ASIHTTPRequest *logRequest = [ASIHTTPRequest requestWithURL:url];  
+            [logRequest startSynchronous];
+        }
+        [secondCheck release];
     }
-    [array release];
+    [firstCheck release];
 }
 
 - (void)checkNetwork {
@@ -162,13 +184,17 @@
     
     switch (netStatus) {
         case kNotReachable: {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Connection" 
-                                                            message:@"Please ensure you are connected to the Internet." 
-                                                           delegate:self 
-                                                  cancelButtonTitle:nil 
-                                                  otherButtonTitles:@"OK", nil];
-            [alert show];
-            [alert release];
+            MBProgressHUD *error = [[MBProgressHUD alloc] initWithFrame:CGRectMake(0, 0, self.window.frame.size.width * 0.85, 115)];
+            error.center = self.window.center;
+            [self.window addSubview:error];
+            error.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Error.png"]]autorelease];
+            error.mode = MBProgressHUDModeCustomView;
+            error.opacity = 0.5;
+            error.labelText = @"No Internet Connection";
+            error.detailsLabelText = @"Please ensure you are connected to the Internet.";
+            [error show:YES];
+            [error hide:YES afterDelay:3.5];
+            [error release];
         }
             break;
         case kReachableViaWWAN:
@@ -271,9 +297,9 @@
             
             TBXMLElement *description = [TBXML childElementNamed:@"description" parentElement:location];
             if (description)
-                aLocation.description = [TBXML textForElement:description];
+                aLocation.detaildescription = [TBXML textForElement:description];
             else
-                aLocation.description = nil;
+                aLocation.detaildescription = nil;
             
             TBXMLElement *lat = [TBXML childElementNamed:@"lat" parentElement:location];
             NSString * latstring = [TBXML textForElement:lat];
@@ -285,10 +311,8 @@
             
             // add our location object to the locations array and release the resource
 			[locations addObject:aLocation];
-            [identities addObject:aLocation.identity];
             [categories addObject:aLocation.category];
             [aLocation release];
-            
 			// find the next sibling element named "location"
 			location = [TBXML nextSiblingNamed:@"location" searchFromElement:location];
         }
@@ -301,11 +325,12 @@
 }
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [passedLocation release];
     [_window release];
     [_navigationController release];
     [locations release];
     [categories release];
-    [identities release];
     [super dealloc];
 }
 

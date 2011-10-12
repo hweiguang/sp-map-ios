@@ -14,7 +14,7 @@
 	NSNumber *lat; //Latitude for callout
 	NSNumber *lon; //Longitude for callout
     NSString *category; //Category of the callout
-    NSString *description; //Description to be display in detail view
+    NSString *detaildescription; //Description to be display in detail view
     NSString *photos; //Photo to be display in detail view
     NSString *panorama; //Link to panorama
     NSString *identity; //id for the points
@@ -27,7 +27,7 @@
 @property (nonatomic, retain) NSNumber *lat;
 @property (nonatomic, retain) NSNumber *lon;
 @property (nonatomic, retain) NSString *category;
-@property (nonatomic, retain) NSString *description;
+@property (nonatomic, retain) NSString *detaildescription;
 @property (nonatomic, retain) NSString *photos;
 @property (nonatomic, retain) NSString *panorama;
 @property (nonatomic, retain) NSString *identity;

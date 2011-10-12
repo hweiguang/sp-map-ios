@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
 @interface CategoriesViewController : UITableViewController {
     NSMutableArray *category;
+    MBProgressHUD *loading;
 }
 
 @end
