@@ -89,6 +89,10 @@
     
     //add the graphic to the graphics layer
     [self.graphicsLayer addGraphic:graphic];
+    
+    //Reload graphic
+    [self.graphicsLayer dataChanged];
+    
     [graphic release];
 }
 
