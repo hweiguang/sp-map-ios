@@ -401,7 +401,7 @@
         error.mode = MBProgressHUDModeCustomView;
         error.opacity = 0.5;
         error.labelText = @"Location Unavailable";
-        error.detailsLabelText = @"Please ensure your location services is enabled.";
+        error.detailsLabelText = @"Turn on Location Services.";
         [error show:YES];
         [error hide:YES afterDelay:1.5];
         [error release];
