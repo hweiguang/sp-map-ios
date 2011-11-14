@@ -44,25 +44,36 @@
     //Getting the URL that is passed in from another application
     NSString *URLString = [url absoluteString];
     
-    //Remove spmap:// from the string
-    passedLocation = [URLString substringFromIndex:8];
+    //Locate only if there is a parameter passed with URL
+    //else do default.
+    if (![URLString isEqualToString:@"spmap://"]) 
+    {
+        //Remove spmap:// from the string
+        passedLocation = [URLString substringFromIndex:8];
+        
+        //Makes sure it is lower case
+        passedLocation = [passedLocation lowercaseString];
+        
+        //If XML is loaded proceed to process URL, else wait till XML is loaded
+        if (XMLLoaded)
+            [self processURL];
+        else {
+            //Listen for notification from parseXML method
+            [[NSNotificationCenter defaultCenter] addObserver:self
+                                                     selector:@selector(processURL)
+                                                         name:@"XMLLoaded"
+                                                       object:nil];
+            [passedLocation retain];
+        }
     
-    //Makes sure it is lower case
-    passedLocation = [passedLocation lowercaseString];
-    
-    //If XML is loaded proceed to process URL, else wait till XML is loaded
-    if (XMLLoaded)
-        [self processURL];
-    else {
-        //Listen for notification from parseXML method
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(processURL)
-                                                     name:@"XMLLoaded"
-                                                   object:nil];
-        [passedLocation retain];
     }
     return YES;
 }
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    //Reachability
+    [self checkNetwork];    
+}
+
 
 - (void)processURL {
     MapViewController *mapViewController = (MapViewController*)[self.navigationController.viewControllers objectAtIndex:0];
@@ -184,17 +195,13 @@
     
     switch (netStatus) {
         case kNotReachable: {
-            MBProgressHUD *error = [[MBProgressHUD alloc] initWithFrame:CGRectMake(0, 0, self.window.frame.size.width * 0.85, 115)];
-            error.center = self.window.center;
-            [self.window addSubview:error];
-            error.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Error.png"]]autorelease];
-            error.mode = MBProgressHUDModeCustomView;
-            error.opacity = 0.5;
-            error.labelText = @"No Internet Connection";
-            error.detailsLabelText = @"Please ensure you are connected to the Internet.";
-            [error show:YES];
-            [error hide:YES afterDelay:3.5];
-            [error release];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Internet Connection" 
+                                                            message:@"Please ensure you are connected to the Internet." 
+                                                           delegate:self 
+                                                  cancelButtonTitle:nil 
+                                                  otherButtonTitles:@"OK", nil];
+            [alert show];
+            [alert release];
         }
             break;
         case kReachableViaWWAN:

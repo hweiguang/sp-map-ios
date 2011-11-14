@@ -732,10 +732,7 @@
 		0FBC611A135423E00042F842 /* Distribute */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Singapore Polytechnic";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Singapore Polytechnic";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -743,10 +740,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDK_ROOT)/usr/include/libxml2";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "032A3212-D31B-4389-83BA-C58291F2BD96";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "032A3212-D31B-4389-83BA-C58291F2BD96";
+				PROVISIONING_PROFILE = "9194EE0F-11C5-4134-B57D-07CAF60F7157";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9194EE0F-11C5-4134-B57D-07CAF60F7157";
 				SDKROOT = iphoneos;
 			};
 			name = Distribute;
@@ -755,14 +752,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Singapore Polytechnic";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Singapore Polytechnic";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPMap/SP Map-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "SPMap/SP Map-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib";
 				NSZombieEnabled = YES;
 				OTHER_LDFLAGS = (
@@ -770,8 +767,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "SP Map";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "9194EE0F-11C5-4134-B57D-07CAF60F7157";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9194EE0F-11C5-4134-B57D-07CAF60F7157";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				VALIDATE_PRODUCT = YES;
@@ -782,10 +779,7 @@
 		87AF1E0F1341BAF700BFD71D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -796,9 +790,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDK_ROOT)/usr/include/libxml2";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
-				PROVISIONING_PROFILE = "F8A8EE5A-C430-47CF-8F96-38ED2CEB9FAA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F8A8EE5A-C430-47CF-8F96-38ED2CEB9FAA";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PROVISIONING_PROFILE = "C1A1AA8A-8B15-4689-9935-DACF8F47E3C1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C1A1AA8A-8B15-4689-9935-DACF8F47E3C1";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -806,10 +800,7 @@
 		87AF1E101341BAF700BFD71D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -817,10 +808,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDK_ROOT)/usr/include/libxml2";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "F8A8EE5A-C430-47CF-8F96-38ED2CEB9FAA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F8A8EE5A-C430-47CF-8F96-38ED2CEB9FAA";
+				PROVISIONING_PROFILE = "C1A1AA8A-8B15-4689-9935-DACF8F47E3C1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C1A1AA8A-8B15-4689-9935-DACF8F47E3C1";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -829,15 +820,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPMap/SP Map-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "SPMap/SP Map-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib";
 				NSZombieEnabled = YES;
 				OTHER_LDFLAGS = (
@@ -845,8 +836,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "SP Map";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "C1A1AA8A-8B15-4689-9935-DACF8F47E3C1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C1A1AA8A-8B15-4689-9935-DACF8F47E3C1";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				WRAPPER_EXTENSION = app;
@@ -857,14 +848,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramana Rao Kola Venkata (HT83PW9YX4)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPMap/SP Map-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "SPMap/SP Map-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/lib";
 				NSZombieEnabled = YES;
 				OTHER_LDFLAGS = (
@@ -872,8 +863,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "SP Map";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "C1A1AA8A-8B15-4689-9935-DACF8F47E3C1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C1A1AA8A-8B15-4689-9935-DACF8F47E3C1";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/iOS.sdk/usr/local/include/**";
 				VALIDATE_PRODUCT = YES;
